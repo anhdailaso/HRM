@@ -1,0 +1,689 @@
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll.config
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.pdb
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Charts.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.CodeParser.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Export.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\EPPlus.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Extensions.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Images.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.pdb
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll.config
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.xml
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csprojAssemblyReference.cache
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThamGiaBHXH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSTo.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXiNghiep.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmHelp_View.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmViewReport.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoai.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongKhacLuongTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoaiTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBangLuongThangNhanVien.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBaoCaoLaoDongThang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoChuyenMon.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuanTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanh.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanhTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTrinhDo.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaTrinhDo.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDSLaoDongNu.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCHopDongHetHan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongNam.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongThang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXNgioquetthetheongay.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptKeHoachDaoTao.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhDaoTaoCNV.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCThongKeDaoTao.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatBP.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuat.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKetQuaDaoTao.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongThang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLDNuocNgoaiKhongCapGP.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhLuongTH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangGiamLD6Thang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCGiamLaoDongThang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangLaoDongThang.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCBangCapCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKeHoachNghiPhep.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuaTrinhLuongCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDNuocNgoai.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDTaiThoidDem.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSuDungLaoDong.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCBNVDieuChuyen.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCongNhan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDeNghiMuaBaoHiemTaiNan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSGiaDinh.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTinh.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongVeHuu.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSNhanVienThayDoiLuongGD.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamNien.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSQuanLy.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamGiaCongDoan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTo.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongThuViec.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHoSoCapCuu.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptPhuLucHopDongLaoDong.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhDieuChuyen.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongLaoDong.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhThoiViec.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptSoYeuLyLich.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongKeTaiNan.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptToKhaiBHXH.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.Properties.Resources.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDonVi.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDV.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhLuongCN.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongTinChung.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThuongKhacLuong.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.XtraForm1.resources
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.GenerateResource.cache
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll.licenses
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CoreCompileInputs.cache
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CopyComplete
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll
+D:\HRM - ENGLISH\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.pdb
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll.config
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.pdb
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Charts.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.CodeParser.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Export.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\EPPlus.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Extensions.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Images.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.pdb
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll.config
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.xml
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Data.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Data.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Data.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Data.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.DataAccess.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.DataAccess.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.DataAccess.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.DataAccess.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Office.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.PivotGrid.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.PivotGrid.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.PivotGrid.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.PivotGrid.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.RichEdit.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.RichEdit.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.RichEdit.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Utils.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Utils.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Utils.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Utils.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Sparkline.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Utils.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Utils.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Utils.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Utils.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Xpo.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Xpo.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Xpo.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Xpo.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraCharts.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraCharts.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraCharts.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraCharts.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Printing.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Printing.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Printing.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Printing.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraGauges.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraGauges.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraGauges.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraGauges.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraLayout.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraLayout.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraLayout.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraLayout.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraPrinting.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraPrinting.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraPrinting.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraPrinting.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraReports.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraReports.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraReports.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraReports.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraTreeList.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraTreeList.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraTreeList.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraTreeList.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraRichEdit.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraRichEdit.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraRichEdit.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraRichEdit.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.DataAccess.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.DataAccess.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.DataAccess.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.DataAccess.v20.1.UI.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraNavBar.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraNavBar.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraNavBar.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraNavBar.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraPivotGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraPivotGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraPivotGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraPivotGrid.v20.1.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Diagram.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Diagram.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Diagram.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Diagram.v20.1.Core.resources.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csprojAssemblyReference.cache
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThamGiaBHXH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSTo.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXiNghiep.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmHelp_View.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmViewReport.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoai.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongKhacLuongTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoaiTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBangLuongThangNhanVien.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBaoCaoLaoDongThang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoChuyenMon.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuanTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanh.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanhTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTrinhDo.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaTrinhDo.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDSLaoDongNu.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCHopDongHetHan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongNam.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongThang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXNgioquetthetheongay.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptKeHoachDaoTao.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhDaoTaoCNV.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCThongKeDaoTao.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatBP.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuat.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKetQuaDaoTao.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongThang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLDNuocNgoaiKhongCapGP.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhLuongTH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangGiamLD6Thang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCGiamLaoDongThang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangLaoDongThang.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCBangCapCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKeHoachNghiPhep.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuaTrinhLuongCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDNuocNgoai.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDTaiThoidDem.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSuDungLaoDong.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCBNVDieuChuyen.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCongNhan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDeNghiMuaBaoHiemTaiNan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSGiaDinh.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTinh.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongVeHuu.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSNhanVienThayDoiLuongGD.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamNien.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSQuanLy.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamGiaCongDoan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTo.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongThuViec.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHoSoCapCuu.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptPhuLucHopDongLaoDong.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhDieuChuyen.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongLaoDong.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhThoiViec.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptSoYeuLyLich.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongKeTaiNan.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptToKhaiBHXH.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.Properties.Resources.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDonVi.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDV.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhLuongCN.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongTinChung.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThuongKhacLuong.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.XtraForm1.resources
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.GenerateResource.cache
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll.licenses
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CoreCompileInputs.cache
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CopyComplete
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll
+E:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.pdb
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll.config
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\VS.Report.pdb
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Charts.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.CodeParser.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Export.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\EPPlus.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Extensions.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Images.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.pdb
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\Commons.dll.config
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Office.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.PivotGrid.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.RichEdit.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Data.Desktop.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Sparkline.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Utils.v20.1.UI.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Xpo.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraBars.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraEditors.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Printing.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGauges.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraGrid.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraLayout.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPrinting.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraReports.v20.1.Extensions.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraTreeList.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraRichEdit.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.DataAccess.v20.1.UI.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraNavBar.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraPivotGrid.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.XtraDiagram.v20.1.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\DevExpress.Diagram.v20.1.Core.xml
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Data.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Data.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Data.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Data.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.DataAccess.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.DataAccess.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.DataAccess.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.DataAccess.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Office.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.PivotGrid.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.PivotGrid.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.PivotGrid.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.PivotGrid.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Utils.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Utils.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Utils.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Utils.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Utils.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Utils.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Utils.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Utils.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Xpo.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Xpo.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Xpo.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Xpo.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraCharts.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraCharts.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraCharts.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraCharts.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Printing.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Printing.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Printing.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Printing.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraGauges.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraGauges.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraGauges.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraGauges.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraLayout.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraLayout.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraLayout.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraLayout.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraReports.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraReports.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraReports.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraReports.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraReports.v20.1.Extensions.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.DataAccess.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.DataAccess.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.DataAccess.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.DataAccess.v20.1.UI.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.XtraPivotGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.XtraPivotGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.XtraPivotGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.XtraPivotGrid.v20.1.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\de\DevExpress.Diagram.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\es\DevExpress.Diagram.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ja\DevExpress.Diagram.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\bin\Debug\ru\DevExpress.Diagram.v20.1.Core.resources.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.AssemblyReference.cache
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThamGiaBHXH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSTo.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXiNghiep.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmHelp_View.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.frmViewReport.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoai.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongKhacLuongTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptTienThuongXepLoaiTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBangLuongThangNhanVien.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBaoCaoLaoDongThang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoChuyenMon.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoNguyenQuanTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanh.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTinhThanhTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCCNTheoTrinhDo.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaTrinhDo.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDSLaoDongNu.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCHopDongHetHan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongNam.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCXepLoaiKhenThuongThang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSXNgioquetthetheongay.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptKeHoachDaoTao.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhDaoTaoCNV.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCThongKeDaoTao.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatBP.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuat.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKetQuaDaoTao.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongThang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLDNuocNgoaiKhongCapGP.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhLuongTH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangGiamLD6Thang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCDanhGiaCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCGiamLaoDongThang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTangLaoDongThang.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKhenThuongKyLuatCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCBangCapCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCKeHoachNghiPhep.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuaTrinhLuongCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCQuaTrinhCongTacCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDNuocNgoai.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSDLDTaiThoidDem.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCTinhHinhSuDungLaoDong.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCBNVDieuChuyen.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSCongNhan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDeNghiMuaBaoHiemTaiNan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSGiaDinh.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTinh.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongVeHuu.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSNhanVienThayDoiLuongGD.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamNien.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSQuanLy.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSThamGiaCongDoan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptBCLaoDongTo.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongThuViec.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHoSoCapCuu.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptPhuLucHopDongLaoDong.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhDieuChuyen.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptHopDongLaoDong.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhThoiViec.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptSoYeuLyLich.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongKeTaiNan.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptToKhaiBHXH.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.Properties.Resources.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDSDonVi.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptDV.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptQuyetDinhLuongCN.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThongTinChung.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.rptThuongKhacLuong.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.XtraForm1.resources
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.GenerateResource.cache
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll.licenses
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CoreCompileInputs.cache
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\Vs.Report.csproj.CopyComplete
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.dll
+D:\01.HRM\05.Vs.Report\Vs.Report\obj\Debug\VS.Report.pdb
