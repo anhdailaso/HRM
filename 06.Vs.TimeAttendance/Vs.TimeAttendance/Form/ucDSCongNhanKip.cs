@@ -351,10 +351,12 @@ namespace Vs.TimeAttendance
             btnALL.Buttons[0].Properties.Visible = visible;
             btnALL.Buttons[1].Properties.Visible = visible;
             btnALL.Buttons[2].Properties.Visible = visible;
-            btnALL.Buttons[3].Properties.Visible = !visible;
+            btnALL.Buttons[3].Properties.Visible = visible;
             btnALL.Buttons[4].Properties.Visible = !visible;
             btnALL.Buttons[5].Properties.Visible = !visible;
             btnALL.Buttons[6].Properties.Visible = !visible;
+            btnALL.Buttons[7].Properties.Visible = !visible;
+            btnALL.Buttons[8].Properties.Visible = !visible;
 
             isAdd = !btnALL.Buttons[0].Properties.Visible;
         }

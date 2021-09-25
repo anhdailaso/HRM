@@ -2430,7 +2430,7 @@ namespace Vs.HRM
             {
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListChonTroCapBHXH", cboThang.EditValue, cboDot.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage, sbtDCTroCapBHXH));
                 dt.Columns["CHON"].ReadOnly = false;
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdChonTroCapBHXH, grvChonTroCapBHXH, dt, false, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdChonTroCapBHXH, grvChonTroCapBHXH, dt, false, false, true, true, true,this.Name);
                 Commons.Modules.ObjSystems.AddCombXtra("ID_CN", "TEN_CN", grvChonTroCapBHXH, "spGetCongNhan");
                 Commons.Modules.ObjSystems.AddCombo("ID_LDV", "TEN_LDV", grvChonTroCapBHXH, Commons.Modules.ObjSystems.DataLyDoVang(false));
                 grvChonTroCapBHXH.Columns["PHAN_TRAM_TRO_CAP"].Visible = false;

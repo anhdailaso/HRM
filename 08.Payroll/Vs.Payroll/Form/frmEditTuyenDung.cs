@@ -15,7 +15,7 @@ namespace Vs.Payroll
         public frmEditTuyenDung(Int64 iId, Boolean bAddEdit)
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, windowsUIButtonPanel2);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, btnALL);
             iIdTo = iId;
             bAddEditTo = bAddEdit;
         }
@@ -89,7 +89,7 @@ namespace Vs.Payroll
                             this.Close();
                             break;
                         }
-                    case "huy":
+                    case "thoat":
                         {
                             this.DialogResult = DialogResult.Cancel;
                             this.Close();

@@ -93,7 +93,7 @@ namespace Vs.Payroll
                             this.Close();
                             break;
                         }
-                    case "huy":
+                    case "thoat":
                         {
                             this.Close();
                             break;

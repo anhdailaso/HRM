@@ -219,7 +219,7 @@ namespace Vs.HRM
             {
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListCapNhatLCB", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, BAC_CVlookUpEdit.EditValue, BAC_HDlookUpEdit.EditValue, radBoloc.SelectedIndex, LuongTutextEdit.EditValue, LuongDentextEdit.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 dt.Columns["CHON"].ReadOnly = false;
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCapNhatLCB, grvCapNhatLCB, dt, false, false, false, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCapNhatLCB, grvCapNhatLCB, dt, false, false, false, true, true, this.Name);
                 grvCapNhatLCB.Columns["CHON"].Visible = false;
                 grvCapNhatLCB.Columns["ID_CN"].Visible = false;
                 grvCapNhatLCB.Columns["ID_LCB"].Visible = false;

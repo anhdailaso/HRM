@@ -9,12 +9,12 @@ namespace Vs.Report
 {
     public partial class rptDSNVVachTheLoi : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptDSNVVachTheLoi(DateTime ngayxem,DateTime ngayin,string tieuDe)
+        public rptDSNVVachTheLoi(DateTime ngayxem,DateTime ngayin)
         {
 
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
-            lblTIEU_DE.Text = tieuDe;
+            //lblTIEU_DE.Text = tieuDe;
             DataTable dtNgu = new DataTable();
             dtNgu.Load(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'NgayThangNam' "));
 

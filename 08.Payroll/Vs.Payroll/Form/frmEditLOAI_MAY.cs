@@ -107,7 +107,7 @@ namespace Vs.Payroll
                                 ).ToString();
                             if (AddEdit)
                             {
-                                if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgThemThanhCongBanMuonThemTiep"), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_ThemThanhCong"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     LoadTextNull();
                                     return;
@@ -117,7 +117,7 @@ namespace Vs.Payroll
                             this.Close();
                             break;
                         }
-                    case "huy":
+                    case "thoat":
                         {
                             this.Close();
                             break;

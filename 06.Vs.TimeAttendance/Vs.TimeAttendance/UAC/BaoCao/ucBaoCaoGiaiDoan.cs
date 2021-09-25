@@ -377,7 +377,7 @@ namespace Vs.HRM
                                         row5_TieuDe1.Font.Bold = true;
                                         row5_TieuDe1.Interior.Color = Color.Yellow;
 
-                                        row5_TieuDe1.Value2 = "Mã NV";
+                                        row5_TieuDe1.Value2 = "Mã số NV";
 
                                         Excel.Range row5_TieuDe2 = oSheet.get_Range("C4", "C5");
                                         row5_TieuDe2.Merge();
@@ -397,7 +397,7 @@ namespace Vs.HRM
                                         row5_TieuDe3.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                                         row5_TieuDe3.Font.Bold = true;
                                         row5_TieuDe3.Interior.Color = Color.Yellow;
-                                        row5_TieuDe3.Value2 = "Xí nghiệp";
+                                        row5_TieuDe3.Value2 = "Xí nghiệp/P.ban";
 
                                         Excel.Range row5_TieuDe4 = oSheet.get_Range("E4", "E5");
                                         row5_TieuDe4.Merge();
@@ -452,11 +452,6 @@ namespace Vs.HRM
                                         }
 
 
-
-
-
-
-
                                         DataRow[] dr = dtBCGaiDoan.Select();
                                         string[,] rowData = new string[dr.Length, dtBCGaiDoan.Columns.Count];
 
@@ -504,11 +499,11 @@ namespace Vs.HRM
                                         formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
                                         formatRange.ColumnWidth = 20;
 
-                                        //CẠNH giữ côt động
+                                        //CẠNH giữa côt động
                                         formatRange = oSheet.get_Range("F4", lastColumn + rowCnt.ToString());
                                         formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                                        oWB.SaveAs("D:\\BangCongThang.xlsx",
-                                        AccessMode: Excel.XlSaveAsAccessMode.xlShared);
+                                        //oWB.SaveAs("D:\\BangCongThang.xlsx",
+                                        //AccessMode: Excel.XlSaveAsAccessMode.xlShared);
 
                                     }
                                     catch (Exception ex)
@@ -587,14 +582,16 @@ namespace Vs.HRM
             LoadCboTo();
 
             LoadGrvLydovang();
-            LoadGrvCongNhan();
 
-            lk_TuNgay.EditValue = Convert.ToDateTime("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year).ToString("dd/MM/yyyy");
             DateTime dtTN = DateTime.Today;
-            DateTime dtDN = DateTime.Today;
-            lk_DenNgay.EditValue = dtTN.AddDays((-1));
-            dtDN = dtDN.AddMonths(1);
-            lk_NgayIn.EditValue = dtDN;
+            dtTN = dtTN.AddDays(-dtTN.Day + 1);
+            DateTime dtDN = dtTN.AddMonths(1);
+            dtDN = dtDN.AddDays(-1);
+            lk_TuNgay.EditValue = dtTN;
+            lk_DenNgay.EditValue = dtDN;
+            lk_NgayIn.EditValue = DateTime.Today;
+
+            LoadGrvCongNhan();
 
         }
 
@@ -603,8 +600,8 @@ namespace Vs.HRM
             try
             {
                 DataTable dtCongNhan = new DataTable();
-                dtCongNhan.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoDieuKien", LK_DON_VI.EditValue, LK_XI_NGHIEP.EditValue,
-                                                        LK_TO.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage, 0));
+                dtCongNhan.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoDieuKien", Commons.Modules.UserName, Commons.Modules.TypeLanguage,
+                    LK_DON_VI.EditValue, LK_XI_NGHIEP.EditValue, LK_TO.EditValue, lk_TuNgay.EditValue, lk_DenNgay.EditValue, 0));
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdCN, grvCN, dtCongNhan, false, false, false, true, true, this.Name);
             }
             catch

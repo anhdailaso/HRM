@@ -217,7 +217,7 @@ namespace Vs.HRM
             if (grdCongNhan.DataSource == null)
             {
                 dt.PrimaryKey = new DataColumn[] { dt.Columns["ID_CN"] };
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true, this.Name);
                 grvCongNhan.Columns["ID_CN"].Visible = false;
                 grvCongNhan.Columns["ID_QDTV"].Visible = false;
                 grvCongNhan.Columns["TinhTrang"].Visible = false;

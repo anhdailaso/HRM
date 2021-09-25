@@ -248,7 +248,7 @@ namespace Vs.TimeAttendance
                                         cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                         cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                         cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
-                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = Convert.ToDateTime(LK_NgayXemBaoCao.EditValue);
+                                        cmd.Parameters.Add("@Ngay", SqlDbType.Date).Value = Convert.ToDateTime(LK_NgayXemBaoCao.EditValue);
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -306,7 +306,7 @@ namespace Vs.TimeAttendance
                                     System.Data.SqlClient.SqlConnection conn;
                                     dt = new DataTable();
                                     string sTieuDe = "DANH SÁCH NHÂN VIÊN CHƯA ĐỦ DỮ LIỆU";
-                                    frm.rpt = new rptDSNVVachTheLoi(Convert.ToDateTime(LK_NgayXemBaoCao.EditValue), lk_NgayIn.DateTime, sTieuDe);
+                                    frm.rpt = new rptDSNVVachTheLoi(Convert.ToDateTime(LK_NgayXemBaoCao.EditValue), lk_NgayIn.DateTime);
 
                                     try
                                     {
@@ -356,13 +356,7 @@ namespace Vs.TimeAttendance
             LoadTinhTrangHopDong();
             
             lk_NgayIn.EditValue = DateTime.Today;
-            //DateTime dtTN = DateTime.Today;
-            //DateTime dtDN = DateTime.Today;
-            ////dTuNgay.EditValue = dtTN.AddDays((-dtTN.Day) + 1);
-            //dtDN = dtDN.AddMonths(1);
-            //dtDN = dtDN.AddDays(-(dtDN.Day));
-            //LK_NgayXemBaoCao.EditValue = dtDN;
-
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
         }
 
         private void LoadNgay()
@@ -545,5 +539,7 @@ namespace Vs.TimeAttendance
                     break;
             }
         }
+
+       
     }
 }

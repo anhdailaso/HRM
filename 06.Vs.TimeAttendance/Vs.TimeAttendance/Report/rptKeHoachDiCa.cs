@@ -9,11 +9,11 @@ namespace Vs.Report
 {
     public partial class rptKeHoachDiCa : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptKeHoachDiCa(DateTime ngayin, DateTime TuNgay, DateTime DenNgay,string tieude)
+        public rptKeHoachDiCa(DateTime ngayin, DateTime TuNgay, DateTime DenNgay)
         {
 
             InitializeComponent();
-            lblTIEU_DE.Text = tieude;
+            //lblTIEU_DE.Text = tieude;
             Commons.Modules.ObjSystems.ThayDoiNN(this);
   
             NONlbTuNgayDenNgay.Text = "Từ ngày " + TuNgay.ToString("dd/MM/yyyy") + " đến ngày " + DenNgay.ToString("dd/MM/yyyy");

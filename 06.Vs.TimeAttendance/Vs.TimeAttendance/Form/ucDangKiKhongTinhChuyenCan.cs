@@ -100,7 +100,8 @@ namespace Vs.TimeAttendance
                     }
                 case "xoa":
                     {
-                        if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteThang"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+                        if (grvDSCNKTCC.RowCount == 0) { Commons.Modules.ObjSystems.msgChung(Commons.ThongBao.msgKhongCoDuLieuXoa); return; }
+                        if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteThang"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
                         XoaData();
                         LoadGridDSCNKhongTinhCC(isAdd);
                         enableButon(true);
@@ -156,7 +157,7 @@ namespace Vs.TimeAttendance
             DataTable dt = new DataTable();
             if (isAdd)
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetEditDSCNKhongTinhCC", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetEditDSCNKhongTinhCC", cboThang.EditValue, cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdDSCNKTCC, grvDSCNKTCC, dt, true, false, true, true, true, this.Name);
                 dt.Columns["CHUYEN_CAN"].ReadOnly = false;
             }
@@ -169,6 +170,8 @@ namespace Vs.TimeAttendance
             grvDSCNKTCC.Columns["ID_CN"].OptionsColumn.ReadOnly = true;
             grvDSCNKTCC.Columns["MS_CN"].OptionsColumn.ReadOnly = true;
             grvDSCNKTCC.Columns["HO_TEN"].OptionsColumn.ReadOnly = true;
+            grvDSCNKTCC.Columns["TEN_XN"].OptionsColumn.ReadOnly = true;
+            grvDSCNKTCC.Columns["TEN_TO"].OptionsColumn.ReadOnly = true;
             grvDSCNKTCC.Columns["ID_CN"].Visible = false;
         }
         private void Savedata()
@@ -194,8 +197,15 @@ namespace Vs.TimeAttendance
         {
             windowsUIButton.Buttons[0].Properties.Visible = visible;
             windowsUIButton.Buttons[1].Properties.Visible = visible;
-            windowsUIButton.Buttons[2].Properties.Visible = !visible;
-            windowsUIButton.Buttons[3].Properties.Visible = !visible;
+            windowsUIButton.Buttons[2].Properties.Visible = visible;
+            windowsUIButton.Buttons[3].Properties.Visible = visible;
+            windowsUIButton.Buttons[4].Properties.Visible = !visible;
+            windowsUIButton.Buttons[5].Properties.Visible = !visible;
+
+            cboDV.Enabled = visible;
+            cboXN.Enabled = visible;
+            cboTo.Enabled = visible;
+            cboThang.Enabled = visible;
 
             searchControl.Visible = true;
             isAdd = !windowsUIButton.Buttons[0].Properties.Visible;

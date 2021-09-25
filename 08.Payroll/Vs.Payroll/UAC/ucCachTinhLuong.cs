@@ -238,7 +238,7 @@ namespace Vs.Payroll
                 
                 DataTable dID_NHOM = new DataTable();
                 dID_NHOM.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCTL",  Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                Commons.Modules.ObjSystems.AddCombXtra("ID_CTL", "TEN", grvCachTinhLuong , dID_NHOM, false);
+                Commons.Modules.ObjSystems.AddCombXtra("ID_CTL", "TEN", grvCachTinhLuong , dID_NHOM, false, "ID_CTL", "CACH_TINH_LUONG");
                 grvCachTinhLuong.Columns["THANG"].Visible = false;
                 grvCachTinhLuong.Columns["ID_CN"].Visible = false;
                 grvCachTinhLuong.Columns["ID_CTL"].Width = 250;
@@ -591,15 +591,14 @@ namespace Vs.Payroll
         {
             btnALL.Buttons[0].Properties.Visible = !isAdd;
             btnALL.Buttons[1].Properties.Visible = !isAdd;
-            btnALL.Buttons[2].Properties.Visible = !isAdd;
             btnALL.Buttons[3].Properties.Visible = !isAdd;
+            btnALL.Buttons[5].Properties.Visible = !isAdd;
 
-            btnALL.Buttons[4].Properties.Visible = isAdd;
-            btnALL.Buttons[5].Properties.Visible = isAdd;
             btnALL.Buttons[6].Properties.Visible = isAdd;
-            btnALL.Buttons[4].Properties.Visible = isAdd;
-            btnALL.Buttons[5].Properties.Visible = isAdd;
-            btnALL.Buttons[6].Properties.Visible = isAdd;
+            btnALL.Buttons[7].Properties.Visible = isAdd;
+            btnALL.Buttons[8].Properties.Visible = isAdd;
+            btnALL.Buttons[2].Properties.Visible = !isAdd;
+            btnALL.Buttons[4].Properties.Visible = !isAdd;
 
             cboNgay.Enabled = !isAdd;
             cboDonVi.Enabled = !isAdd;

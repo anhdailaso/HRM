@@ -162,7 +162,7 @@
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell2.Weight = 1.2059766637138516D;
+            this.xrTableCell2.Weight = 1.5245705688749802D;
             // 
             // xrTableCell3
             // 
@@ -178,7 +178,7 @@
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
             this.xrTableCell3.Text = "xrTableCell3";
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell3.Weight = 0.77772493416212285D;
+            this.xrTableCell3.Weight = 0.62180655274302976D;
             // 
             // xrTableCell4
             // 
@@ -194,7 +194,7 @@
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell4.Weight = 1.1407569403804239D;
+            this.xrTableCell4.Weight = 1.2898756492738246D;
             // 
             // xrTableCell5
             // 
@@ -210,7 +210,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell5.Weight = 2.5039504393658167D;
+            this.xrTableCell5.Weight = 3.1953220407136258D;
             // 
             // xrTableCell7
             // 
@@ -226,7 +226,7 @@
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell7.Weight = 1.8845524196148569D;
+            this.xrTableCell7.Weight = 1.9387774899548425D;
             // 
             // xrTableCell8
             // 
@@ -242,7 +242,7 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "xrTableCell8";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell8.Weight = 1.2069371362487933D;
+            this.xrTableCell8.Weight = 1.6678513286659467D;
             // 
             // xrTableCell10
             // 
@@ -258,7 +258,7 @@
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "xrTableCell10";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell10.Weight = 1.5032544300199329D;
+            this.xrTableCell10.Weight = 1.2863547741041492D;
             // 
             // xrTableCell11
             // 
@@ -275,7 +275,7 @@
             this.xrTableCell11.Text = "xrTableCell11";
             this.xrTableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell11.TextFormatString = "{0:#,#}";
-            this.xrTableCell11.Weight = 1.5944123287134933D;
+            this.xrTableCell11.Weight = 1.2826159070235037D;
             // 
             // xrTableCell6
             // 
@@ -291,7 +291,7 @@
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "xrTableCell6";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell6.Weight = 2.4201726769327343D;
+            this.xrTableCell6.Weight = 1.4305636577981238D;
             // 
             // lblTIEU_DE
             // 
@@ -371,7 +371,7 @@
             this.tiNhom.Name = "tiNhom";
             this.tiNhom.StylePriority.UseFont = false;
             this.tiNhom.Text = "Nhóm";
-            this.tiNhom.Weight = 2.9323921248403164D;
+            this.tiNhom.Weight = 3.7070694085909976D;
             // 
             // tiCa
             // 
@@ -381,7 +381,7 @@
             this.tiCa.Name = "tiCa";
             this.tiCa.StylePriority.UseFont = false;
             this.tiCa.Text = "Ca";
-            this.tiCa.Weight = 1.8910768681265902D;
+            this.tiCa.Weight = 1.5119531997292537D;
             // 
             // tiMSNV
             // 
@@ -391,7 +391,7 @@
             this.tiMSNV.Name = "tiMSNV";
             this.tiMSNV.StylePriority.UseFont = false;
             this.tiMSNV.Text = "MSNV";
-            this.tiMSNV.Weight = 2.7738072765919739D;
+            this.tiMSNV.Weight = 3.1363968233337616D;
             // 
             // tiHoTen
             // 
@@ -401,7 +401,7 @@
             this.tiHoTen.Name = "tiHoTen";
             this.tiHoTen.StylePriority.UseFont = false;
             this.tiHoTen.Text = "Họ tên";
-            this.tiHoTen.Weight = 6.0884789517547144D;
+            this.tiHoTen.Weight = 7.7695840982042288D;
             // 
             // tiPhongBan
             // 
@@ -411,7 +411,7 @@
             this.tiPhongBan.Name = "tiPhongBan";
             this.tiPhongBan.StylePriority.UseFont = false;
             this.tiPhongBan.Text = "Phòng ban";
-            this.tiPhongBan.Weight = 4.5823834534903884D;
+            this.tiPhongBan.Weight = 4.7142321239439475D;
             // 
             // tiTo
             // 
@@ -422,7 +422,7 @@
             this.tiTo.RowSpan = 2;
             this.tiTo.StylePriority.UseFont = false;
             this.tiTo.Text = "Tổ";
-            this.tiTo.Weight = 2.9347274440795785D;
+            this.tiTo.Weight = 4.0554647153121D;
             // 
             // tiTuNgay
             // 
@@ -432,7 +432,7 @@
             this.tiTuNgay.Name = "tiTuNgay";
             this.tiTuNgay.StylePriority.UseFont = false;
             this.tiTuNgay.Text = "Từ ngày";
-            this.tiTuNgay.Weight = 3.6552377391410094D;
+            this.tiTuNgay.Weight = 3.1278324117370389D;
             // 
             // tiDenNgay
             // 
@@ -442,7 +442,7 @@
             this.tiDenNgay.Name = "tiDenNgay";
             this.tiDenNgay.StylePriority.UseFont = false;
             this.tiDenNgay.Text = "Đến ngày";
-            this.tiDenNgay.Weight = 3.8768925871974664D;
+            this.tiDenNgay.Weight = 3.1187441023074669D;
             // 
             // tiGhiChu
             // 
@@ -452,7 +452,7 @@
             this.tiGhiChu.Name = "tiGhiChu";
             this.tiGhiChu.StylePriority.UseFont = false;
             this.tiGhiChu.Text = "Ghi chú";
-            this.tiGhiChu.Weight = 5.8847695252995056D;
+            this.tiGhiChu.Weight = 3.4784890873627488D;
             // 
             // lblDIA_CHI
             // 

@@ -26,13 +26,22 @@ namespace Vs.HRM
         public ucCapNhatGio()
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this,new List<LayoutControlGroup>{ Root}, windowsUIButton);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, windowsUIButton);
         }
         #region Cập nhật giờ
         private void ucCapNhatGio_Load(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
             Commons.Modules.sPS = "0Load";
+            DateTime dtTN = DateTime.Today;
+            dtTN = dtTN.AddDays(-dtTN.Day + 1);
+            DateTime dtDN = dtTN.AddMonths(1);
+            dtDN = dtDN.AddDays(-1);
+            dTuNgay.EditValue = dtTN;
+            dDenNgay.EditValue = dtDN;
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
@@ -59,14 +68,13 @@ namespace Vs.HRM
             Commons.Modules.sPS = "0Load";
             Commons.Modules.sPS = "";
         }
-        private int TuNgayDenNgay;
         private bool kiemtrangay()
         {
             DateTime t = Convert.ToDateTime(dTuNgay.EditValue);
             DateTime d = Convert.ToDateTime(dDenNgay.EditValue);
             if(t>d)
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "MSpHAILONHONNGAYDB"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_TuNgayDenNgay"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dDenNgay.Focus();
                 return false;
             }
@@ -80,22 +88,34 @@ namespace Vs.HRM
             {
                 case "chamtudong":
                     {
-                        if (!kiemtrangay()) return ;
-                        TuNgayDenNgay = 0;
-                        ButtonClick();
-                        break;
-                    }
+                        try
+                        {
+                            if (!kiemtrangay()) return;
 
-                case "gioden":
-                    {
-                        TuNgayDenNgay = 1;
-                        ButtonClick();
-                        break;
-                    }
-                case "giove":
-                    {
-                        TuNgayDenNgay = 2;
-                        ButtonClick();
+                            int iDay = 0;
+
+                            System.Data.SqlClient.SqlConnection conn;
+                            conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
+                            conn.Open();
+
+                            for (DateTime dt = Convert.ToDateTime(dTuNgay.EditValue); dt <= Convert.ToDateTime(dDenNgay.EditValue); dt = dt.AddDays(1))
+                            {
+                                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("spAutoUpdateTimekeeping", conn);
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@UName", Commons.Modules.UserName);
+                                cmd.Parameters.AddWithValue("@NNgu", Commons.Modules.TypeLanguage);
+                                cmd.Parameters.AddWithValue("@ID_DV", cboDV.EditValue);
+                                cmd.Parameters.AddWithValue("@ID_XN", cboXN.EditValue);
+                                cmd.Parameters.AddWithValue("@ID_TO", cboTo.EditValue);
+                                cmd.Parameters.AddWithValue("@DDate", dt);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_CapNhatThanhCong"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch
+                        {
+                        }
                         break;
                     }
                 case "thoat":
@@ -106,74 +126,5 @@ namespace Vs.HRM
             }
         }
         #endregion
-
-        #region hàm xử lý dữ liệu
-
-        private void ButtonClick()
-        {
-            try
-            {
-                if (TuNgayDenNgay == 0) // từ ngày đến ngày
-                {
-                    if(dTuNgay.Text == "" || dDenNgay.Text == "")
-                    {
-                        return;
-                    }
-                    var dates = new List<DateTime>();
-
-                    for (DateTime dt = Convert.ToDateTime(dTuNgay.EditValue); dt <= Convert.ToDateTime(dDenNgay.EditValue); dt = dt.AddDays(1))
-                    {
-                        UpdateTimekeeping(dt);
-                    }
-                }
-                else if (TuNgayDenNgay == 1) //từ ngày
-                {
-                    if (dTuNgay.Text == "")
-                    {
-                        return;
-                    }
-                    UpdateTimekeeping(Convert.ToDateTime(dTuNgay.EditValue));
-                }
-                else // đến ngày
-                {
-                    if (dDenNgay.Text == "")
-                    {
-                        return;
-                    }
-                    UpdateTimekeeping(Convert.ToDateTime(dDenNgay.EditValue));
-                }
-            }
-            catch { }
-        }
-        private void UpdateTimekeeping(DateTime dDate)
-        {
-            string stbTimekeeping = "Timekeeping" + Commons.Modules.UserName;
-            DataTable dt = new DataTable();
-            try
-            {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spAutoUpdateTimekeeping", dDate, cboDV.EditValue, cboXN.EditValue,
-                                        cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                if (dt.Rows.Count == 0)
-                {
-                    return;
-                }
-                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbTimekeeping, dt, "");
-
-                string sSql = "DELETE DU_LIEU_QUET_THE WHERE  CONVERT(NVARCHAR,NGAY,112) = '" + Convert.ToDateTime(dDate).ToString("yyyyMMdd")
-                            + "' AND ID_CN IN (SELECT ID_CN FROM " + stbTimekeeping + ")"
-                            + " INSERT INTO DU_LIEU_QUET_THE (ID_CN, NGAY, ID_NHOM, CA, NGAY_DEN, GIO_DEN, PHUT_DEN, NGAY_VE, GIO_VE, PHUT_VE,CHINH_SUA) "
-                                                    + " SELECT ID_CN, NGAYD, ID_NHOM, CA, NGAYD, GBD, PBD, NGAYV, GKT, PKT, 1 FROM " 
-                                                    + stbTimekeeping + "";
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
-                Commons.Modules.ObjSystems.XoaTable(stbTimekeeping);
-                //Commons.Modules.ObjSystems.msgChung(Commons.ThongBao.msgCapNhatThanhCong);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-        #endregion
-
     }
 }

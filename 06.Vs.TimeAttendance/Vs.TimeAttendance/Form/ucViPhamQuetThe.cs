@@ -42,7 +42,7 @@ namespace Vs.TimeAttendance
 
             repositoryItemTimeEdit1 = new RepositoryItemTimeEdit();
             repositoryItemTimeEdit1.TimeEditStyle = TimeEditStyle.TouchUI;
-            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             repositoryItemTimeEdit1.Mask.EditMask = "HH:mm";
 
             repositoryItemTimeEdit1.NullText = "00:00";
@@ -54,6 +54,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
+
             LoadNgay();
 
             enableButon();
@@ -161,25 +162,14 @@ namespace Vs.TimeAttendance
 
         private void UpdateTimekeeping(DateTime dDate)
         {
-            string stbVPQuetThe = "VPQuetThe" + Commons.Modules.UserName;
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
             try
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spAutoUpdateTimekeeping", dDate, cboDV.EditValue, cboXN.EditValue,
-                                        cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                if (dt.Rows.Count == 0)
-                {
-                    return;
-                }
-                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbVPQuetThe, dt, "");
-
-                string sSql = " UPDATE DSCN_VP_QUET_THE SET GIO_DEN = CASE WHEN VP_GD = 1 THEN T2.GBD ELSE '' END, "
-                            + " GIO_VE = CASE WHEN VP_GV = 1 THEN T2.GKT ELSE '' END FROM DSCN_VP_QUET_THE "
-                            + " INNER JOIN " + stbVPQuetThe + " T2 ON DSCN_VP_QUET_THE.ID_CN = T2.ID_CN"
-                            + " WHERE CONVERT(NVARCHAR,NGAY,112) = '" + Convert.ToDateTime(dDate).ToString("yyyyMMdd") + "'";
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
+                string stbVPQuetThe = "VPQuetThe" + Commons.Modules.UserName;
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbVPQuetThe, Commons.Modules.ObjSystems.ConvertDatatable(grvVPQuetThe), "");
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spUpdateViPhamQuetThe", Convert.ToDateTime(cboNgay.EditValue), stbVPQuetThe);
                 Commons.Modules.ObjSystems.XoaTable(stbVPQuetThe);
-                //Commons.Modules.ObjSystems.msgChung(Commons.ThongBao.msgCapNhatThanhCong);
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_CapNhatThanhCong"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception EX)
             {
@@ -276,13 +266,16 @@ namespace Vs.TimeAttendance
         private void enableButon()
         {
 
-            windowsUIButton.Buttons[0].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[0].Properties.Visible = !isAdd;
             windowsUIButton.Buttons[1].Properties.Visible = !isAdd;
             windowsUIButton.Buttons[2].Properties.Visible = !isAdd;
             windowsUIButton.Buttons[3].Properties.Visible = !isAdd;
-            windowsUIButton.Buttons[4].Properties.Visible = isAdd;
-            windowsUIButton.Buttons[5].Properties.Visible = isAdd;
-            windowsUIButton.Buttons[6].Properties.Visible = !isAdd;
+            windowsUIButton.Buttons[4].Properties.Visible = !isAdd;
+            windowsUIButton.Buttons[5].Properties.Visible = !isAdd;
+            windowsUIButton.Buttons[6].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[7].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[8].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[9].Properties.Visible = isAdd;
         }
         #endregion
 

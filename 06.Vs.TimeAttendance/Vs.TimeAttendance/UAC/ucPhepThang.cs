@@ -14,6 +14,11 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing;
 
+using Vs.Report;
+//using Microsoft.Office.Interop.Excel;
+using DataTable = System.Data.DataTable;
+
+
 namespace Vs.TimeAttendance
 {
     public partial class ucPhepThang : DevExpress.XtraEditors.XtraUserControl
@@ -58,6 +63,8 @@ namespace Vs.TimeAttendance
         }
 
         string sBT = "tabKeHoachDiCa" + Commons.Modules.ModuleName;
+       // private SqlConnection conn;
+
         public ucPhepThang()
         {
             InitializeComponent();
@@ -128,18 +135,16 @@ namespace Vs.TimeAttendance
                             LoadGrdPhepThang(true);
                             Commons.Modules.ObjSystems.HideWaitForm();
                             enableButon(false);
-
                         }
                         else
                         {
                            if(XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name,"MsgDuLieuCoBanCoMuonCapNhatLai"),
-                 (Commons.Modules.TypeLanguage == 0 ? ThongBao.msgTBV.ToString() : ThongBao.msgTBA), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            (Commons.Modules.TypeLanguage == 0 ? ThongBao.msgTBV.ToString() : ThongBao.msgTBA), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 Commons.Modules.ObjSystems.ShowWaitForm(this);
                                 LoadGrdPhepThang(true);
                                 Commons.Modules.ObjSystems.HideWaitForm();
                                 enableButon(false);
-
                             }
                         }
                         break;
@@ -230,9 +235,24 @@ namespace Vs.TimeAttendance
                     {
                         try
                         {
-                            
-                            
+                            System.Data.SqlClient.SqlConnection conn;
+                            conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
+                            conn.Open();
 
+                            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptCongNhanPhepThang", conn);
+                            cmd.Parameters.Add("@UName", SqlDbType.NVarChar, 50).Value = Commons.Modules.UserName;
+                            cmd.Parameters.Add("@NNgu", SqlDbType.Int).Value = Commons.Modules.TypeLanguage;
+                            cmd.Parameters.Add("@ID_DV", SqlDbType.Int).Value = cboDV.EditValue;
+                            cmd.Parameters.Add("@ID_XN", SqlDbType.Int).Value = cboXN.EditValue;
+                            cmd.Parameters.Add("@ID_TO", SqlDbType.Int).Value = cboTo.EditValue;
+                            cmd.Parameters.Add("@THANGIN", SqlDbType.Date).Value = Convert.ToDateTime(cboThang.EditValue);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
+
+                            DataSet ds = new DataSet();
+                            adp.Fill(ds);
+                            DataTable dtBCPhep = new DataTable();
+                            dtBCPhep = ds.Tables[0].Copy();
 
                             Excel.Application oXL;
                             Excel._Workbook oWB;
@@ -252,9 +272,9 @@ namespace Vs.TimeAttendance
                             int iSoNgay = (iDNgay - iTNgay);
 
                             string lastColumn = string.Empty;
-                            //lastColumn = CharacterIncrement(dtBCGaiDoan.Columns.Count - 1);
-                            lastColumn = "AN";
-                            Excel.Range row2_TieuDe_BaoCao0 = oSheet.get_Range("A5", lastColumn + "5");
+                            lastColumn = "AO";
+
+                            Excel.Range row2_TieuDe_BaoCao0 = oSheet.get_Range("A2", lastColumn + "2");
                             row2_TieuDe_BaoCao0.Merge();
                             row2_TieuDe_BaoCao0.Font.Size = fontSizeTieuDe;
                             row2_TieuDe_BaoCao0.Font.Name = fontName;
@@ -265,50 +285,50 @@ namespace Vs.TimeAttendance
 
                             //=====
 
-                            Excel.Range row2_TieuDe_BaoCao = oSheet.get_Range("A6", lastColumn + "6");
-                            row2_TieuDe_BaoCao.Merge();
-                            row2_TieuDe_BaoCao.Font.Size = fontSizeNoiDung;
-                            row2_TieuDe_BaoCao.Font.Name = fontName;
-                            row2_TieuDe_BaoCao.Font.Bold = true;
-                            row2_TieuDe_BaoCao.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                            row2_TieuDe_BaoCao.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                            row2_TieuDe_BaoCao.Value2 = "Tháng " + Convert.ToDateTime(cboThang.EditValue).ToString("MM/yyyy");
+                            Excel.Range row3_TieuDe_BaoCao = oSheet.get_Range("A3", lastColumn + "3");
+                            row3_TieuDe_BaoCao.Merge();
+                            row3_TieuDe_BaoCao.Font.Size = fontSizeNoiDung;
+                            row3_TieuDe_BaoCao.Font.Name = fontName;
+                            row3_TieuDe_BaoCao.Font.Bold = true;
+                            row3_TieuDe_BaoCao.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            row3_TieuDe_BaoCao.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                            row3_TieuDe_BaoCao.Value2 = "Tháng " + Convert.ToDateTime(cboThang.EditValue).ToString("MM/yyyy");
 
-                            oSheet.get_Range("A8").RowHeight = 47.5;
-                            Excel.Range row5_TieuDe = oSheet.get_Range("A7", "A8");
-                            row5_TieuDe.Merge();
-                            row5_TieuDe.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                            row5_TieuDe.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                            row5_TieuDe.Font.Name = fontName;
-                            row5_TieuDe.Font.Bold = true;
-                            row5_TieuDe.ColumnWidth= 5;
-                            row5_TieuDe.Value2 = "Stt";
-                            row5_TieuDe.Interior.Color = Color.Yellow;
+                            oSheet.get_Range("A4").RowHeight = 30;
+                            Excel.Range row4_TieuDe = oSheet.get_Range("A4", "A5");
+                            row4_TieuDe.Merge();
+                            row4_TieuDe.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            row4_TieuDe.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                            row4_TieuDe.Font.Name = fontName;
+                            row4_TieuDe.Font.Bold = true;
+                            row4_TieuDe.ColumnWidth= 5;
+                            row4_TieuDe.Value2 = "Stt";
+                            row4_TieuDe.Interior.Color = Color.Yellow;
 
-                            Excel.Range row5_TieuDe1 = oSheet.get_Range("B7", "B8");
+                            Excel.Range row5_TieuDe1 = oSheet.get_Range("B4", "B5");
                             row5_TieuDe1.Merge();
                             row5_TieuDe1.Font.Name = fontName;
                             row5_TieuDe1.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5_TieuDe1.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                             row5_TieuDe1.Font.Bold = true;
-                            row5_TieuDe1.ColumnWidth = 20;
+                            row5_TieuDe1.ColumnWidth = 35;
                             row5_TieuDe1.Interior.Color = Color.Yellow;
                             row5_TieuDe1.Value2 = "Họ và tên";
 
-                            Excel.Range row5_TieuDe2 = oSheet.get_Range("C7", "C8");
+                            Excel.Range row5_TieuDe2 = oSheet.get_Range("C4", "C5");
                             row5_TieuDe2.Merge();
                             row5_TieuDe2.Font.Name = fontName;
                             row5_TieuDe2.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5_TieuDe2.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                             row5_TieuDe2.Font.Bold = true;
-                            row5_TieuDe2.ColumnWidth = 8;
+                            row5_TieuDe2.ColumnWidth = 12;
                             row5_TieuDe2.Interior.Color = Color.Yellow;
                             row5_TieuDe2.WrapText = true;
                             row5_TieuDe2.Value2 = "MS NV";
 
 
 
-                            Excel.Range row5_TieuDe3 = oSheet.get_Range("D7", "D8");
+                            Excel.Range row5_TieuDe3 = oSheet.get_Range("D4", "D5");
                             row5_TieuDe3.Merge();
                             row5_TieuDe3.Font.Name = fontName;
                             row5_TieuDe3.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -318,7 +338,7 @@ namespace Vs.TimeAttendance
                             row5_TieuDe3.Interior.Color = Color.Yellow;
                             row5_TieuDe3.Value2 = "Công việc";
 
-                            Excel.Range row5_TieuDe4 = oSheet.get_Range("E7", "E8");
+                            Excel.Range row5_TieuDe4 = oSheet.get_Range("E4", "E5");
                             row5_TieuDe4.Merge();
                             row5_TieuDe4.Font.Name = fontName;
                             row5_TieuDe4.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -328,40 +348,40 @@ namespace Vs.TimeAttendance
                             row5_TieuDe4.Interior.Color = Color.Yellow;
                             row5_TieuDe4.Value2 = "P.Ban/X.Nghiệp";
 
-                            Excel.Range row5_TieuDe6 = oSheet.get_Range("F7", "F8");
+                            Excel.Range row5_TieuDe6 = oSheet.get_Range("F4", "F5");
                             row5_TieuDe6.Merge();
                             row5_TieuDe6.Font.Name = fontName;
                             row5_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5_TieuDe6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                             row5_TieuDe6.Font.Bold = true;
                             row5_TieuDe6.WrapText = true;
-                            row5_TieuDe6.ColumnWidth = 15;
+                            row5_TieuDe6.ColumnWidth = 25;
                             row5_TieuDe6.Interior.Color = Color.Yellow;
                             row5_TieuDe6.Value2 = "Tổ";
 
-                            Excel.Range row5_TieuDe61 = oSheet.get_Range("G7", "G8");
+                            Excel.Range row5_TieuDe61 = oSheet.get_Range("G4", "G5");
                             row5_TieuDe61.Merge();
                             row5_TieuDe61.Font.Name = fontName;
                             row5_TieuDe61.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5_TieuDe61.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                             row5_TieuDe61.Font.Bold = true;
                             row5_TieuDe61.WrapText = true;
-                            row5_TieuDe61.ColumnWidth = 10;
+                            row5_TieuDe61.ColumnWidth = 12;
                             row5_TieuDe61.Interior.Color = Color.Yellow;
                             row5_TieuDe61.Value2 = "Ngày vào công ty";
 
-                            Excel.Range row4_TieuDe6 = oSheet.get_Range("H7", "H8");
+                            Excel.Range row4_TieuDe6 = oSheet.get_Range("H4", "H5");
                             row4_TieuDe6.Merge();
                             row4_TieuDe6.Font.Name = fontName;
                             row4_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row4_TieuDe6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                             row4_TieuDe6.Font.Bold = true;
-                            row4_TieuDe6.ColumnWidth = 10;
+                            row4_TieuDe6.ColumnWidth = 12;
                             row4_TieuDe6.WrapText = true;
                             row4_TieuDe6.Interior.Color = Color.Yellow;
                             row4_TieuDe6.Value2 = "Ngày ký hợp đồng";
 
-                            Excel.Range row4_TieuDe6a = oSheet.get_Range("I7","I8");
+                            Excel.Range row4_TieuDe6a = oSheet.get_Range("I4","I5");
                             row4_TieuDe6a.Merge();
                             row4_TieuDe6a.Font.Name = fontName;
                             row4_TieuDe6a.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -372,7 +392,7 @@ namespace Vs.TimeAttendance
                             row4_TieuDe6a.Interior.Color = Color.Yellow;
                             row4_TieuDe6a.Value2 = "Ngày phép cộng thêm";
 
-                            Excel.Range row5_TieuDe6a = oSheet.get_Range("J7", "J8");
+                            Excel.Range row5_TieuDe6a = oSheet.get_Range("J4", "J5");
                             row5_TieuDe6a.Merge();
                             row5_TieuDe6a.Font.Name = fontName;
                             row5_TieuDe6a.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -383,7 +403,7 @@ namespace Vs.TimeAttendance
                             row5_TieuDe6a.Interior.Color = Color.Yellow;
                             row5_TieuDe6a.Value2 = "Ngày phép thâm niên";
 
-                            Excel.Range row5a_TieuDe6 = oSheet.get_Range("K7","K8");
+                            Excel.Range row5a_TieuDe6 = oSheet.get_Range("K4","K5");
                             row5a_TieuDe6.Merge();
                             row5a_TieuDe6.Font.Name = fontName;
                             row5a_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -394,7 +414,7 @@ namespace Vs.TimeAttendance
                             row5a_TieuDe6.Interior.Color = Color.Yellow;
                             row5a_TieuDe6.Value2 = "Ngày phép ứng trước";
 
-                            Excel.Range row5b_TieuDe6 = oSheet.get_Range("L7","W7");
+                            Excel.Range row5b_TieuDe6 = oSheet.get_Range("L4","W4");
                             row5b_TieuDe6.Merge();
                             row5b_TieuDe6.Font.Name = fontName;
                             row5b_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -403,7 +423,7 @@ namespace Vs.TimeAttendance
                             row5b_TieuDe6.Interior.Color = Color.Yellow;
                             row5b_TieuDe6.Value2 = "Năm "+ Convert.ToDateTime(cboThang.EditValue).ToString("yyyy");
 
-                            Excel.Range row5c_TieuDe6 = oSheet.get_Range("L8");
+                            Excel.Range row5c_TieuDe6 = oSheet.get_Range("L5");
                             row5c_TieuDe6.Font.Name = fontName;
                             row5c_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDe6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -413,7 +433,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDe6.ColumnWidth = 7;
                             row5c_TieuDe6.Value2 = "Tháng 1";
 
-                            Excel.Range row5c_TieuDeT2 = oSheet.get_Range("M8");
+                            Excel.Range row5c_TieuDeT2 = oSheet.get_Range("M5");
                             row5c_TieuDeT2.Font.Name = fontName;
                             row5c_TieuDeT2.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT2.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -423,7 +443,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT2.ColumnWidth = 7;
                             row5c_TieuDeT2.Value2 = "Tháng 2";
 
-                            Excel.Range row5c_TieuDeT3 = oSheet.get_Range("N8");
+                            Excel.Range row5c_TieuDeT3 = oSheet.get_Range("N5");
                             row5c_TieuDeT3.Font.Name = fontName;
                             row5c_TieuDeT3.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT3.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -433,7 +453,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT3.ColumnWidth = 7;
                             row5c_TieuDeT3.Value2 = "Tháng 3";
 
-                            Excel.Range row5c_TieuDeT4 = oSheet.get_Range("O8");
+                            Excel.Range row5c_TieuDeT4 = oSheet.get_Range("O5");
                             row5c_TieuDeT4.Font.Name = fontName;
                             row5c_TieuDeT4.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT4.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -443,7 +463,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT4.ColumnWidth = 7;
                             row5c_TieuDeT4.Value2 = "Tháng 4";
 
-                            Excel.Range row5c_TieuDeT5 = oSheet.get_Range("P8");
+                            Excel.Range row5c_TieuDeT5 = oSheet.get_Range("P5");
                             row5c_TieuDeT5.Font.Name = fontName;
                             row5c_TieuDeT5.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT5.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -453,7 +473,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT5.ColumnWidth = 7;
                             row5c_TieuDeT5.Value2 = "Tháng 5";
 
-                            Excel.Range row5c_TieuDeT6 = oSheet.get_Range("Q8");
+                            Excel.Range row5c_TieuDeT6 = oSheet.get_Range("Q5");
                             row5c_TieuDeT6.Font.Name = fontName;
                             row5c_TieuDeT6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -463,7 +483,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT6.ColumnWidth = 7;
                             row5c_TieuDeT6.Value2 = "Tháng 6";
 
-                            Excel.Range row5c_TieuDeT7 = oSheet.get_Range("R8");
+                            Excel.Range row5c_TieuDeT7 = oSheet.get_Range("R5");
                             row5c_TieuDeT7.Font.Name = fontName;
                             row5c_TieuDeT7.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT7.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -473,7 +493,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT7.ColumnWidth = 7;
                             row5c_TieuDeT7.Value2 = "Tháng 7";
 
-                            Excel.Range row5c_TieuDeT8 = oSheet.get_Range("S8");
+                            Excel.Range row5c_TieuDeT8 = oSheet.get_Range("S5");
                             row5c_TieuDeT8.Font.Name = fontName;
                             row5c_TieuDeT8.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT8.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -483,7 +503,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT8.ColumnWidth = 7;
                             row5c_TieuDeT8.Value2 = "Tháng 8";
 
-                            Excel.Range row5c_TieuDeT9 = oSheet.get_Range("T8");
+                            Excel.Range row5c_TieuDeT9 = oSheet.get_Range("T5");
                             row5c_TieuDeT9.Font.Name = fontName;
                             row5c_TieuDeT9.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT9.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -493,7 +513,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT9.ColumnWidth = 7;
                             row5c_TieuDeT9.Value2 = "Tháng 9";
 
-                            Excel.Range row5c_TieuDeT10 = oSheet.get_Range("U8");
+                            Excel.Range row5c_TieuDeT10 = oSheet.get_Range("U5");
                             row5c_TieuDeT10.Font.Name = fontName;
                             row5c_TieuDeT10.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT10.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -503,7 +523,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT10.ColumnWidth = 7;
                             row5c_TieuDeT10.Value2 = "Tháng 10";
 
-                            Excel.Range row5c_TieuDeT11 = oSheet.get_Range("V8");
+                            Excel.Range row5c_TieuDeT11 = oSheet.get_Range("V5");
                             row5c_TieuDeT11.Font.Name = fontName;
                             row5c_TieuDeT11.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT11.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -513,7 +533,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT11.ColumnWidth = 7;
                             row5c_TieuDeT11.Value2 = "Tháng 11";
 
-                            Excel.Range row5c_TieuDeT12 = oSheet.get_Range("W8");
+                            Excel.Range row5c_TieuDeT12 = oSheet.get_Range("W5");
                             row5c_TieuDeT12.Font.Name = fontName;
                             row5c_TieuDeT12.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             row5c_TieuDeT12.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -523,10 +543,7 @@ namespace Vs.TimeAttendance
                             row5c_TieuDeT12.ColumnWidth = 7;
                             row5c_TieuDeT12.Value2 = "Tháng 12";
 
-
-
-
-                            Excel.Range row5_TieuDe8 = oSheet.get_Range("X7", "X8");
+                            Excel.Range row5_TieuDe8 = oSheet.get_Range("X4", "X5");
                             row5_TieuDe8.Merge();
                             row5_TieuDe8.Font.Name = fontName;
                             row5_TieuDe8.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -537,7 +554,7 @@ namespace Vs.TimeAttendance
                             row5_TieuDe8.Interior.Color = Color.Yellow;
                             row5_TieuDe8.Value2 = "Đã nghỉ (tính đến tháng hiện tại)";
 
-                            Excel.Range row5a_TieuDe8a = oSheet.get_Range("Y7","Y8");
+                            Excel.Range row5a_TieuDe8a = oSheet.get_Range("Y4","Y5");
                             row5a_TieuDe8a.Merge();
                             row5a_TieuDe8a.Font.Name = fontName;
                             row5a_TieuDe8a.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -548,7 +565,7 @@ namespace Vs.TimeAttendance
                             row5a_TieuDe8a.Interior.Color = Color.Yellow;
                             row5a_TieuDe8a.Value2 = "Tiêu chuẩn phép (tính đến tháng hiện tại)";
 
-                            Excel.Range row5b_TieuDe8b = oSheet.get_Range("Z7", "Z8");
+                            Excel.Range row5b_TieuDe8b = oSheet.get_Range("Z4", "Z5");
                             row5b_TieuDe8b.Font.Name = fontName;
                             row5b_TieuDe8b.Merge();
                             row5b_TieuDe8b.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -559,7 +576,7 @@ namespace Vs.TimeAttendance
                             row5b_TieuDe8b.Interior.Color = Color.Yellow;
                             row5b_TieuDe8b.Value2 = "Còn lại";
 
-                            Excel.Range row5c_TieuDe8c = oSheet.get_Range("AA7","AA8");
+                            Excel.Range row5c_TieuDe8c = oSheet.get_Range("AA4","AA5");
                             row5c_TieuDe8c.Font.Name = fontName;
                             row5c_TieuDe8c.Merge();
                             row5c_TieuDe8c.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -572,7 +589,7 @@ namespace Vs.TimeAttendance
 
                            
 
-                            Excel.Range rowtb_TieuDe6 = oSheet.get_Range("AB7", "AN7");
+                            Excel.Range rowtb_TieuDe6 = oSheet.get_Range("AB4", "AN4");
                             rowtb_TieuDe6.Merge();
                             rowtb_TieuDe6.Font.Name = fontName;
                             rowtb_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -581,7 +598,7 @@ namespace Vs.TimeAttendance
                             rowtb_TieuDe6.Interior.Color = Color.Yellow;
                             rowtb_TieuDe6.Value2 = "Thanh toán phép của năm";
 
-                            Excel.Range rowtc_TieuDe6 = oSheet.get_Range("AB8");
+                            Excel.Range rowtc_TieuDe6 = oSheet.get_Range("AB5");
                             rowtc_TieuDe6.Font.Name = fontName;
                             rowtc_TieuDe6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDe6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -591,7 +608,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDe6.ColumnWidth = 7;
                             rowtc_TieuDe6.Value2 = "Tháng 1";
 
-                            Excel.Range rowtc_TieuDeT2 = oSheet.get_Range("AC8");
+                            Excel.Range rowtc_TieuDeT2 = oSheet.get_Range("AC5");
                             rowtc_TieuDeT2.Font.Name = fontName;
                             rowtc_TieuDeT2.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT2.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -601,7 +618,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT2.ColumnWidth = 7;
                             rowtc_TieuDeT2.Value2 = "Tháng 2";
 
-                            Excel.Range rowtc_TieuDeT3 = oSheet.get_Range("AD8");
+                            Excel.Range rowtc_TieuDeT3 = oSheet.get_Range("AD5");
                             rowtc_TieuDeT3.Font.Name = fontName;
                             rowtc_TieuDeT3.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT3.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -611,7 +628,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT3.ColumnWidth = 7;
                             rowtc_TieuDeT3.Value2 = "Tháng 3";
 
-                            Excel.Range rowtc_TieuDeT4 = oSheet.get_Range("AE8");
+                            Excel.Range rowtc_TieuDeT4 = oSheet.get_Range("AE5");
                             rowtc_TieuDeT4.Font.Name = fontName;
                             rowtc_TieuDeT4.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT4.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -621,7 +638,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT4.ColumnWidth = 7;
                             rowtc_TieuDeT4.Value2 = "Tháng 4";
 
-                            Excel.Range rowtc_TieuDeT5 = oSheet.get_Range("AF8");
+                            Excel.Range rowtc_TieuDeT5 = oSheet.get_Range("AF5");
                             rowtc_TieuDeT5.Font.Name = fontName;
                             rowtc_TieuDeT5.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT5.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -631,7 +648,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT5.ColumnWidth = 7;
                             rowtc_TieuDeT5.Value2 = "Tháng 5";
 
-                            Excel.Range rowtc_TieuDeT6 = oSheet.get_Range("AG8");
+                            Excel.Range rowtc_TieuDeT6 = oSheet.get_Range("AG5");
                             rowtc_TieuDeT6.Font.Name = fontName;
                             rowtc_TieuDeT6.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT6.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -641,7 +658,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT6.ColumnWidth = 7;
                             rowtc_TieuDeT6.Value2 = "Tháng 6";
 
-                            Excel.Range rowtc_TieuDeT7 = oSheet.get_Range("AH8");
+                            Excel.Range rowtc_TieuDeT7 = oSheet.get_Range("AH5");
                             rowtc_TieuDeT7.Font.Name = fontName;
                             rowtc_TieuDeT7.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT7.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -651,7 +668,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT7.ColumnWidth = 7;
                             rowtc_TieuDeT7.Value2 = "Tháng 7";
 
-                            Excel.Range rowtc_TieuDeT8 = oSheet.get_Range("AI8");
+                            Excel.Range rowtc_TieuDeT8 = oSheet.get_Range("AI5");
                             rowtc_TieuDeT8.Font.Name = fontName;
                             rowtc_TieuDeT8.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT8.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -661,7 +678,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT8.ColumnWidth = 7;
                             rowtc_TieuDeT8.Value2 = "Tháng 8";
 
-                            Excel.Range rowtc_TieuDeT9 = oSheet.get_Range("AJ8");
+                            Excel.Range rowtc_TieuDeT9 = oSheet.get_Range("AJ5");
                             rowtc_TieuDeT9.Font.Name = fontName;
                             rowtc_TieuDeT9.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT9.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -671,7 +688,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT9.ColumnWidth = 7;
                             rowtc_TieuDeT9.Value2 = "Tháng 9";
 
-                            Excel.Range rowtc_TieuDeT10 = oSheet.get_Range("AK8");
+                            Excel.Range rowtc_TieuDeT10 = oSheet.get_Range("AK5");
                             rowtc_TieuDeT10.Font.Name = fontName;
                             rowtc_TieuDeT10.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT10.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -681,7 +698,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT10.ColumnWidth = 7;
                             rowtc_TieuDeT10.Value2 = "Tháng 10";
 
-                            Excel.Range rowtc_TieuDeT11 = oSheet.get_Range("AL8");
+                            Excel.Range rowtc_TieuDeT11 = oSheet.get_Range("AL5");
                             rowtc_TieuDeT11.Font.Name = fontName;
                             rowtc_TieuDeT11.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT11.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -691,7 +708,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT11.ColumnWidth = 7;
                             rowtc_TieuDeT11.Value2 = "Tháng 11";
 
-                            Excel.Range rowtc_TieuDeT12 = oSheet.get_Range("AM8");
+                            Excel.Range rowtc_TieuDeT12 = oSheet.get_Range("AM5");
                             rowtc_TieuDeT12.Font.Name = fontName;
                             rowtc_TieuDeT12.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDeT12.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -701,7 +718,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDeT12.ColumnWidth = 7;
                             rowtc_TieuDeT12.Value2 = "Tháng 12";
 
-                            Excel.Range rowtc_TieuDet = oSheet.get_Range("AN8");
+                            Excel.Range rowtc_TieuDet = oSheet.get_Range("AN5");
                             rowtc_TieuDet.Font.Name = fontName;
                             rowtc_TieuDet.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                             rowtc_TieuDet.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -711,7 +728,7 @@ namespace Vs.TimeAttendance
                             rowtc_TieuDet.ColumnWidth = 6;
                             rowtc_TieuDet.Value2 = "Tổng";
 
-                            Excel.Range row5_TieuDe7 = oSheet.get_Range("AO7", "AO8");
+                            Excel.Range row5_TieuDe7 = oSheet.get_Range("AO4", "AO5");
                             row5_TieuDe7.Merge();
                             row5_TieuDe7.Font.Name = fontName;
                             row5_TieuDe7.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -721,83 +738,58 @@ namespace Vs.TimeAttendance
                             row5_TieuDe7.WrapText = true;
                             row5_TieuDe7.ColumnWidth = 11;
                             row5_TieuDe7.Value2 = "Ghi tháng không được tính phép";
-                         
 
-                            //tô màu
-                            //Range range = oSheet.get_Range("A" + redRows.ToString(), "J" + redRows.ToString());
-                            //range.Cells.Interior.Color = System.Drawing.Color.Red;
+                            DataRow[] dr = dtBCPhep.Select();
+                            string[,] rowData = new string[dr.Length, dtBCPhep.Columns.Count];
+                            int col = 0;
+                            int rowCnt = 0;
+                            foreach (DataRow row in dr)
+                            {
+                                for (col = 0; col < dtBCPhep.Columns.Count; col++)
+                                {
+                                    rowData[rowCnt, col] = row[col].ToString();
+                                }
 
+                                rowCnt++;
+                            }
+                            rowCnt = rowCnt + 5;
+                            oSheet.get_Range("A6", "AO" + rowCnt.ToString()).Value2 = rowData;
+                            oSheet.get_Range("A6", "AO" + rowCnt.ToString()).Font.Name = fontName;
+                            oSheet.get_Range("A6", "AO" + rowCnt.ToString()).Font.Size = fontSizeNoiDung;
+                            ////Kẻ khung toàn bộ
+                            BorderAround(oSheet.get_Range("A4", "AO" + rowCnt.ToString()));
 
                             Excel.Range formatRange;
-                            int col = 6;
+                            formatRange = oSheet.get_Range("I6", "I" + rowCnt.ToString());
+                            formatRange.NumberFormat = "#,##0";
+                            formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            formatRange.TextToColumns(Type.Missing, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote);
+
+                            formatRange = oSheet.get_Range("J6", "J" + rowCnt.ToString());
+                            formatRange.NumberFormat = "#,##0";
+                            formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            formatRange.TextToColumns(Type.Missing, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote);
 
 
-
-                            //DataRow[] dr = dtBCGaiDoan.Select();
-                            //string[,] rowData = new string[dr.Length, dtBCGaiDoan.Columns.Count];
-
-                            //int rowCnt = 0;
-                            ////int redRows = 7;
-                            //foreach (DataRow row in dr)
-                            //{
-                            //    for (col = 0; col < dtBCGaiDoan.Columns.Count; col++)
-                            //    {
-                            //        rowData[rowCnt, col] = row[col].ToString();
-                            //    }
-
-                            //    rowCnt++;
-                            //}
-                            //oSheet.get_Range("A6", lastColumn + (rowCnt + 5).ToString()).Value2 = rowData;
-                            //rowCnt = rowCnt + 5;
-                            ////string CurentColumn = string.Empty;
-                            ////for (col = 5; col < dtBCGaiDoan.Columns.Count; col++)
-                            ////{
-                            ////    CurentColumn = CharacterIncrement(col);
-                            ////    formatRange = oSheet.get_Range(CurentColumn + "6", CurentColumn + rowCnt.ToString());
-                            ////    formatRange.NumberFormat = "#,##0;(#,##0); ; ";
-                            ////    formatRange.TextToColumns(Type.Missing, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote);
-                            ////}
-
-                            ////Kẻ khung toàn bộ
-                            formatRange = oSheet.get_Range("A7", "AO17");
-                            formatRange.Borders.Color = Color.Black;
-
-                            //dữ liệu
-                            //formatRange = oSheet.get_Range("A6", lastColumn + rowCnt.ToString());
-                            //formatRange.Font.Name = fontName;
-                            //formatRange.Font.Size = fontSizeNoiDung;
-
-                            ////stt
-
-                            //formatRange = oSheet.get_Range("A5", "A" + rowCnt.ToString());
+                            //formatRange = oSheet.get_Range("L6", "L" + rowCnt.ToString());
+                            //formatRange.NumberFormat = "#,##0.0;(#,##0.0); ; ";
                             //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                            //formatRange.ColumnWidth = 5;
-                            ////ma nv
-                            //formatRange = oSheet.get_Range("B5", "B" + rowCnt.ToString());
-                            //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                            //formatRange.ColumnWidth = 40;
-                            ////ho ten
-                            //formatRange = oSheet.get_Range("C5", "C" + (rowCnt + 5).ToString());
-                            //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                            //formatRange.ColumnWidth = 11;
-                            ////xí nghiệp
-                            //formatRange = oSheet.get_Range("D5", "D" + rowCnt.ToString());
-                            //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                            //formatRange.ColumnWidth = 10;
-                            ////tổ
-                            //formatRange = oSheet.get_Range("E5", "E" + rowCnt.ToString());
-                            //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                            //formatRange.ColumnWidth = 10;
+                            //formatRange.TextToColumns(Type.Missing, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote);
 
-                            ////CẠNH giữ côt động
-                            //formatRange = oSheet.get_Range("F3", lastColumn + "4");
-                            //formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                            //oWB.SaveAs("D:\\BaoCaoLaoDongThang.xlsx",
-                            //AccessMode: Excel.XlSaveAsAccessMode.xlShared);
+                            string CurrentColumn = string.Empty;
+                            for (col = 10; col < 40; col++)
+                            {
+                                CurrentColumn = CharacterIncrement(col);
+                                formatRange = oSheet.get_Range(CurrentColumn + "6", CurrentColumn + rowCnt.ToString());
+                                formatRange.NumberFormat = "#,##0.0;(#,##0.0); ; ";
+                                formatRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                                formatRange.TextToColumns(Type.Missing, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote);
+                            }
+
                         }
                         catch (Exception ex)
                         {
-
+                            XtraMessageBox.Show(ex.Message);
                         }
                     }
                     break;
@@ -836,7 +828,7 @@ namespace Vs.TimeAttendance
                 dt.Columns[1].ReadOnly = true;
                 dt.Columns[2].ReadOnly = true;
                 dt.Columns[3].ReadOnly = true;
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdPhepThang, grvPhepThang, dt, bThem, true, false, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdPhepThang, grvPhepThang, dt, bThem, true, false, true, true,this.Name);
                 grvPhepThang.Columns["MS_CN"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 grvPhepThang.Columns["HO_TEN"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 grvPhepThang.Columns["NGAY_VAO_LAM"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -875,15 +867,18 @@ namespace Vs.TimeAttendance
         private void enableButon(bool visible)
         {
             windowsUIButton.Buttons[0].Properties.Visible = visible;
+            windowsUIButton.Buttons[1].Properties.Visible = visible;
+            windowsUIButton.Buttons[2].Properties.Visible = visible;
             windowsUIButton.Buttons[3].Properties.Visible = visible;
             windowsUIButton.Buttons[4].Properties.Visible = visible;
             windowsUIButton.Buttons[5].Properties.Visible = visible;
             windowsUIButton.Buttons[7].Properties.Visible = visible;
 
-            windowsUIButton.Buttons[1].Properties.Visible = !visible;
-            windowsUIButton.Buttons[2].Properties.Visible = !visible;
             windowsUIButton.Buttons[8].Properties.Visible = !visible;
             windowsUIButton.Buttons[9].Properties.Visible = !visible;
+            windowsUIButton.Buttons[10].Properties.Visible = !visible;
+            windowsUIButton.Buttons[11].Properties.Visible = !visible;
+            windowsUIButton.Buttons[12].Properties.Visible = !visible;
 
             //searchControl.Visible = visible;
             cboThang.Properties.ReadOnly = !visible;
@@ -903,7 +898,6 @@ namespace Vs.TimeAttendance
         {
             try
             {
-
                 //ItemForDateThang.Visibility = LayoutVisibility.Never;
                 DataTable dtthang = new DataTable();
                 string sSql = "SELECT disTINCT SUBSTRING(CONVERT(VARCHAR(10),THANG,103),4,2) as M, RIGHT(CONVERT(VARCHAR(10),THANG,103),4) AS Y ,RIGHT(CONVERT(VARCHAR(10),THANG,103),7) AS THANG FROM dbo.PHEP_THANG ORDER BY Y DESC , M DESC";
@@ -952,5 +946,35 @@ namespace Vs.TimeAttendance
             cboThang.ClosePopup();
 
         }
+
+        private void BorderAround(Excel.Range range)
+        {
+            Excel.Borders borders = range.Borders;
+            borders[Excel.XlBordersIndex.xlEdgeLeft].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders[Excel.XlBordersIndex.xlEdgeRight].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders.Color = Color.Black;
+            borders[Excel.XlBordersIndex.xlInsideVertical].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders[Excel.XlBordersIndex.xlInsideHorizontal].LineStyle = Excel.XlLineStyle.xlContinuous;
+            borders[Excel.XlBordersIndex.xlDiagonalUp].LineStyle = Excel.XlLineStyle.xlLineStyleNone;
+            borders[Excel.XlBordersIndex.xlDiagonalDown].LineStyle = Excel.XlLineStyle.xlLineStyleNone;
+        }
+        private static void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                obj = null;
+            }
+            finally
+            { GC.Collect(); }
+        }
+
     }
 }

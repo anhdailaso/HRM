@@ -194,7 +194,7 @@
             // 
             // grvQT
             // 
-            this.grvQT.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvQT.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("VNI-Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvQT.Appearance.ColumnFilterButton.Options.UseFont = true;
             this.grvQT.DetailHeight = 349;
             this.grvQT.GridControl = this.grdQT;

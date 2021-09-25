@@ -14,6 +14,7 @@ namespace Vs.Report
 
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
+            NONlblTIEU_DE.Text = tieuDe;
             DataTable dtNgu = new DataTable();
             dtNgu.Load(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'NgayThangNam' "));
 
@@ -26,6 +27,29 @@ namespace Vs.Report
                 Commons.Modules.ObjSystems.GetNN(dtNgu, "Nam", "NgayThangNam") + " " + Nam.Substring(Nam.Length - 4, 4);
 
         }
+        private void NONNDocTien_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double fSum = 0;
+            try
+            {
+                fSum = Convert.ToDouble(txtTongTienPhep.Summary.GetResult());
+            }
+            catch
+            {
+            }
+            int a = (int)Math.Round(fSum);
 
+            string sSql = "SELECT dbo.DoiTienSoThanhChuTiengViet('" + a.ToString() + "','vnd')";
+            string bangChu = ".";
+            try
+            {
+                bangChu = Convert.ToString(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, System.Data.CommandType.Text, sSql));
+            }
+            catch
+            {
+                bangChu = ".";
+            }
+            NONNDocTien.Text = bangChu + ".";
+        }
     }
 }

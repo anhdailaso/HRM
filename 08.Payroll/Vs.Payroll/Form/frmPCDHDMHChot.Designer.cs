@@ -101,18 +101,17 @@
             this.tableLayoutPanel1.Controls.Add(this.grdHD, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 4F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 4F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 421);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1051, 633);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblTD
@@ -124,10 +123,9 @@
             this.lblTD.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.tableLayoutPanel1.SetColumnSpan(this.lblTD, 8);
             this.lblTD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTD.Location = new System.Drawing.Point(2, 6);
-            this.lblTD.Margin = new System.Windows.Forms.Padding(2);
+            this.lblTD.Location = new System.Drawing.Point(3, 9);
             this.lblTD.Name = "lblTD";
-            this.lblTD.Size = new System.Drawing.Size(792, 17);
+            this.lblTD.Size = new System.Drawing.Size(1045, 26);
             this.lblTD.TabIndex = 35;
             this.lblTD.Text = "CHỌN MÃ HÀNG ORDER SỐ LƯỢNG CHỐT THÁNG ";
             // 
@@ -135,13 +133,13 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.optHT, 2);
             this.optHT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optHT.Location = new System.Drawing.Point(37, 26);
-            this.optHT.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.optHT.Location = new System.Drawing.Point(49, 40);
+            this.optHT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.optHT.Name = "optHT";
             this.optHT.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đang sản xuất", true, null, "optXemCu"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Hoàn thành", true, null, "optLapMoi")});
-            this.optHT.Size = new System.Drawing.Size(237, 19);
+            this.optHT.Size = new System.Drawing.Size(312, 28);
             this.optHT.TabIndex = 34;
             this.optHT.SelectedIndexChanged += new System.EventHandler(this.optHT_SelectedIndexChanged);
             // 
@@ -149,8 +147,7 @@
             // 
             this.cboHD.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboHD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboHD.Location = new System.Drawing.Point(133, 48);
-            this.cboHD.Margin = new System.Windows.Forms.Padding(2);
+            this.cboHD.Location = new System.Drawing.Point(175, 73);
             this.cboHD.Name = "cboHD";
             this.cboHD.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
             this.cboHD.Properties.Appearance.Options.UseFont = true;
@@ -158,7 +155,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboHD.Properties.NullText = "";
             this.cboHD.Properties.PopupView = this.searchLookUpEdit3View;
-            this.cboHD.Size = new System.Drawing.Size(141, 28);
+            this.cboHD.Size = new System.Drawing.Size(186, 28);
             this.cboHD.TabIndex = 36;
             this.cboHD.EditValueChanged += new System.EventHandler(this.cboHD_EditValueChanged_1);
             // 
@@ -177,8 +174,7 @@
             // 
             this.cboMH.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMH.Location = new System.Drawing.Point(374, 48);
-            this.cboMH.Margin = new System.Windows.Forms.Padding(2);
+            this.cboMH.Location = new System.Drawing.Point(493, 73);
             this.cboMH.Name = "cboMH";
             this.cboMH.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
             this.cboMH.Properties.Appearance.Options.UseFont = true;
@@ -186,7 +182,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMH.Properties.NullText = "";
             this.cboMH.Properties.PopupView = this.gridView1;
-            this.cboMH.Size = new System.Drawing.Size(141, 28);
+            this.cboMH.Size = new System.Drawing.Size(186, 28);
             this.cboMH.TabIndex = 36;
             this.cboMH.EditValueChanged += new System.EventHandler(this.cboMH_EditValueChanged);
             // 
@@ -205,8 +201,7 @@
             // 
             this.cboOrd.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboOrd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboOrd.Location = new System.Drawing.Point(615, 48);
-            this.cboOrd.Margin = new System.Windows.Forms.Padding(2);
+            this.cboOrd.Location = new System.Drawing.Point(811, 73);
             this.cboOrd.Name = "cboOrd";
             this.cboOrd.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
             this.cboOrd.Properties.Appearance.Options.UseFont = true;
@@ -214,7 +209,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboOrd.Properties.NullText = "";
             this.cboOrd.Properties.PopupView = this.gridView2;
-            this.cboOrd.Size = new System.Drawing.Size(141, 28);
+            this.cboOrd.Size = new System.Drawing.Size(186, 28);
             this.cboOrd.TabIndex = 36;
             this.cboOrd.EditValueChanged += new System.EventHandler(this.cboOrd_EditValueChanged);
             // 
@@ -232,50 +227,45 @@
             // lblHopDong
             // 
             this.lblHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHopDong.Location = new System.Drawing.Point(37, 48);
-            this.lblHopDong.Margin = new System.Windows.Forms.Padding(2);
+            this.lblHopDong.Location = new System.Drawing.Point(49, 73);
             this.lblHopDong.Name = "lblHopDong";
-            this.lblHopDong.Size = new System.Drawing.Size(92, 17);
+            this.lblHopDong.Size = new System.Drawing.Size(120, 26);
             this.lblHopDong.TabIndex = 35;
             this.lblHopDong.Text = "Hợp đồng";
             // 
             // lblMaHang
             // 
             this.lblMaHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMaHang.Location = new System.Drawing.Point(278, 48);
-            this.lblMaHang.Margin = new System.Windows.Forms.Padding(2);
+            this.lblMaHang.Location = new System.Drawing.Point(367, 73);
             this.lblMaHang.Name = "lblMaHang";
-            this.lblMaHang.Size = new System.Drawing.Size(92, 17);
+            this.lblMaHang.Size = new System.Drawing.Size(120, 26);
             this.lblMaHang.TabIndex = 35;
             this.lblMaHang.Text = "Mã hàng";
             // 
             // lblOrder
             // 
             this.lblOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOrder.Location = new System.Drawing.Point(519, 48);
-            this.lblOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.lblOrder.Location = new System.Drawing.Point(685, 73);
             this.lblOrder.Name = "lblOrder";
-            this.lblOrder.Size = new System.Drawing.Size(92, 17);
+            this.lblOrder.Size = new System.Drawing.Size(120, 26);
             this.lblOrder.TabIndex = 35;
             this.lblOrder.Text = "Order";
             // 
             // lblChuyenSD
             // 
             this.lblChuyenSD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblChuyenSD.Location = new System.Drawing.Point(37, 69);
-            this.lblChuyenSD.Margin = new System.Windows.Forms.Padding(2);
+            this.lblChuyenSD.Location = new System.Drawing.Point(49, 105);
             this.lblChuyenSD.Name = "lblChuyenSD";
-            this.lblChuyenSD.Size = new System.Drawing.Size(92, 25);
+            this.lblChuyenSD.Size = new System.Drawing.Size(120, 39);
             this.lblChuyenSD.TabIndex = 35;
             this.lblChuyenSD.Text = "Chuyền QTCN";
             // 
             // lblChuyen
             // 
             this.lblChuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblChuyen.Location = new System.Drawing.Point(278, 69);
-            this.lblChuyen.Margin = new System.Windows.Forms.Padding(2);
+            this.lblChuyen.Location = new System.Drawing.Point(367, 105);
             this.lblChuyen.Name = "lblChuyen";
-            this.lblChuyen.Size = new System.Drawing.Size(92, 25);
+            this.lblChuyen.Size = new System.Drawing.Size(120, 39);
             this.lblChuyen.TabIndex = 35;
             this.lblChuyen.Text = "Chuyền TH";
             // 
@@ -283,8 +273,7 @@
             // 
             this.cboChuSD.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboChuSD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboChuSD.Location = new System.Drawing.Point(133, 69);
-            this.cboChuSD.Margin = new System.Windows.Forms.Padding(2);
+            this.cboChuSD.Location = new System.Drawing.Point(175, 105);
             this.cboChuSD.Name = "cboChuSD";
             this.cboChuSD.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
             this.cboChuSD.Properties.Appearance.Options.UseFont = true;
@@ -292,7 +281,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboChuSD.Properties.NullText = "";
             this.cboChuSD.Properties.PopupView = this.gridView3;
-            this.cboChuSD.Size = new System.Drawing.Size(141, 28);
+            this.cboChuSD.Size = new System.Drawing.Size(186, 28);
             this.cboChuSD.TabIndex = 36;
             this.cboChuSD.EditValueChanged += new System.EventHandler(this.cboChuSD_EditValueChanged);
             // 
@@ -311,8 +300,7 @@
             // 
             this.cboChuTH.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboChuTH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboChuTH.Location = new System.Drawing.Point(374, 69);
-            this.cboChuTH.Margin = new System.Windows.Forms.Padding(2);
+            this.cboChuTH.Location = new System.Drawing.Point(493, 105);
             this.cboChuTH.Name = "cboChuTH";
             this.cboChuTH.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
             this.cboChuTH.Properties.Appearance.Options.UseFont = true;
@@ -320,7 +308,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboChuTH.Properties.NullText = "";
             this.cboChuTH.Properties.PopupView = this.gridView4;
-            this.cboChuTH.Size = new System.Drawing.Size(141, 28);
+            this.cboChuTH.Size = new System.Drawing.Size(186, 28);
             this.cboChuTH.TabIndex = 36;
             this.cboChuTH.EditValueChanged += new System.EventHandler(this.cboChuTH_EditValueChanged);
             // 
@@ -343,31 +331,29 @@
             this.panelControl2.Controls.Add(this.simpleButton1);
             this.panelControl2.Controls.Add(this.btnKChon);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(2, 394);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(2);
+            this.panelControl2.Location = new System.Drawing.Point(3, 592);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(792, 21);
+            this.panelControl2.Size = new System.Drawing.Size(1045, 32);
             this.panelControl2.TabIndex = 37;
             // 
             // searchControl2
             // 
             this.searchControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.searchControl2.Location = new System.Drawing.Point(2, 2);
-            this.searchControl2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.searchControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchControl2.Name = "searchControl2";
             this.searchControl2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl2.Size = new System.Drawing.Size(177, 20);
+            this.searchControl2.Size = new System.Drawing.Size(236, 26);
             this.searchControl2.TabIndex = 39;
             // 
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(664, 1);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThoat.Location = new System.Drawing.Point(875, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(124, 18);
+            this.btnThoat.Size = new System.Drawing.Size(165, 28);
             this.btnThoat.TabIndex = 0;
             this.btnThoat.Text = "Cập nhật và thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -375,10 +361,9 @@
             // simpleButton1
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Location = new System.Drawing.Point(479, 1);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.simpleButton1.Location = new System.Drawing.Point(628, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(92, 18);
+            this.simpleButton1.Size = new System.Drawing.Size(123, 28);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Chọn tất cả";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -386,10 +371,9 @@
             // btnKChon
             // 
             this.btnKChon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKChon.Location = new System.Drawing.Point(572, 1);
-            this.btnKChon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnKChon.Location = new System.Drawing.Point(753, 2);
             this.btnKChon.Name = "btnKChon";
-            this.btnKChon.Size = new System.Drawing.Size(92, 18);
+            this.btnKChon.Size = new System.Drawing.Size(123, 28);
             this.btnKChon.TabIndex = 0;
             this.btnKChon.Text = "Không chọn";
             this.btnKChon.Click += new System.EventHandler(this.btnKChon_Click);
@@ -397,10 +381,9 @@
             // btnThem
             // 
             this.btnThem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnThem.Location = new System.Drawing.Point(664, 69);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThem.Location = new System.Drawing.Point(874, 105);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(92, 25);
+            this.btnThem.Size = new System.Drawing.Size(123, 39);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -408,27 +391,30 @@
             // grdHD
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grdHD, 8);
-            this.grdHD.Location = new System.Drawing.Point(3, 99);
+            this.grdHD.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grdHD.Location = new System.Drawing.Point(4, 152);
             this.grdHD.MainView = this.grvHD;
+            this.grdHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grdHD.Name = "grdHD";
-            this.grdHD.Size = new System.Drawing.Size(790, 290);
+            this.grdHD.Size = new System.Drawing.Size(1043, 432);
             this.grdHD.TabIndex = 38;
             this.grdHD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvHD});
             // 
             // grvHD
             // 
+            this.grvHD.DetailHeight = 538;
+            this.grvHD.FixedLineWidth = 3;
             this.grvHD.GridControl = this.grdHD;
             this.grvHD.Name = "grvHD";
             this.grvHD.OptionsView.ShowGroupPanel = false;
             // 
             // frmPCDHDMHChot
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 421);
+            this.ClientSize = new System.Drawing.Size(1051, 633);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPCDHDMHChot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPCDHDMHChot";

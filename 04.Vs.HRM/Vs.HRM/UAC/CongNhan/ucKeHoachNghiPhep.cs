@@ -144,7 +144,7 @@ namespace Vs.HRM
         {
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanNghiPhep", cboSearch_DV.EditValue, cboSearch_XN.EditValue, cboSearch_TO.EditValue, dateNam.DateTime.Year,Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdDSCN, grvDSCN, dt, false, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdDSCN, grvDSCN, dt, false, false, true, true, true, this.Name);
             dt.Columns["CHON"].ReadOnly = false;
             grvDSCN.Columns["CHON"].Visible = false;
             if (cochon == false)
@@ -168,7 +168,7 @@ namespace Vs.HRM
             {
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListKeHoachNghiPhep", dateNam.DateTime.Year, grvDSCN.GetFocusedRowCellValue("ID_CN"), Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdKHNP, grvKHNP, dt, false, false, false, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdKHNP, grvKHNP, dt, false, false, false, true, true, this.Name);
                 Commons.Modules.ObjSystems.AddCombXtra("ID_LDV", "TEN_LDV", grvKHNP, "spGetComboLDV", "ID_LDV",this.Name);
 
                 RepositoryItemDateEdit dEditN = new RepositoryItemDateEdit();

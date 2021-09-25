@@ -16,7 +16,7 @@ namespace Vs.Payroll
         public frmEditCHUYEN(Int64 iId, Boolean bAddEdit)
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, windowsUIButtonPanel2);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, btnALL);
             iIdTo = iId;
             bAddEditTo = bAddEdit;
         }
@@ -64,7 +64,7 @@ namespace Vs.Payroll
                             if (!dxValidationProvider1.Validate()) return;
                             if(TOLookUpEdit.Text=="")
                             {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonTO"));
+                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_ChuaChonTo"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                                 TOLookUpEdit.Focus();
                                 return;
                             }
@@ -73,15 +73,6 @@ namespace Vs.Payroll
                                 STT_CHUYENTextEdit.EditValue,
                                 TEN_CHUYENTextEdit.EditValue, 
                                 TOLookUpEdit.EditValue
-                            //    @ID_CUM INT,
-                            //    @MS_CUM NVARCHAR(10),
-                            //    @TEN_CUM NVARCHAR(100),
-                            //    @STT SMALLINT,
-                            //    @ID_LSP INT,
-                            //    @TINH_TG BIT,
-                            //    @LOAI_CUM NVARCHAR(10),
-                            //    @CUM_PS BIT,
-                            //    @CUM_CUOI BIT
                                 ).ToString();
                             this.DialogResult = DialogResult.OK;
                             this.Close();
@@ -112,7 +103,7 @@ namespace Vs.Payroll
                     "", "", "", ""));
                 if (iKiem > 0)
                 {
-                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_STTChuyenDaTonTai"));
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_MaSoTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                     STT_CHUYENTextEdit.Focus();
                     return true;
                 }
@@ -123,7 +114,7 @@ namespace Vs.Payroll
 
                     if (Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, tenSql)) == Convert.ToString((TEN_CHUYENTextEdit.EditValue)))
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_TENChuyenNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_MaSoTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }

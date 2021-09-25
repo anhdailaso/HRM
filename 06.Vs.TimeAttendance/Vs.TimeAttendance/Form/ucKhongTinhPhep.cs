@@ -56,6 +56,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
+
             LoadThang();
             LoadGridKhongTinhPhep();
             Commons.Modules.sPS = "";
@@ -221,7 +222,7 @@ namespace Vs.TimeAttendance
                               + Convert.ToDateTime(cboThang.EditValue).ToString("yyyyMM") + "' AND ID_CN IN (SELECT ID_CN FROM "+ stbTemp
                               + ")INSERT INTO SO_THANG_KHONG_TP (ID_CN,THANG,SO_THANG,THANG_HT,"
                               + "TONG_ST, GHI_CHU) SELECT ID_CN, '" + Convert.ToDateTime(cboThang.EditValue).ToString("yyyyMMdd") 
-                              + "' THANG, SO_THANG, THANG_HT, TONG_ST, GHI_CHU FROM " + stbTemp + "";
+                              + "' THANG, SO_THANG, THANG_HT, TONG_ST, GHI_CHU FROM " + stbTemp + " WHERE TONG_ST > 0";
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
                 Commons.Modules.ObjSystems.XoaTable(stbTemp);
             }
@@ -235,8 +236,11 @@ namespace Vs.TimeAttendance
             windowsUIButton.Buttons[0].Properties.Visible = visible;
             windowsUIButton.Buttons[1].Properties.Visible = visible;
             windowsUIButton.Buttons[2].Properties.Visible = visible;
-            windowsUIButton.Buttons[3].Properties.Visible = !visible;
-            windowsUIButton.Buttons[4].Properties.Visible = !visible;
+            windowsUIButton.Buttons[3].Properties.Visible = visible;
+            windowsUIButton.Buttons[4].Properties.Visible = visible;
+            windowsUIButton.Buttons[5].Properties.Visible = visible;
+            windowsUIButton.Buttons[6].Properties.Visible = !visible;
+            windowsUIButton.Buttons[7].Properties.Visible = !visible;
 
             searchControl.Visible = true;
             //isAdd = !windowsUIButton.Buttons[0].Properties.Visible;

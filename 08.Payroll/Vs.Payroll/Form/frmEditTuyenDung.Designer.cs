@@ -41,6 +41,7 @@
             this.CUM_PSCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.CUM_CUOICheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.TINH_TGCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.TEN_LOAI_SAN_PHAMLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForTEN_CUM = new DevExpress.XtraLayout.LayoutControlItem();
@@ -48,13 +49,12 @@
             this.ItemForLOAI_SP = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMS_CUM = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForSTT_CUM = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForTINH_TG = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForCUM_PS = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForCUM_CUOI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForCUM_PS = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForTINH_TG = new DevExpress.XtraLayout.LayoutControlItem();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.windowsUIButtonPanel2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.btnALL = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.TEN_LOAI_SAN_PHAMLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MS_CUMTextEdit.Properties)).BeginInit();
@@ -64,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CUM_PSCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CUM_CUOICheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TINH_TGCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForTEN_CUM)).BeginInit();
@@ -71,13 +72,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForLOAI_SP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMS_CUM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSTT_CUM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForTINH_TG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_PS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_CUOI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_PS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForTINH_TG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -92,19 +92,19 @@
             this.dataLayoutControl1.Controls.Add(this.TINH_TGCheckEdit);
             this.dataLayoutControl1.Controls.Add(this.TEN_LOAI_SAN_PHAMLookUpEdit);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(83, 53);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(83, 38);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
             this.tablePanel1.SetRow(this.dataLayoutControl1, 1);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(632, 446);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(636, 310);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // MS_CUMTextEdit
             // 
-            this.MS_CUMTextEdit.Location = new System.Drawing.Point(143, 45);
+            this.MS_CUMTextEdit.Location = new System.Drawing.Point(138, 40);
             this.MS_CUMTextEdit.Name = "MS_CUMTextEdit";
-            this.MS_CUMTextEdit.Size = new System.Drawing.Size(166, 26);
+            this.MS_CUMTextEdit.Size = new System.Drawing.Size(173, 26);
             this.MS_CUMTextEdit.StyleController = this.dataLayoutControl1;
             this.MS_CUMTextEdit.TabIndex = 6;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -114,9 +114,9 @@
             // 
             // TEN_CUMTextEdit
             // 
-            this.TEN_CUMTextEdit.Location = new System.Drawing.Point(143, 77);
+            this.TEN_CUMTextEdit.Location = new System.Drawing.Point(138, 72);
             this.TEN_CUMTextEdit.Name = "TEN_CUMTextEdit";
-            this.TEN_CUMTextEdit.Size = new System.Drawing.Size(472, 26);
+            this.TEN_CUMTextEdit.Size = new System.Drawing.Size(486, 26);
             this.TEN_CUMTextEdit.StyleController = this.dataLayoutControl1;
             this.TEN_CUMTextEdit.TabIndex = 7;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -126,54 +126,66 @@
             // 
             // LOAI_CUMTextEdit
             // 
-            this.LOAI_CUMTextEdit.Location = new System.Drawing.Point(143, 109);
+            this.LOAI_CUMTextEdit.Location = new System.Drawing.Point(138, 104);
             this.LOAI_CUMTextEdit.Name = "LOAI_CUMTextEdit";
-            this.LOAI_CUMTextEdit.Size = new System.Drawing.Size(472, 26);
+            this.LOAI_CUMTextEdit.Size = new System.Drawing.Size(486, 26);
             this.LOAI_CUMTextEdit.StyleController = this.dataLayoutControl1;
             this.LOAI_CUMTextEdit.TabIndex = 9;
             // 
             // STT_CUMTextEdit
             // 
-            this.STT_CUMTextEdit.Location = new System.Drawing.Point(449, 45);
+            this.STT_CUMTextEdit.Location = new System.Drawing.Point(451, 40);
             this.STT_CUMTextEdit.Name = "STT_CUMTextEdit";
             this.STT_CUMTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.STT_CUMTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.STT_CUMTextEdit.Properties.Mask.EditMask = "N0";
             this.STT_CUMTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.STT_CUMTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.STT_CUMTextEdit.Size = new System.Drawing.Size(166, 26);
+            this.STT_CUMTextEdit.Size = new System.Drawing.Size(173, 26);
             this.STT_CUMTextEdit.StyleController = this.dataLayoutControl1;
             this.STT_CUMTextEdit.TabIndex = 10;
             // 
             // CUM_PSCheckEdit
             // 
-            this.CUM_PSCheckEdit.Location = new System.Drawing.Point(401, 140);
+            this.CUM_PSCheckEdit.Location = new System.Drawing.Point(403, 134);
             this.CUM_PSCheckEdit.Name = "CUM_PSCheckEdit";
             this.CUM_PSCheckEdit.Properties.Caption = "CUM_PS";
             this.CUM_PSCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.CUM_PSCheckEdit.Size = new System.Drawing.Size(219, 24);
+            this.CUM_PSCheckEdit.Size = new System.Drawing.Size(227, 24);
             this.CUM_PSCheckEdit.StyleController = this.dataLayoutControl1;
             this.CUM_PSCheckEdit.TabIndex = 12;
             // 
             // CUM_CUOICheckEdit
             // 
-            this.CUM_CUOICheckEdit.Location = new System.Drawing.Point(12, 140);
+            this.CUM_CUOICheckEdit.Location = new System.Drawing.Point(6, 134);
             this.CUM_CUOICheckEdit.Name = "CUM_CUOICheckEdit";
             this.CUM_CUOICheckEdit.Properties.Caption = "CUM_CUOI";
             this.CUM_CUOICheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.CUM_CUOICheckEdit.Size = new System.Drawing.Size(200, 24);
+            this.CUM_CUOICheckEdit.Size = new System.Drawing.Size(206, 24);
             this.CUM_CUOICheckEdit.StyleController = this.dataLayoutControl1;
             this.CUM_CUOICheckEdit.TabIndex = 13;
             // 
             // TINH_TGCheckEdit
             // 
-            this.TINH_TGCheckEdit.Location = new System.Drawing.Point(216, 140);
+            this.TINH_TGCheckEdit.Location = new System.Drawing.Point(214, 134);
             this.TINH_TGCheckEdit.Name = "TINH_TGCheckEdit";
             this.TINH_TGCheckEdit.Properties.Caption = "TINH_TG";
             this.TINH_TGCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.TINH_TGCheckEdit.Size = new System.Drawing.Size(181, 24);
+            this.TINH_TGCheckEdit.Size = new System.Drawing.Size(187, 24);
             this.TINH_TGCheckEdit.StyleController = this.dataLayoutControl1;
             this.TINH_TGCheckEdit.TabIndex = 14;
+            // 
+            // TEN_LOAI_SAN_PHAMLookUpEdit
+            // 
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.EditValue = "[Not null]";
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.Location = new System.Drawing.Point(138, 8);
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.Name = "TEN_LOAI_SAN_PHAMLookUpEdit";
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties.NullText = "";
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.Size = new System.Drawing.Size(486, 26);
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.StyleController = this.dataLayoutControl1;
+            this.TEN_LOAI_SAN_PHAMLookUpEdit.TabIndex = 11;
             // 
             // Root
             // 
@@ -182,7 +194,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(632, 446);
+            this.Root.Size = new System.Drawing.Size(636, 310);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -200,7 +212,7 @@
             this.ItemForTINH_TG});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(612, 426);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(626, 300);
             // 
             // ItemForTEN_CUM
             // 
@@ -210,7 +222,7 @@
             this.ItemForTEN_CUM.Location = new System.Drawing.Point(0, 64);
             this.ItemForTEN_CUM.Name = "ItemForTEN_CUM";
             this.ItemForTEN_CUM.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 3, 3);
-            this.ItemForTEN_CUM.Size = new System.Drawing.Size(612, 32);
+            this.ItemForTEN_CUM.Size = new System.Drawing.Size(626, 32);
             this.ItemForTEN_CUM.Text = "TEN_CUM";
             this.ItemForTEN_CUM.TextSize = new System.Drawing.Size(123, 20);
             // 
@@ -220,7 +232,7 @@
             this.ItemForLOAI_CUM.Location = new System.Drawing.Point(0, 96);
             this.ItemForLOAI_CUM.Name = "ItemForLOAI_CUM";
             this.ItemForLOAI_CUM.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 3, 3);
-            this.ItemForLOAI_CUM.Size = new System.Drawing.Size(612, 32);
+            this.ItemForLOAI_CUM.Size = new System.Drawing.Size(626, 32);
             this.ItemForLOAI_CUM.Text = "LOAI_CUM";
             this.ItemForLOAI_CUM.TextSize = new System.Drawing.Size(123, 20);
             // 
@@ -232,7 +244,7 @@
             this.ItemForLOAI_SP.Location = new System.Drawing.Point(0, 0);
             this.ItemForLOAI_SP.Name = "ItemForLOAI_SP";
             this.ItemForLOAI_SP.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 3, 3);
-            this.ItemForLOAI_SP.Size = new System.Drawing.Size(612, 32);
+            this.ItemForLOAI_SP.Size = new System.Drawing.Size(626, 32);
             this.ItemForLOAI_SP.Text = "LOAI_SAN_PHAM";
             this.ItemForLOAI_SP.TextSize = new System.Drawing.Size(123, 20);
             // 
@@ -244,46 +256,46 @@
             this.ItemForMS_CUM.Location = new System.Drawing.Point(0, 32);
             this.ItemForMS_CUM.Name = "ItemForMS_CUM";
             this.ItemForMS_CUM.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 3, 3);
-            this.ItemForMS_CUM.Size = new System.Drawing.Size(306, 32);
+            this.ItemForMS_CUM.Size = new System.Drawing.Size(313, 32);
             this.ItemForMS_CUM.Text = "MS_CUM";
             this.ItemForMS_CUM.TextSize = new System.Drawing.Size(123, 20);
             // 
             // ItemForSTT_CUM
             // 
             this.ItemForSTT_CUM.Control = this.STT_CUMTextEdit;
-            this.ItemForSTT_CUM.Location = new System.Drawing.Point(306, 32);
+            this.ItemForSTT_CUM.Location = new System.Drawing.Point(313, 32);
             this.ItemForSTT_CUM.Name = "ItemForSTT_CUM";
             this.ItemForSTT_CUM.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 3, 3);
-            this.ItemForSTT_CUM.Size = new System.Drawing.Size(306, 32);
+            this.ItemForSTT_CUM.Size = new System.Drawing.Size(313, 32);
             this.ItemForSTT_CUM.Text = "STT_CUM";
             this.ItemForSTT_CUM.TextSize = new System.Drawing.Size(123, 20);
-            // 
-            // ItemForTINH_TG
-            // 
-            this.ItemForTINH_TG.Control = this.TINH_TGCheckEdit;
-            this.ItemForTINH_TG.Location = new System.Drawing.Point(204, 128);
-            this.ItemForTINH_TG.Name = "ItemForTINH_TG";
-            this.ItemForTINH_TG.Size = new System.Drawing.Size(185, 298);
-            this.ItemForTINH_TG.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForTINH_TG.TextVisible = false;
-            // 
-            // ItemForCUM_PS
-            // 
-            this.ItemForCUM_PS.Control = this.CUM_PSCheckEdit;
-            this.ItemForCUM_PS.Location = new System.Drawing.Point(389, 128);
-            this.ItemForCUM_PS.Name = "ItemForCUM_PS";
-            this.ItemForCUM_PS.Size = new System.Drawing.Size(223, 298);
-            this.ItemForCUM_PS.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForCUM_PS.TextVisible = false;
             // 
             // ItemForCUM_CUOI
             // 
             this.ItemForCUM_CUOI.Control = this.CUM_CUOICheckEdit;
             this.ItemForCUM_CUOI.Location = new System.Drawing.Point(0, 128);
             this.ItemForCUM_CUOI.Name = "ItemForCUM_CUOI";
-            this.ItemForCUM_CUOI.Size = new System.Drawing.Size(204, 298);
+            this.ItemForCUM_CUOI.Size = new System.Drawing.Size(208, 172);
             this.ItemForCUM_CUOI.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCUM_CUOI.TextVisible = false;
+            // 
+            // ItemForCUM_PS
+            // 
+            this.ItemForCUM_PS.Control = this.CUM_PSCheckEdit;
+            this.ItemForCUM_PS.Location = new System.Drawing.Point(397, 128);
+            this.ItemForCUM_PS.Name = "ItemForCUM_PS";
+            this.ItemForCUM_PS.Size = new System.Drawing.Size(229, 172);
+            this.ItemForCUM_PS.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForCUM_PS.TextVisible = false;
+            // 
+            // ItemForTINH_TG
+            // 
+            this.ItemForTINH_TG.Control = this.TINH_TGCheckEdit;
+            this.ItemForTINH_TG.Location = new System.Drawing.Point(208, 128);
+            this.ItemForTINH_TG.Name = "ItemForTINH_TG";
+            this.ItemForTINH_TG.Size = new System.Drawing.Size(189, 172);
+            this.ItemForTINH_TG.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForTINH_TG.TextVisible = false;
             // 
             // tablePanel1
             // 
@@ -298,47 +310,51 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 10F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 90F)});
-            this.tablePanel1.Size = new System.Drawing.Size(797, 502);
+            this.tablePanel1.Size = new System.Drawing.Size(802, 351);
             this.tablePanel1.TabIndex = 7;
             // 
-            // windowsUIButtonPanel2
+            // btnALL
             // 
-            windowsUIButtonImageOptions1.Image = global::Vs.Payroll.Properties.Resources.iconsave;
-            windowsUIButtonImageOptions2.Image = global::Vs.Payroll.Properties.Resources.iconxoa;
-            this.windowsUIButtonPanel2.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Lưu", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Hủy", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "huy", -1, false)});
-            this.windowsUIButtonPanel2.ContentAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.windowsUIButtonPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowsUIButtonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel2.Location = new System.Drawing.Point(0, 502);
-            this.windowsUIButtonPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.windowsUIButtonPanel2.Name = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.Padding = new System.Windows.Forms.Padding(5, 9, 5, 5);
-            this.windowsUIButtonPanel2.Size = new System.Drawing.Size(797, 72);
-            this.windowsUIButtonPanel2.TabIndex = 6;
-            this.windowsUIButtonPanel2.Text = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel2_ButtonClick);
-            // 
-            // TEN_LOAI_SAN_PHAMLookUpEdit
-            // 
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.EditValue = "[Not null]";
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.Location = new System.Drawing.Point(143, 13);
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.Name = "TEN_LOAI_SAN_PHAMLookUpEdit";
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties.NullText = "";
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.Size = new System.Drawing.Size(472, 26);
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.StyleController = this.dataLayoutControl1;
-            this.TEN_LOAI_SAN_PHAMLookUpEdit.TabIndex = 11;
+            this.btnALL.AppearanceButton.Hovered.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.Gray;
+            this.btnALL.AppearanceButton.Hovered.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.btnALL.AppearanceButton.Normal.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Normal.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnALL.AppearanceButton.Normal.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Normal.Options.UseForeColor = true;
+            this.btnALL.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnALL.AppearanceButton.Pressed.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseBorderColor = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseImage = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseTextOptions = true;
+            windowsUIButtonImageOptions1.ImageUri.Uri = "SaveAll";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "richedit/clearheaderandfooter";
+            this.btnALL.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "thoat", -1, false)});
+            this.btnALL.ContentAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnALL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnALL.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnALL.Location = new System.Drawing.Point(0, 374);
+            this.btnALL.Margin = new System.Windows.Forms.Padding(0);
+            this.btnALL.Name = "btnALL";
+            this.btnALL.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
+            this.btnALL.Size = new System.Drawing.Size(730, 40);
+            this.btnALL.TabIndex = 10;
+            this.btnALL.Text = "btnALLPanel1";
+            this.btnALL.UseButtonBackgroundImages = false;
+            this.btnALL.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel2_ButtonClick);
             // 
             // frmEditTuyenDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 574);
+            this.ClientSize = new System.Drawing.Size(802, 423);
             this.Controls.Add(this.tablePanel1);
-            this.Controls.Add(this.windowsUIButtonPanel2);
+            this.Controls.Add(this.btnALL);
             this.Name = "frmEditTuyenDung";
             this.Load += new System.EventHandler(this.frmEditTuyenDung_Load);
             this.Resize += new System.EventHandler(this.frmEditTuyenDung_Resize);
@@ -351,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CUM_PSCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CUM_CUOICheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TINH_TGCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForTEN_CUM)).EndInit();
@@ -358,13 +375,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForLOAI_SP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMS_CUM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSTT_CUM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForTINH_TG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_PS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_CUOI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCUM_PS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForTINH_TG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEN_LOAI_SAN_PHAMLookUpEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,7 +397,7 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForTEN_CUM;
         private DevExpress.XtraLayout.LayoutControlItem ItemForLOAI_CUM;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel2;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel btnALL;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForSTT_CUM;
         private DevExpress.XtraLayout.LayoutControlItem ItemForMS_CUM;

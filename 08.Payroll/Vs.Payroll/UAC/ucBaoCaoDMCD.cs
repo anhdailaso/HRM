@@ -64,7 +64,7 @@ namespace Vs.HRM
         private void ucBaoCaoDMCD_Load(object sender, EventArgs e)
         {
             Commons.Modules.sPS = "0Load";
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(LOAI_SP, Commons.Modules.ObjSystems.DataLoaiSanPham(true), "ID_LSP", "TEN_LOAI_SAN_PHAM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_LOAI_SAN_PHAM"));
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(LOAI_SP, Commons.Modules.ObjSystems.DataLoaiSanPham(true), "ID_NHH", "TEN_NHH", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHH"));
             Commons.Modules.ObjSystems.MLoadLookUpEdit(CUM, Commons.Modules.ObjSystems.DataCUM(Convert.ToInt32(LOAI_SP.EditValue), true), "ID_CUM", "TEN_CUM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_CUM"));
         }
 
@@ -74,13 +74,5 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.MLoadLookUpEdit(CUM, Commons.Modules.ObjSystems.DataCUM(Convert.ToInt32(LOAI_SP.EditValue), true), "ID_CUM", "TEN_CUM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_CUM"));
 
         }
-
-        //private void aaaaa(object sender, EventArgs e)
-        //{
-        //    if (Commons.Modules.sPS == "0Load") return;
-        //    Commons.Modules.sPS = "0Load";
-        //    Commons.Modules.ObjSystems.MLoadLookUpEdit(CUM, Commons.Modules.ObjSystems.DataCUM(Convert.ToInt32(LOAI_SP.EditValue), false), "ID_CUM", "TEN_CUM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_CUM"), true);
-        //}
-
     }
 }

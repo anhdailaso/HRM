@@ -88,47 +88,8 @@ namespace Vs.TimeAttendance
             grvCDCCNV.Columns["CA"].ColumnEdit = cboCa;
             cboCa.BeforePopup += cboCa_BeforePopup;
             cboCa.EditValueChanged += CboCa_EditValueChanged;
-
-            //cboCa.NullText = "";
-            //cboCa.ValueMember = "ID_CDLV";
-            //cboCa.DisplayMember = "CA";
-            //cboCa.DataSource = dCa;
-            //cboCa.Columns.Clear();
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CA"));
-            //cboCa.Columns["CA"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "CA");
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GIO_BD"));
-            //cboCa.Columns["GIO_BD"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "GIO_BD");
-            //cboCa.Columns["GIO_BD"].FormatType = DevExpress.Utils.FormatType.DateTime;
-            //cboCa.Columns["GIO_BD"].FormatString = "HH:mm";
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GIO_KT"));
-            //cboCa.Columns["GIO_KT"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "GIO_KT");
-            //cboCa.Columns["GIO_KT"].FormatType = DevExpress.Utils.FormatType.DateTime;
-            //cboCa.Columns["GIO_KT"].FormatString = "HH:mm";
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PHUT_BD"));
-            //cboCa.Columns["PHUT_BD"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "PHUT_BD");
-            //cboCa.Columns["PHUT_BD"].Visible = false;
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PHUT_KT"));
-            //cboCa.Columns["PHUT_KT"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "PHUT_KT");
-            //cboCa.Columns["PHUT_KT"].Visible = false;
-
-            //cboCa.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_CDLV"));
-            //cboCa.Columns["ID_CDLV"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "ID_CDLV");
-            //cboCa.Columns["ID_CDLV"].Visible = false;
-
-            //cboCa.AppearanceDropDownHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            //cboCa.AppearanceDropDownHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            //grvLamThem.Columns["CA"].ColumnEdit = cboCa;
-
-            //cboCa.BeforePopup += cboCa_BeforePopup;
-
-            //Commons.Modules.sPS = "";
-            //grvCongNhan_FocusedRowChanged(null, null);
         }
+
         private void CboCa_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit lookUp = sender as LookUpEdit;
@@ -185,7 +146,7 @@ namespace Vs.TimeAttendance
                 }
                 DataTable dID_NHOM = new DataTable();
                 dID_NHOM.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetNhomCC", cboNgay.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                Commons.Modules.ObjSystems.AddCombXtra("ID_NHOM", "TEN_NHOM", grvCDCCNV, dID_NHOM, false);
+                Commons.Modules.ObjSystems.AddCombXtra("ID_NHOM", "TEN_NHOM", grvCDCCNV, dID_NHOM, "ID_NHOM", "CHE_DO_LAM_VIEC");
                 FormatGridView();
                 Commons.Modules.sPS = "";
             }
@@ -235,7 +196,9 @@ namespace Vs.TimeAttendance
         private void FormatGridView()
         {
             grvCDCCNV.Columns["ID_CN"].OptionsColumn.ReadOnly = true;
+            grvCDCCNV.Columns["MS_CN"].OptionsColumn.ReadOnly = true;
             grvCDCCNV.Columns["HO_TEN"].OptionsColumn.ReadOnly = true;
+            grvCDCCNV.Columns["TEN_XN"].OptionsColumn.ReadOnly = true;
             grvCDCCNV.Columns["TEN_TO"].OptionsColumn.ReadOnly = true;
         }
 
@@ -251,6 +214,7 @@ namespace Vs.TimeAttendance
                         if (cboNgay.Text == "") return;
                         isAdd = true;
                         EnableButon();
+                        LockControl(false);
                         LoadGrdCDCCNV();
                         break;
                     }
@@ -268,6 +232,7 @@ namespace Vs.TimeAttendance
                         }
                         isAdd = false;
                         EnableButon();
+                        LockControl(true);
                         LoadGrdCDCCNV();
                         break;
                     }
@@ -276,6 +241,7 @@ namespace Vs.TimeAttendance
                         
                         isAdd = false;
                         EnableButon();
+                        LockControl(true);
                         LoadGrdCDCCNV();
                         break;
                     }
@@ -283,6 +249,7 @@ namespace Vs.TimeAttendance
                     {
                         isAdd = false;
                         EnableButon();
+                        LockControl(true);
                         Commons.Modules.ObjSystems.GotoHome(this);
                         break;
                     }
@@ -290,9 +257,8 @@ namespace Vs.TimeAttendance
                     {
                         Validate();
                         if (grvCDCCNV.HasColumnErrors) return;
-                        if (XtraMessageBox.Show("Bạn có muốn cập nhật nhóm: " + grvCDCCNV.GetFocusedRowCellDisplayText("ID_NHOM") + ", ca: " + grvCDCCNV.GetFocusedRowCellDisplayText("CA") + " cho các nhân viên được chọn", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                        if (XtraMessageBox.Show("Bạn có muốn cập nhật nhóm: " + grvCDCCNV.GetFocusedRowCellDisplayText("ID_NHOM") + ", ca: " + grvCDCCNV.GetFocusedRowCellDisplayText("CA") + " cho các nhân viên được chọn", Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         {
-
                             return;
                         }
                         CapNhatNhom();
@@ -315,36 +281,17 @@ namespace Vs.TimeAttendance
             string sSql = "";
             try
             {
-               
-                //string sID_NHOM, sID_CA, sNgay;
-                //sID_NHOM = ""; sID_CA = ""; sNgay = "";
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sTB, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
+                sSql = " SELECT '" + grvCDCCNV.GetFocusedRowCellValue("NGAY_AD").ToString()+ "' AS NGAY_AD, ID_CN, MS_CN, HO_TEN, " + grvCDCCNV.GetFocusedRowCellValue("ID_NHOM") + " AS ID_NHOM, " + grvCDCCNV.GetFocusedRowCellValue("CA") + " AS CA, TEN_XN, TEN_TO FROM " + sTB + "";
 
-                //try { sID_NHOM = grvCDCCNV.GetFocusedRowCellValue("ID_NHOM").ToString(); } catch { }
-                //try { sID_CA = grvCDCCNV.GetFocusedRowCellValue("CA").ToString(); } catch { }
-                //try { sNgay = Convert.ToDateTime(grvCDCCNV.GetFocusedRowCellValue("NGAY_AD").ToString()).ToString("dd/MM/yyyy"); } catch { }
-                //for (int i = 0; i < grvCDCCNV.RowCount; i++)
-                //{
-                //    if (grvCDCCNV.GetRowCellValue(i,"CA").ToString()=="")
-                //    {
-                //        grvCDCCNV.SetRowCellValue(i, "CA", sID_CA);
-                //        grvCDCCNV.SetRowCellValue(i, "ID_NHOM", sID_NHOM);
-                //        grvCDCCNV.SetRowCellValue(i, "NGAY_AD", Convert.ToDateTime(sNgay));
-                //    }
-                //}
-
-
-               
-                    Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sTB, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
-                    sSql = " SELECT ID_CN, '" + grvCDCCNV.GetFocusedRowCellValue("NGAY_AD").ToString()+ "' AS NGAY_AD, HO_TEN, " + grvCDCCNV.GetFocusedRowCellValue("ID_NHOM") + " AS ID_NHOM, " + grvCDCCNV.GetFocusedRowCellValue("CA") + " AS CA,  TEN_TO FROM " + sTB + "";
-
-                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
-                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvCDCCNV, dt, true, false, true, false, true, this.Name);
-                    dt.Columns["ID_NHOM"].ReadOnly = false;
-                    dt.Columns["CA"].ReadOnly = false;
-                    dt.Columns["NGAY_AD"].ReadOnly = false;
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvCDCCNV, dt, true, false, true, false, true, this.Name);
+                dt.Columns["ID_NHOM"].ReadOnly = false;
+                dt.Columns["CA"].ReadOnly = false;
+                dt.Columns["NGAY_AD"].ReadOnly = false;
                 FormatGridView();
-                    Commons.Modules.ObjSystems.XoaTable(sTB);
-                    Commons.Modules.sPS = "";
+                Commons.Modules.ObjSystems.XoaTable(sTB);
+                Commons.Modules.sPS = "";
 
                 }
             catch
@@ -354,20 +301,6 @@ namespace Vs.TimeAttendance
 
         private void XoaTrangNhom()
         {
-            //int idKip;
-            //Int32.TryParse(grvCDCCNV.GetFocusedRowCellValue("ID_NHOM").ToString(), out idKip);
-            //if (idKip == 0) return;
-            //for (int i = 0; i < grvCDCCNV.DataRowCount; i++)
-            //{
-            //    DataRow row = grvCDCCNV.GetDataRow(i);
-            //    if (row["ID_NHOM"] != null && Convert.ToInt32(row["ID_NHOM"]) == idKip)
-            //    {
-            //        grvCDCCNV.SetRowCellValue(i, "ID_NHOM", null);
-            //        continue;
-            //    }
-            //    //Do something here  
-            //}
-
             DataTable dt = new DataTable();
             string sTB = "CDCCNV_XoaNhom" + Commons.Modules.UserName;
             string sSql = "";
@@ -376,7 +309,7 @@ namespace Vs.TimeAttendance
                
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sTB, Commons.Modules.ObjSystems.ConvertDatatable(grvCDCCNV), "");
                
-                sSql = " SELECT ID_CN,  NULL NGAY_AD, HO_TEN, NULL ID_NHOM, NULL CA, TEN_TO FROM " + sTB + "";
+                sSql = " SELECT NGAY_AD, ID_CN, MS_CN, HO_TEN, NULL ID_NHOM, NULL CA, TEN_XN, TEN_TO FROM " + sTB + "";
 
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvCDCCNV, dt, true, false, true, false, true, this.Name);
@@ -397,10 +330,12 @@ namespace Vs.TimeAttendance
             btnALL.Buttons[0].Properties.Visible = !isAdd;
             btnALL.Buttons[1].Properties.Visible = !isAdd;
             btnALL.Buttons[2].Properties.Visible = !isAdd;
-            btnALL.Buttons[3].Properties.Visible = isAdd;
+            btnALL.Buttons[3].Properties.Visible = !isAdd;
             btnALL.Buttons[4].Properties.Visible = isAdd;
             btnALL.Buttons[5].Properties.Visible = isAdd;
             btnALL.Buttons[6].Properties.Visible = isAdd;
+            btnALL.Buttons[7].Properties.Visible = isAdd;
+            btnALL.Buttons[8].Properties.Visible = isAdd;
         }
 
 
@@ -479,7 +414,15 @@ namespace Vs.TimeAttendance
             }
             else
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdNgay, grvNgay, dt, false, false, true, false, false, this.Name);
-            cboNgay.EditValue = dt.Rows[0]["NGAY_AD"];
+
+            if (dt.Rows.Count <=0)
+            {
+                cboNgay.EditValue = DateTime.Today;
+            }
+            else
+            {
+                cboNgay.EditValue = dt.Rows[0]["NGAY_AD"];
+            }
         }
 
         private void calNgay_DateTimeCommit(object sender, EventArgs e)
@@ -496,6 +439,21 @@ namespace Vs.TimeAttendance
             cboNgay.ClosePopup();
         }
 
+        private void LockControl(Boolean oLock)
+        {
+            try
+            {
+                cboDonVi.Enabled = oLock;
+                cboXiNghiep.Enabled = oLock;
+                cboTo.Enabled = oLock;
+                cboNgay.Enabled = oLock;
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message.ToString());
+            }
+        }
+            
         private void LoadNull()
         {
             try

@@ -59,6 +59,9 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.NONlbNgay = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbDonVi = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -66,7 +69,7 @@
             // TopMargin
             // 
             this.TopMargin.Dpi = 254F;
-            this.TopMargin.HeightF = 185F;
+            this.TopMargin.HeightF = 95.04168F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
@@ -195,10 +198,8 @@
             // 
             // PageHeader
             // 
-            this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable2});
             this.PageHeader.Dpi = 254F;
-            this.PageHeader.HeightF = 75F;
+            this.PageHeader.HeightF = 0F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrTable2
@@ -208,7 +209,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Dpi = 254F;
             this.xrTable2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0.0001614888F, 97.14774F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -385,7 +386,7 @@
             this.lbNguoiLapBieu,
             this.lblNgay});
             this.ReportFooter.Dpi = 254F;
-            this.ReportFooter.HeightF = 152.4233F;
+            this.ReportFooter.HeightF = 243.5879F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // lbNguoiLapBieu
@@ -433,7 +434,7 @@
             this.lblDIA_CHI,
             this.xrPictureBox1});
             this.ReportHeader.Dpi = 254F;
-            this.ReportHeader.HeightF = 489.8334F;
+            this.ReportHeader.HeightF = 455.6459F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // NONlbNgay
@@ -462,6 +463,49 @@
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(372.2645F, 210F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
+            // GroupHeader1
+            // 
+            this.GroupHeader1.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel4,
+            this.xrTable2,
+            this.lbDonVi});
+            this.GroupHeader1.Dpi = 254F;
+            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("TEN_DV", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader1.HeightF = 172.1477F;
+            this.GroupHeader1.Name = "GroupHeader1";
+            this.GroupHeader1.StylePriority.UseBorders = false;
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Dpi = 254F;
+            this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TEN_DV]")});
+            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(293.0209F, 0F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(1535.979F, 77.68953F);
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.StylePriority.UseTextAlignment = false;
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lbDonVi
+            // 
+            this.lbDonVi.Dpi = 254F;
+            this.lbDonVi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDonVi.LocationFloat = new DevExpress.Utils.PointFloat(101.75F, 0F);
+            this.lbDonVi.Multiline = true;
+            this.lbDonVi.Name = "lbDonVi";
+            this.lbDonVi.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbDonVi.SizeF = new System.Drawing.SizeF(191.2709F, 77.68953F);
+            this.lbDonVi.StylePriority.UseFont = false;
+            this.lbDonVi.StylePriority.UseTextAlignment = false;
+            this.lbDonVi.Text = "Đơn vị";
+            this.lbDonVi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // rptDSVangDauGioTheoDV
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -470,10 +514,11 @@
             this.Detail,
             this.PageHeader,
             this.ReportFooter,
-            this.ReportHeader});
+            this.ReportHeader,
+            this.GroupHeader1});
             this.Dpi = 254F;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(111, 135, 185, 192);
+            this.Margins = new System.Drawing.Printing.Margins(111, 140, 95, 192);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -518,5 +563,8 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
         private DevExpress.XtraReports.UI.XRTableCell tiPhongBan;
         private DevExpress.XtraReports.UI.XRLabel NONlbNgay;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel lbDonVi;
     }
 }

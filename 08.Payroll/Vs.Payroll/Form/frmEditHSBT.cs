@@ -90,7 +90,7 @@ namespace Vs.Payroll
                                     Commons.Modules.sId = (-1).ToString();
                             if (AddEdit)
                             {
-                                if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("frmMain", "msgThemThanhCongBanMuonThemTiep"), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_ThemThanhCong"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     LoadTextNull();
                                     return;
@@ -104,7 +104,7 @@ namespace Vs.Payroll
                             this.Close();
                             break;
                         }
-                    case "huy":
+                    case "thoat":
                         {
                             this.Close();
                             break;
@@ -129,7 +129,7 @@ namespace Vs.Payroll
                     
                     if (Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, tenSql)) == Convert.ToString((TEN_BAC_THOTextEdit.EditValue)))
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTEN_BTNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_MaSoTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }

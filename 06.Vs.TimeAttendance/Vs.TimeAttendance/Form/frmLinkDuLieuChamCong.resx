@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="windowsUIButtonImageOptions33.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="windowsUIButtonImageOptions7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAVdEVYdFRpdGxlAFBpdm90O1N1bTtUYWJsZUPQEDgA
@@ -130,7 +130,7 @@
         xCOaC5h5Bg72BQXGAoP7ggLjKN0PwsUAknFG48cAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="windowsUIButtonImageOptions34.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="windowsUIButtonImageOptions8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAsdEVYdFRpdGxlAERvY3VtZW50O01hcDtTY2hlbWU7
@@ -141,7 +141,7 @@
         gg==
 </value>
   </data>
-  <data name="windowsUIButtonImageOptions35.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="windowsUIButtonImageOptions9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACx0RVh0VGl0
         bGUARG9jdW1lbnQ7TWFwO1NjaGVtZTtEaWFncmFtO0hpZXJhcjtOZXRODypEAAAFXUlEQVRYR62XC1AW
@@ -169,20 +169,6 @@
         HPzWjIPPyrHtU7xGrCDdmBn+o5brobP3GRlCOsvRnavgzjPEeGIC8bwCX/P3n4/ZA4inCD10PM7LL+8D
         /Icr4Y2B/6Xqr4H77OciWcOvjR46Hn9oO1b373+CTeTvDpvI3x0ySfoLXBkamf6BV/AAAAAASUVORK5C
         YII=
-</value>
-  </data>
-  <data name="windowsUIButtonImageOptions36.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAfRJREFUWEft1b9LlVEcx/EbOkSIUg4NBTqmVJsOzmGDQ+EQOLXU4Bg0mrnUmIO6
-        CPYHSDQI4uJsFFSgEjVXOpQ/CCwETd8fuBc+nHue63nufbyLfuAFl/N8z/ec5z73Obd0ngbSijtl+tzU
-        tOEDjsrel8ealglUFq/QWNMyj3ADGis0I1jFJoY0YHmDcAMa82iO5v7BYw3kySAOUGmuRp6UDWhO5Zp6
-        qWdSrmMH3vwnPCkb0Lfn17dxDSfmNXziIe7Dk7KBRwhr5lAzPfCvXp4gTOqPUAt6jXrfQGZewie8Qyyp
-        r2E7fsPrXiAz6/BinXKx5DmIxuA91xBNJ7zwF1qQFT+Ka9X1wvuK1qrKbXjRAorKLrz3LVTlLrxoBkXl
-        K7y31qpKuIFpFJVv8N7RDYSP4C2Kio5j7x19BFfgRRu4gEZzE95XLiOaT/DCATSa5/CeH5GZcXjxEhpJ
-        B7bgPZ8hM93Yh094gHozC++l3l2omUn4pD3U8yiewvvIK5wYnVL6+/WJ//AQKbmIKfh8UU/90JPSDy0a
-        NlnBPVxCmKsYxXeE89SrD7kyjNgm5C8+YxHL+IL/iNWqh3rVFe06fBx5/EDuOw+j56YfT/h21KJazUl+
-        5inRK6p3WAdJbFHRNdWo9lSjO9N5rj8V0edC7/aspFQ6BqFyEirte0hhAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="dxValidationProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

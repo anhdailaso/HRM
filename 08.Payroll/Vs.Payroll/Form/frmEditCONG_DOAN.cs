@@ -18,7 +18,8 @@ namespace Vs.Payroll
         public frmEditCONG_DOAN(Int64 iId, Boolean bAddEdit)
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, windowsUIButtonPanel2);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, btnALL);
+            Commons.OSystems.SetDateEditFormat(NGAY_LAPDateEdit);
             iIdTo = iId;
             bAddEditTo = bAddEdit;
         }
@@ -32,7 +33,7 @@ namespace Vs.Payroll
          
             try
             {
-                Commons.Modules.ObjSystems.MLoadLookUpEdit(TEN_LOAI_SAN_PHAMLookUpEdit, Commons.Modules.ObjSystems.DataLoaiSanPham(false), "ID_LSP", "TEN_LOAI_SAN_PHAM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_LOAI_SAN_PHAM"),true);
+                Commons.Modules.ObjSystems.MLoadLookUpEdit(TEN_LOAI_SAN_PHAMLookUpEdit, Commons.Modules.ObjSystems.DataLoaiSanPham(false), "ID_NHH", "TEN_NHH", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHH"),true);
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(CUMLookUpEdit, Commons.Modules.ObjSystems.DataCUM(Convert.ToInt32(TEN_LOAI_SAN_PHAMLookUpEdit.EditValue), false), "ID_CUM", "TEN_CUM",Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_CUM"),true);
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_THOLookUpEdit, Commons.Modules.ObjSystems.DataBacTho(false), "ID_BT", "TEN_BAC_THO", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_BAC_THO"),true);
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(LOAI_MAYLookUpEdit, Commons.Modules.ObjSystems.DataLoaiMay(false), "ID_LM", "TEN_LOAI_MAY", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_LOAI_MAY"),true);
@@ -44,7 +45,7 @@ namespace Vs.Payroll
         private void LoadText()
         {
             string sSql = "";
-            sSql = "SELECT NHOM_HANG_HOA.ID_NHH, CUM.ID_CUM, MS_CD, TEN_CD, TEN_CD_A, TEN_CD_H, HSBT.ID_BT, TGTK, LOAI_MAY.ID_LM, YEU_CAU_KT, CU_GA_LAP, CHON, FILE_FILM, DUONG_DAN_FILM, DA_SU_DUNG, NGAY_LAP FROM CONG_DOAN INNER JOIN CUM ON CONG_DOAN.ID_CUM = CUM.ID_CUM INNER JOIN NHOM_HANG_HOA ON CUM.ID_NHH = NHOM_HANG_HOA.ID_NHH INNER JOIN HSBT ON CONG_DOAN.ID_BT = HSBT.ID_BT INNER JOIN LOAI_MAY ON CONG_DOAN.ID_LM = LOAI_MAY.ID_LM WHERE ID_CD = " + iIdTo.ToString();
+            sSql = "SELECT NHOM_HANG_HOA.ID_NHH, CUM.ID_CUM, MS_CD, TEN_CD, TEN_CD_A, TEN_CD_H, HSBT.ID_BT, TGTK, LOAI_MAY.ID_LM, YEU_CAU_KT, CU_GA_LAP, NGAY_LAP FROM CONG_DOAN INNER JOIN CUM ON CONG_DOAN.ID_CUM = CUM.ID_CUM INNER JOIN NHOM_HANG_HOA ON CUM.ID_NHH = NHOM_HANG_HOA.ID_NHH INNER JOIN HSBT ON CONG_DOAN.ID_BT = HSBT.ID_BT INNER JOIN LOAI_MAY ON CONG_DOAN.ID_LM = LOAI_MAY.ID_LM WHERE ID_CD = " + iIdTo.ToString();
             DataTable dtTmp = new DataTable();
             dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             if (dtTmp.Rows.Count <= 0) return;
@@ -57,15 +58,13 @@ namespace Vs.Payroll
                 TEN_CDTextEdit.EditValue = dtTmp.Rows[0]["TEN_CD"];
                 TEN_CD_ATextEdit.EditValue = dtTmp.Rows[0]["TEN_CD_A"];
                 TEN_CD_HTextEdit.EditValue = dtTmp.Rows[0]["TEN_CD_H"];
-            TEN = dtTmp.Rows[0]["TEN_CD"].ToString();
+                TEN = dtTmp.Rows[0]["TEN_CD"].ToString();
                 TGLTTextEdit1.EditValue = dtTmp.Rows[0]["TGTK"];
                 CU_GA_LAPTextEdit.EditValue = dtTmp.Rows[0]["CU_GA_LAP"];
                 YC_KTTextEdit.EditValue = dtTmp.Rows[0]["YEU_CAU_KT"];
-                FILE_FILMTextEdit.EditValue = dtTmp.Rows[0]["FILE_FILM"];
-                DUONG_DAN_FILE_FILMTextEdit.EditValue = dtTmp.Rows[0]["DUONG_DAN_FILM"];
                 NGAY_LAPDateEdit.EditValue = dtTmp.Rows[0]["NGAY_LAP"];
-                CHONCheckEdit.EditValue = dtTmp.Rows[0]["CHON"];
-                DA_SDCheckEdit.EditValue = dtTmp.Rows[0]["DA_SU_DUNG"];
+                //CHONCheckEdit.EditValue = dtTmp.Rows[0]["CHON"];
+                //DA_SDCheckEdit.EditValue = dtTmp.Rows[0]["DA_SU_DUNG"];
         }
 
         private void windowsUIButtonPanel2_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
@@ -81,25 +80,25 @@ namespace Vs.Payroll
                             if (!dxValidationProvider1.Validate()) return;
                             if (TEN_LOAI_SAN_PHAMLookUpEdit.Text == "")
                             {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonloaisp"));
+                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonloaisp"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                                 TEN_LOAI_SAN_PHAMLookUpEdit.Focus();
                                 return;
                             }
                             if (CUMLookUpEdit.Text == "")
                             {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachoncum"));
+                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachoncum"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                                 CUMLookUpEdit.Focus();
                                 return;
                             }
                             if (LOAI_MAYLookUpEdit.Text == "")
                             {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonloaimay"));
+                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonloaimay"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                                 LOAI_MAYLookUpEdit.Focus();
                                 return;
                             }
                             if (BAC_THOLookUpEdit.Text == "")
                             {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonbactho"));
+                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonbactho"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
                                 BAC_THOLookUpEdit.Focus();
                                 return;
                             }
@@ -136,12 +135,10 @@ namespace Vs.Payroll
                             cmd.Parameters.Add("@CU_GA_LAP", SqlDbType.NVarChar).Value = CU_GA_LAPTextEdit.Text;
 
                             cmd.Parameters.Add("@YEU_CAU_KT", SqlDbType.NVarChar).Value = YC_KTTextEdit.Text;
-                            cmd.Parameters.Add("@FILE_FILM", SqlDbType.NVarChar).Value = FILE_FILMTextEdit.Text;
-                            cmd.Parameters.Add("@DUONG_DAN_FILM", SqlDbType.NVarChar).Value = DUONG_DAN_FILE_FILMTextEdit.Text;
                             cmd.Parameters.Add("@NGAY_LAP", SqlDbType.DateTime).Value = NGAY_LAPDateEdit.DateTime;
 
-                            cmd.Parameters.Add("@CHON", SqlDbType.Bit).Value = CHONCheckEdit.Checked == true ? true : false;
-                            cmd.Parameters.Add("@DA_SU_DUNG", SqlDbType.Bit).Value = DA_SDCheckEdit.Checked == true ? true : false;
+                            //cmd.Parameters.Add("@CHON", SqlDbType.Bit).Value = CHONCheckEdit.Checked == true ? true : false;
+                            //cmd.Parameters.Add("@DA_SU_DUNG", SqlDbType.Bit).Value = DA_SDCheckEdit.Checked == true ? true : false;
 
 
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -152,23 +149,6 @@ namespace Vs.Payroll
                             this.Close();
                             #endregion
 
-                            //Commons.Modules.sId = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spUpdateCONG_DOAN", (bAddEditTo ? -1 : iIdTo),
-                            //    CUMLookUpEdit.EditValue,
-                            //    MS_CDTextEdit.EditValue,
-                            //    TEN_CDTextEdit.EditValue,
-                            //    BAC_THOLookUpEdit.EditValue,
-                            //    LOAI_MAYLookUpEdit.EditValue,
-                            //    TGLTTextEdit1.EditValue,
-                            //    CU_GA_LAPTextEdit.EditValue,
-                            //    YC_KTTextEdit.EditValue, 
-                            //    FILE_FILMTextEdit.EditValue,
-                            //    DUONG_DAN_FILE_FILMTextEdit.EditValue,
-                            //    NGAY_LAPDateEdit.EditValue,
-                            //    CHONCheckEdit.EditValue,
-                            //    DA_SDCheckEdit.EditValue
-                            //    ).ToString();
-                            //this.DialogResult = DialogResult.OK;
-                            //this.Close();
                             break;
                         }
                     case "huy":
@@ -198,12 +178,12 @@ namespace Vs.Payroll
                     
                     if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)) != 0)
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_MSCDNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_MaSoTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }
-                    
                 }
+
                 if (bAddEditTo || TEN != TEN_CDTextEdit.EditValue.ToString())
                 {
                    
@@ -211,7 +191,7 @@ namespace Vs.Payroll
                     
                     if (Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, tenSql)) == Convert.ToString((TEN_CDTextEdit.EditValue)))
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_TENCDNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_TenTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }

@@ -20,7 +20,7 @@ namespace Vs.TimeAttendance
         public frmLinklBangTay()
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, Root, windowsUIButton);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, Root, btnALL);
         }
         private void frmLinklBangTay_Load(object sender, EventArgs e)
         {
@@ -36,10 +36,19 @@ namespace Vs.TimeAttendance
             datNgayCC.DateTime = ngaylink;
             datNgayDen.DateTime = ngaylink;
             datNgayVe.DateTime = ngaylink;
+
+            //dinh dang ngay gio
+            Commons.OSystems.SetDateEditFormat(datNgayCC);
+            Commons.OSystems.SetDateEditFormat(datNgayDen);
+            Commons.OSystems.SetDateEditFormat(datNgayVe);
+            Commons.OSystems.SetTimeEditFormat(timGioDen);
+            Commons.OSystems.SetTimeEditFormat(timGioVe);
+
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
-            Commons.Modules.ObjSystems.SetPhanQuyen(windowsUIButton);
+            Commons.Modules.ObjSystems.SetPhanQuyen(btnALL);
+
             LoadGridCongNhan();
             Commons.Modules.sPS = "";
         }
@@ -47,7 +56,7 @@ namespace Vs.TimeAttendance
         private void LoadLookupCa()
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT  CA, MIN(CONVERT(VARCHAR,GIO_BD,108)) AS GIO_BD, MAX(CONVERT(VARCHAR,GIO_KT,108)) AS  GIO_KT FROM che_dO_LAM_VIEC WHERE ID_NHOM = " + cboNhomCC.EditValue + " AND TANG_CA = 0 GROUP BY CA ORDER BY CA"));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT  CA, MIN(CONVERT(VARCHAR,GIO_BD,108)) AS GIO_BD, MAX(CONVERT(VARCHAR,GIO_KT,108)) AS  GIO_KT FROM CHE_DO_LAM_VIEC WHERE ID_NHOM = " + cboNhomCC.EditValue + " AND TANG_CA = 0 GROUP BY CA ORDER BY CA"));
             Commons.Modules.ObjSystems.MLoadLookUpEditNoRemove(cboHS, dt, "CA", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "CA"));
             cboHS.Properties.Columns["GIO_BD"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "GIO_BD");
             cboHS.Properties.Columns["GIO_KT"].Caption = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "GIO_KT");
@@ -57,15 +66,18 @@ namespace Vs.TimeAttendance
         private void LoadGridCongNhan()
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongLinkChamCongTay", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, ngaylink, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongLinkChamCongTay", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, datNgayCC.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
             dt.Columns["CHON"].ReadOnly = false;
             for (int i = 1; i < dt.Columns.Count; i++)
             {
                 dt.Columns[i].ReadOnly = true;
             }
+            dt.Columns["GIO_DEN"].ReadOnly = false;
+            dt.Columns["GIO_VE"].ReadOnly = false;
+
             if (grdChamCongTay.DataSource == null)
             {
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdChamCongTay, grvChamCongTay, dt, true, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdChamCongTay, grvChamCongTay, dt, true, false, true, true, true,this.Name);
                 grvChamCongTay.Columns["CHON"].Visible = true;
                 grvChamCongTay.Columns["CHON"].Width = 100;
                 grvChamCongTay.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
@@ -74,7 +86,6 @@ namespace Vs.TimeAttendance
                 grvChamCongTay.Columns["ID_CN"].Visible = false;
                 grvChamCongTay.Columns["CHON"].Visible = false;
                 grvChamCongTay.Columns["ID_NHOM"].Visible = false;
-
             }
             else
             {
@@ -134,12 +145,41 @@ namespace Vs.TimeAttendance
 
         }
 
+        private void datNgayCC_EditValueChanged(object sender, EventArgs e)
+        {
+            datNgayDen.DateTime = datNgayCC.DateTime;
+            datNgayVe.DateTime = datNgayCC.DateTime;
+            LoadGridCongNhan();
+        }
+
+
         private void windowsUIButton_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
             WindowsUIButton btn = e.Button as WindowsUIButton;
             XtraUserControl ctl = new XtraUserControl();
             switch (btn.Tag.ToString())
             {
+                case "themgio":
+                    {
+                        try
+                        {
+                            string sBT = "BTKinkTay" + Commons.Modules.UserName;
+                            Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grvChamCongTay), "");
+                            SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spThemDuLieuQuetTheTay",
+                             cboNhomCC.EditValue, cboHS.EditValue, datNgayDen.DateTime, timGioDen.EditValue, datNgayVe.DateTime, timGioVe.EditValue, sBT);
+                            DataTable dt = new DataTable();
+                            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT * FROM " + sBT));
+                            grdChamCongTay.DataSource = dt;
+                            Commons.Modules.ObjSystems.XoaTable(sBT);
+                           
+                        }
+                        catch (Exception ex)
+                        {
+                            XtraMessageBox.Show(ex.Message.ToString());
+                        }
+
+                        break;
+                    }
                 case "capnhat":
                     {
                         try
@@ -156,17 +196,7 @@ namespace Vs.TimeAttendance
                             string sBT = "BTKinkTay" + Commons.Modules.UserName;
                             Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grvChamCongTay), "");
 
-                            SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveDuLieuQuetTheTay",
-                                datNgayCC.DateTime,
-                                cboNhomCC.EditValue,
-                                cboHS.EditValue,
-                                datNgayDen.DateTime,
-                                Convert.ToDateTime("01/01/1900 " + timGioDen.EditValue),
-                                timGioDen.Time.TimeOfDay.TotalMinutes,
-                                 datNgayVe.DateTime,
-                                Convert.ToDateTime("01/01/1900 " + timGioVe.EditValue),
-                                timGioVe.Time.TimeOfDay.TotalMinutes,
-                                sBT);
+                            SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveDuLieuQuetTheTay", datNgayCC.DateTime, sBT);
 
                             LoadGridCongNhan();
                         }
@@ -182,5 +212,6 @@ namespace Vs.TimeAttendance
                     }
             }
         }
+
     }
 }

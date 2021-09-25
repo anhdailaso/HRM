@@ -136,8 +136,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 307F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 308F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1353, 866);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -164,11 +164,11 @@
             this.windowsUIButton.ContentAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.windowsUIButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButton.Location = new System.Drawing.Point(458, 821);
+            this.windowsUIButton.Location = new System.Drawing.Point(458, 822);
             this.windowsUIButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.windowsUIButton.Name = "windowsUIButton";
             this.windowsUIButton.Padding = new System.Windows.Forms.Padding(5);
-            this.windowsUIButton.Size = new System.Drawing.Size(891, 40);
+            this.windowsUIButton.Size = new System.Drawing.Size(891, 39);
             this.windowsUIButton.TabIndex = 43;
             this.windowsUIButton.Text = "windowsUIButtonPanel1";
             this.windowsUIButton.UseButtonBackgroundImages = false;
@@ -182,7 +182,7 @@
             this.grdCD.Location = new System.Drawing.Point(457, 512);
             this.grdCD.MainView = this.grvCD;
             this.grdCD.Name = "grdCD";
-            this.grdCD.Size = new System.Drawing.Size(893, 301);
+            this.grdCD.Size = new System.Drawing.Size(893, 302);
             this.grdCD.TabIndex = 32;
             this.grdCD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvCD});
@@ -437,7 +437,7 @@
             this.grdTo.MainView = this.grvTo;
             this.grdTo.Name = "grdTo";
             this.tableLayoutPanel1.SetRowSpan(this.grdTo, 2);
-            this.grdTo.Size = new System.Drawing.Size(448, 650);
+            this.grdTo.Size = new System.Drawing.Size(448, 651);
             this.grdTo.TabIndex = 32;
             this.grdTo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTo});
@@ -553,17 +553,17 @@
             this.panel1.Controls.Add(this.popupContainerControl1);
             this.panel1.Controls.Add(this.popupContainerControl2);
             this.panel1.Controls.Add(this.btnTSua);
-            this.panel1.Location = new System.Drawing.Point(18, 818);
+            this.panel1.Location = new System.Drawing.Point(18, 819);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 44);
+            this.panel1.Size = new System.Drawing.Size(412, 45);
             this.panel1.TabIndex = 39;
             // 
             // btnTSua
             // 
             this.btnTSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTSua.Enabled = false;
-            this.btnTSua.Location = new System.Drawing.Point(155, -41);
+            this.btnTSua.Location = new System.Drawing.Point(155, -42);
             this.btnTSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTSua.Name = "btnTSua";
             this.btnTSua.Size = new System.Drawing.Size(116, 28);

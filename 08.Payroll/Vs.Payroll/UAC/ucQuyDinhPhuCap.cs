@@ -196,8 +196,9 @@ namespace Vs.Payroll
             btnALL.Buttons[0].Properties.Visible = !visible;
             btnALL.Buttons[1].Properties.Visible = !visible;
             btnALL.Buttons[2].Properties.Visible = !visible;
-            btnALL.Buttons[3].Properties.Visible = visible;
+            btnALL.Buttons[3].Properties.Visible = !visible;
             btnALL.Buttons[4].Properties.Visible = visible;
+            btnALL.Buttons[5].Properties.Visible = visible;
             cboDonVi.Enabled = !visible;
             cboNgay.Enabled = !visible;
         }

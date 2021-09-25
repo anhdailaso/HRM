@@ -9,16 +9,25 @@ namespace Vs.Payroll
 {
     public partial class rptBangTongHopLuongMaHang : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptBangTongHopLuongMaHang(DateTime lthang)
+        public rptBangTongHopLuongMaHang(DateTime tngay, DateTime dngay, DateTime ngayxem)
         {
 
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
-           
-            string Thang = "0" + lthang.Month;
-            string Nam = "00" + lthang.Year;
 
-            lblNgay.Text = "Tháng " + Thang.Substring(Thang.Length - 2, 2) + " Năm " + Nam.Substring(Nam.Length - 4, 4);
+            lbltungay.Text = "Từ ngày " + tngay.ToString("dd/MM/yyyy");
+            lbldenngay.Text = "Đến ngày " + dngay.ToString("dd/MM/yyyy");
+
+            DataTable dtNgu = new DataTable();
+            dtNgu.Load(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'NgayThangNam' "));
+
+            string NgayXem = "0" + ngayxem.Day;
+            string ThangXem = "0" + ngayxem.Month;
+            string NamXem = "00" + ngayxem.Year;
+
+            lblNgay.Text = Commons.Modules.ObjSystems.GetNN(dtNgu, "Ngay", "NgayThangNam") + " " + NgayXem.Substring(NgayXem.Length - 2, 2) + " " +
+                Commons.Modules.ObjSystems.GetNN(dtNgu, "Thang", "NgayThangNam") + " " + ThangXem.Substring(ThangXem.Length - 2, 2) + " " +
+                Commons.Modules.ObjSystems.GetNN(dtNgu, "Nam", "NgayThangNam") + " " + NamXem.Substring(NamXem.Length - 4, 4);
 
 
         }

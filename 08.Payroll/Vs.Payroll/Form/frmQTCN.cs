@@ -268,10 +268,10 @@ namespace Vs.Payroll
 
             GridView view = cboMH.Properties.View;
             int rowHandle = view.FocusedRowHandle;
-            string fieldName = "MS_LOAI_SP"; // or other field name  
+            string fieldName = "ID_NHH"; // or other field name  
             object value = view.GetRowCellValue(rowHandle, fieldName);
             cboLMH.EditValue = Convert.ToInt32(value);
-            LoadCbo();
+            //LoadCbo();
             LoadLuoi();
             Commons.Modules.sPS = "";
         }

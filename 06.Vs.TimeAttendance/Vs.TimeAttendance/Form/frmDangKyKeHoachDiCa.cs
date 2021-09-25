@@ -17,22 +17,27 @@ namespace Vs.TimeAttendance
         {
             InitializeComponent();
 
-            Commons.Modules.ObjSystems.ThayDoiNN(this, Root, windowsUIButton);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, Root, btnALL);
         }
 
         private void frmDangKyKeHoachDiCa_Load(object sender, EventArgs e)
         {
             Commons.Modules.sPS = "0Load";
-
+            Commons.Modules.ObjSystems.ThayDoiNN(this, Root);
             //Commons.Modules.ObjSystems.MLoadLookUpEdit(cboNhom, Commons.Modules.ObjSystems.DataNhom(), "ID_NHOM", "TEN_NHOM", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHOM"));
             //Commons.Modules.ObjSystems.MLoadLookUpEdit(cboCa, Commons.Modules.ObjSystems.DataCa(Convert.ToInt32(cboNhom.EditValue)), "CA", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHOM"));
-            //datTuNgay.DateTime = DateTime.Now;
-            //datDenNgay.DateTime = DateTime.Now;
-            //Commons.Modules.ObjSystems.LoadCboDonVi(cboNhom);
+            Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
+            Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
+            Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
+
+            dttTu_ngay.DateTime = DateTime.Now;
+            dttDen_ngay.DateTime = DateTime.Now;
+
+            Commons.OSystems.SetDateEditFormat(dttTu_ngay);
+            Commons.OSystems.SetDateEditFormat(dttDen_ngay);
+
             loadcbm();
             loadcbm_ca();
-           // Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
-           // Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCongNhan();
             Commons.Modules.sPS = "";
         }
@@ -42,13 +47,11 @@ namespace Vs.TimeAttendance
             {
                 Commons.Modules.sPS = "0Load";
                 DataTable dt = new DataTable();
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetChonCongNhan", -1, -1, -1, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetChonCongNhan", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 dt.Columns["CHON"].ReadOnly = false;
                 dt.Columns["MS_CN"].ReadOnly = true;
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true,false, true, true, true, "");
-
-
-                
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true,false, true, true, true, this.Name);
+                                               
                 grvData.Columns["CHON"].Visible = false;
                 grvData.Columns["ID_CN"].Visible = false;
                 grvData.Columns["CHON"].Width = 100;
@@ -57,11 +60,11 @@ namespace Vs.TimeAttendance
                 grvData.OptionsSelection.CheckBoxSelectorField = "CHON";
 
                 //grvData.Appearance.HeaderPanel.BackColor = Color.FromArgb(240, 128, 25);
-                grvData.Columns["HO_TEN"].AppearanceHeader.BackColor= Color.FromArgb(240, 128, 25);
-                grvData.Columns["MS_CN"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
-                grvData.Columns["CHON"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
-                grvData.Columns["TEN_TO"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
-                grvData.Columns["TEN_XN"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
+                //grvData.Columns["HO_TEN"].AppearanceHeader.BackColor= Color.FromArgb(240, 128, 25);
+                //grvData.Columns["MS_CN"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
+                //grvData.Columns["CHON"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
+                //grvData.Columns["TEN_TO"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
+                //grvData.Columns["TEN_XN"].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
                 Commons.Modules.sPS = "";
             }
             catch (Exception)
@@ -73,21 +76,16 @@ namespace Vs.TimeAttendance
         {
             if (Commons.Modules.sPS == "0Load") return;
             Commons.Modules.sPS = "0Load";
-            //Commons.Modules.ObjSystems.LoadCboXiNghiep(cboNhom, cboXN);
-            ////Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
-            //LoadGrdCongNhan();
-            loadcbm_ca();
-            //Commons.Modules.sPS = "";
-            //cboNhom
-            //SearchLookUpEdit view = sender as SearchLookUpEdit;
-            
-
+            Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
+            Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
+            LoadGrdCongNhan();
+            Commons.Modules.sPS = "";
         }
         private void cboXN_EditValueChanged(object sender, EventArgs e)
         {
             if (Commons.Modules.sPS == "0Load") return;
             Commons.Modules.sPS = "0Load";
-           // Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
+            Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCongNhan();
             Commons.Modules.sPS = "";
         }
@@ -107,31 +105,6 @@ namespace Vs.TimeAttendance
             {
                 case "capnhat":
                     {
-                        ////kiểm tra từ ngày không lớn hơn đến ngày
-                        //if(datDenNgay.DateTime < datTuNgay.DateTime)
-                        //{
-                        //    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTuNgayKhongLonHonDenNgay"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgThongBao"), MessageBoxButtons.YesNo);
-                        //}
-                        ////luu du lieu liệu
-                        //DataTable dt = new DataTable();
-                        //dt = Commons.Modules.ObjSystems.ConvertDatatable(grvData).AsEnumerable().Where(x => x.Field<bool>("CHON") == true).CopyToDataTable();
-                        //if (dt.Rows.Count == 0)
-                        //{
-                        //    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanChuaChonDuLieu"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgThongBao"), MessageBoxButtons.YesNo);
-                        //}
-                        //else
-                        //{
-                        //    Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "sBT" + Commons.Modules.UserName,dt, "");
-                        //    if(Convert.ToBoolean(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spUpdateDangKyKeHoachDiKa",cboNhom.EditValue,cboCa.EditValue,datTuNgay.DateTime.Date,datDenNgay.DateTime.Date,txtGhiChu.EditValue, "sBT" + Commons.Modules.UserName))==false)
-                        //    {
-                        //        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgCapNhatKhongThanhCong"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgThongBao"), MessageBoxButtons.YesNo);
-                        //    }
-                        //    else
-                        //    {
-                        //        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgCapNhatThanhCong"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgThongBao"), MessageBoxButtons.YesNo);
-                        //        LoadGrdCongNhan();
-                        //    }
-                        //}
                         if (!kiemtrong()) return;
                         String sBT = "NVDC" + Commons.Modules.UserName;
                         Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
@@ -148,6 +121,29 @@ namespace Vs.TimeAttendance
                         cmd.CommandText = "spUPDATE_KHDC";
 
                         cmd.ExecuteNonQuery();
+
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messCapNhatOk"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
+                case "xoa":
+                    {
+                        if (!kiemtrong()) return;
+                        String sBT = "NVDC" + Commons.Modules.UserName;
+                        Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
+                        SqlCommand cmd = new SqlCommand();
+                        SqlConnection connect = new SqlConnection(Commons.IConnections.CNStr);
+                        if (connect.State == ConnectionState.Closed) connect.Open();
+                        cmd.Connection = connect;
+                        cmd.Parameters.AddWithValue("ID_NHOM", cboNhom.EditValue);
+                        cmd.Parameters.AddWithValue("CA", cboCA.Text);
+                        cmd.Parameters.AddWithValue("TU_NGAY", dttTu_ngay.DateTime);
+                        cmd.Parameters.AddWithValue("DEN_NGAY", dttDen_ngay.DateTime);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spDELETE_KHDC";
+
+                        cmd.ExecuteNonQuery();
+
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messCapNhatOk"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     }
                 case "thoat":
@@ -162,26 +158,26 @@ namespace Vs.TimeAttendance
         {
             if (cboNhom.Text == "")
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messchuanhapNhom"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "messchuanhapNhom"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cboNhom.Focus();
                 return false;
             }
             if (cboCA.Text=="")
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messchuanhapca"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "messchuanhapca"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cboCA.Focus();
                 return false;
             }
 
             if(dttTu_ngay.Text=="")
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messchuanhapngay_bd"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "messchuanhapngay_bd"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dttTu_ngay.Focus();
                 return false;
             }
             if(dttDen_ngay.Text=="")
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "messchuanhapngay_kt"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "messchuanhapngay_kt"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dttDen_ngay.Focus();
                 return false;
             }
@@ -200,21 +196,6 @@ namespace Vs.TimeAttendance
             {
                 XtraMessageBox.Show(ex.Message.ToString());
             }
-
-            //DataTable dt = new DataTable();
-            //var sqlcom = new SqlCommand();
-            //var con = new SqlConnection(Commons.IConnections.CNStr);
-            //if (con.State == ConnectionState.Closed)
-            //{
-            //    con.Open();
-            //}
-            //string sql = "select ID_NHOM,TEN_NHOM from NHOM_CHAM_CONG";
-            //sqlcom.CommandText = sql;
-            //sqlcom.CommandType = CommandType.StoredProcedure;
-            //SqlDataAdapter da = new SqlDataAdapter(sqlcom);
-            //da.Fill(dt);
-            //Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboNhom, dt, "ID_NHOM", "TEN_NHOM",this.Name);
-
         }
         private void loadcbm_ca()
         {
@@ -233,21 +214,6 @@ namespace Vs.TimeAttendance
             {
                 XtraMessageBox.Show(ex.Message.ToString());
             }
-
-            //DataTable dt = new DataTable();
-            //var sqlcom = new SqlCommand();
-            //var con = new SqlConnection(Commons.IConnections.CNStr);
-            //if (con.State == ConnectionState.Closed)
-            //{
-            //    con.Open();
-            //}
-            //string sql = "select ID_NHOM,TEN_NHOM from NHOM_CHAM_CONG";
-            //sqlcom.CommandText = sql;
-            //sqlcom.CommandType = CommandType.StoredProcedure;
-            //SqlDataAdapter da = new SqlDataAdapter(sqlcom);
-            //da.Fill(dt);
-            //Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboNhom, dt, "ID_NHOM", "TEN_NHOM",this.Name);
-
         }
 
         private void grdData_MouseHover(object sender, EventArgs e)
@@ -255,6 +221,10 @@ namespace Vs.TimeAttendance
             //grvData.Appearance.Row. = Color.Red;
             //XtraMessageBox.Show(sender.GetHashCode().ToString());
         }
-        
+
+        private void cboNhom_EditValueChanged(object sender, EventArgs e)
+        {
+            loadcbm_ca();
+        }
     }
 }

@@ -101,7 +101,7 @@ namespace Vs.TimeAttendance
                 case "xoa":
                     {
                         if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteThang"), 
-                            Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+                        Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
                         XoaData();
                         enableButon(true);
                         LoadGridDKChamTuDong(isAdd);
@@ -167,6 +167,8 @@ namespace Vs.TimeAttendance
                     grvKDCTD.Columns["ID_CN"].OptionsColumn.ReadOnly = true;
                     grvKDCTD.Columns["MS_CN"].OptionsColumn.ReadOnly = true;
                     grvKDCTD.Columns["HO_TEN"].OptionsColumn.ReadOnly = true;
+                    grvKDCTD.Columns["TEN_XN"].OptionsColumn.ReadOnly = true;
+                    grvKDCTD.Columns["TEN_TO"].OptionsColumn.ReadOnly = true;
                     grvKDCTD.Columns["ID_CN"].Visible = false;
                 }
                 else
@@ -205,8 +207,15 @@ namespace Vs.TimeAttendance
         {
             windowsUIButton.Buttons[0].Properties.Visible = visible;
             windowsUIButton.Buttons[1].Properties.Visible = visible;
-            windowsUIButton.Buttons[2].Properties.Visible = !visible;
-            windowsUIButton.Buttons[3].Properties.Visible = !visible;
+            windowsUIButton.Buttons[2].Properties.Visible = visible;
+            windowsUIButton.Buttons[3].Properties.Visible = visible;
+            windowsUIButton.Buttons[4].Properties.Visible = !visible;
+            windowsUIButton.Buttons[5].Properties.Visible = !visible;
+
+            cboDV.Enabled = visible;
+            cboXN.Enabled = visible;
+            cboTo.Enabled = visible;
+            cboNgay.Enabled = visible;
 
             searchControl.Visible = true;
             isAdd = !windowsUIButton.Buttons[0].Properties.Visible;

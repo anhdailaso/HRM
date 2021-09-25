@@ -47,7 +47,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.sPS = "0Load";
 
             repositoryItemTimeEdit1.TimeEditStyle = TimeEditStyle.TouchUI;
-            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             repositoryItemTimeEdit1.Mask.EditMask = "HH:mm";
 
             repositoryItemTimeEdit1.NullText = "00:00";
@@ -70,11 +70,6 @@ namespace Vs.TimeAttendance
                 DataTable dt = new DataTable();
                 if (isAdd)
                 {
-                    //dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListCheDoLamViec", Convert.ToDateTime(cboNgay.EditValue),
-                    //            cboNhomChamCong.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                    //Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true, false, false, true, true, this.Name);
-                    //dt.Columns["GIO_BD"].ReadOnly = false;
-                    //dt.Columns["GIO_KT"].ReadOnly = false;
                     grvData.OptionsBehavior.Editable = true;
                 }
                 else
@@ -116,17 +111,16 @@ namespace Vs.TimeAttendance
         {
             try
             {
-                    DataTable dt = new DataTable();
-                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetdNgayApDung", Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetdNgayApDung", Commons.Modules.UserName, Commons.Modules.TypeLanguage));
 
                 if (grdNgay.DataSource == null)
-                    {
-                       Commons.Modules.ObjSystems.MLoadXtraGrid(grdNgay, grvNgay, dt, false, true, true, true, true, this.Name);
-                    }
+                {
+                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdNgay, grvNgay, dt, false, true, true, true, true, this.Name);
+                }
                 else
                 {
                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdNgay, grvNgay, dt, false, false, true, false, false, this.Name);
-                    
                 }
 
                 if(dt.Rows.Count == 0)
@@ -207,8 +201,9 @@ namespace Vs.TimeAttendance
             btnALL.Buttons[0].Properties.Visible = !isAdd;
             btnALL.Buttons[1].Properties.Visible = !isAdd;
             btnALL.Buttons[2].Properties.Visible = !isAdd;
-            btnALL.Buttons[3].Properties.Visible = isAdd;
+            btnALL.Buttons[3].Properties.Visible = !isAdd;
             btnALL.Buttons[4].Properties.Visible = isAdd;
+            btnALL.Buttons[5].Properties.Visible = isAdd;
             cboNhomChamCong.Enabled = !isAdd;
             cboNgay.Enabled = !isAdd;
         }

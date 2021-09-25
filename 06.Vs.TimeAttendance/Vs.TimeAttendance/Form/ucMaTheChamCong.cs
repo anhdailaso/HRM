@@ -41,6 +41,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             DateTime nht = DateTime.Now;
             dNgayXem.EditValue = nht.ToString("dd/MM/yyyy");
+            Commons.OSystems.SetDateEditFormat(dNgayXem);
             LoadGridMaTheChamCong();
             Commons.Modules.sPS = "";
             enableButon();
@@ -91,6 +92,7 @@ namespace Vs.TimeAttendance
                         }
                         isAdd = true;
                         enableButon();
+                        LockControl(false);
                         Commons.Modules.ObjSystems.AddnewRow(grvMTCC, false);
                         break;
                     }
@@ -101,6 +103,7 @@ namespace Vs.TimeAttendance
                         Savedata();
                         isAdd = false;
                         enableButon();
+                        LockControl(true);
                         LoadGridMaTheChamCong();
                         isAdd = false;
                         break;
@@ -109,6 +112,7 @@ namespace Vs.TimeAttendance
                     {
                         isAdd = false;
                         enableButon();
+                        LockControl(true);
                         LoadGridMaTheChamCong();
                         break;
                     }
@@ -128,14 +132,14 @@ namespace Vs.TimeAttendance
         private void LoadGridMaTheChamCong()
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "GetListMTCC", dNgayXem.EditValue, cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListMTCC", dNgayXem.EditValue, cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
             if (isAdd)
             {
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdMTCC, grvMTCC, dt, true, false, true, true, true, this.Name);
             }
             else
             {
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdMTCC, grvMTCC, dt, false, false, true, true, true, this.Name);
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdMTCC, grvMTCC, dt, true, false, true, true, true, this.Name);
             }
             grvMTCC.Columns["ID_CN"].OptionsColumn.ReadOnly = true;
             grvMTCC.Columns["ID_CN"].Visible = false;
@@ -165,8 +169,23 @@ namespace Vs.TimeAttendance
         private void enableButon()
         {
             windowsUIButton.Buttons[0].Properties.Visible = !isAdd;
-            windowsUIButton.Buttons[1].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[1].Properties.Visible = !isAdd;
             windowsUIButton.Buttons[2].Properties.Visible = isAdd;
+            windowsUIButton.Buttons[3].Properties.Visible = isAdd;
+        }
+        private void LockControl(Boolean oLock)
+        {
+            try
+            {
+                cboDV.Enabled = oLock;
+                cboXN.Enabled = oLock;
+                cboTo.Enabled = oLock;
+                dNgayXem.Enabled = oLock;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message.ToString());
+            }
         }
         #endregion
 

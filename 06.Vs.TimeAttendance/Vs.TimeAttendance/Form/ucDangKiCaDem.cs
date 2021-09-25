@@ -106,7 +106,7 @@ namespace Vs.TimeAttendance
                         LoadGridDSDKLamDem(isAdd);
                         break;
                     }
-                case "luu":
+                case "ghi":
                     {
                         if (grvDSDKLD.HasColumnErrors) return;
                         Savedata();
@@ -114,7 +114,7 @@ namespace Vs.TimeAttendance
                         LoadGridDSDKLamDem(isAdd);
                         break;
                     }
-                case "khongluu":
+                case "khongghi":
                     {
                         LoadGridDSDKLamDem(false);
                         enableButon(true);
@@ -162,6 +162,8 @@ namespace Vs.TimeAttendance
                     grvDSDKLD.Columns["ID_CN"].OptionsColumn.ReadOnly = true;
                     grvDSDKLD.Columns["MS_CN"].OptionsColumn.ReadOnly = true;
                     grvDSDKLD.Columns["HO_TEN"].OptionsColumn.ReadOnly = true;
+                    grvDSDKLD.Columns["TEN_XN"].OptionsColumn.ReadOnly = true;
+                    grvDSDKLD.Columns["TEN_TO"].OptionsColumn.ReadOnly = true;
                     grvDSDKLD.Columns["ID_CN"].Visible = false;
                 }
                 else
@@ -169,7 +171,7 @@ namespace Vs.TimeAttendance
                     dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListDSDKLamDem", cboNgay.EditValue, cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdDSDKLD, grvDSDKLD, dt, false, false, true, true, true, this.Name);
                 }
-                LoadNgay();
+                //LoadNgay();
             }
             catch
             {
@@ -200,9 +202,16 @@ namespace Vs.TimeAttendance
         {
             windowsUIButton.Buttons[0].Properties.Visible = visible;
             windowsUIButton.Buttons[1].Properties.Visible = visible;
-            windowsUIButton.Buttons[2].Properties.Visible = !visible;
-            windowsUIButton.Buttons[3].Properties.Visible = !visible;
+            windowsUIButton.Buttons[2].Properties.Visible = visible;
+            windowsUIButton.Buttons[3].Properties.Visible = visible;
+            windowsUIButton.Buttons[4].Properties.Visible = !visible;
+            windowsUIButton.Buttons[5].Properties.Visible = !visible;
 
+            cboDV.Enabled = visible;
+            cboXN.Enabled = visible;
+            cboTo.Enabled = visible;
+            cboNgay.Enabled = visible;
+            
             searchControl.Visible = true;
             isAdd = !windowsUIButton.Buttons[0].Properties.Visible;
         }
@@ -237,14 +246,25 @@ namespace Vs.TimeAttendance
         {
             try
             {
-                cboNgay.Text = calThang.DateTime.ToString("dd/MM/yyyy");
-                DataTable dtTmp = Commons.Modules.ObjSystems.ConvertDatatable(grdThang);
+                cboNgay.EditValue = calThang.DateTime.Date.ToShortDateString();
             }
-            catch
+            catch (Exception ex)
             {
-                cboNgay.Text = calThang.DateTime.ToString("dd/MM/yyyy");
+                XtraMessageBox.Show(ex.Message.ToString());
+                cboNgay.Text = DateTime.Now.ToShortDateString();
             }
             cboNgay.ClosePopup();
+
+            //try
+            //{
+            //    cboNgay.Text = calThang.DateTime.ToString("dd/MM/yyyy");
+            //    DataTable dtTmp = Commons.Modules.ObjSystems.ConvertDatatable(grdThang);
+            //}
+            //catch
+            //{
+            //    cboNgay.Text = calThang.DateTime.ToString("dd/MM/yyyy");
+            //}
+            //cboNgay.ClosePopup();
         }
 
         private void LoadNgay()
@@ -252,34 +272,63 @@ namespace Vs.TimeAttendance
             try
             {
                 DataTable dtthang = new DataTable();
-                string sSql = " SELECT DISTINCT SUBSTRING(CONVERT(VARCHAR(10),NGAY,103),4,2) as M, RIGHT(CONVERT(VARCHAR(10),NGAY,103),4) AS Y , CONVERT(VARCHAR(10),NGAY,103) AS NGAY FROM dbo.DANG_KY_LAM_DEM ORDER BY NGAY DESC";
+                string sSql = " SELECT DISTINCT NGAY FROM dbo.DANG_KY_LAM_DEM ORDER BY NGAY DESC";
                 dtthang.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdThang, grvThang, dtthang, false, true, true, true, true, this.Name);
-                grvThang.Columns["M"].Visible = false;
-                grvThang.Columns["Y"].Visible = false;
 
-                if(dtthang.Rows.Count > 0)
+                if (grdThang.DataSource == null)
                 {
-                    cboNgay.EditValue = dtthang.Rows[0][2];
+                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdThang, grvThang, dtthang, false, true, true, true, true, this.Name);
+                }
+                else
+                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdThang, grvThang, dtthang, false, false, true, false, false, this.Name);
+
+                if (dtthang.Rows.Count <= 0)
+                {
+                    cboNgay.EditValue = DateTime.Today;
                 }
                 else
                 {
-                    cboNgay.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    cboNgay.EditValue = dtthang.Rows[0]["NGAY"];
                 }
+
+                //Commons.Modules.ObjSystems.MLoadXtraGrid(grdThang, grvThang, dtthang, false, true, true, true, true, this.Name);
+                //grvThang.Columns["M"].Visible = false;
+                //grvThang.Columns["Y"].Visible = false;
+
+                
             }
             catch
             {
             }
         }
-
+        private void LoadNull()
+        {
+            try
+            {
+                if (cboNgay.Text == "") cboNgay.Text = DateTime.Now.ToShortDateString();
+            }
+            catch (Exception ex)
+            {
+                cboNgay.Text = "";
+                XtraMessageBox.Show(ex.Message.ToString());
+            }
+        }
         private void grvThang_RowCellClick(object sender, RowCellClickEventArgs e)
         {
             try
             {
-                cboNgay.Text = grvThang.GetFocusedRowCellValue("NGAY").ToString();
+                GridView grv = (GridView)sender;
+                cboNgay.Text = Convert.ToDateTime(grv.GetFocusedRowCellValue("NGAY").ToString()).ToShortDateString();
             }
-            catch { }
+            catch { LoadNull(); }
             cboNgay.ClosePopup();
+
+            //try
+            //{
+            //    cboNgay.Text = grvThang.GetFocusedRowCellValue("NGAY").ToString();
+            //}
+            //catch { }
+            //cboNgay.ClosePopup();
         }
     }
 }

@@ -67,20 +67,37 @@
             // 
             // btnALL
             // 
-            windowsUIButtonImageOptions1.Image = global::Vs.Payroll.Properties.Resources.iconsave;
-            windowsUIButtonImageOptions2.Image = global::Vs.Payroll.Properties.Resources.iconxoa;
+            this.btnALL.AppearanceButton.Hovered.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.Gray;
+            this.btnALL.AppearanceButton.Hovered.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.btnALL.AppearanceButton.Normal.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Normal.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnALL.AppearanceButton.Normal.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Normal.Options.UseForeColor = true;
+            this.btnALL.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnALL.AppearanceButton.Pressed.FontSizeDelta = -1;
+            this.btnALL.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseBorderColor = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseFont = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseImage = true;
+            this.btnALL.AppearanceButton.Pressed.Options.UseTextOptions = true;
+            windowsUIButtonImageOptions1.ImageUri.Uri = "SaveAll";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "richedit/clearheaderandfooter";
             this.btnALL.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Lưu", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Hủy", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "huy", -1, false)});
-            this.btnALL.ContentAlignment = System.Drawing.ContentAlignment.TopCenter;
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "thoat", -1, false)});
+            this.btnALL.ContentAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.btnALL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnALL.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnALL.Location = new System.Drawing.Point(0, 344);
+            this.btnALL.Location = new System.Drawing.Point(0, 374);
+            this.btnALL.Margin = new System.Windows.Forms.Padding(0);
             this.btnALL.Name = "btnALL";
-            this.btnALL.Padding = new System.Windows.Forms.Padding(4, 6, 4, 3);
-            this.btnALL.Size = new System.Drawing.Size(709, 51);
-            this.btnALL.TabIndex = 11;
-            this.btnALL.Text = "windowsUIButtonPanel2";
+            this.btnALL.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
+            this.btnALL.Size = new System.Drawing.Size(730, 40);
+            this.btnALL.TabIndex = 10;
+            this.btnALL.Text = "btnALLPanel1";
+            this.btnALL.UseButtonBackgroundImages = false;
             this.btnALL.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.btnALL_ButtonClick);
             // 
             // dataLayoutControl1
@@ -91,48 +108,53 @@
             this.dataLayoutControl1.Controls.Add(this.txtKNLV_H);
             this.dataLayoutControl1.Controls.Add(this.txtMS_KNLV);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(51, 38);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(64, 39);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(630, 281, 650, 400);
             this.dataLayoutControl1.Root = this.Root;
             this.tablePanel1.SetRow(this.dataLayoutControl1, 1);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(588, 303);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(746, 294);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // txtKNLV
             // 
             this.txtKNLV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtKNLV.Location = new System.Drawing.Point(68, 36);
+            this.txtKNLV.Location = new System.Drawing.Point(87, 40);
+            this.txtKNLV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtKNLV.Name = "txtKNLV";
-            this.txtKNLV.Size = new System.Drawing.Size(508, 20);
+            this.txtKNLV.Size = new System.Drawing.Size(651, 26);
             this.txtKNLV.StyleController = this.dataLayoutControl1;
             this.txtKNLV.TabIndex = 7;
             // 
             // txtKNLV_A
             // 
             this.txtKNLV_A.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtKNLV_A.Location = new System.Drawing.Point(68, 60);
+            this.txtKNLV_A.Location = new System.Drawing.Point(87, 70);
+            this.txtKNLV_A.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtKNLV_A.Name = "txtKNLV_A";
-            this.txtKNLV_A.Size = new System.Drawing.Size(508, 20);
+            this.txtKNLV_A.Size = new System.Drawing.Size(651, 26);
             this.txtKNLV_A.StyleController = this.dataLayoutControl1;
             this.txtKNLV_A.TabIndex = 7;
             // 
             // txtKNLV_H
             // 
             this.txtKNLV_H.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtKNLV_H.Location = new System.Drawing.Point(68, 84);
+            this.txtKNLV_H.Location = new System.Drawing.Point(87, 100);
+            this.txtKNLV_H.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtKNLV_H.Name = "txtKNLV_H";
-            this.txtKNLV_H.Size = new System.Drawing.Size(508, 20);
+            this.txtKNLV_H.Size = new System.Drawing.Size(651, 26);
             this.txtKNLV_H.StyleController = this.dataLayoutControl1;
             this.txtKNLV_H.TabIndex = 7;
             // 
             // txtMS_KNLV
             // 
             this.txtMS_KNLV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtMS_KNLV.Location = new System.Drawing.Point(68, 12);
+            this.txtMS_KNLV.Location = new System.Drawing.Point(87, 10);
+            this.txtMS_KNLV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMS_KNLV.Name = "txtMS_KNLV";
-            this.txtMS_KNLV.Size = new System.Drawing.Size(508, 20);
+            this.txtMS_KNLV.Size = new System.Drawing.Size(651, 26);
             this.txtMS_KNLV.StyleController = this.dataLayoutControl1;
             this.txtMS_KNLV.TabIndex = 7;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -146,7 +168,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(588, 303);
+            this.Root.Size = new System.Drawing.Size(746, 294);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -160,38 +182,38 @@
             this.ItemForMS_KNLV});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(568, 283);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(732, 278);
             // 
             // ItemForKNLV
             // 
             this.ItemForKNLV.Control = this.txtKNLV;
             this.ItemForKNLV.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.ItemForKNLV.CustomizationFormText = "Hệ số đơn giá";
-            this.ItemForKNLV.Location = new System.Drawing.Point(0, 24);
+            this.ItemForKNLV.Location = new System.Drawing.Point(0, 30);
             this.ItemForKNLV.Name = "ItemForKNLV";
-            this.ItemForKNLV.Size = new System.Drawing.Size(568, 24);
+            this.ItemForKNLV.Size = new System.Drawing.Size(732, 30);
             this.ItemForKNLV.Text = "KNLV";
-            this.ItemForKNLV.TextSize = new System.Drawing.Size(53, 13);
+            this.ItemForKNLV.TextSize = new System.Drawing.Size(75, 20);
             // 
             // ItemForKNLV_A
             // 
             this.ItemForKNLV_A.Control = this.txtKNLV_A;
             this.ItemForKNLV_A.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.ItemForKNLV_A.Location = new System.Drawing.Point(0, 48);
+            this.ItemForKNLV_A.Location = new System.Drawing.Point(0, 60);
             this.ItemForKNLV_A.Name = "ItemForKNLV_A";
-            this.ItemForKNLV_A.Size = new System.Drawing.Size(568, 24);
+            this.ItemForKNLV_A.Size = new System.Drawing.Size(732, 30);
             this.ItemForKNLV_A.Text = "KNLV (Eng)";
-            this.ItemForKNLV_A.TextSize = new System.Drawing.Size(53, 13);
+            this.ItemForKNLV_A.TextSize = new System.Drawing.Size(75, 20);
             // 
             // ItemForKNLV_H
             // 
             this.ItemForKNLV_H.Control = this.txtKNLV_H;
             this.ItemForKNLV_H.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.ItemForKNLV_H.Location = new System.Drawing.Point(0, 72);
+            this.ItemForKNLV_H.Location = new System.Drawing.Point(0, 90);
             this.ItemForKNLV_H.Name = "ItemForKNLV_H";
-            this.ItemForKNLV_H.Size = new System.Drawing.Size(568, 211);
+            this.ItemForKNLV_H.Size = new System.Drawing.Size(732, 188);
             this.ItemForKNLV_H.Text = "KNLV(Ch)";
-            this.ItemForKNLV_H.TextSize = new System.Drawing.Size(53, 13);
+            this.ItemForKNLV_H.TextSize = new System.Drawing.Size(75, 20);
             // 
             // ItemForMS_KNLV
             // 
@@ -200,9 +222,9 @@
             this.ItemForMS_KNLV.CustomizationFormText = "MS kiểu công việc";
             this.ItemForMS_KNLV.Location = new System.Drawing.Point(0, 0);
             this.ItemForMS_KNLV.Name = "ItemForMS_KNLV";
-            this.ItemForMS_KNLV.Size = new System.Drawing.Size(568, 24);
+            this.ItemForMS_KNLV.Size = new System.Drawing.Size(732, 30);
             this.ItemForMS_KNLV.Text = "MS KNLV";
-            this.ItemForMS_KNLV.TextSize = new System.Drawing.Size(53, 13);
+            this.ItemForMS_KNLV.TextSize = new System.Drawing.Size(75, 20);
             // 
             // tablePanel1
             // 
@@ -213,21 +235,21 @@
             this.tablePanel1.Controls.Add(this.dataLayoutControl1);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 10.19F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 89.81F)});
-            this.tablePanel1.Size = new System.Drawing.Size(709, 344);
+            this.tablePanel1.Size = new System.Drawing.Size(899, 338);
             this.tablePanel1.TabIndex = 12;
             // 
             // frmEditKINH_NGHIEM_LAM_VIEC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 395);
+            this.ClientSize = new System.Drawing.Size(899, 416);
             this.Controls.Add(this.tablePanel1);
             this.Controls.Add(this.btnALL);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmEditKINH_NGHIEM_LAM_VIEC";
             this.Text = "frmEditKINH_NGHIEM_LAM_VIEC";
             this.Load += new System.EventHandler(this.frmEditKINH_NGHIEM_LAM_VIEC_Load);

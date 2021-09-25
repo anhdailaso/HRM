@@ -55,7 +55,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.sPS = "0Load";
 
             repositoryItemTimeEdit1.TimeEditStyle = TimeEditStyle.TouchUI;
-            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            repositoryItemTimeEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             repositoryItemTimeEdit1.Mask.EditMask = "HH:mm";
 
             repositoryItemTimeEdit1.NullText = "00:00";
@@ -176,7 +176,7 @@ namespace Vs.TimeAttendance
 
                 DataTable dID_NHOM = new DataTable();
                 dID_NHOM.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetNhomCC", cboNgay.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                Commons.Modules.ObjSystems.AddCombXtra("ID_NHOM", "TEN_NHOM", grvLamThem, dID_NHOM, false);
+                Commons.Modules.ObjSystems.AddCombXtra("ID_NHOM", "TEN_NHOM", grvLamThem, dID_NHOM, false, "ID_NHOM", "NHOM_CHAM_CONG");
 
                 grvLamThem.OptionsBehavior.Editable = true;
 
@@ -233,6 +233,7 @@ namespace Vs.TimeAttendance
                 dt.Columns["CHON"].ReadOnly = false;
                 dt.Columns["MS_CN"].ReadOnly = true;
                 dt.Columns["HO_TEN"].ReadOnly = true;
+                
 
                 FormatGridCongNhan();
             }
@@ -245,6 +246,8 @@ namespace Vs.TimeAttendance
         private void FormatGridCongNhan()
         {
             grvCongNhan.Columns["ID_CN"].Visible = false;
+            grvCongNhan.Columns["MS_CN"].Width = 100;
+            grvCongNhan.Columns["HO_TEN"].Width = 300;
         }
 
         #region Combobox Changed
@@ -262,6 +265,7 @@ namespace Vs.TimeAttendance
             LoadGridCongNhan();
             LoadGrdDSLamThem();
             Commons.Modules.sPS = "";
+            grvCongNhan_FocusedRowChanged(null, null);
         }
 
         /// <summary>
@@ -277,6 +281,9 @@ namespace Vs.TimeAttendance
             LoadGridCongNhan();
             LoadGrdDSLamThem();
             Commons.Modules.sPS = "";
+            grvCongNhan_FocusedRowChanged(null, null);
+            if (grvCongNhan.RowCount == 0)
+                grdLamThem.DataSource = null;
         }
 
         /// <summary>
@@ -309,6 +316,7 @@ namespace Vs.TimeAttendance
             LoadGridCongNhan();
             LoadGrdDSLamThem();
             Commons.Modules.sPS = "";
+            grvCongNhan_FocusedRowChanged(null, null);
         }
         #endregion
 
@@ -640,27 +648,23 @@ namespace Vs.TimeAttendance
             DataTable dangKiLamThemGio = new DataTable();
 
             string stbCongNhan = "grvCongNhanLamThemGio" + Commons.Modules.UserName;
+            string stbLamThemGio = "grvLamThemGio" + Commons.Modules.UserName;
             string sSql = "";
             try
             {
-                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbCongNhan, (DataTable)grdLamThem.DataSource, "");
-                //sSql = " DELETE FROM DANG_KY_LAM_GIO_LAM_THEM WHERE CONVERT(NVARCHAR(10),NGAY,112) = '" + Convert.ToDateTime(cboNgay.EditValue).ToString("yyyyMMdd") +
-                //       "' AND ID_CN IN (SELECT DISTINCT ID_CN FROM " + stbCongNhan + ")" +
-                //       " INSERT INTO DANG_KY_LAM_GIO_LAM_THEM (ID_CN, NGAY, ID_NHOM, CA, COM_CA, GIO_BD, GIO_KT, PHUT_BD, PHUT_KT) " +
-                //       " SELECT ID_CN,'" + Convert.ToDateTime(cboNgay.EditValue).ToString("yyyyMMdd") + "', ID_NHOM, CA, COM_CA," +
-                //       " CONVERT(Datetime, GIO_BD, 120), CONVERT(Datetime, GIO_KT, 120), PHUT_BD, PHUT_KT " +
-                //       " FROM " + stbCongNhan + "";
-                ////" WHERE CHON = 'True'";
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbCongNhan, (DataTable)grdCongNhan.DataSource, "");
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, stbLamThemGio, (DataTable)grdLamThem.DataSource, "");
 
-
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveDangKyLamThemGio", stbCongNhan);
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveDangKyLamThemGio", cboNgay.EditValue, stbCongNhan, stbLamThemGio);
                 Commons.Modules.ObjSystems.XoaTable(stbCongNhan);
+                Commons.Modules.ObjSystems.XoaTable(stbLamThemGio);
                 return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
                 Commons.Modules.ObjSystems.XoaTable(stbCongNhan);
+                Commons.Modules.ObjSystems.XoaTable(stbLamThemGio);
                 return false;
             }
         }
@@ -677,13 +681,17 @@ namespace Vs.TimeAttendance
             btnALL.Buttons[1].Properties.Visible = !isAdd;
             btnALL.Buttons[2].Properties.Visible = !isAdd;
             btnALL.Buttons[3].Properties.Visible = !isAdd;
+            btnALL.Buttons[4].Properties.Visible = !isAdd;
+            btnALL.Buttons[5].Properties.Visible = !isAdd;
 
-            btnALL.Buttons[4].Properties.Visible = isAdd;
-            btnALL.Buttons[5].Properties.Visible = isAdd;
             btnALL.Buttons[6].Properties.Visible = isAdd;
             btnALL.Buttons[7].Properties.Visible = isAdd;
             btnALL.Buttons[8].Properties.Visible = isAdd;
             btnALL.Buttons[9].Properties.Visible = isAdd;
+            btnALL.Buttons[10].Properties.Visible = isAdd;
+            btnALL.Buttons[11].Properties.Visible = isAdd;
+            btnALL.Buttons[12].Properties.Visible = isAdd;
+            btnALL.Buttons[13].Properties.Visible = isAdd;
 
             cboNgay.Enabled = !isAdd;
             cboDonVi.Enabled = !isAdd;

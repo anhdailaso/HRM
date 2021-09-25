@@ -108,7 +108,7 @@ namespace Vs.HRM
                 Commons.Modules.sPS = "0Load";
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanBHXH", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true, this.Name);
                 grvCongNhan.Columns["ID_CN"].Visible = false;
                 grvCongNhan.Columns["TINH_TRANG"].Visible = false;
                 Commons.Modules.sPS = "";
@@ -157,7 +157,7 @@ namespace Vs.HRM
                     dt.Rows[dt.Rows.Count - 1]["DEN_THANG"] = DateTime.Today.AddMonths(-1).ToString("MM/yyyy");
                     dt.Rows[dt.Rows.Count - 1]["NAM_DONG"] = SoNam(dt.Rows[dt.Rows.Count - 1]["TU_THANG"].ToString(), dt.Rows[dt.Rows.Count - 1]["DEN_THANG"].ToString(), out resulst);
                     dt.Rows[dt.Rows.Count - 1]["THANG_DONG"] = resulst;
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdThamGiaBHXH, grvThamGiaBHXH, dt, false, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdThamGiaBHXH, grvThamGiaBHXH, dt, false, false, true, true, true, this.Name);
                 grvThamGiaBHXH.Columns["ID_CN"].Visible = false;
                 grvThamGiaBHXH.Columns["NGAY_HIEU_LUC"].Visible = false;
                 grvThamGiaBHXH.Columns["TEN_CV"].Visible = false;

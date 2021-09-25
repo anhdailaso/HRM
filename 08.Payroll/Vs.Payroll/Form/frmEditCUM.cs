@@ -17,7 +17,7 @@ namespace Vs.Payroll
         public frmEditCUM(Int64 iId, Boolean bAddEdit)
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, windowsUIButtonPanel2);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, btnALL);
             iIdTo = iId;
             bAddEditTo = bAddEdit;
         }
@@ -30,7 +30,7 @@ namespace Vs.Payroll
         {
             try
             {
-                Commons.Modules.ObjSystems.MLoadLookUpEdit(TEN_LOAI_SAN_PHAMLookUpEdit, Commons.Modules.ObjSystems.DataNhomHangHoa(false),"ID_NHH", "TEN_NHH",Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHH"),true);
+                Commons.Modules.ObjSystems.MLoadLookUpEdit(TEN_LOAI_SAN_PHAMLookUpEdit, Commons.Modules.ObjSystems.DataNhomHangHoa(false),"ID_NHH", "TEN_NHH",Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_NHH"),false);
             }
             catch
             {
@@ -73,13 +73,6 @@ namespace Vs.Payroll
                         {
                             
                             if (!dxValidationProvider1.Validate()) return;
-                            if(TEN_LOAI_SAN_PHAMLookUpEdit.Text=="")
-                            {
-                                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgchuachonloaisp"));
-                                TEN_LOAI_SAN_PHAMLookUpEdit.Focus();
-                                return;
-                            }
-
                             if (KiemTrung()) return;
                             if (bAddEditTo) iIdTo = -1;
                             #region Them
@@ -112,18 +105,6 @@ namespace Vs.Payroll
                             this.Close();
                             #endregion
 
-
-                            //    Commons.Modules.sId = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spUpdateCUM", (bAddEditTo ? -1 : iIdTo), 
-                            //    MS_CUMTextEdit.EditValue, 
-                            //    TEN_CUMTextEdit.EditValue, 
-                            //    STT_CUMTextEdit.EditValue, 
-                            //    TEN_LOAI_SAN_PHAMLookUpEdit.EditValue, 
-                            //    TINH_TGCheckEdit.EditValue, 
-                            //    LOAI_CUMTextEdit.EditValue,  
-                            //    CUM_PSCheckEdit.EditValue, 
-                            //    CUM_CUOICheckEdit.EditValue).ToString();
-                            //this.DialogResult = DialogResult.OK;
-                            //this.Close();
                             break;
                         }
                     case "huy":
@@ -152,13 +133,13 @@ namespace Vs.Payroll
                     tenSql = "SELECT TEN_CUM FROM [CUM] WHERE TEN_CUM = '" + TEN_CUMTextEdit.EditValue + "'";
                     if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)) != 0 && MS != MS_CUMTextEdit.EditValue.ToString())
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_MSCNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_MaSoTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }
                     if (Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, tenSql)) == Convert.ToString((TEN_CUMTextEdit.EditValue)) && TEN != TEN_CUMTextEdit.EditValue.ToString())
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgMS_TENCNayDaTonTai"));
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_TenTrung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));
 
                         return true;
                     }
