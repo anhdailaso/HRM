@@ -59,7 +59,7 @@ namespace Vs.HRM
 
                         
                         }
-                        catch (Exception ex)
+                        catch 
                         {
                         }
 

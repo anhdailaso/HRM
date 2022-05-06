@@ -91,6 +91,10 @@
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\01.VietSoftHRM\packages\Microsoft.ApplicationBlocks.Data.2.0.0\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\..\01.VietSoftHRM\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
@@ -280,6 +284,12 @@
     <Compile Include="UAC\BaoCao\ucBaoCaoDonVi.Designer.cs">
       <DependentUpon>ucBaoCaoDonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UAC\BaoCao\ucBaoCaoBDTangGiamCN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UAC\BaoCao\ucBaoCaoBDTangGiamCN.Designer.cs">
+      <DependentUpon>ucBaoCaoBDTangGiamCN.cs</DependentUpon>
+    </Compile>
     <Compile Include="UAC\BaoCao\ucBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -297,6 +307,12 @@
     </Compile>
     <Compile Include="UAC\BaoHiem\ucThamGiaBHXH.Designer.cs">
       <DependentUpon>ucThamGiaBHXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UAC\CongNhan\ctCongNhan\frmInQuyetDinhThoiViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UAC\CongNhan\ctCongNhan\frmInQuyetDinhThoiViec.Designer.cs">
+      <DependentUpon>frmInQuyetDinhThoiViec.cs</DependentUpon>
     </Compile>
     <Compile Include="UAC\CongNhan\ctCongNhan\frmInKeHoachNghiPhep.cs">
       <SubType>Form</SubType>
@@ -607,6 +623,9 @@
     <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoDonVi.resx">
       <DependentUpon>ucBaoCaoDonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoBDTangGiamCN.resx">
+      <DependentUpon>ucBaoCaoBDTangGiamCN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoXiNghiep.resx">
       <DependentUpon>ucBaoCaoXiNghiep.cs</DependentUpon>
     </EmbeddedResource>
@@ -618,6 +637,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UAC\BaoHiem\ucThamGiaBHXH.resx">
       <DependentUpon>ucThamGiaBHXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UAC\CongNhan\ctCongNhan\frmInQuyetDinhThoiViec.resx">
+      <DependentUpon>frmInQuyetDinhThoiViec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UAC\CongNhan\ctCongNhan\frmInKeHoachNghiPhep.resx">
       <DependentUpon>frmInKeHoachNghiPhep.cs</DependentUpon>
@@ -843,24 +865,6 @@
     <None Include="Resources\themsua.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -870,6 +874,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UAC\CongNhan\Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

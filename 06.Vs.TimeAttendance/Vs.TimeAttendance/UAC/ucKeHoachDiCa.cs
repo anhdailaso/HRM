@@ -35,7 +35,7 @@ namespace Vs.TimeAttendance
         }
         private void ucKeHoachDiCa_Load(object sender, EventArgs e)
         {
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
 
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
@@ -45,7 +45,7 @@ namespace Vs.TimeAttendance
             radTinHTrang_SelectedIndexChanged(null, null);
             LoadgrdKeHoachDiCa();
             grvCongNhan_FocusedRowChanged(null, null);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
             if (Modules.iPermission != 1)
             {
                 windowsUIButton.Buttons[0].Properties.Visible = false;
@@ -63,30 +63,30 @@ namespace Vs.TimeAttendance
         }
         private void cboDV_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCongNhan();
             grvCongNhan_FocusedRowChanged(null, null);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void cboXN_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCongNhan();
             grvCongNhan_FocusedRowChanged(null, null);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void cboTo_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadGrdCongNhan();
             grvCongNhan_FocusedRowChanged(null, null);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         public void CheckDuplicateDIEM_THEO_DOI_NOP_BAI(GridView grid, DataSet GridDataSet, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
@@ -191,10 +191,10 @@ namespace Vs.TimeAttendance
         {
             try
             {
-                Commons.Modules.sPS = "0Load";
+                Commons.Modules.sLoad = "0Load";
                 DataTable dt = new DataTable();
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoTT", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage,1));
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true,this.Name);
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoTT", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage, 1));
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdCongNhan, grvCongNhan, dt, false, false, true, true, true, this.Name);
                 grvCongNhan.Columns["ID_CN"].Visible = false;
                 grvCongNhan.Columns["TINH_TRANG"].Visible = false;
                 //grvCongNhan.Appearance.HeaderPanel.BackColor = Color.FromArgb(240, 128, 25);
@@ -202,7 +202,7 @@ namespace Vs.TimeAttendance
                 //{
                 //    grvCongNhan.Columns[i].AppearanceHeader.BackColor = Color.FromArgb(200, 200, 200);
                 //}
-                Commons.Modules.sPS = "";
+                Commons.Modules.sLoad = "";
             }
             catch (Exception ex)
             {
@@ -215,11 +215,12 @@ namespace Vs.TimeAttendance
             {
                 DataTable dt = new DataTable();
                 //string select = "SELECT ID_CN,ID_NHOM,CA,TU_NGAY,DEN_NGAY,GHI_CHU FROM KE_HOACH_DI_CA  WHERE ID_CN = " + (grvCongNhan.GetFocusedRowCellValue("ID_CN")==null?-1 : grvCongNhan.GetFocusedRowCellValue("ID_CN")) + " AND YEAR(TU_NGAY) = " + dateNam.Text + "";
-                string select = "SELECT ID_CN, ID_NHOM, CA, TU_NGAY, DEN_NGAY, GHI_CHU FROM KE_HOACH_DI_CA  WHERE YEAR(TU_NGAY) = " + dateNam.Text + "";
+                //string select = "SELECT ID_CN, ID_NHOM, CA, TU_NGAY, DEN_NGAY, GHI_CHU FROM KE_HOACH_DI_CA  WHERE YEAR(TU_NGAY) = " + dateNam.Text + "";
+                string select = "SELECT ID_CN, ID_NHOM, CA, TU_NGAY, DEN_NGAY, GHI_CHU FROM KE_HOACH_DI_CA  WHERE YEAR(TU_NGAY) = " + dateNam.DateTime.Year + "";
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, select));
                 if (grdKeHoachDiCa.DataSource == null)
                 {
-                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdKeHoachDiCa, grvKeHoachDiCa, dt, false, false, true, true, true,this.Name);
+                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdKeHoachDiCa, grvKeHoachDiCa, dt, false, false, true, true, true, this.Name);
                     grvKeHoachDiCa.Columns["ID_CN"].Visible = false;
                     Commons.Modules.ObjSystems.AddCombXtra("ID_NHOM", "TEN_NHOM", grvKeHoachDiCa, Commons.Modules.ObjSystems.DataNhom(false), false, "ID_NHOM", "NHOM_CHAM_CONG");
 
@@ -260,7 +261,7 @@ namespace Vs.TimeAttendance
                     grdKeHoachDiCa.DataSource = dt;
                 }
             }
-            catch(Exception EX)
+            catch (Exception EX)
             {
             }
 
@@ -355,7 +356,7 @@ namespace Vs.TimeAttendance
 
         private void grvCongNhan_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
+            if (Commons.Modules.sLoad == "0Load") return;
             DataTable dtTmp = new DataTable();
             String sIDCN;
             try
@@ -413,6 +414,8 @@ namespace Vs.TimeAttendance
 
         private void dateNam_EditValueChanged(object sender, EventArgs e)
         {
+            if (Commons.Modules.sLoad == "0Load") return;
+            LoadgrdKeHoachDiCa();
             grvCongNhan_FocusedRowChanged(null, null);
         }
 

@@ -26,6 +26,7 @@ namespace Vs.Category
 
         private void frmEditLY_DO_THOI_VIEC_Load(object sender, EventArgs e)
         {
+            LoadCombo();
             if (!AddEdit) LoadText();
             Commons.Modules.ObjSystems.ThayDoiNN(this, layoutControlGroup1, btnALL);
         }
@@ -35,7 +36,7 @@ namespace Vs.Category
         {
             try
             {
-                string sSql = "SELECT ID_LD_TV, TEN_LD_TV, TEN_LD_TV_A, TEN_LD_TV_H, HE_SO " +
+                string sSql = "SELECT ID_LD_TV, TEN_LD_TV, TEN_LD_TV_A, TEN_LD_TV_H, HE_SO, ID_TT_HT " +
                     "FROM LY_DO_THOI_VIEC WHERE ID_LD_TV = " + Id.ToString();
                 DataTable dtTmp = new DataTable();
                 dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
@@ -43,7 +44,8 @@ namespace Vs.Category
                 TEN_LD_TV_ATextEdit.EditValue = dtTmp.Rows[0]["TEN_LD_TV_A"].ToString();
                 TEN_LD_TV_HTextEdit.EditValue = dtTmp.Rows[0]["TEN_LD_TV_H"].ToString();
                 HE_SOTextEdit.EditValue = dtTmp.Rows[0]["HE_SO"].ToString();
-            }
+                cboID_TT_HT.EditValue = dtTmp.Rows[0]["ID_TT_HT"].ToString()
+;            }
             catch (Exception EX)
             {
                 XtraMessageBox.Show(EX.Message.ToString());
@@ -58,6 +60,7 @@ namespace Vs.Category
                 TEN_LD_TV_ATextEdit.EditValue = String.Empty;
                 TEN_LD_TV_HTextEdit.EditValue = String.Empty;
                 HE_SOTextEdit.EditValue = 0;
+                cboID_TT_HT.EditValue = -1;
                 TEN_LD_TVTextEdit.Focus();
             }
             catch { }
@@ -75,9 +78,15 @@ namespace Vs.Category
                         {
                             if (!dxValidationProvider1.Validate()) return;
                             if (bKiemTrung()) return;
+                            if(Convert.ToInt64(cboID_TT_HT.EditValue) < 0)
+                            {
+                                XtraMessageBox.Show(ItemForTEN_TT_HT.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
+                                cboID_TT_HT.Focus();
+                                return;
+                            }
                             Commons.Modules.sId = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spUpdateLY_DO_THOI_VIEC", (AddEdit ? -1 : Id),
                                 TEN_LD_TVTextEdit.EditValue, TEN_LD_TV_ATextEdit.EditValue, TEN_LD_TV_HTextEdit.EditValue, 
-                                (HE_SOTextEdit.EditValue == null) ? 0 : HE_SOTextEdit.EditValue).ToString();
+                                (HE_SOTextEdit.EditValue == null) ? 0 : HE_SOTextEdit.EditValue, Convert.ToInt64(cboID_TT_HT.EditValue)).ToString();
                             if (AddEdit)
                             {
                                 if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_ThemThanhCong"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -127,6 +136,15 @@ namespace Vs.Category
                 return true;
             }
             return false;
+        }
+
+        private void LoadCombo()
+        {
+            try
+            {
+                Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboID_TT_HT, Commons.Modules.ObjSystems.DataTinHTrangHT(false), "ID_TT_HT", "TEN_TT_HT", "TEN_TT_HT", true,true);
+            }
+            catch { }
         }
         
     }

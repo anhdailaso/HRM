@@ -51,9 +51,9 @@
             // 
             this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(28, 22);
+            this.panel2.Location = new System.Drawing.Point(250, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(772, 578);
+            this.panel2.Size = new System.Drawing.Size(550, 578);
             this.panel2.TabIndex = 6;
             // 
             // accorMenuleft
@@ -69,11 +69,10 @@
             this.accorMenuleft.Location = new System.Drawing.Point(0, 22);
             this.accorMenuleft.Name = "accorMenuleft";
             this.accorMenuleft.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
-            this.accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accorMenuleft.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
             this.accorMenuleft.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
             this.accorMenuleft.ShowItemExpandButtons = false;
-            this.accorMenuleft.Size = new System.Drawing.Size(28, 578);
+            this.accorMenuleft.Size = new System.Drawing.Size(250, 578);
             this.accorMenuleft.TabIndex = 5;
             this.accorMenuleft.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 

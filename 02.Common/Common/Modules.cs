@@ -54,6 +54,146 @@ namespace Commons
             }
         }
 
+        //định nghĩa license
+        private static int _iLic = -1;
+        public static int iLic
+        {
+            get
+            {
+                return _iLic;
+            }
+            set
+            {
+                _iLic = value;
+            }
+        }
+
+        //định nghĩa id khách hàng
+        private static int _iCustomerID;
+        public static int iCustomerID
+        {
+            get
+            {
+                return _iCustomerID;
+            }
+            set
+            {
+                _iCustomerID = value;
+            }
+        }
+
+        private static int _iLOAI_CN;
+        public static int iLOAI_CN
+        {
+            get
+            {
+                return _iLOAI_CN;
+            }
+            set
+            {
+                _iLOAI_CN = value;
+            }
+        }
+
+
+        //định nghĩa version PM
+        private static string _sVersion;
+        public static string sVersion
+        {
+            get
+            {
+                return _sVersion;
+            }
+            set
+            {
+                _sVersion = value;
+            }
+        }
+
+
+     
+
+        private static string _LicensePro;
+        public static string LicensePro
+        {
+            get
+            {
+                return _LicensePro;
+            }
+            set
+            {
+                _LicensePro = value;
+            }
+        }
+
+        private static string _sInfoSer;
+        public static string sInfoSer
+        {
+            get
+            {
+                return _sInfoSer;
+            }
+            set
+            {
+                _sInfoSer = value;
+            }
+        }
+
+        private static string _sInfoClient;
+        public static string sInfoClient
+        {
+            get
+            {
+                return _sInfoClient;
+            }
+            set
+            {
+                _sInfoClient = value;
+            }
+        }
+
+        //định nghĩa IP
+        private static string _sIP;
+        public static string sIP
+        {
+            get
+            {
+                return _sIP;
+            }
+            set
+            {
+                _sIP = value;
+            }
+        }
+
+        //định nghĩa link api
+        private static string _sUrlCheckServer;
+        public static string sUrlCheckServer
+        {
+            get
+            {
+                return _sUrlCheckServer;
+            }
+            set
+            {
+                _sUrlCheckServer = value;
+            }
+        }
+
+        private static string _sHideMenu;
+        public static string sHideMenu
+        {
+            get
+            {
+                return _sHideMenu;
+            }
+            set
+            {
+                _sHideMenu = value;
+            }
+        }
+
+
         //định nghĩa làm tròn giờ
         private static int _iLamTronGio;
         public static int iLamTronGio
@@ -104,6 +244,19 @@ namespace Commons
             set
             {
                 _iCongNhan = value;
+            }
+        }
+
+        private static Int64 _iUngVien;
+        public static Int64 iUngVien
+        {
+            get
+            {
+                return _iUngVien;
+            }
+            set
+            {
+                _iUngVien = value;
             }
         }
 
@@ -202,6 +355,19 @@ namespace Commons
             set
             {
                 _UserName = value;
+            }
+        }
+
+        private static Int64 _iIDUser = 0;
+        public static Int64 iIDUser
+        {
+            get
+            {
+                return _iIDUser;
+            }
+            set
+            {
+                _iIDUser = value;
             }
         }
 
@@ -385,6 +551,19 @@ namespace Commons
             set
             {
                 _sMaNhanVienMD = value;
+            }
+        }
+
+        private static string _sLoad;
+        public static string sLoad
+        {
+            get
+            {
+                return _sLoad;
+            }
+            set
+            {
+                _sLoad = value;
             }
         }
 

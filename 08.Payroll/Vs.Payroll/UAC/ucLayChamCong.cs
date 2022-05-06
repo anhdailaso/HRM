@@ -23,7 +23,7 @@ namespace Vs.Payroll
     public partial class ucLayChamCong : DevExpress.XtraEditors.XtraUserControl
     {
         private static bool isAdd = false;
-        
+
         public static ucLayChamCong _instance;
         private bool thangtruoc;
 
@@ -36,12 +36,12 @@ namespace Vs.Payroll
                 return _instance;
             }
         }
-        
+
         public ucLayChamCong()
         {
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this, new List<LayoutControlGroup>() { Root }, btnALL);
-           
+
         }
 
         private void ucLayChamCong_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Vs.Payroll
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDonVi, cboXiNghiep);
             Commons.Modules.ObjSystems.LoadCboTo(cboDonVi, cboXiNghiep, cboTo);
             LoadGrdGTGC();
-            EnableButon(isAdd); 
+            EnableButon(isAdd);
             Commons.Modules.sPS = "";
         }
 
@@ -61,24 +61,17 @@ namespace Vs.Payroll
             try
             {
                 DataTable dt = new DataTable();
-               
-                if (isAdd)
-                {
-                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetEditLayChamCong", Convert.ToDateTime(cboThang.EditValue),
-                                                cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true, false, true, true, true, this.Name);
-                    dt.Columns["MS_CN"].ReadOnly = true;
-                    dt.Columns["HO_TEN"].ReadOnly = true;
-                    dt.Columns["TEN_TO"].ReadOnly = true;
-                }
-                
-                else
-                {
-                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListLayChamCong", Convert.ToDateTime(cboThang.EditValue),
-                                                cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                    Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, false, false, true, true, true, this.Name);
-                }
-                
+
+
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListLayChamCong", Convert.ToDateTime(cboThang.EditValue),
+                                            cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, false, false, false, false, true, this.Name);
+                grvData.Columns["ID_CN"].Visible = false;
+                grvData.Columns["ID_CV"].Visible = false;
+                grvData.Columns["ID_CTL"].Visible = false;
+                grvData.Columns["HO_TEN"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                grvData.Columns["MS_CN"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                grvData.Columns["TEN_TO"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
             }
             catch
@@ -86,12 +79,8 @@ namespace Vs.Payroll
 
             }
 
-            grvData.Columns["ID_CN"].Visible = false;
-            grvData.Columns["THANG"].Visible = false;
-           
         }
 
-        
 
         public void LoadThang()
         {
@@ -111,12 +100,12 @@ namespace Vs.Payroll
             catch (Exception ex)
             {
                 DateTime now = DateTime.Now;
-                
-                cboThang.Text =  now.ToString("MM/yyyy");
+
+                cboThang.Text = now.ToString("MM/yyyy");
             }
         }
 
-       
+
 
         private void windowsUIButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
@@ -126,16 +115,14 @@ namespace Vs.Payroll
             {
                 case "themsua":
                     {
-                        isAdd = true;
-                        LoadGrdGTGC();
-                        Commons.Modules.ObjSystems.AddnewRow(grvData,false);
-                        EnableButon(isAdd);
+                        grvData.OptionsBehavior.Editable = true;
+                        EnableButon(true);
                         break;
-                        
                     }
                 case "xoa":
                     {
                         XoaCheDoLV();
+                        LoadGrdGTGC();
                         break;
                     }
                 case "ghi":
@@ -146,31 +133,37 @@ namespace Vs.Payroll
                         {
                             Commons.Modules.ObjSystems.msgChung(Commons.ThongBao.msgDuLieuDangSuDung);
                         }
-                        isAdd = false;
                         LoadGrdGTGC();
-                        EnableButon(isAdd);
-                        Commons.Modules.ObjSystems.DeleteAddRow(grvData);
+                        EnableButon(false);
                         break;
                     }
                 case "khongghi":
                     {
-                        Commons.Modules.ObjSystems.DeleteAddRow(grvData);
-                        isAdd = false;
-                        LoadGrdGTGC();                        
-                        EnableButon(isAdd);
+                        grvData.OptionsBehavior.Editable = false;
+                        LoadGrdGTGC();
+                        EnableButon(false);
                         break;
                     }
                 case "laycong":
                     {
-                        grdData.DataSource = null;
-                        DateTime Tngay = Convert.ToDateTime(cboThang.EditValue);
-                        DateTime Dngay = Convert.ToDateTime(cboThang.EditValue).AddMonths(1).AddDays(-1);
-                        DataTable dt = new DataTable();
-                        dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetChamCongThang", Commons.Modules.UserName, Commons.Modules.TypeLanguage, cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue, Tngay, Dngay));
-                        Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true, false, true, true, true, this.Name);
-                        dt.Columns["MS_CN"].ReadOnly = true;
-                        dt.Columns["HO_TEN"].ReadOnly = true;
-                        
+                        try
+                        {
+                            grdData.DataSource = null;
+                            DateTime Tngay = Convert.ToDateTime(cboThang.EditValue);
+                            DateTime Dngay = Convert.ToDateTime(cboThang.EditValue).AddMonths(1).AddDays(-1);
+                            DataTable dt = new DataTable();
+                            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetChamCongThang", Commons.Modules.UserName, Commons.Modules.TypeLanguage, cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue, Tngay, Dngay));
+                            Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt, true, false, true, true, true, this.Name);
+                            EnableButon(true);
+                            dt.Columns["MS_CN"].ReadOnly = true;
+                            dt.Columns["HO_TEN"].ReadOnly = true;
+                            dt.Columns["TEN_TO"].ReadOnly = true;
+                            dt.Columns["TEN_CV"].ReadOnly = true;
+                            dt.Columns["CACH_TL"].ReadOnly = true;
+                        }
+                        catch { }
+
+
                         break;
                     }
                 case "thoat":
@@ -187,7 +180,7 @@ namespace Vs.Payroll
             btnALL.Buttons[1].Properties.Visible = !visible;
             btnALL.Buttons[2].Properties.Visible = !visible;
             btnALL.Buttons[3].Properties.Visible = !visible;
-            btnALL.Buttons[4].Properties.Visible = visible;
+            btnALL.Buttons[4].Properties.Visible = !visible;
             btnALL.Buttons[5].Properties.Visible = visible;
             btnALL.Buttons[6].Properties.Visible = visible;
             btnALL.Buttons[7].Properties.Visible = visible;
@@ -202,13 +195,14 @@ namespace Vs.Payroll
             if (grvData.RowCount == 0) { Commons.Modules.ObjSystems.msgChung(Commons.ThongBao.msgKhongCoDuLieuXoa); return; }
             if (Commons.Modules.ObjSystems.msgHoi(Commons.ThongBao.msgXoa) == DialogResult.No) return;
             //xóa
+            string sTB = "XoaChamCongThang_" + Commons.Modules.UserName;
             try
             {
-                string sSql = "DELETE dbo.DS_CN_KHONG_TINH_PC WHERE ID_CN = " + grvData.GetFocusedRowCellValue("ID_CN") +
-                                                        " AND THANG = '"
-                                                        + Convert.ToDateTime(cboThang.EditValue).ToString("yyyyMMdd") + "'";
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
-                grvData.DeleteSelectedRows();
+
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sTB, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spXoaLayChamCong", sTB, Convert.ToDateTime(cboThang.EditValue));
+                Commons.Modules.ObjSystems.XoaTable(sTB);
+
             }
             catch
             {
@@ -248,26 +242,26 @@ namespace Vs.Payroll
             string sTB = "LayChamCong_Tam" + Commons.Modules.UserName;
             try
             {
-                
+
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sTB, Commons.Modules.ObjSystems.ConvertDatatable(grdData), "");
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveLayChamCong", sTB, Convert.ToDateTime(cboThang.EditValue));
                 Commons.Modules.ObjSystems.XoaTable(sTB);
 
                 return true;
             }
-            catch(Exception EX)
+            catch (Exception EX)
             {
                 return false;
             }
         }
-       
+
         private void grvData_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-            {
+        {
             GridView view = sender as GridView;
-          
+
         }
 
-        
+
         private void grvNgay_RowCellClick(object sender, RowCellClickEventArgs e)
         {
             try
@@ -277,7 +271,7 @@ namespace Vs.Payroll
             }
             catch { }
             cboThang.ClosePopup();
-            
+
         }
 
         private void cboNgay_EditValueChanged(object sender, EventArgs e)
@@ -339,8 +333,8 @@ namespace Vs.Payroll
             Commons.Modules.sPS = "";
         }
 
-       
-      
+
+
 
         private void grvData_RowCountChanged(object sender, EventArgs e)
         {

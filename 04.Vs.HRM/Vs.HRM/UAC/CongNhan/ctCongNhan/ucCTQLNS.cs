@@ -19,6 +19,11 @@ namespace Vs.HRM
         public ucCTQLNS(Int64 iIdCN)
         {
             InitializeComponent();
+
+            navigationFrame1.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.True;
+            navigationFrame1.TransitionAnimationProperties.FrameCount = 0;
+            navigationFrame1.TransitionAnimationProperties.FrameInterval = 0;
+
             Commons.Modules.ObjSystems.ThayDoiNN(this);
             Commons.Modules.iCongNhan = iIdCN;
         }
@@ -126,10 +131,6 @@ namespace Vs.HRM
         }
         private void LoadUac(XtraUserControl uac)
         {
-            //if (checkfameexits(uac.Name).Tag != null)
-            //{
-              //  navigationFrame1.SelectedPage = checkfameexits(uac.Name); return;
-            //}
             uac.Dock = DockStyle.Fill;
             NavigationPage page = new NavigationPage();
             page.Tag = uac.Name;

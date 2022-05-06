@@ -31,6 +31,17 @@ namespace Vs.HRM
 
                         try
                         {
+                            Int32 DiemTu = 0;
+                            Int32 DiemDen = 99;
+                            if (txDiemTu.EditValue != null)
+                            {
+                                DiemTu = Convert.ToInt32(txDiemTu.EditValue);
+                            }
+                            if (txDiemDen.EditValue != null)
+                            {
+                                DiemDen = Convert.ToInt32(txDiemDen.EditValue);
+                            }
+
                             conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                             conn.Open();
 
@@ -41,7 +52,10 @@ namespace Vs.HRM
                             cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                             cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
-                            cmd.Parameters.Add("@Ngay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
+                            cmd.Parameters.Add("@NDDG", SqlDbType.Int).Value = Convert.ToInt32(LK_NOI_DUNG.EditValue);
+                            cmd.Parameters.Add("@DiemT", SqlDbType.Int).Value = DiemTu;
+                            cmd.Parameters.Add("@DiemD", SqlDbType.Int).Value = DiemDen;
+                            cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                             cmd.CommandType = CommandType.StoredProcedure;
                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                             DataSet ds = new DataSet();
@@ -69,6 +83,7 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
 
             DataTable dt = Commons.Modules.ObjSystems.DataNoiDungDanhGia(false);
             Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(LK_NOI_DUNG, dt, "ID_NDDG", "TEN_NDDG", "Nội dung");

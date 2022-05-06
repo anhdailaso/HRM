@@ -117,19 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="xrLabel92.Text" xml:space="preserve">
-    <value>- Thuế: Người lao động chịu trách nhiệm nộp thuế thu nhập cá nhân của mình (nếu có). Trong bất kỳ hoàn cảnh nào, vì bất cứ lý do gì, người lao động phải đảm bảo rằng Công ty sẽ không chịu thiệt hại nào phát sinh từ việc nộp thuế thu nhập cá nhân của mình.</value>
-  </data>
-  <data name="xrLabel127.Text" xml:space="preserve">
-    <value>Trong trường hợp có bất kỳ sửa đổi, bổ sung cho hợp đồng lao động, hai bên sẽ ký kết phụ lục hợp đồng lao động hoặc sử dụng bản thay đổi thông tin người lao động. Bản thay đổi thông tin người lao động cũng được xem như là một phần không tách rời của hợp đồng và có giá trị như hợp đồng.</value>
-  </data>
-  <data name="xrLabel79.Text" xml:space="preserve">
-    <value>- Nghỉ lễ, Tết: Người lao động được nghỉ lễ Tết theo quy định của pháp luật Việt Nam: 01 ngày Tết Dương lịch, 05 ngày Tết Âm lịch, 01 ngày giỗ tổ Hùng Vương, 01 ngày giải phóng miền Nam, 01 ngày quốc tế lao động, 01 ngày Quốc khánh.</value>
-  </data>
-  <data name="xrLabel78.Text" xml:space="preserve">
-    <value>- Nghỉ phép: Người lao động sẽ có 12 hoặc 14 ngày phép cho mỗi năm làm việc tùy theo vị trí công việc (nếu làm việc không đủ một năm thì thời gian nghỉ phép năm sẽ được tính theo tỷ lệ tương ứng với số thời gian làm việc, bao gồm cả thời gian thử việc), ngày nghỉ thực tế phải được người quản lý trực tiếp ký duyệt. Số ngày nghỉ phép sẽ được tăng thêm một ngày cho mỗi 5 năm làm việc. </value>
-  </data>
-  <data name="xrLabel72.Text" xml:space="preserve">
-    <value>- Thời gian làm việc ở trên là thời gian làm việc hành chính thông thường. Tùy theo tình hình sản xuất, tính chất công việc của từng bộ phận, thì thời gian làm việc sẽ được áp dụng theo Nội quy lao động của Công ty đã được đăng ký.</value>
-  </data>
 </root>

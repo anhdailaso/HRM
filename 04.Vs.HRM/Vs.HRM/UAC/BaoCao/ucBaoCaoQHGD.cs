@@ -26,7 +26,7 @@ namespace Vs.HRM
                         DataTable dt = new DataTable();
                         frmViewReport frm = new frmViewReport();
                         frm.rpt = new rptDSGiaDinh(lk_NgayIn.DateTime);
-
+                        
                         try
                         {
                             conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
@@ -67,6 +67,8 @@ namespace Vs.HRM
             lk_NgayTinh.EditValue = DateTime.Today;
             lk_NgayIn.EditValue = DateTime.Today;
             Commons.Modules.ObjSystems.LoadCboQHGD(lk_QuanHeGD);
+            Commons.OSystems.SetDateEditFormat(lk_NgayTinh);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
         }
 
         private void rdo_ConCongNhan_SelectedIndexChanged(object sender, EventArgs e)

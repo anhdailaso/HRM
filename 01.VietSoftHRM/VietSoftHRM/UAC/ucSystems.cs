@@ -74,11 +74,20 @@ namespace VietSoftHRM
                 case "mnudangnhap":
                     {
                         this.ParentForm.Hide();
+                        Commons.Modules.ObjSystems.User(Commons.Modules.UserName, 2);
                         frmLogin login = new frmLogin();
                         login.ShowDialog();
                         this.ParentForm.Close();
                         break;
                     }
+                //case "mnuNguoiSuDung":
+                //    {
+                //        ucNHOM nhom = new ucNHOM();
+                //        panel2.Controls.Clear();
+                //        panel2.Controls.Add(nhom);
+                //        nhom.Dock = DockStyle.Fill;
+                //        break;
+                //    }
                 case "mnuDSND":
                     {
                         ucListUsers user = new ucListUsers();
@@ -97,7 +106,9 @@ namespace VietSoftHRM
             if (sLoad == button.Name) return;
             sLoad = button.Name;
             Commons.Modules.ObjSystems.GetPhanQuyen(button);
-            NONNlab_Link.Text = slinkcha + "/" + button.Text + "/" + SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.fuGetTeNhom(" + (Commons.Modules.sId==null?1 : Convert.ToInt64(Commons.Modules.sId)) + "," + Commons.Modules.TypeLanguage + ")");
+
+
+            NONNlab_Link.Text = slinkcha + "/" + button.Text + "/" + SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.fuGetTeNhom(" + (Commons.Modules.sId == null ? 1 : Convert.ToInt64(Commons.Modules.sId)) + "," + Commons.Modules.TypeLanguage + ")");
             switch (button.Name)
             {
                 case "mnuNHOM":
@@ -106,6 +117,14 @@ namespace VietSoftHRM
                         panel2.Controls.Clear();
                         panel2.Controls.Add(nhom);
                         nhom.Dock = DockStyle.Fill;
+                        break;
+                    }
+                case "mnuDSND":
+                    {
+                        ucListUsers user = new ucListUsers();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(user);
+                        user.Dock = DockStyle.Fill;
                         break;
                     }
                 case "mnuMENU":
@@ -138,7 +157,7 @@ namespace VietSoftHRM
                 default:
                     break;
             }
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            //accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
         private bool kiemtraNhomdaduocchon()
         {
@@ -156,10 +175,10 @@ namespace VietSoftHRM
             LoadDanhMuc();
             try
             {
-                accorMenuleft.SelectElement(accorMenuleft.Elements["mnuPhanQuyen"].Elements["mnuNHOM"]);
-                Elementchill_Click(accorMenuleft.Elements["mnuPhanQuyen"].Elements["mnuNHOM"], null);
+                accorMenuleft.SelectElement(accorMenuleft.Elements[2].Elements[0]);
+                Elementchill_Click(accorMenuleft.Elements[2].Elements[0], null);
             }
-            catch(Exception ex)
+            catch
             {
             }
         }

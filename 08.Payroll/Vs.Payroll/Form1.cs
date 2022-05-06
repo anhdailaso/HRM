@@ -11,7 +11,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Vs.Payroll
 {
-    public partial class Form1 : Form
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         public Form1()
         {
@@ -48,6 +48,11 @@ namespace Vs.Payroll
             //}
 
             pivotTable.AddDataField(pivotTable.PivotFields("THANH_TIEN"), "Sum of Column4", Excel.XlConsolidationFunction.xlSum);
+        }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

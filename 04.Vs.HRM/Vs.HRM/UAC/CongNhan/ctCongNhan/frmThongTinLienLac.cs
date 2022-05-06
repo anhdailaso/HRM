@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using Microsoft.ApplicationBlocks.Data;
@@ -16,7 +17,7 @@ namespace Vs.HRM
         public frmThongTinLienLac(string tencn)
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, Root, windowsUIButton);
             lbl_HoTenCN.Text = tencn.ToUpper();
         }
         private void frmThongTinLienLac_Load(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace Vs.HRM
                     }
                 case "sua":
                     {
-                        if (grv_TTLL.RowCount == 0) { XtraMessageBox.Show("Chưa có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand); break; }
+                        if (grv_TTLL.RowCount == 0) { XtraMessageBox.Show("Chưa có dữ liệu", Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Hand); break; }
                         enableButon(false);
                         Commons.Modules.ObjSystems.AddnewRow(grv_TTLL, false);
                         grv_TTLL.OptionsBehavior.ReadOnly = false;
@@ -122,7 +123,7 @@ namespace Vs.HRM
         }
         private void DeleteData()
         {
-            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteThongTinLienHe"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteThongTinLienHe"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             //xóa
             try
             {
@@ -151,7 +152,7 @@ namespace Vs.HRM
             SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
             Commons.Modules.ObjSystems.XoaTable("TMP" + Commons.Modules.UserName);
 
-                XtraMessageBox.Show("Cập nhật thông tin liên lạc của nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Cập nhật thông tin liên lạc của nhân viên thành công", Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -174,29 +175,58 @@ namespace Vs.HRM
             int ms = -1;
             if(view.GetRowCellValue(e.RowHandle, view.Columns["MASO"].ToString())=="")
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msschuanhapms"));
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msschuanhapms"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"),MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
             else
             {
                 ms =(int)view.GetRowCellValue(e.RowHandle, view.Columns["MASO"]);
             }
-            
+           
             DataTable dt = (DataTable)grd_TTLL.DataSource;
-            
+            DataRow row = view.GetDataRow(e.RowHandle);
+            int count = 0;
             foreach (DataRow item in dt.Rows )
              {
-                int hh = Convert.ToInt32( item["MASO"].ToString());
-                if(ms==hh)
+                if (item["MASO"].ToString() == row["MASO"].ToString())
                 {
+                    if (view.IsNewItemRow(view.FocusedRowHandle))
+                    {
+                        item.RowError = "Dữ liệu bị trùng, xin vui lòng kiểm tra lại.";
+                        view.SetColumnError(view.Columns["MASO"], "Mã số bị trùng, xin vui lòng kiểm tra lại.");
+                        e.Valid = false;
+                        return;
+                    }
+                    else
+                    {
+                        count++;
+                        if (count == 2)
+                        {
+                            item.RowError = "Dữ liệu bị trùng, xin vui lòng kiểm tra lại.";
+                            view.SetColumnError(view.Columns["MASO"], "Mã số bị trùng, xin vui lòng kiểm tra lại.");
+                            e.Valid = false;
+                            return;
+                        }
+                    }
+                }
+
+
+                //int hh = Convert.ToInt32( item["MASO"].ToString());
+                //if(ms==hh)
+                //{
 
                     
-                    view.Focus();
-                    fag = false;
-                    return;
-                }
+                //    view.Focus();
+                //    fag = false;
+                //    return;
+                //}
             }
             fag=true;
+        }
+
+        private void grv_TTLL_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = ExceptionMode.NoAction;
         }
     }
 }

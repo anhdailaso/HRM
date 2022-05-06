@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
@@ -8,7 +9,6 @@ using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using Microsoft.ApplicationBlocks.Data;
 using VietSoftHRM.Properties;
-using Vs.HRM.Properties;
 
 namespace VietSoftHRM
 {
@@ -21,6 +21,8 @@ namespace VietSoftHRM
         //load menugroup
         private void frmMain_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            UpdateTinhTrangNghiPhep(-1);
             Commons.Modules.ObjSystems.ShowWaitForm(this);
             LoadMenuCha();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
@@ -31,13 +33,10 @@ namespace VietSoftHRM
             //Load Biểu đồ
             //loadcharTinhTrangCN();
             Commons.Modules.ObjSystems.HideWaitForm();
-
             barServer.Caption = "Server : " + Commons.IConnections.Server + "- Database : " + Commons.IConnections.Database;
             barTTC.Caption = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "select TEN_CTY from THONG_TIN_CHUNG").ToString().ToUpper();
-            barVer.Caption = "Version Curent: 01/01/2021.0001";
-            barLogin.Caption = "Total 1/10 user login";
-
-
+            barVer.Caption = "Version Curent: "+ Commons.Modules.sInfoSer + "";
+            barLogin.Caption = "Total "+ SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, " SELECT COUNT(*) FROM dbo.LOGIN ").ToString() +"/"+Commons.Modules.iLic+" user login";
         }
 
         private void SetThongTinChung()
@@ -114,7 +113,7 @@ namespace VietSoftHRM
             try
             {
                 String sSql;
-                sSql = "SELECT T3.[ID_MENU],[KEY_MENU],CASE " + Commons.Modules.TypeLanguage.ToString() + " WHEN 0 THEN T3.[TEN_MENU] WHEN 1 THEN ISNULL(NULLIF(T3.[TEN_MENU_A],''),T3.[TEN_MENU]) ELSE ISNULL(NULLIF(T3.[TEN_MENU_H],''),T3.[TEN_MENU]) END AS NAME,[ROOT],[HIDE],[BACK_COLOR],[IMG],[STT_MENU],[CONTROLS],[DROPDOW] FROM NHOM_MENU T1 INNER JOIN dbo.USERS T2 ON T1.ID_NHOM = T2.ID_NHOM INNER JOIN dbo.MENU T3 ON T1.ID_MENU = T3.ID_MENU  WHERE T2.USER_NAME = '" + Commons.Modules.UserName + "' AND [ROOT] = 0 ORDER BY[STT_MENU],[NAME]";
+                sSql = "SELECT T3.[ID_MENU],[KEY_MENU],CASE " + Commons.Modules.TypeLanguage.ToString() + " WHEN 0 THEN T3.[TEN_MENU] WHEN 1 THEN ISNULL(NULLIF(T3.[TEN_MENU_A],''),T3.[TEN_MENU]) ELSE ISNULL(NULLIF(T3.[TEN_MENU_H],''),T3.[TEN_MENU]) END AS NAME,[ROOT],[HIDE],[BACK_COLOR],[IMG],[STT_MENU],[CONTROLS],[DROPDOW] FROM NHOM_MENU T1 INNER JOIN dbo.USERS T2 ON T1.ID_NHOM = T2.ID_NHOM INNER JOIN dbo.MENU T3 ON T1.ID_MENU = T3.ID_MENU  WHERE T2.USER_NAME = '" + Commons.Modules.UserName.Trim() + "' AND [ROOT] = 0 AND T3.ID_MENU NOT IN ("+Commons.Modules.sHideMenu+") ORDER BY[STT_MENU],[NAME]";
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 foreach (DataRow item in dt.Rows)
                 {
@@ -123,6 +122,7 @@ namespace VietSoftHRM
                     itembar.ItemSize = TileBarItemSize.Wide;
                     itembar.Text = item["NAME"].ToString();
                     itembar.AppearanceItem.Normal.BackColor = System.Drawing.ColorTranslator.FromHtml(item["BACK_COLOR"].ToString());
+                    itembar.AppearanceItem.Normal.FontStyleDelta = FontStyle.Bold;
                     //itembar.Image = (Image)Properties.Resources.ResourceManager.GetObject(item["IMG"].ToString());
                     itembar.TextAlignment = TileItemContentAlignment.MiddleCenter;
                     itembar.Tag = item["ID_MENU"].ToString();
@@ -157,6 +157,11 @@ namespace VietSoftHRM
                         LoaducDanhMuc(e.Item);
                         break;
                     }
+                case 159:
+                    {
+                        LoaducUngVien(e.Item);
+                        break;
+                    }
                 case 14:
                     {
                         LoaducCongNhan(e.Item);
@@ -186,7 +191,7 @@ namespace VietSoftHRM
         {
             DataTable dt = new DataTable();
             String sSql;
-            sSql = "SELECT T3.[ID_MENU],[KEY_MENU],CASE " + Commons.Modules.TypeLanguage.ToString() + " WHEN 0 THEN T3.[TEN_MENU] WHEN 1 THEN ISNULL(NULLIF(T3.[TEN_MENU_A],''),T3.[TEN_MENU]) ELSE ISNULL(NULLIF(T3.[TEN_MENU_H],''),T3.[TEN_MENU]) END AS NAME,[ROOT],[HIDE],[BACK_COLOR],[IMG],[STT_MENU],[CONTROLS],[DROPDOW] FROM NHOM_MENU T1 INNER JOIN dbo.USERS T2 ON T1.ID_NHOM = T2.ID_NHOM INNER JOIN dbo.MENU T3 ON T1.ID_MENU = T3.ID_MENU  WHERE T2.USER_NAME = '" + Commons.Modules.UserName + "' AND [ROOT] = 0 ORDER BY[STT_MENU],[NAME]";
+            sSql = "SELECT T3.[ID_MENU],[KEY_MENU],CASE " + Commons.Modules.TypeLanguage.ToString() + " WHEN 0 THEN T3.[TEN_MENU] WHEN 1 THEN ISNULL(NULLIF(T3.[TEN_MENU_A],''),T3.[TEN_MENU]) ELSE ISNULL(NULLIF(T3.[TEN_MENU_H],''),T3.[TEN_MENU]) END AS NAME,[ROOT],[HIDE],[BACK_COLOR],[IMG],[STT_MENU],[CONTROLS],[DROPDOW] FROM NHOM_MENU T1 INNER JOIN dbo.USERS T2 ON T1.ID_NHOM = T2.ID_NHOM INNER JOIN dbo.MENU T3 ON T1.ID_MENU = T3.ID_MENU  WHERE T2.USER_NAME = '" + Commons.Modules.UserName + "' AND [ROOT] = 0 AND T3.ID_MENU NOT IN (" + Commons.Modules.sHideMenu + ") ORDER BY[STT_MENU],[NAME]";
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             foreach (TileBarItem item in titlegroup.Items)
             {
@@ -224,13 +229,15 @@ namespace VietSoftHRM
                 case 2:
                     LoaducDanhMuc(e);
                     break;
+                case 159:
+                    LoaducUngVien(e);
+                    break;
                 case 14:
                     LoaducCongNhan(e);
                     break;
                 case 61:
                     LoaducBaoCao(e);
                     break;
-
                 case 15:
                     LoaducChamCong(e);
                     break;
@@ -239,6 +246,7 @@ namespace VietSoftHRM
                     break;
                 default:
                     break;
+
             }
         }
 
@@ -253,7 +261,14 @@ namespace VietSoftHRM
             ucsymstem.color = e.AppearanceItem.Normal.BackColor;
             LoadUac(ucsymstem);
         }
-
+        private void LoaducUngVien(TileItem e)
+        {
+            ucUngVien uacTD = new ucUngVien(tileBar);
+            uacTD.Dock = DockStyle.Fill;
+            uacTD.iLoai = Convert.ToInt32(e.Tag);
+            uacTD.NONNlab_Link.Text = e.Text;
+            LoadUac(uacTD);
+        }
         private void LoaducCongNhan(TileItem e)
         {
             ucCongNhan uacCN = new ucCongNhan(tileBar);
@@ -344,9 +359,9 @@ namespace VietSoftHRM
             try
             {
                 DataSet ds = new DataSet();
-                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "lib\\savelogin.xml");
+                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
                 ds.Tables[0].Rows[0]["N"] = NNgu.ToString();
-                ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "lib\\savelogin.xml");
+                ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
                 Commons.Modules.TypeLanguage = NNgu;
                 Commons.Modules.ChangLanguage = true;
                 ResetMenu(tileBar.SelectedItem);
@@ -385,7 +400,7 @@ namespace VietSoftHRM
                         this.barlanguage.ImageOptions.Image = Properties.Resources.usflag;
                         break;
                     }
-                default:break;
+                default: break;
             }
             Commons.Modules.sPS = "";
         }
@@ -424,6 +439,8 @@ namespace VietSoftHRM
         private void barLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Hide();
+            Commons.Modules.ObjSystems.User(Commons.Modules.UserName, 2);
+            timer1.Stop();
             frmLogin login = new frmLogin();
             login.ShowDialog();
             this.Close();
@@ -431,10 +448,11 @@ namespace VietSoftHRM
 
         private void barExits_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Commons.Modules.ObjSystems.User(Commons.Modules.UserName, 2);
             Application.Exit();
         }
 
-      
+
 
         private void barEnglish_CheckedChanged(object sender, ItemClickEventArgs e)
         {
@@ -452,7 +470,7 @@ namespace VietSoftHRM
 
         private void barSkin_DownChanged(object sender, ItemClickEventArgs e)
         {
-          
+
         }
 
         private void popupMenu1_CloseUp(object sender, EventArgs e)
@@ -460,6 +478,46 @@ namespace VietSoftHRM
             if (Settings.Default["ApplicationSkinName"].ToString() == UserLookAndFeel.Default.SkinName) return;
             Settings.Default["ApplicationSkinName"] = UserLookAndFeel.Default.SkinName;
             Settings.Default.Save();
+        }
+
+        private void UpdateTinhTrangNghiPhep(int ID_CN)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spCapNhatTinhTrangNghiPhep", DateTime.Now, ID_CN);
+            }
+            catch
+            {
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //cập nhật số ngường dùng
+            barLogin.Caption = "Total " + SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, " SELECT COUNT(*) FROM dbo.LOGIN ").ToString() + "/" + Commons.Modules.iLic + " user login";
+            //cập nhật thời gian login
+            Commons.Modules.ObjSystems.User(Commons.Modules.UserName,3);
+            if (Commons.Modules.ObjSystems.checkExitsUser(Commons.Modules.UserName))
+            {
+                Thread thread = new Thread(delegate ()
+                {
+                    timer1.Stop();
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgPhanMemTuDongThoatsau5p"), this.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Thread.Sleep(300000);//chi nghỉ 5 phút
+                    if (this.InvokeRequired)
+                    {
+                        this.Invoke(new MethodInvoker(delegate
+                        {
+                            this.Hide();
+                            Commons.Modules.ObjSystems.User(Commons.Modules.UserName, 2);
+                            timer1.Stop();
+                            frmLogin login = new frmLogin();
+                            login.ShowDialog();
+                            this.Close();
+                        }));
+                    }
+                },1000);
+                thread.Start();
+            }
         }
     }
 }

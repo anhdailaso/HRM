@@ -149,19 +149,19 @@
             this.cboHD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboHD.Location = new System.Drawing.Point(175, 73);
             this.cboHD.Name = "cboHD";
-            this.cboHD.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.cboHD.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboHD.Properties.Appearance.Options.UseFont = true;
             this.cboHD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboHD.Properties.NullText = "";
             this.cboHD.Properties.PopupView = this.searchLookUpEdit3View;
-            this.cboHD.Size = new System.Drawing.Size(186, 28);
+            this.cboHD.Size = new System.Drawing.Size(186, 26);
             this.cboHD.TabIndex = 36;
             this.cboHD.EditValueChanged += new System.EventHandler(this.cboHD_EditValueChanged_1);
             // 
             // searchLookUpEdit3View
             // 
-            this.searchLookUpEdit3View.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.searchLookUpEdit3View.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.searchLookUpEdit3View.Appearance.Row.Options.UseFont = true;
             this.searchLookUpEdit3View.DetailHeight = 227;
             this.searchLookUpEdit3View.FixedLineWidth = 1;
@@ -176,19 +176,19 @@
             this.cboMH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMH.Location = new System.Drawing.Point(493, 73);
             this.cboMH.Name = "cboMH";
-            this.cboMH.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.cboMH.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboMH.Properties.Appearance.Options.UseFont = true;
             this.cboMH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMH.Properties.NullText = "";
             this.cboMH.Properties.PopupView = this.gridView1;
-            this.cboMH.Size = new System.Drawing.Size(186, 28);
+            this.cboMH.Size = new System.Drawing.Size(186, 26);
             this.cboMH.TabIndex = 36;
             this.cboMH.EditValueChanged += new System.EventHandler(this.cboMH_EditValueChanged);
             // 
             // gridView1
             // 
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.DetailHeight = 227;
             this.gridView1.FixedLineWidth = 1;
@@ -203,19 +203,19 @@
             this.cboOrd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboOrd.Location = new System.Drawing.Point(811, 73);
             this.cboOrd.Name = "cboOrd";
-            this.cboOrd.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.cboOrd.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboOrd.Properties.Appearance.Options.UseFont = true;
             this.cboOrd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboOrd.Properties.NullText = "";
             this.cboOrd.Properties.PopupView = this.gridView2;
-            this.cboOrd.Size = new System.Drawing.Size(186, 28);
+            this.cboOrd.Size = new System.Drawing.Size(186, 26);
             this.cboOrd.TabIndex = 36;
             this.cboOrd.EditValueChanged += new System.EventHandler(this.cboOrd_EditValueChanged);
             // 
             // gridView2
             // 
-            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gridView2.Appearance.Row.Options.UseFont = true;
             this.gridView2.DetailHeight = 227;
             this.gridView2.FixedLineWidth = 1;
@@ -275,19 +275,19 @@
             this.cboChuSD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboChuSD.Location = new System.Drawing.Point(175, 105);
             this.cboChuSD.Name = "cboChuSD";
-            this.cboChuSD.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.cboChuSD.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboChuSD.Properties.Appearance.Options.UseFont = true;
             this.cboChuSD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboChuSD.Properties.NullText = "";
             this.cboChuSD.Properties.PopupView = this.gridView3;
-            this.cboChuSD.Size = new System.Drawing.Size(186, 28);
+            this.cboChuSD.Size = new System.Drawing.Size(186, 26);
             this.cboChuSD.TabIndex = 36;
             this.cboChuSD.EditValueChanged += new System.EventHandler(this.cboChuSD_EditValueChanged);
             // 
             // gridView3
             // 
-            this.gridView3.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gridView3.Appearance.Row.Options.UseFont = true;
             this.gridView3.DetailHeight = 227;
             this.gridView3.FixedLineWidth = 1;
@@ -302,19 +302,19 @@
             this.cboChuTH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboChuTH.Location = new System.Drawing.Point(493, 105);
             this.cboChuTH.Name = "cboChuTH";
-            this.cboChuTH.Properties.Appearance.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.cboChuTH.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboChuTH.Properties.Appearance.Options.UseFont = true;
             this.cboChuTH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboChuTH.Properties.NullText = "";
             this.cboChuTH.Properties.PopupView = this.gridView4;
-            this.cboChuTH.Size = new System.Drawing.Size(186, 28);
+            this.cboChuTH.Size = new System.Drawing.Size(186, 26);
             this.cboChuTH.TabIndex = 36;
             this.cboChuTH.EditValueChanged += new System.EventHandler(this.cboChuTH_EditValueChanged);
             // 
             // gridView4
             // 
-            this.gridView4.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.gridView4.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gridView4.Appearance.Row.Options.UseFont = true;
             this.gridView4.DetailHeight = 227;
             this.gridView4.FixedLineWidth = 1;

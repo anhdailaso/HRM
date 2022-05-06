@@ -178,13 +178,18 @@ namespace Vs.HRM
             {
                 case "them":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         Bindingdata(true);
                         cothem = true;
                         enableButon(false);
                         break;
                     }
                 case "sua":
-                    {
+                    {                       
                         if (grvBangCapCN.RowCount == 0)
                         {
                             XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,6 +216,7 @@ namespace Vs.HRM
                             System.Data.SqlClient.SqlConnection conn;
                             DataTable dt = new DataTable();
                             frmViewReport frm = new frmViewReport();
+
                             frm.rpt = new rptBCBangCapCN();
 
                             conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
@@ -223,14 +229,14 @@ namespace Vs.HRM
                             cmd.CommandType = CommandType.StoredProcedure;
 
                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
-                               DataSet ds = new DataSet();
+                            DataSet ds = new DataSet();
                             adp.Fill(ds);
                             dt = new DataTable();
                             dt = ds.Tables[0].Copy();
                             dt.TableName = "DA_TA";
                             frm.AddDataSource(dt);
 
-                                frm.ShowDialog();
+                            frm.ShowDialog();
                         }
                         catch
                         { }

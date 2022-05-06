@@ -9,11 +9,15 @@ namespace Vs.HRM
 {
     public partial class frmInBHXH : DevExpress.XtraEditors.XtraForm
     {
-
-        public frmInBHXH()
+        private DateTime ThangBC = new DateTime(DateTime.Now.Year, 1, 1);
+        private Int32 DotBC = 1;
+        public frmInBHXH(DateTime Thang, Int32 Dot)
         {
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
+
+            ThangBC = Thang;
+            DotBC = Dot;
         }
  
         //sự kiên load form
@@ -41,17 +45,13 @@ namespace Vs.HRM
                                 try
                                 {
 
-
                                     conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                                     conn.Open();
                                     System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptBCLaoDongTangBHXH", conn);
                                     cmd.Parameters.Add("@UName", SqlDbType.NVarChar, 50).Value = Commons.Modules.UserName;
                                     cmd.Parameters.Add("@NNgu", SqlDbType.Int).Value = Commons.Modules.TypeLanguage;
-                                    cmd.Parameters.Add("@DVi", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@XN", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@TO", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = DateTime.Now;
-                                    cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = DateTime.Now;
+                                    cmd.Parameters.Add("@Thang", SqlDbType.Date).Value = Convert.ToDateTime(ThangBC).ToString("yyyy-MM-dd");
+                                    cmd.Parameters.Add("@Dot", SqlDbType.Int).Value = Convert.ToInt32(DotBC);
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                     DataSet ds = new DataSet();
@@ -68,7 +68,7 @@ namespace Vs.HRM
                                     {
                                         if (saveFileDialog.FileName != "")
                                         {
-                                            Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\Template\\TemplateTangLaoDong.xlsx", ds, new string[] { "{", "}" });
+                                            Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\lib\\Template\\TemplateTangLaoDong.xlsx", ds, new string[] { "{", "}" });
                                             Process.Start(saveFileDialog.FileName);
                                         }
                                     }
@@ -89,11 +89,8 @@ namespace Vs.HRM
                                     System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptBCLaoDongGiamBHXH", conn);
                                     cmd.Parameters.Add("@UName", SqlDbType.NVarChar, 50).Value = Commons.Modules.UserName;
                                     cmd.Parameters.Add("@NNgu", SqlDbType.Int).Value = Commons.Modules.TypeLanguage;
-                                    cmd.Parameters.Add("@DVi", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@XN", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@TO", SqlDbType.Int).Value = -1;
-                                    cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = DateTime.Now;
-                                    cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = DateTime.Now;
+                                    cmd.Parameters.Add("@Thang", SqlDbType.Date).Value = Convert.ToDateTime(ThangBC).ToString("yyyy-MM-dd");
+                                    cmd.Parameters.Add("@Dot", SqlDbType.Int).Value = Convert.ToInt32(DotBC);
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                     DataSet ds = new DataSet();
@@ -110,7 +107,8 @@ namespace Vs.HRM
                                     {
                                         if (saveFileDialog.FileName != "")
                                         {
-                                            Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\Template\\TemplateGiamLaoDong.xlsx", ds, new string[] { "{", "}" });
+                                            Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\lib\\Template\\TemplateGiamLaoDong.xlsx", ds, new string[] { "{", "}" });
+                                            //Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\lib\\Template\\TemplateGiamLaoDong.xlsx", ds, new string[] { "{", "}" });
                                             Process.Start(saveFileDialog.FileName);
                                         }
                                     }

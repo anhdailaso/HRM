@@ -12,6 +12,7 @@ namespace Vs.HRM
         {
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
+            Commons.OSystems.SetDateEditFormat(NgayIn);
             dtThang.EditValue = DateTime.Now;
             NgayIn.EditValue = DateTime.Today;
         }

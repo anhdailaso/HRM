@@ -132,6 +132,23 @@ namespace VietSoftHRM
                         tmp.Dock = DockStyle.Fill;
                         break;
                     }
+
+                case "mnuTinhDiemThang":
+                    {
+                        ucDiemChuyenCanThang tmp = new ucDiemChuyenCanThang();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(tmp);
+                        tmp.Dock = DockStyle.Fill;
+                        break;
+                    }
+                case "mnuViPhamNoiQuyLD":
+                    {
+                        ucViPhamNoiQuyLD tmp = new ucViPhamNoiQuyLD();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(tmp);
+                        tmp.Dock = DockStyle.Fill;
+                        break;
+                    }
                 case "mnuCheDoLamViec":
                     {
                         ucCheDoLamViec tmp = new ucCheDoLamViec();
@@ -261,7 +278,7 @@ namespace VietSoftHRM
                     break;
             }
             Commons.Modules.ObjSystems.HideWaitForm();
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            //accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
         private void ucListChamCong_Load(object sender, EventArgs e)
         {

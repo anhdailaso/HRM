@@ -117,6 +117,12 @@ namespace Vs.HRM
                 {
                     grvKhoaHoc_FocusedRowChanged(null, null);
                 }
+
+                grvKhoaHoc.Columns["NGAY_BD"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                grvKhoaHoc.Columns["NGAY_BD"].DisplayFormat.FormatString = "dd/MM/yyyy";
+                grvKhoaHoc.Columns["NGAY_KT"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                grvKhoaHoc.Columns["NGAY_KT"].DisplayFormat.FormatString = "dd/MM/yyyy";
+
             }
             catch { }
         }
@@ -564,5 +570,16 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.MLoadLookUpEdit(NoiDunglookUpEdit, dt, "ID_NDDG", "TEN_NDDG", "TEN_NDDG");
         }
 
+        private void searchControl1_TextChanged(object sender, EventArgs e)
+        {
+            if (windowsUIButton.Buttons[0].Properties.Visible == false)
+            {
+                searchControl1.Client = grdDSCN;
+            }
+            else
+            {
+                searchControl1.Client = grdKhoaHoc;
+            }
+        }
     }
 }

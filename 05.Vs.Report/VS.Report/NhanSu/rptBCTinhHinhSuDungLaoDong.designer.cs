@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBCTinhHinhSuDungLaoDong));
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -1943,7 +1942,7 @@
             this.xrTableCell87.Dpi = 254F;
             this.xrTableCell87.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "ToInt([TONG_SO_LD])+ToInt([LD_TANG])-ToInt([LD_KHAC])-ToInt([LD_ST])-ToInt([LD_NH" +
-                    "T])")});
+                    "T])-ToInt([LD_TV])")});
             this.xrTableCell87.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell87.Multiline = true;
             this.xrTableCell87.Name = "xrTableCell87";
@@ -1958,7 +1957,8 @@
             // 
             this.xrTableCell124.Dpi = 254F;
             this.xrTableCell124.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", resources.GetString("xrTableCell124.ExpressionBindings"))});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "ToInt([TONG_SO_LD_DT])+ToInt([LD_TANG_DT])-ToInt([LD_NHT_DT]) - ToInt([LD_TV_DT])" +
+                    " - ToInt([LD_ST_DT]) - ToInt([LD_KHAC_DT])")});
             this.xrTableCell124.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell124.Multiline = true;
             this.xrTableCell124.Name = "xrTableCell124";

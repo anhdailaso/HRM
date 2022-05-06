@@ -128,13 +128,19 @@ namespace Vs.Payroll
                
                 case "tinhluong":
                     {
+                        try
+                        {
+
                         grdData.DataSource = null;
                         DateTime Tngay = Convert.ToDateTime(cboThang.EditValue);
                         DateTime Dngay = Convert.ToDateTime(cboThang.EditValue).AddMonths(1).AddDays(-1);
                         DataTable dt = new DataTable();
                         SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetTinhLuongThang", Commons.Modules.UserName, Commons.Modules.TypeLanguage, cboDonVi.EditValue, cboXiNghiep.EditValue, cboTo.EditValue,Convert.ToInt32(txtNgayCongChuan.EditValue), Tngay, Dngay);
                         LoadGrdGTGC();
-                        
+                        }
+                        catch { }
+
+
                         break;
                     }
                 case "thoat":
@@ -151,8 +157,6 @@ namespace Vs.Payroll
             btnALL.Buttons[1].Properties.Visible = !visible;
             btnALL.Buttons[2].Properties.Visible = !visible;
             btnALL.Buttons[3].Properties.Visible = !visible;
-            btnALL.Buttons[4].Properties.Visible = !visible;
-            btnALL.Buttons[5].Properties.Visible = !visible;
             cboTo.Enabled = !visible;
             cboThang.Enabled = !visible;
             cboDonVi.Enabled = !visible;

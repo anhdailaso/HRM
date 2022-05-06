@@ -40,7 +40,7 @@ namespace Vs.TimeAttendance
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             DateTime nht = DateTime.Now;
-            dNgayXem.EditValue = nht.ToString("dd/MM/yyyy");
+            dNgayXem.EditValue = DateTime.Now;
             Commons.OSystems.SetDateEditFormat(dNgayXem);
             LoadGridMaTheChamCong();
             Commons.Modules.sPS = "";

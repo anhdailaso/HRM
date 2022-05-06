@@ -32,39 +32,40 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPageHome = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUserName = new DevExpress.XtraEditors.DropDownButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barSkin = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            this.barExits = new DevExpress.XtraBars.BarButtonItem();
             this.barlanguage = new DevExpress.XtraBars.BarSubItem();
+            this.barVietnam = new DevExpress.XtraBars.BarCheckItem();
+            this.barEnglish = new DevExpress.XtraBars.BarCheckItem();
+            this.barExits = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barLogin = new DevExpress.XtraBars.BarStaticItem();
+            this.barVer = new DevExpress.XtraBars.BarStaticItem();
+            this.barTTC = new DevExpress.XtraBars.BarStaticItem();
+            this.barServer = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barVietnam = new DevExpress.XtraBars.BarCheckItem();
-            this.barEnglish = new DevExpress.XtraBars.BarCheckItem();
+            this.barInfo = new DevExpress.XtraBars.BarStaticItem();
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.titlegroup = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barInfo = new DevExpress.XtraBars.BarStaticItem();
-            this.barServer = new DevExpress.XtraBars.BarStaticItem();
-            this.barTTC = new DevExpress.XtraBars.BarStaticItem();
-            this.barVer = new DevExpress.XtraBars.BarStaticItem();
-            this.barLogin = new DevExpress.XtraBars.BarStaticItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.navigationPageHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // navigationFrame
@@ -81,7 +82,7 @@
             this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
             this.tablePanel1.SetRow(this.navigationFrame, 3);
             this.navigationFrame.SelectedPage = this.navigationPageHome;
-            this.navigationFrame.Size = new System.Drawing.Size(913, 351);
+            this.navigationFrame.Size = new System.Drawing.Size(992, 474);
             this.navigationFrame.TabIndex = 5;
             this.navigationFrame.Text = "navigationFrame1";
             this.navigationFrame.TransitionAnimationProperties.FrameInterval = 5000;
@@ -91,7 +92,19 @@
             // 
             this.navigationPageHome.Controls.Add(this.pictureBox1);
             this.navigationPageHome.Name = "navigationPageHome";
-            this.navigationPageHome.Size = new System.Drawing.Size(913, 351);
+            this.navigationPageHome.Size = new System.Drawing.Size(992, 474);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(992, 474);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btnUserName
             // 
@@ -122,7 +135,7 @@
             // 
             this.barLogout.Caption = "Đăng xuất";
             this.barLogout.Id = 4;
-            this.barLogout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barlanguage.ImageOptions.SvgImage")));
+            this.barLogout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLogout.ImageOptions.SvgImage")));
             this.barLogout.Name = "barLogout";
             this.barLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLogout_ItemClick);
             // 
@@ -132,15 +145,6 @@
             this.barSkin.Name = "barSkin";
             this.barSkin.DownChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barSkin_DownChanged);
             // 
-            // barExits
-            // 
-            this.barExits.Caption = "Thoát";
-            this.barExits.Id = 5;
-            this.barExits.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barExits.ImageOptions.Image")));
-            this.barExits.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barExits.ImageOptions.LargeImage")));
-            this.barExits.Name = "barExits";
-            this.barExits.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barExits_ItemClick);
-            // 
             // barlanguage
             // 
             this.barlanguage.Caption = "Ngôn ngữ";
@@ -149,6 +153,29 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barVietnam),
             new DevExpress.XtraBars.LinkPersistInfo(this.barEnglish)});
             this.barlanguage.Name = "barlanguage";
+            // 
+            // barVietnam
+            // 
+            this.barVietnam.Caption = "Tiếng việt";
+            this.barVietnam.Id = 1;
+            this.barVietnam.Name = "barVietnam";
+            this.barVietnam.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barVietnam_CheckedChanged);
+            // 
+            // barEnglish
+            // 
+            this.barEnglish.Caption = "Tiếng anh";
+            this.barEnglish.Id = 2;
+            this.barEnglish.Name = "barEnglish";
+            this.barEnglish.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barEnglish_CheckedChanged);
+            // 
+            // barExits
+            // 
+            this.barExits.Caption = "Thoát";
+            this.barExits.Id = 5;
+            this.barExits.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barExits.ImageOptions.Image")));
+            this.barExits.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barExits.ImageOptions.LargeImage")));
+            this.barExits.Name = "barExits";
+            this.barExits.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barExits_ItemClick);
             // 
             // barManager1
             // 
@@ -174,21 +201,74 @@
             this.barManager1.MaxItemId = 14;
             this.barManager1.StatusBar = this.bar1;
             // 
+            // bar1
+            // 
+            this.bar1.BarAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.bar1.BarAppearance.Disabled.Options.UseFont = true;
+            this.bar1.BarAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.bar1.BarAppearance.Hovered.Options.UseFont = true;
+            this.bar1.BarAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar1.BarAppearance.Normal.Options.UseFont = true;
+            this.bar1.BarAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.bar1.BarAppearance.Pressed.Options.UseFont = true;
+            this.bar1.BarName = "Custom 2";
+            this.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barLogin),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barVer),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barTTC),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barServer)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "Custom 2";
+            // 
+            // barLogin
+            // 
+            this.barLogin.Caption = "barLogin";
+            this.barLogin.Id = 13;
+            this.barLogin.Name = "barLogin";
+            // 
+            // barVer
+            // 
+            this.barVer.Caption = "barVer";
+            this.barVer.Id = 12;
+            this.barVer.Name = "barVer";
+            // 
+            // barTTC
+            // 
+            this.barTTC.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barTTC.Caption = "barTTC";
+            this.barTTC.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.barTTC.Id = 11;
+            this.barTTC.Name = "barTTC";
+            // 
+            // barServer
+            // 
+            this.barServer.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
+            this.barServer.Caption = "barServer";
+            this.barServer.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Far;
+            this.barServer.Id = 10;
+            this.barServer.Name = "barServer";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(921, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1000, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 409);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 532);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(921, 28);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1000, 28);
             // 
             // barDockControlLeft
             // 
@@ -196,29 +276,22 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 532);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(921, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1000, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 532);
             // 
-            // barVietnam
+            // barInfo
             // 
-            this.barVietnam.Caption = "Tiếng việt";
-            this.barVietnam.Id = 1;
-            this.barVietnam.Name = "barVietnam";
-            this.barVietnam.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barVietnam_CheckedChanged);
-            // 
-            // barEnglish
-            // 
-            this.barEnglish.Caption = "Tiếng anh";
-            this.barEnglish.Id = 2;
-            this.barEnglish.Name = "barEnglish";
-            this.barEnglish.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barEnglish_CheckedChanged);
+            this.barInfo.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
+            this.barInfo.Caption = "barInfo";
+            this.barInfo.Id = 9;
+            this.barInfo.Name = "barInfo";
             // 
             // tileBar
             // 
@@ -245,7 +318,7 @@
             this.tileBar.SelectionColor = System.Drawing.Color.Empty;
             this.tileBar.SelectionColorMode = DevExpress.XtraBars.Navigation.SelectionColorMode.UseItemBackColor;
             this.tileBar.ShowGroupText = false;
-            this.tileBar.Size = new System.Drawing.Size(774, 44);
+            this.tileBar.Size = new System.Drawing.Size(853, 44);
             this.tileBar.TabIndex = 4;
             this.tileBar.Text = "tileBar";
             this.tileBar.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -273,96 +346,29 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 34F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel1.Size = new System.Drawing.Size(921, 409);
+            this.tablePanel1.Size = new System.Drawing.Size(1000, 532);
             this.tablePanel1.TabIndex = 0;
             // 
             // panel1
             // 
             this.tablePanel1.SetColumn(this.panel1, 1);
             this.panel1.Controls.Add(this.btnUserName);
-            this.panel1.Location = new System.Drawing.Point(783, 11);
+            this.panel1.Location = new System.Drawing.Point(862, 11);
             this.panel1.Name = "panel1";
             this.tablePanel1.SetRow(this.panel1, 1);
             this.panel1.Size = new System.Drawing.Size(135, 27);
             this.panel1.TabIndex = 8;
             // 
-            // bar1
+            // timer1
             // 
-            this.bar1.BarAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.bar1.BarAppearance.Disabled.Options.UseFont = true;
-            this.bar1.BarAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.bar1.BarAppearance.Hovered.Options.UseFont = true;
-            this.bar1.BarAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar1.BarAppearance.Normal.Options.UseFont = true;
-            this.bar1.BarAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.bar1.BarAppearance.Pressed.Options.UseFont = true;
-            this.bar1.BarName = "Custom 2";
-            this.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barLogin),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barVer),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barTTC),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barServer)});
-            this.bar1.OptionsBar.AllowQuickCustomization = false;
-            this.bar1.OptionsBar.DrawDragBorder = false;
-            this.bar1.OptionsBar.UseWholeRow = true;
-            this.bar1.Text = "Custom 2";
-            // 
-            // barInfo
-            // 
-            this.barInfo.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
-            this.barInfo.Caption = "barInfo";
-            this.barInfo.Id = 9;
-            this.barInfo.Name = "barInfo";
-            // 
-            // barServer
-            // 
-            this.barServer.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
-            this.barServer.Caption = "barServer";
-            this.barServer.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Far;
-            this.barServer.Id = 10;
-            this.barServer.Name = "barServer";
-            // 
-            // barTTC
-            // 
-            this.barTTC.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
-            this.barTTC.Caption = "barTTC";
-            this.barTTC.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
-            this.barTTC.Id = 11;
-            this.barTTC.Name = "barTTC";
-            // 
-            // barVer
-            // 
-            this.barVer.Caption = "barVer";
-            this.barVer.Id = 12;
-            this.barVer.Name = "barVer";
-            // 
-            // barLogin
-            // 
-            this.barLogin.Caption = "barLogin";
-            this.barLogin.Id = 13;
-            this.barLogin.Name = "barLogin";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(913, 351);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 437);
+            this.ClientSize = new System.Drawing.Size(1000, 560);
             this.Controls.Add(this.tablePanel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -379,13 +385,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
             this.navigationPageHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +424,6 @@
         private DevExpress.XtraBars.BarStaticItem barVer;
         private DevExpress.XtraBars.BarStaticItem barLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Timer timer1;
     }
 }

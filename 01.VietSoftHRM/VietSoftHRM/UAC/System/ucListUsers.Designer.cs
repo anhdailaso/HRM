@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.searchControl = new DevExpress.XtraEditors.SearchControl();
             this.grdListUser = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiResetPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiKick = new System.Windows.Forms.ToolStripMenuItem();
             this.grvListUser = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.windowsUIButton = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.groupListUsers = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdListUser)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvListUser)).BeginInit();
             this.windowsUIButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupListUsers)).BeginInit();
@@ -62,22 +67,47 @@
             // 
             // grdListUser
             // 
+            this.grdListUser.ContextMenuStrip = this.contextMenuStrip1;
             this.grdListUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdListUser.Location = new System.Drawing.Point(2, 28);
+            this.grdListUser.Location = new System.Drawing.Point(2, 27);
             this.grdListUser.MainView = this.grvListUser;
             this.grdListUser.Name = "grdListUser";
-            this.grdListUser.Size = new System.Drawing.Size(904, 365);
+            this.grdListUser.Size = new System.Drawing.Size(904, 366);
             this.grdListUser.TabIndex = 0;
             this.grdListUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvListUser});
             this.grdListUser.Load += new System.EventHandler(this.grdListUser_Load);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiResetPassword,
+            this.tsmiKick});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // tsmiResetPassword
+            // 
+            this.tsmiResetPassword.Name = "tsmiResetPassword";
+            this.tsmiResetPassword.Size = new System.Drawing.Size(180, 22);
+            this.tsmiResetPassword.Text = "Reset pass";
+            this.tsmiResetPassword.Click += new System.EventHandler(this.tsmiResetPassword_Click);
+            // 
+            // tsmiKick
+            // 
+            this.tsmiKick.Name = "tsmiKick";
+            this.tsmiKick.Size = new System.Drawing.Size(180, 22);
+            this.tsmiKick.Text = "Kick out";
+            this.tsmiKick.Click += new System.EventHandler(this.tsmiKick_Click);
             // 
             // grvListUser
             // 
             this.grvListUser.GridControl = this.grdListUser;
             this.grvListUser.Name = "grvListUser";
             this.grvListUser.OptionsView.ShowGroupPanel = false;
-            this.grvListUser.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.grvListUser_RowCellStyle);
+            this.grvListUser.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.grvListUser_RowStyle);
+            this.grvListUser.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grvListUser_PopupMenuShowing);
             // 
             // windowsUIButton
             // 
@@ -135,6 +165,7 @@
             this.Size = new System.Drawing.Size(908, 435);
             ((System.ComponentModel.ISupportInitialize)(this.searchControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdListUser)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvListUser)).EndInit();
             this.windowsUIButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupListUsers)).EndInit();
@@ -149,5 +180,8 @@
         private DevExpress.XtraEditors.GroupControl groupListUsers;
         private DevExpress.XtraGrid.GridControl grdListUser;
         private DevExpress.XtraGrid.Views.Grid.GridView grvListUser;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiResetPassword;
+        private System.Windows.Forms.ToolStripMenuItem tsmiKick;
     }
 }

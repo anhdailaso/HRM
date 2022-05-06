@@ -166,8 +166,13 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-            dTuNgay.EditValue = Convert.ToDateTime(("01/"+DateTime.Today.Month +"/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
+            dTuNgay.EditValue = Convert.ToDateTime(("01/"+DateTime.Today.Month +"/" + DateTime.Today.Year));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             txtNam.EditValue = DateTime.Today.Year;
             lk_NgayIn.EditValue = DateTime.Today;
            

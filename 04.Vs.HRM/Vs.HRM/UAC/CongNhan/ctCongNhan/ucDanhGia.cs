@@ -52,6 +52,11 @@ namespace Vs.HRM
             {
                 case "them":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         layoutControlItem5.Visibility = LayoutVisibility.OnlyInCustomization;
 
                         grdDanhGia.Visible = false;
@@ -64,6 +69,11 @@ namespace Vs.HRM
                     }
                 case "sua":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         Readonlyedit(false);
                         AddnewRow();
                         cothem = false;
@@ -73,6 +83,11 @@ namespace Vs.HRM
 
                 case "xoa":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         Readonlyedit(true);
                         XoaBangDanhGia();
                         break;

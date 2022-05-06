@@ -126,16 +126,15 @@
             // 
             // grdCN
             // 
-            this.lbDonVi.SetColumn(this.grdCN, 1);
+            this.lbDonVi.SetColumn(this.grdCN, 4);
             this.lbDonVi.SetColumnSpan(this.grdCN, 3);
-            this.grdCN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCN.Location = new System.Drawing.Point(31, 147);
+            this.grdCN.Location = new System.Drawing.Point(527, 153);
             this.grdCN.MainView = this.grvCN;
             this.grdCN.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.grdCN.Name = "grdCN";
             this.lbDonVi.SetRow(this.grdCN, 4);
             this.lbDonVi.SetRowSpan(this.grdCN, 6);
-            this.grdCN.Size = new System.Drawing.Size(490, 346);
+            this.grdCN.Size = new System.Drawing.Size(509, 334);
             this.grdCN.TabIndex = 27;
             this.grdCN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvCN,
@@ -244,12 +243,12 @@
             // 
             // chkInTheoCongNhan
             // 
-            this.lbDonVi.SetColumn(this.chkInTheoCongNhan, 1);
-            this.chkInTheoCongNhan.Location = new System.Drawing.Point(31, 114);
+            this.lbDonVi.SetColumn(this.chkInTheoCongNhan, 4);
+            this.chkInTheoCongNhan.Location = new System.Drawing.Point(527, 114);
             this.chkInTheoCongNhan.Name = "chkInTheoCongNhan";
             this.chkInTheoCongNhan.Properties.Caption = "In theo CN";
             this.lbDonVi.SetRow(this.chkInTheoCongNhan, 3);
-            this.chkInTheoCongNhan.Size = new System.Drawing.Size(147, 24);
+            this.chkInTheoCongNhan.Size = new System.Drawing.Size(166, 24);
             this.chkInTheoCongNhan.TabIndex = 26;
             // 
             // cboLydoVang
@@ -370,11 +369,9 @@
             // 
             // rdo_ChonBaoCao
             // 
-            this.lbDonVi.SetColumn(this.rdo_ChonBaoCao, 4);
-            this.lbDonVi.SetColumnSpan(this.rdo_ChonBaoCao, 2);
-            this.rdo_ChonBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdo_ChonBaoCao.Location = new System.Drawing.Point(556, 147);
-            this.rdo_ChonBaoCao.Margin = new System.Windows.Forms.Padding(32, 3, 3, 3);
+            this.lbDonVi.SetColumn(this.rdo_ChonBaoCao, 1);
+            this.lbDonVi.SetColumnSpan(this.rdo_ChonBaoCao, 3);
+            this.rdo_ChonBaoCao.Location = new System.Drawing.Point(31, 147);
             this.rdo_ChonBaoCao.Name = "rdo_ChonBaoCao";
             this.rdo_ChonBaoCao.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "DSNV đi trễ về sớm giai đoạn", true, "rdo_ditrevesomgiaidoan"),
@@ -385,8 +382,9 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Chấm công chi tiết công nhân giai đoạn", true, "rdo_congnhangiaidoan")});
             this.lbDonVi.SetRow(this.rdo_ChonBaoCao, 4);
             this.lbDonVi.SetRowSpan(this.rdo_ChonBaoCao, 5);
-            this.rdo_ChonBaoCao.Size = new System.Drawing.Size(309, 174);
+            this.rdo_ChonBaoCao.Size = new System.Drawing.Size(490, 174);
             this.rdo_ChonBaoCao.TabIndex = 17;
+            this.rdo_ChonBaoCao.SelectedIndexChanged += new System.EventHandler(this.rdo_ChonBaoCao_SelectedIndexChanged);
             // 
             // lbTo
             // 

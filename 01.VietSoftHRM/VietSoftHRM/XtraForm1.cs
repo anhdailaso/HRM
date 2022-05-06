@@ -27,11 +27,10 @@ namespace VietSoftHRM
         {
             //CapNhapHinh();
 
-            //VietSoftHRM.ucQLNS ns = new VietSoftHRM.ucQLNS();
-            //Vs.TimeAttendance.ucDangKiLamThem ns = new Vs.TimeAttendance.ucDangKiLamThem();
-            //this.Controls.Clear();
-            //this.Controls.Add(ns);
-            //ns.Dock = DockStyle.Fill;
+            VietSoftHRM.ucNHOM ns = new ucNHOM();
+            this.Controls.Clear();
+            this.Controls.Add(ns);
+            ns.Dock = DockStyle.Fill;
 
             //LoadNS();
         }

@@ -99,7 +99,7 @@ namespace Vs.HRM
                                         dt.TableName = "DA_TA";
                                         frm.AddDataSource(dt);
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
                                     }
 
@@ -126,10 +126,17 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
+            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             dtThang.EditValue = DateTime.Today;
             lk_NgayIn.EditValue = DateTime.Today;
+
+            rdo_ChonBaoCao_SelectedIndexChanged(null, null);
         }
 
         private void LK_DON_VI_EditValueChanged(object sender, EventArgs e)
@@ -164,6 +171,38 @@ namespace Vs.HRM
             {
 
             }
+        }
+
+        private void rdo_ChonBaoCao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (rdo_ChonBaoCao.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            dtThang.Enabled = false;
+                            dTuNgay.Enabled = false;
+                            dDenNgay.Enabled = false;
+                        }
+                        break;
+                    case 1:
+                        {
+                            dtThang.Enabled = true;
+                            dTuNgay.Enabled = true;
+                            dDenNgay.Enabled = true;
+                        }
+                        break;
+                    
+                    default:
+                        dtThang.Enabled = true;
+                        dTuNgay.Enabled = true;
+                        dDenNgay.Enabled = true;
+                        break;
+                }
+            }
+            catch
+            { }
         }
     }
 }

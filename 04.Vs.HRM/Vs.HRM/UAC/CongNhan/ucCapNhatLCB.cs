@@ -35,26 +35,28 @@ namespace Vs.HRM
         {
             formatText();
             //load đơn vị xí nghiệp tổ
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
+            NGAY_HIEU_LUCdateEdit.EditValue = DateTime.Now;
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_CVlookUpEdit, Commons.Modules.ObjSystems.DataNgachLuong(true), "ID_NL", "TEN_NL", "TEN_NL");
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_HDlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt32(BAC_CVlookUpEdit.EditValue), true), "ID_BL", "TEN_BL", "TEN_BL");
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_HDlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt64(BAC_CVlookUpEdit.EditValue), Convert.ToDateTime(NGAY_HIEU_LUCdateEdit.EditValue), true), "ID_BL", "TEN_BL", "TEN_BL");
             Commons.Modules.ObjSystems.MLoadLookUpEdit(ID_NLlookUpEdit, Commons.Modules.ObjSystems.DataNgachLuong(false), "ID_NL", "TEN_NL", "TEN_NL");
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(ID_BLlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt32(ID_NLlookUpEdit.EditValue), false), "ID_BL", "TEN_BL", "TEN_BL");
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(ID_BLlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt64(ID_NLlookUpEdit.EditValue), Convert.ToDateTime(NGAY_HIEU_LUCdateEdit.EditValue), false), "ID_BL", "TEN_BL", "TEN_BL");
             LoadGrdCapNhatLCB();
             Commons.Modules.ObjSystems.MLoadLookUpEdit(COT_CAP_NHATlookUpEdit, Commons.Modules.ObjSystems.DataCotCapNhat(false), "ID_COT", "TEN_COT", "TEN_COT");
             radBoloc_EditValueChanged(null, null);
             enableButon(true);
             Commons.Modules.ObjSystems.SetPhanQuyen(windowsUIButton);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
 
         private void formatText()
         {
             LUONG_CO_BANtextEdit.Properties.Mask.EditMask = "N" + Commons.Modules.iSoLeTT.ToString() + "";
             SO_TIENtextEdit.Properties.Mask.EditMask = "N" + Commons.Modules.iSoLeTT.ToString() + "";
+            Commons.OSystems.SetDateEditFormat(NGAY_HIEU_LUCdateEdit);
 
         }
 
@@ -145,42 +147,42 @@ namespace Vs.HRM
         }
         private void cboDV_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void cboXN_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void cboTo_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void BAC_CVlookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_HDlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt32(BAC_CVlookUpEdit.EditValue), true), "ID_BL", "TEN_BL", "TEN_BL");
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(BAC_HDlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt64(BAC_CVlookUpEdit.EditValue), Convert.ToDateTime(NGAY_HIEU_LUCdateEdit.EditValue),true), "ID_BL", "TEN_BL", "TEN_BL");
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void BAC_HDlookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void radBoloc_EditValueChanged(object sender, EventArgs e)
         {
@@ -217,7 +219,7 @@ namespace Vs.HRM
             DataTable dt = new DataTable();
             try
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListCapNhatLCB", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, BAC_CVlookUpEdit.EditValue, BAC_HDlookUpEdit.EditValue, radBoloc.SelectedIndex, LuongTutextEdit.EditValue, LuongDentextEdit.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListCapNhatLCB", Convert.ToInt64(cboDV.EditValue), Convert.ToInt64(cboXN.EditValue), Convert.ToInt64(cboTo.EditValue), Convert.ToInt64(BAC_CVlookUpEdit.EditValue), string.IsNullOrEmpty(BAC_HDlookUpEdit.Text.ToString()) ? -1 : Convert.ToInt64(BAC_HDlookUpEdit.EditValue), radBoloc.SelectedIndex, LuongTutextEdit.EditValue, LuongDentextEdit.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 dt.Columns["CHON"].ReadOnly = false;
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdCapNhatLCB, grvCapNhatLCB, dt, false, false, false, true, true, this.Name);
                 grvCapNhatLCB.Columns["CHON"].Visible = false;
@@ -248,7 +250,7 @@ namespace Vs.HRM
 
                 //Commons.Modules.ObjSystems.
             }
-            catch
+            catch (Exception ex)
             {
 
             }
@@ -347,11 +349,11 @@ namespace Vs.HRM
 
         private void ID_NLlookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(ID_BLlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt32(ID_NLlookUpEdit.EditValue), false), "ID_BL", "TEN_BL", "TEN_BL");
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(ID_BLlookUpEdit, Commons.Modules.ObjSystems.DataBacLuong(Convert.ToInt64(ID_NLlookUpEdit.EditValue), Convert.ToDateTime(NGAY_HIEU_LUCdateEdit.EditValue), false), "ID_BL", "TEN_BL", "TEN_BL");
             LoadGrdCapNhatLCB();
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
 
         private void LuongTutextEdit_Validated(object sender, EventArgs e)

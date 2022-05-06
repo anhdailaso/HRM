@@ -196,11 +196,18 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboTo(lkDonVi, lkXiNghiep, lkTo);
             Commons.Modules.ObjSystems.LoadCboTTHD(lkTTHD);
             Commons.Modules.ObjSystems.LoadCboTTHT(lkTTHT);
+
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+            Commons.OSystems.SetDateEditFormat(dTuNgayNS);
+            Commons.OSystems.SetDateEditFormat(dDenNgayNS);
+            Commons.OSystems.SetDateEditFormat(NgayIn);
+
             LoadGrdChonCot();
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
-            dTuNgayNS.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgayNS.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
+            dTuNgayNS.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dDenNgayNS.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             NgayIn.EditValue = DateTime.Today;
             dTuNgayNS.Enabled = false;
             dDenNgayNS.Enabled = false;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace Vs.Report
 {
@@ -13,7 +14,6 @@ namespace Vs.Report
             lbNgay.Text = "Tp.HCM, Ngày " + NgayBC.Substring(NgayBC.Length - 2, 2) + " Tháng " + ThangBC.Substring(ThangBC.Length - 2, 2) + " Năm " + NamBC.Substring(NamBC.Length - 4, 4);
 
         }
-
     }
 }
 

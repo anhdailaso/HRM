@@ -43,7 +43,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                             cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
-                                            cmd.Parameters.Add("@Ngay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
+                                            cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                             cmd.CommandType = CommandType.StoredProcedure;
                                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -78,7 +78,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                             cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
-                                            cmd.Parameters.Add("@Ngay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
+                                            cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                             cmd.CommandType = CommandType.StoredProcedure;
                                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -117,6 +117,8 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
             lk_NgayIn.EditValue = DateTime.Today;
         }
 

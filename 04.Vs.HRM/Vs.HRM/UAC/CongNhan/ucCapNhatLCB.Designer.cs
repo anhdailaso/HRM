@@ -60,6 +60,7 @@
             this.LuongDentextEdit = new DevExpress.XtraEditors.TextEdit();
             this.LUONG_CO_BANtextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ID_BLlookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.NOI_DUNGtextEdit = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groChonDuLieu = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -77,7 +78,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForID_NL = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForCOT_CAP_NHAT = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForSO_TIEN = new DevExpress.XtraLayout.LayoutControlItem();
@@ -86,11 +86,11 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForLUONG_CO_BAN = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.windowsUIButton = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.searchControl = new DevExpress.XtraEditors.SearchControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.NOI_DUNGtextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.COT_CAP_NHATlookUpEdit.Properties)).BeginInit();
@@ -118,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LuongDentextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LUONG_CO_BANtextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID_BLlookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NOI_DUNGtextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groChonDuLieu)).BeginInit();
@@ -135,7 +136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForID_NL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCOT_CAP_NHAT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSO_TIEN)).BeginInit();
@@ -144,11 +144,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForLUONG_CO_BAN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.windowsUIButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NOI_DUNGtextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -384,6 +384,11 @@
             this.NGAY_HIEU_LUCdateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.NGAY_HIEU_LUCdateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            this.NGAY_HIEU_LUCdateEdit.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.NGAY_HIEU_LUCdateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NGAY_HIEU_LUCdateEdit.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.NGAY_HIEU_LUCdateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.NGAY_HIEU_LUCdateEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.NGAY_HIEU_LUCdateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.NGAY_HIEU_LUCdateEdit.Size = new System.Drawing.Size(168, 26);
             this.NGAY_HIEU_LUCdateEdit.StyleController = this.layoutControl1;
@@ -446,6 +451,14 @@
             this.ID_BLlookUpEdit.Size = new System.Drawing.Size(169, 26);
             this.ID_BLlookUpEdit.StyleController = this.layoutControl1;
             this.ID_BLlookUpEdit.TabIndex = 18;
+            // 
+            // NOI_DUNGtextEdit
+            // 
+            this.NOI_DUNGtextEdit.Location = new System.Drawing.Point(175, 202);
+            this.NOI_DUNGtextEdit.Name = "NOI_DUNGtextEdit";
+            this.NOI_DUNGtextEdit.Size = new System.Drawing.Size(827, 26);
+            this.NOI_DUNGtextEdit.StyleController = this.layoutControl1;
+            this.NOI_DUNGtextEdit.TabIndex = 28;
             // 
             // Root
             // 
@@ -634,14 +647,6 @@
             this.ItemForID_NL.Text = "ID_NL";
             this.ItemForID_NL.TextSize = new System.Drawing.Size(128, 20);
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 56);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(32, 28);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.chkCOT_CAP_NHAT;
@@ -722,6 +727,22 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(35, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.NOI_DUNGtextEdit;
+            this.layoutControlItem1.Location = new System.Drawing.Point(32, 56);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(960, 28);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(128, 20);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 56);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(32, 28);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // windowsUIButton
             // 
             this.windowsUIButton.AppearanceButton.Hovered.FontSizeDelta = -1;
@@ -785,22 +806,6 @@
             this.searchControl.Size = new System.Drawing.Size(220, 26);
             this.searchControl.TabIndex = 11;
             // 
-            // NOI_DUNGtextEdit
-            // 
-            this.NOI_DUNGtextEdit.Location = new System.Drawing.Point(175, 202);
-            this.NOI_DUNGtextEdit.Name = "NOI_DUNGtextEdit";
-            this.NOI_DUNGtextEdit.Size = new System.Drawing.Size(827, 26);
-            this.NOI_DUNGtextEdit.StyleController = this.layoutControl1;
-            this.NOI_DUNGtextEdit.TabIndex = 28;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.NOI_DUNGtextEdit;
-            this.layoutControlItem1.Location = new System.Drawing.Point(32, 56);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(960, 28);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(128, 20);
-            // 
             // ucCapNhatLCB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -837,6 +842,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LuongDentextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LUONG_CO_BANtextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID_BLlookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NOI_DUNGtextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groChonDuLieu)).EndInit();
@@ -854,7 +860,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForID_NL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCOT_CAP_NHAT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSO_TIEN)).EndInit();
@@ -863,11 +868,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForLUONG_CO_BAN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.windowsUIButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NOI_DUNGtextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

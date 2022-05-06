@@ -31,11 +31,12 @@ namespace VietSoftHRM
         {
             slinkcha = NONNlab_Link.Text;
             LoadDanhMuc();
-            Commons.Modules.ObjSystems.ThayDoiNN(this, windowsUIButton);
             sCount = Commons.Modules.ObjLanguages.GetLanguage(this.Name.ToString(), "sCount");
             accorMenuleft.SelectElement(accorMenuleft.Elements[0].Elements[0]);
             Commons.Modules.sPS = "";
             Element_Click(accorMenuleft.Elements[0].Elements[0], null);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, windowsUIButton);
+            //Commons.Modules.ObjSystems.MLoadNNXtraGrid(grvDanhMuc, this.Name);
         }
 
 
@@ -130,10 +131,10 @@ namespace VietSoftHRM
 
                 }
             }
-            catch (Exception ex)
+            catch 
             {
             }
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+           // accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -166,6 +167,18 @@ namespace VietSoftHRM
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, Commons.Modules.sPS, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 dt.PrimaryKey = new DataColumn[] { dt.Columns[0] };
                 Commons.Modules.ObjSystems.MLoadXtraGridDM(grdDanhMuc, grvDanhMuc, dt, false, true, false, true, true, this.Name);
+                
+                //DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+                //repoMemo.WordWrap = true;
+
+                //foreach (DevExpress.XtraGrid.Columns.GridColumn column in grvDanhMuc.Columns)
+                //{
+                //    if (column.ColumnType.ToString() == "System.String")
+                //        column.ColumnEdit = repoMemo;
+                //}6
+                grvDanhMuc.OptionsView.RowAutoHeight = true;
+                grvDanhMuc.GroupSummary.Add(DevExpress.Data.SummaryItemType.Count, string.Empty);
+                Commons.Modules.OXtraGrid.loadXmlgrd(grdDanhMuc);
                 if (key != -1)
                 {
                     grdDanhMuc.DataSource = dt;
@@ -178,17 +191,6 @@ namespace VietSoftHRM
                     grvDanhMuc.FocusedRowHandle = 0;
                     grvDanhMuc.SelectRow(0);
                 }
-                //DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-                //repoMemo.WordWrap = true;
-
-                //foreach (DevExpress.XtraGrid.Columns.GridColumn column in grvDanhMuc.Columns)
-                //{
-                //    if (column.ColumnType.ToString() == "System.String")
-                //        column.ColumnEdit = repoMemo;
-                //}6
-                grvDanhMuc.OptionsView.RowAutoHeight = true;
-                grvDanhMuc.GroupSummary.Add(DevExpress.Data.SummaryItemType.Count, string.Empty);
-                Commons.Modules.OXtraGrid.loadXmlgrd(grdDanhMuc);
                 Commons.OSystems.DinhDangNgayThang(grvDanhMuc);
                 switch (Commons.Modules.sPS)
                 {
@@ -231,7 +233,7 @@ namespace VietSoftHRM
                         break;
                 }
             }
-            catch (Exception EX)
+            catch 
             {
                 //      XtraMessageBox.Show(EX.Message.ToString());
             }
@@ -247,9 +249,9 @@ namespace VietSoftHRM
                 Type newType;
                 try
                 {
-                   newType = Type.GetType("Vs.Category.frmEdit" + Commons.Modules.sPS.Replace("spGetList", "") + ", Vs.Category", true, true);
+                    newType = Type.GetType("Vs.Category.frmEdit" + Commons.Modules.sPS.Replace("spGetList", "") + ", Vs.Category", true, true);
                 }
-                catch
+                catch 
                 {
                     newType = Type.GetType("Vs.Payroll.frmEdit" + Commons.Modules.sPS.Replace("spGetList", "") + ", Vs.Payroll", true, true);
                 }
@@ -299,7 +301,7 @@ namespace VietSoftHRM
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE FROM [" + Commons.Modules.sPS.Replace("spGetList", "") + "] WHERE	" + grvDanhMuc.Columns[0].FieldName + " = " + grvDanhMuc.GetFocusedRowCellValue(grvDanhMuc.Columns[0].FieldName) + "");
                 LoadGridDanhMuc(-1);
             }
-            catch (Exception ex)
+            catch 
             {
                 //XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDelDangSuDung") + "\n" + ex.Message.ToString(), sCaption);
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_DuLieuDangSuDung"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"));

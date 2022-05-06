@@ -37,31 +37,15 @@ namespace Vs.HRM
                                         conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                                         conn.Open();
 
-                                        System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("[rptKhenThuongKyLuatTH]", conn);
+                                        System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptKhenThuongKyLuatCN", conn);
 
                                         cmd.Parameters.Add("@UName", SqlDbType.NVarChar, 50).Value = Commons.Modules.UserName;
                                         cmd.Parameters.Add("@NNgu", SqlDbType.Int).Value = Commons.Modules.TypeLanguage;
-                                        cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
-                                        cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
-                                        cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
                                         cmd.Parameters.Add("@ID_CN", SqlDbType.BigInt).Value = cbCongNhan.EditValue;
                                         cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dTuNgay.EditValue;
                                         cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dDenNgay.EditValue;
-                                  //      cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = cbKhenThuongKyLuat.SelectedIndex;
-                                        
-                                        switch (cbKhenThuongKyLuat.SelectedIndex)
-                                        {
-                                            case -1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 0:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 0;
-                                                break;
-                                        }
-                                        
+                                        cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = cbKhenThuongKyLuat.SelectedIndex;
+                                                                                
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                         DataSet ds = new DataSet();
@@ -71,7 +55,7 @@ namespace Vs.HRM
                                         dt.TableName = "DA_TA";
                                         frm.AddDataSource(dt);
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
                                     }
 
@@ -81,11 +65,6 @@ namespace Vs.HRM
                                 break;
                             case 1:
                                 {
-                                    //  DateTime firstDateTime = new DateTime(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue), 1);
-                                    //  DateTime secondDateTime = new DateTime(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue)));
-
-                                    //  string sTieuDe = "DANH SÁCH THAY ĐỔI LƯƠNG " + Convert.ToString(txtThang.EditValue);
-
                                     System.Data.SqlClient.SqlConnection conn1;
                                     DataTable dt = new DataTable();
                                     frm.rpt = new rptBCKhenThuongKyLuatBP(lk_NgayIn.DateTime, dTuNgay.DateTime, dDenNgay.DateTime);
@@ -105,18 +84,8 @@ namespace Vs.HRM
                                         cmd.Parameters.Add("@ID_CN", SqlDbType.BigInt).Value = cbCongNhan.EditValue;
                                         cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dTuNgay.EditValue;
                                         cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dDenNgay.EditValue;
-                                        switch (cbKhenThuongKyLuat.SelectedIndex)
-                                        {
-                                            case -1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 0:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 0;
-                                                break;
-                                        }
+                                        cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = cbKhenThuongKyLuat.SelectedIndex;
+                                        
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                         DataSet ds = new DataSet();
@@ -130,18 +99,12 @@ namespace Vs.HRM
                                     {
                                     }
 
-
                                     frm.ShowDialog();
 
                                     break;
                                 }
                             case 2:
                                 {
-                                    //  DateTime firstDateTime = new DateTime(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue), 1);
-                                    //  DateTime secondDateTime = new DateTime(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(txtThang.EditValue)));
-
-                                    //  string sTieuDe = "DANH SÁCH THAY ĐỔI LƯƠNG " + Convert.ToString(txtThang.EditValue);
-
                                     System.Data.SqlClient.SqlConnection conn1;
                                     DataTable dt = new DataTable();
                                     frm.rpt = new rptBCKhenThuongKyLuatTH(lk_NgayIn.DateTime, dTuNgay.DateTime, dDenNgay.DateTime);
@@ -160,18 +123,8 @@ namespace Vs.HRM
                                         cmd.Parameters.Add("@ID_CN", SqlDbType.BigInt).Value = cbCongNhan.EditValue;
                                         cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dTuNgay.EditValue;
                                         cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dDenNgay.EditValue;
-                                        switch (cbKhenThuongKyLuat.SelectedIndex)
-                                        {
-                                            case -1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 0:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 1;
-                                                break;
-                                            case 1:
-                                                cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = 0;
-                                                break;
-                                        }
+                                        cmd.Parameters.Add("@Loai", SqlDbType.Int).Value = cbKhenThuongKyLuat.SelectedIndex;
+
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -209,10 +162,15 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-            LoadNhanSu();
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
+
+            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             dtThang.EditValue = DateTime.Today;
+            LoadNhanSu();
             lk_NgayIn.EditValue = DateTime.Today;
         }
 
@@ -221,7 +179,7 @@ namespace Vs.HRM
             Commons.Modules.sPS = "0Load";
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-           LoadNhanSu();
+            LoadNhanSu();
         }
 
         private void LK_XI_NGHIEP_EditValueChanged(object sender, EventArgs e)
@@ -235,7 +193,7 @@ namespace Vs.HRM
             try
             {
                 Commons.Modules.sPS = "0Load";
-                DataTable dt = Commons.Modules.ObjSystems.DataCongNhanTheoDK(true, Convert.ToInt32(LK_DON_VI.EditValue), Convert.ToInt32(LK_XI_NGHIEP.EditValue), Convert.ToInt32(LK_TO.EditValue));
+                DataTable dt = Commons.Modules.ObjSystems.DataCongNhanTheoDK(true, Convert.ToInt32(LK_DON_VI.EditValue), Convert.ToInt32(LK_XI_NGHIEP.EditValue), Convert.ToInt32(LK_TO.EditValue), Convert.ToDateTime(dTuNgay.EditValue), Convert.ToDateTime(dDenNgay.EditValue));
                 Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cbCongNhan, dt, "ID_CN", "TEN_CN","TEN_CN");
                 cbCongNhan.Properties.View.Columns[1].Visible = false;
                 cbCongNhan.EditValue = -1;
@@ -266,8 +224,8 @@ namespace Vs.HRM
 
         private void dtThang_EditValueChanged(object sender, EventArgs e)
         {
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + dtThang.Text)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + dtThang.Text)).AddMonths(1).AddDays(-1).ToShortDateString();
+            dTuNgay.EditValue = Convert.ToDateTime(("01/" + dtThang.Text));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + dtThang.Text)).AddMonths(1).AddDays(-1);
         }
     }
 }

@@ -8,7 +8,7 @@
     <property name="RowAutoHeight">true</property>
   </property>
   <property name="ActiveFilterEnabled">true</property>
-  <property name="Columns" iskey="true" value="11">
+  <property name="Columns" iskey="true" value="12">
     <property name="Item1" isnull="true" iskey="true">
       <property name="Name">colID_LDV</property>
       <property name="Caption">ID LHDLD</property>
@@ -145,6 +145,17 @@
       <property name="FieldName">ID_CHE_DO</property>
       <property name="ColumnEditName" />
       <property name="Width">99</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Name">colID_TT_HT</property>
+      <property name="Caption">ID TTHT</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">ID_TT_HT</property>
+      <property name="ColumnEditName" />
+      <property name="Width">81</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>

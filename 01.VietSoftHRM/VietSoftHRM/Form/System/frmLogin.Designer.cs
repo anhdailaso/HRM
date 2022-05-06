@@ -273,6 +273,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.Shown += new System.EventHandler(this.frmLogin_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

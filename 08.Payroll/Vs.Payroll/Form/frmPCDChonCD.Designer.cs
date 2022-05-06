@@ -44,8 +44,8 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grdCD, 4);
             this.grdCD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCD.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.grdCD.Font = new System.Drawing.Font("VNI-Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdCD.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
+            this.grdCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdCD.Location = new System.Drawing.Point(3, 9);
             this.grdCD.MainView = this.grvCD;
             this.grdCD.Name = "grdCD";
@@ -56,9 +56,9 @@
             // 
             // grvCD
             // 
-            this.grvCD.Appearance.Preview.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.grvCD.Appearance.Preview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grvCD.Appearance.Preview.Options.UseFont = true;
-            this.grvCD.Appearance.Row.Font = new System.Drawing.Font("VNI-Times", 12F);
+            this.grvCD.Appearance.Row.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grvCD.Appearance.Row.Options.UseFont = true;
             this.grvCD.DetailHeight = 349;
             this.grvCD.GridControl = this.grdCD;

@@ -32,10 +32,12 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQTCN));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTD = new DevExpress.XtraEditors.LabelControl();
             this.optHT = new DevExpress.XtraEditors.RadioGroup();
             this.grdQT = new DevExpress.XtraGrid.GridControl();
             this.grvQT = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -61,16 +63,16 @@
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cboChuyen = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtSLCN = new DevExpress.XtraEditors.TextEdit();
-            this.dNgayLap = new DevExpress.XtraEditors.DateEdit();
-            this.lblChuyen = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtHS = new DevExpress.XtraEditors.TextEdit();
             this.txtDG = new DevExpress.XtraEditors.TextEdit();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtSLCN = new DevExpress.XtraEditors.TextEdit();
+            this.dNgayLap = new DevExpress.XtraEditors.DateEdit();
+            this.lblChuyen = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.optHT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdQT)).BeginInit();
@@ -91,12 +93,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChuyen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHS.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDG.Properties)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSLCN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dNgayLap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHS.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDG.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -104,77 +106,60 @@
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.58689F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.259259F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.09402F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel1.Controls.Add(this.lblTD, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.optHT, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.grdQT, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.panelControl2, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl1, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl2, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cboHD, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cboKH, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl7, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cboCum, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl4, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.cboMH, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cboOrd, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl6, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.cboLMH, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cboChuyen, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl5, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl9, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl10, 5, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtHS, 6, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtDG, 6, 4);
+            this.tableLayoutPanel1.Controls.Add(this.optHT, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.grdQT, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panelControl2, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl1, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl2, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboHD, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboKH, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl7, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cboCum, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cboMH, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboOrd, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl6, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cboLMH, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboChuyen, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl5, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl9, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl10, 5, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtHS, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtDG, 6, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 5, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1404, 978);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // lblTD
-            // 
-            this.lblTD.Appearance.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTD.Appearance.Options.UseFont = true;
-            this.lblTD.Appearance.Options.UseTextOptions = true;
-            this.lblTD.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblTD.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblTD, 8);
-            this.lblTD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTD.Location = new System.Drawing.Point(3, 9);
-            this.lblTD.Name = "lblTD";
-            this.lblTD.Size = new System.Drawing.Size(1398, 26);
-            this.lblTD.TabIndex = 35;
-            this.lblTD.Text = "LẬP QUI TRÌNH CÔNG NGHỆ MÃ HÀNG";
-            // 
             // optHT
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.optHT, 2);
             this.optHT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optHT.Location = new System.Drawing.Point(59, 40);
+            this.optHT.Location = new System.Drawing.Point(59, 8);
             this.optHT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.optHT.Name = "optHT";
             this.optHT.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đang sản xuất", true, null, "optXemCu"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Hoàn thành", true, null, "optLapMoi")});
-            this.optHT.Size = new System.Drawing.Size(330, 28);
+            this.optHT.Size = new System.Drawing.Size(437, 28);
             this.optHT.TabIndex = 34;
             this.optHT.SelectedIndexChanged += new System.EventHandler(this.optHT_SelectedIndexChanged);
             // 
@@ -184,17 +169,17 @@
             this.grdQT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdQT.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
             this.grdQT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdQT.Location = new System.Drawing.Point(3, 189);
+            this.grdQT.Location = new System.Drawing.Point(3, 145);
             this.grdQT.MainView = this.grvQT;
             this.grdQT.Name = "grdQT";
-            this.grdQT.Size = new System.Drawing.Size(1398, 729);
+            this.grdQT.Size = new System.Drawing.Size(1398, 773);
             this.grdQT.TabIndex = 38;
             this.grdQT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvQT});
             // 
             // grvQT
             // 
-            this.grvQT.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("VNI-Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvQT.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvQT.Appearance.ColumnFilterButton.Options.UseFont = true;
             this.grvQT.DetailHeight = 349;
             this.grvQT.GridControl = this.grdQT;
@@ -202,6 +187,9 @@
             this.grvQT.OptionsView.ShowGroupPanel = false;
             this.grvQT.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvQT_InitNewRow);
             this.grvQT.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvQT_CellValueChanged);
+            this.grvQT.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvQT_InvalidRowException);
+            this.grvQT.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvQT_ValidatingEditor);
+            this.grvQT.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.grvQT_InvalidValueException);
             // 
             // panelControl2
             // 
@@ -224,17 +212,21 @@
             windowsUIButtonImageOptions1.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
             windowsUIButtonImageOptions2.ImageUri.Uri = "snap/snapdeletelist";
             windowsUIButtonImageOptions3.ImageUri.Uri = "Preview";
-            windowsUIButtonImageOptions4.ImageUri.Uri = "SaveAll";
-            windowsUIButtonImageOptions5.ImageUri.Uri = "SaveAndClose";
-            windowsUIButtonImageOptions6.ImageUri.Uri = "richedit/clearheaderandfooter";
+            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
+            windowsUIButtonImageOptions5.SvgImage = global::Vs.Payroll.Properties.Resources.addcolumn;
+            windowsUIButtonImageOptions6.ImageUri.Uri = "SaveAll";
+            windowsUIButtonImageOptions7.ImageUri.Uri = "SaveAndClose";
+            windowsUIButtonImageOptions8.ImageUri.Uri = "richedit/clearheaderandfooter";
             this.windowsUIButton.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "sua", -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "xoa", -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "in", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "danhlaiMQL", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "chonCD", -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "khongluu", -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "thoat", -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "luu", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "khongluu", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "thoat", -1, false)});
             this.windowsUIButton.ContentAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.windowsUIButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -251,16 +243,16 @@
             // labelControl1
             // 
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(395, 41);
+            this.labelControl1.Location = new System.Drawing.Point(502, 9);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(162, 26);
+            this.labelControl1.Size = new System.Drawing.Size(124, 26);
             this.labelControl1.TabIndex = 39;
             this.labelControl1.Text = "Khách hàng";
             // 
             // labelControl2
             // 
             this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl2.Location = new System.Drawing.Point(871, 41);
+            this.labelControl2.Location = new System.Drawing.Point(872, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(162, 26);
             this.labelControl2.TabIndex = 35;
@@ -270,7 +262,7 @@
             // 
             this.cboHD.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboHD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboHD.Location = new System.Drawing.Point(1039, 41);
+            this.cboHD.Location = new System.Drawing.Point(1040, 9);
             this.cboHD.Name = "cboHD";
             this.cboHD.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboHD.Properties.Appearance.Options.UseFont = true;
@@ -278,7 +270,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboHD.Properties.NullText = "";
             this.cboHD.Properties.PopupView = this.searchLookUpEdit3View;
-            this.cboHD.Size = new System.Drawing.Size(302, 26);
+            this.cboHD.Size = new System.Drawing.Size(303, 26);
             this.cboHD.TabIndex = 36;
             this.cboHD.EditValueChanged += new System.EventHandler(this.cboHD_EditValueChanged);
             // 
@@ -296,7 +288,7 @@
             // 
             this.cboKH.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboKH.Location = new System.Drawing.Point(563, 41);
+            this.cboKH.Location = new System.Drawing.Point(632, 9);
             this.cboKH.Name = "cboKH";
             this.cboKH.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboKH.Properties.Appearance.Options.UseFont = true;
@@ -304,7 +296,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboKH.Properties.NullText = "";
             this.cboKH.Properties.PopupView = this.gridView5;
-            this.cboKH.Size = new System.Drawing.Size(302, 26);
+            this.cboKH.Size = new System.Drawing.Size(234, 26);
             this.cboKH.TabIndex = 40;
             this.cboKH.EditValueChanged += new System.EventHandler(this.cboKH_EditValueChanged);
             // 
@@ -320,10 +312,9 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl7.Location = new System.Drawing.Point(59, 137);
+            this.labelControl7.Location = new System.Drawing.Point(59, 109);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(162, 46);
+            this.labelControl7.Size = new System.Drawing.Size(30, 20);
             this.labelControl7.TabIndex = 41;
             this.labelControl7.Text = "Cụm";
             // 
@@ -331,7 +322,7 @@
             // 
             this.cboCum.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboCum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboCum.Location = new System.Drawing.Point(227, 137);
+            this.cboCum.Location = new System.Drawing.Point(227, 109);
             this.cboCum.Name = "cboCum";
             this.cboCum.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboCum.Properties.Appearance.Options.UseFont = true;
@@ -339,7 +330,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboCum.Properties.NullText = "";
             this.cboCum.Properties.PopupView = this.gridView6;
-            this.cboCum.Size = new System.Drawing.Size(162, 26);
+            this.cboCum.Size = new System.Drawing.Size(269, 26);
             this.cboCum.TabIndex = 42;
             this.cboCum.EditValueChanged += new System.EventHandler(this.cboCum_EditValueChanged);
             // 
@@ -356,18 +347,18 @@
             // labelControl3
             // 
             this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl3.Location = new System.Drawing.Point(59, 73);
+            this.labelControl3.Location = new System.Drawing.Point(59, 41);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(162, 26);
+            this.labelControl3.Size = new System.Drawing.Size(162, 27);
             this.labelControl3.TabIndex = 35;
             this.labelControl3.Text = "Mã hàng";
             // 
             // labelControl4
             // 
             this.labelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl4.Location = new System.Drawing.Point(59, 105);
+            this.labelControl4.Location = new System.Drawing.Point(59, 74);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(162, 26);
+            this.labelControl4.Size = new System.Drawing.Size(162, 29);
             this.labelControl4.TabIndex = 35;
             this.labelControl4.Text = "Order";
             // 
@@ -375,7 +366,7 @@
             // 
             this.cboMH.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMH.Location = new System.Drawing.Point(227, 73);
+            this.cboMH.Location = new System.Drawing.Point(227, 41);
             this.cboMH.Name = "cboMH";
             this.cboMH.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboMH.Properties.Appearance.Options.UseFont = true;
@@ -383,7 +374,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMH.Properties.NullText = "";
             this.cboMH.Properties.PopupView = this.gridView1;
-            this.cboMH.Size = new System.Drawing.Size(162, 26);
+            this.cboMH.Size = new System.Drawing.Size(269, 26);
             this.cboMH.TabIndex = 36;
             this.cboMH.EditValueChanged += new System.EventHandler(this.cboMH_EditValueChanged);
             // 
@@ -401,7 +392,7 @@
             // 
             this.cboOrd.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboOrd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboOrd.Location = new System.Drawing.Point(227, 105);
+            this.cboOrd.Location = new System.Drawing.Point(227, 74);
             this.cboOrd.Name = "cboOrd";
             this.cboOrd.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboOrd.Properties.Appearance.Options.UseFont = true;
@@ -409,7 +400,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboOrd.Properties.NullText = "";
             this.cboOrd.Properties.PopupView = this.gridView2;
-            this.cboOrd.Size = new System.Drawing.Size(162, 26);
+            this.cboOrd.Size = new System.Drawing.Size(269, 26);
             this.cboOrd.TabIndex = 36;
             this.cboOrd.EditValueChanged += new System.EventHandler(this.cboOrd_EditValueChanged);
             // 
@@ -426,9 +417,9 @@
             // labelControl6
             // 
             this.labelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl6.Location = new System.Drawing.Point(395, 105);
+            this.labelControl6.Location = new System.Drawing.Point(502, 74);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(162, 26);
+            this.labelControl6.Size = new System.Drawing.Size(124, 29);
             this.labelControl6.TabIndex = 35;
             this.labelControl6.Text = "Chuyền";
             // 
@@ -436,7 +427,7 @@
             // 
             this.cboLMH.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboLMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboLMH.Location = new System.Drawing.Point(563, 73);
+            this.cboLMH.Location = new System.Drawing.Point(632, 41);
             this.cboLMH.Name = "cboLMH";
             this.cboLMH.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboLMH.Properties.Appearance.Options.UseFont = true;
@@ -444,7 +435,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboLMH.Properties.NullText = "";
             this.cboLMH.Properties.PopupView = this.gridView3;
-            this.cboLMH.Size = new System.Drawing.Size(302, 26);
+            this.cboLMH.Size = new System.Drawing.Size(234, 26);
             this.cboLMH.TabIndex = 36;
             this.cboLMH.EditValueChanged += new System.EventHandler(this.cboLMH_EditValueChanged);
             // 
@@ -462,7 +453,7 @@
             // 
             this.cboChuyen.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboChuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboChuyen.Location = new System.Drawing.Point(563, 105);
+            this.cboChuyen.Location = new System.Drawing.Point(632, 74);
             this.cboChuyen.Name = "cboChuyen";
             this.cboChuyen.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboChuyen.Properties.Appearance.Options.UseFont = true;
@@ -470,7 +461,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboChuyen.Properties.NullText = "";
             this.cboChuyen.Properties.PopupView = this.gridView4;
-            this.cboChuyen.Size = new System.Drawing.Size(302, 26);
+            this.cboChuyen.Size = new System.Drawing.Size(234, 26);
             this.cboChuyen.TabIndex = 36;
             this.cboChuyen.EditValueChanged += new System.EventHandler(this.cboChuyen_EditValueChanged);
             // 
@@ -484,14 +475,64 @@
             this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView4.OptionsView.ShowGroupPanel = false;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl5.Location = new System.Drawing.Point(502, 41);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(124, 27);
+            this.labelControl5.TabIndex = 35;
+            this.labelControl5.Text = "Loại mã hàng";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl9.Location = new System.Drawing.Point(872, 41);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(162, 27);
+            this.labelControl9.TabIndex = 47;
+            this.labelControl9.Text = "Hệ số Đơn giá";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl10.Location = new System.Drawing.Point(872, 74);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(162, 29);
+            this.labelControl10.TabIndex = 48;
+            this.labelControl10.Text = "Đơn giá giây";
+            // 
+            // txtHS
+            // 
+            this.txtHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHS.Location = new System.Drawing.Point(1040, 41);
+            this.txtHS.Name = "txtHS";
+            this.txtHS.Properties.Mask.EditMask = "n2";
+            this.txtHS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtHS.Size = new System.Drawing.Size(303, 26);
+            this.txtHS.TabIndex = 49;
+            this.txtHS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtHS_KeyDown);
+            // 
+            // txtDG
+            // 
+            this.txtDG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDG.Location = new System.Drawing.Point(1040, 74);
+            this.txtDG.Name = "txtDG";
+            this.txtDG.Properties.Mask.EditMask = "n2";
+            this.txtDG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDG.Size = new System.Drawing.Size(303, 26);
+            this.txtDG.TabIndex = 50;
+            this.txtDG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDG_KeyDown);
+            this.txtDG.Validated += new System.EventHandler(this.txtDG_Validated);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.21885F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.4924F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.85714F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.10638F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.21277F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.19149F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.2766F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -499,104 +540,52 @@
             this.tableLayoutPanel2.Controls.Add(this.dNgayLap, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblChuyen, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelControl8, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(395, 136);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(872, 108);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(470, 48);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(470, 32);
             this.tableLayoutPanel2.TabIndex = 46;
             // 
             // txtSLCN
             // 
-            this.txtSLCN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSLCN.Location = new System.Drawing.Point(355, 3);
+            this.txtSLCN.Location = new System.Drawing.Point(372, 3);
             this.txtSLCN.Name = "txtSLCN";
-            this.txtSLCN.Size = new System.Drawing.Size(112, 26);
+            this.txtSLCN.Size = new System.Drawing.Size(95, 26);
             this.txtSLCN.TabIndex = 48;
             // 
             // dNgayLap
             // 
             this.dNgayLap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dNgayLap.EditValue = null;
-            this.dNgayLap.Location = new System.Drawing.Point(97, 3);
+            this.dNgayLap.Location = new System.Drawing.Point(168, 3);
             this.dNgayLap.Name = "dNgayLap";
             this.dNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dNgayLap.Size = new System.Drawing.Size(146, 26);
+            this.dNgayLap.Size = new System.Drawing.Size(136, 26);
             this.dNgayLap.TabIndex = 47;
             // 
             // lblChuyen
             // 
-            this.lblChuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblChuyen.Location = new System.Drawing.Point(3, 2);
             this.lblChuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblChuyen.Name = "lblChuyen";
-            this.lblChuyen.Size = new System.Drawing.Size(88, 44);
+            this.lblChuyen.Size = new System.Drawing.Size(60, 20);
             this.lblChuyen.TabIndex = 1;
             this.lblChuyen.Text = "Ngày lập";
             // 
             // labelControl8
             // 
             this.labelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl8.Location = new System.Drawing.Point(249, 2);
+            this.labelControl8.Location = new System.Drawing.Point(310, 2);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(100, 44);
+            this.labelControl8.Size = new System.Drawing.Size(56, 28);
             this.labelControl8.TabIndex = 2;
             this.labelControl8.Text = "SLCN";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl5.Location = new System.Drawing.Point(395, 73);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(162, 26);
-            this.labelControl5.TabIndex = 35;
-            this.labelControl5.Text = "Loại mã hàng";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl9.Location = new System.Drawing.Point(871, 73);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(162, 26);
-            this.labelControl9.TabIndex = 47;
-            this.labelControl9.Text = "Hệ số Đơn giá";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl10.Location = new System.Drawing.Point(871, 105);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(162, 26);
-            this.labelControl10.TabIndex = 48;
-            this.labelControl10.Text = "Đơn giá giây";
-            // 
-            // txtHS
-            // 
-            this.txtHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHS.Location = new System.Drawing.Point(1039, 73);
-            this.txtHS.Name = "txtHS";
-            this.txtHS.Properties.Mask.EditMask = "N1";
-            this.txtHS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtHS.Size = new System.Drawing.Size(302, 26);
-            this.txtHS.TabIndex = 49;
-            this.txtHS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtHS_KeyDown);
-            // 
-            // txtDG
-            // 
-            this.txtDG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDG.Location = new System.Drawing.Point(1039, 105);
-            this.txtDG.Name = "txtDG";
-            this.txtDG.Properties.Mask.EditMask = "N1";
-            this.txtDG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDG.Size = new System.Drawing.Size(302, 26);
-            this.txtDG.TabIndex = 50;
-            this.txtDG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDG_KeyDown);
-            this.txtDG.Validated += new System.EventHandler(this.txtDG_Validated);
             // 
             // frmQTCN
             // 
@@ -628,13 +617,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChuyen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHS.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDG.Properties)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSLCN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dNgayLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dNgayLap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHS.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDG.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -642,7 +631,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraEditors.LabelControl lblTD;
         private DevExpress.XtraEditors.RadioGroup optHT;
         private DevExpress.XtraEditors.SearchLookUpEdit cboHD;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit3View;

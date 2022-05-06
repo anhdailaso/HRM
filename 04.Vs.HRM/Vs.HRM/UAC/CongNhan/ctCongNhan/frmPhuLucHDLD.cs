@@ -255,7 +255,7 @@ namespace Vs.HRM
             //xóa
             try
             {
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE	dbo.PHU_LUC_HDLD WHERE ID_HDLD  = " + idhdld + " AND SO_PLHD = " + grvPLHD.GetFocusedRowCellValue("SO_PLHD") + "");
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE	dbo.PHU_LUC_HDLD WHERE ID_HDLD  = " + idhdld + " AND SO_PLHD = N'" + grvPLHD.GetFocusedRowCellValue("SO_PLHD").ToString().Trim() + "'");
                 grvPLHD.DeleteSelectedRows();
             }
             catch (Exception ex)

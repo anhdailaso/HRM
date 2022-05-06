@@ -14,7 +14,12 @@ namespace Vs.Payroll
 {
     public partial class frmPCDHDMHChot : DevExpress.XtraEditors.XtraForm
     {
-        
+        int iChuyen = -1;
+        int iChuyenSuDung = -1;
+        int iHD = -1;
+        int iMH = -1;
+        int iOrd = -1;
+
         public DateTime dThang = Convert.ToDateTime("2014-02-01");
         public frmPCDHDMHChot()
         {
@@ -40,23 +45,29 @@ namespace Vs.Payroll
         private void LoadLuoi()
         {
             Commons.Modules.sPS = "0Load" ;
-            String  sChuSD, sDDH, sMH, sOrd, sChuTH;
-            sChuSD = "-1"; sDDH = "-1"; sMH = "-1"; sOrd = "-1"; sChuTH = "-1"; 
 
-            try{sChuSD = cboChuSD.EditValue.ToString();}catch { }
-            try{sChuTH = cboChuTH.EditValue.ToString();}catch { }
-            try{sDDH = cboHD.EditValue.ToString();}catch { }
-            try{sMH = cboMH.EditValue.ToString();}catch { }
-            try{sOrd = cboOrd.EditValue.ToString();}catch { }
+            if (cboHD.EditValue != null)
+            {
+                try
+                {
+                    iHD = Convert.ToInt32(cboHD.EditValue.ToString());
+                    iMH = Convert.ToInt32(cboMH.EditValue.ToString());
+                    iOrd = Convert.ToInt32(cboOrd.EditValue.ToString());
+                    iChuyen = Convert.ToInt32(cboChuTH.EditValue.ToString());
+                    iChuyenSuDung = Convert.ToInt32(cboChuSD.EditValue.ToString());
+                }
+                catch { }
+            }
             
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spPCDChotGet", optHT.SelectedIndex, sOrd, sChuTH, sChuSD, dThang));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spPCDChotGet", optHT.SelectedIndex, dThang));
             for (int i = 0; i <= dt.Columns.Count - 1; i++)
             {
                 dt.Columns[i].ReadOnly = true;
             }
             dt.Columns["ID_CHUYEN"].ReadOnly = false;
             dt.Columns["SL_CHOT"].ReadOnly = false;
+            dt.Columns["CHON"].ReadOnly = false;
 
             Commons.Modules.ObjSystems.MLoadXtraGrid(grdHD, grvHD, dt, true, false, true, true, true, this.Name);
             Commons.Modules.ObjSystems.AddCombXtra("ID_CHUYEN", "TEN_CHUYEN", grvHD, ((DataTable)cboChuTH.Properties.DataSource).Copy());
@@ -75,13 +86,19 @@ namespace Vs.Payroll
         private void LoadHD(int iLoad)
         {
             Commons.Modules.sPS = "0LoadCbo";
-            String sChuSD, sDDH, sMH, sOrd;
-            sChuSD = "-1"; sDDH = "-1"; sMH = "-1"; sOrd = "-1"; 
 
-            try { sChuSD = cboChuSD.EditValue.ToString(); } catch { }
-            try { sDDH = cboHD.EditValue.ToString(); } catch { }
-            try { sMH = cboMH.EditValue.ToString(); } catch { }
-            try { sOrd = cboOrd.EditValue.ToString(); } catch { }
+            if (cboHD.EditValue != null)
+            {
+                try
+                {
+                    iHD = Convert.ToInt32(cboHD.EditValue.ToString());
+                    iMH = Convert.ToInt32(cboMH.EditValue.ToString());
+                    iOrd = Convert.ToInt32(cboOrd.EditValue.ToString());
+                    iChuyenSuDung = Convert.ToInt32(cboChuSD.EditValue.ToString());
+                }
+                catch { }
+            }
+  
 
             System.Data.SqlClient.SqlConnection conn;
             DataTable dt = new DataTable();
@@ -94,10 +111,10 @@ namespace Vs.Payroll
                 System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("spPCDChotGetCbo", conn);
                 
                 cmd.Parameters.Add("@HoanThanh", SqlDbType.Int).Value = optHT.SelectedIndex;
-                cmd.Parameters.Add("@sDDH", SqlDbType.NVarChar, 50).Value = sDDH;
-                cmd.Parameters.Add("@sMH", SqlDbType.NVarChar, 50).Value = sMH;
-                cmd.Parameters.Add("@sOrd", SqlDbType.NVarChar, 50).Value = sOrd;
-                cmd.Parameters.Add("@sChuSD", SqlDbType.NVarChar, 50).Value = sChuSD;
+                cmd.Parameters.Add("@sDDH", SqlDbType.Int).Value = iHD;
+                cmd.Parameters.Add("@sMH", SqlDbType.Int).Value = iMH;
+                cmd.Parameters.Add("@sOrd", SqlDbType.Int).Value = iOrd;
+                cmd.Parameters.Add("@sChuSD", SqlDbType.Int).Value = iChuyenSuDung;
                 cmd.Parameters.Add("@dThang", SqlDbType.DateTime, 50).Value = dThang;
 
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -142,8 +159,8 @@ namespace Vs.Payroll
         private void optHT_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Commons.Modules.sPS == "0LoadCbo") return;
-            LoadLuoi();
             LoadHD(0);
+            LoadLuoi();
             Commons.Modules.sPS = "";
             LocData();
         }
@@ -190,8 +207,8 @@ namespace Vs.Payroll
                 String sChuTH, sDDH, sMH, sOrd, sChuSD;
                 string sDK = " 1 = 1 ";
                 sChuTH = "-1"; sDDH = "-1"; sMH = "-1"; sOrd = "-1"; sChuSD = "-1";
-                try { sChuSD = cboChuSD.EditValue.ToString(); } catch { }
-                try { sChuTH = cboChuTH.EditValue.ToString(); } catch { }
+                //try { sChuSD = cboChuSD.EditValue.ToString(); } catch { }
+                //try { sChuTH = cboChuTH.EditValue.ToString(); } catch { }
                 try { sDDH = cboHD.EditValue.ToString(); } catch { }
                 try { sMH = cboMH.EditValue.ToString(); } catch { }
                 try { sOrd = cboOrd.EditValue.ToString(); } catch { }
@@ -199,8 +216,8 @@ namespace Vs.Payroll
                 if (sDDH != "-1") sDK = sDK + " AND ID_DHB = '" + sDDH + "' ";
                 if (sMH != "-1") sDK = sDK + " AND ID_HH = '" + sMH + "' ";
                 if (sOrd != "-1") sDK = sDK + " AND ID_DHBORD = '" + sOrd + "' ";
-                if (sChuSD != "-1") sDK = sDK + " AND ID_CHUYEN_SD = '" + sChuSD + "' ";
-                if (sChuTH != "-1") sDK = sDK + " AND ID_CHUYEN = N'" + sChuTH + "' ";
+                //if (sChuSD != "-1") sDK = sDK + " AND ID_CHUYEN_SD = '" + sChuSD + "' ";
+                //if (sChuTH != "-1") sDK = sDK + " AND ID_CHUYEN = '" + sChuTH + "' ";
                 
                 dtTmp.DefaultView.RowFilter = sDK;
             }
@@ -217,24 +234,26 @@ namespace Vs.Payroll
                 if (cboChuSD.EditValue.ToString() == "-1" || string.IsNullOrEmpty(cboChuSD.Text)) { XtraMessageBox.Show("Bạn chưa chọn chuyền sữ dụng QTCN. Vui lòng kiểm tra lại"); cboChuSD.Focus(); return; }
                 if (cboChuTH.EditValue.ToString() == "-1" || string.IsNullOrEmpty(cboChuTH.Text)) { XtraMessageBox.Show("Bạn chưa chọn chuyền thực hiện. Vui lòng kiểm tra lại"); cboChuTH.Focus(); return; }
 
-                String sChuTH, sDDH, sMH, sOrd, sChuSD;
-                sChuTH = "-1"; sDDH = "-1"; sMH = "-1"; sOrd = "-1"; sChuSD = "-1";
+                iHD = Convert.ToInt32(cboHD.EditValue.ToString());
+                iMH = Convert.ToInt32(cboMH.EditValue.ToString());
+                iOrd = Convert.ToInt32(cboOrd.EditValue.ToString());
+                iChuyen = Convert.ToInt32(cboChuTH.EditValue.ToString());
+                iChuyenSuDung = Convert.ToInt32(cboChuSD.EditValue.ToString());
 
-                try { sDDH = cboHD.EditValue.ToString(); } catch { }
-                try { sMH = cboMH.EditValue.ToString(); } catch { }
-                try { sOrd = cboOrd.EditValue.ToString(); } catch { }
-                try { sChuSD = cboChuSD.EditValue.ToString(); } catch { }
-                try { sChuTH = cboChuTH.EditValue.ToString(); } catch { }
-
-                String sSql = "SELECT ISNULL(SUM(T1.SO_LUONG - ISNULL(T1.SL_GIAM, 0)), 0) AS TSL FROM dbo.CHI_TIET_ORDER AS T1 WHERE (MS_DDH = N'" + sDDH + "') AND (MS_MH = N'" + sMH + "') AND ([ORDER] = N'" + sOrd + "')";
+                //try { sDDH = cboHD.EditValue.ToString(); } catch { }
+                //try { sMH = cboMH.EditValue.ToString(); } catch { }
+                //try { sOrd = cboOrd.EditValue.ToString(); } catch { }
+                //try { sChuSD = cboChuSD.EditValue.ToString(); } catch { }
+                //try { sChuTH = cboChuTH.EditValue.ToString(); } catch { }
 
                 double SLDH = 0;
                 double SLDaChot = 0;
                 double SLCHOT = 0;
 
+                String sSql = "SELECT SO_LUONG FROM DON_HANG_BAN_ORDER WHERE ID_DHBORD = " + iOrd;
                 try { SLDH = Convert.ToDouble(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)); } catch { }
-                sSql = "SELECT ISNULL(SUM(SL_CHOT),0) FROM PHIEU_CONG_DOAN_CHOT_THANG  WHERE (MS_DDH = N'" + sDDH + "') AND (MS_MH = N'" + sMH + "') AND ([ORDER] = N'" + sOrd + "')";
 
+                sSql = "SELECT SUM(SL_CHOT) SLDCHOT FROM PHIEU_CONG_DOAN_CHOT_THANG WHERE ID_ORD = " + iOrd;
                 try { SLDaChot = Convert.ToDouble(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)); } catch { }
 
                 if ((SLDH - SLDaChot) > 0)
@@ -243,17 +262,21 @@ namespace Vs.Payroll
                 }
                 else { XtraMessageBox.Show("Order này đã được phân bổ hết cho các chuyền.\n Vui lòng chọn Order khác"); return; }
 
-                sSql = "INSERT INTO PHIEU_CONG_DOAN_CHOT_THANG (THANG, STT_CHUYEN, MS_DDH, MS_MH, [ORDER], CHUYEN_SD, SL_CHOT, BU_THANG_TRUOC, PHAT_SINH_CD_BB, CHON)  SELECT '" + dThang.ToString("MM/dd/yyyy") + "',  '" + sChuSD + "', '" + sDDH + "', '" + sMH + "', '" + sOrd + "', '" + sChuTH + "', " + SLCHOT + ", 0, 0, 0";
+                sSql = "INSERT INTO PHIEU_CONG_DOAN_CHOT_THANG (THANG, ID_CHUYEN, ID_CHUYEN_SD, ID_ORD, SL_CHOT, CHON) "
+                    + "SELECT '" + dThang.ToString("MM/dd/yyyy") + "',  " + iChuyen + ", " + iChuyenSuDung + ", " + iOrd + ", " + SLCHOT + ", 1";
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
             }
             catch { }
 
-            try { optHT_SelectedIndexChanged(null, null); } catch { }
+            try {
+                LoadLuoi();
+                LocData();
+            } catch { }
         }
 
         private void cboChuTH_EditValueChanged(object sender, EventArgs e)
         {
-
+            //LocData();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -269,7 +292,7 @@ namespace Vs.Payroll
                 string sBTCD = "CDChotTmp" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTCD, dtTmp, "");
 
-                string sSql = "UPDATE T1 SET SL_CHOT = T2.SL_CHOT, ID_CHUYEN= T2.ID_CHUYEN FROM PHIEU_CONG_DOAN_CHOT_THANG T1 INNER JOIN "+sBTCD+" T2 ON T1.ID_ORD = T2.ID_DHBORD AND T1.ID_CHUYEN_SD = T2.ID_CHUYEN_SD";
+                string sSql = "UPDATE T1 SET SL_CHOT = T2.SL_CHOT, ID_CHUYEN= T2.ID_CHUYEN, CHON = T2.CHON FROM PHIEU_CONG_DOAN_CHOT_THANG T1 INNER JOIN "+sBTCD+" T2 ON T1.ID_ORD = T2.ID_DHBORD AND T1.ID_CHUYEN_SD = T2.ID_CHUYEN_SD AND T1.ID_CHUYEN = T2.ID_CHUYEN";
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
 
             } catch (Exception ex)

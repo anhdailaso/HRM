@@ -6,6 +6,7 @@ using Microsoft.ApplicationBlocks.Data;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
+using System.Linq;
 
 namespace VietSoftHRM
 {
@@ -25,7 +26,7 @@ namespace VietSoftHRM
         {
             LoadgrdNhom();
             enableButon(true);
-       
+
         }
         private void grvNhom_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -176,7 +177,7 @@ namespace VietSoftHRM
                 grvNhom.FocusedRowHandle = grvNhom.GetRowHandle(index);
             }
             grvNhom_Click(null, null);
-            
+
         }
         //load user
         private void LoadUser()
@@ -185,12 +186,13 @@ namespace VietSoftHRM
             {
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetUserbyGroup", Convert.ToInt64(grvNhom.GetFocusedRowCellValue("ID_NHOM")), Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                //dt.Columns["TO"].ReadOnly = false;
+                dt.Columns["ACTIVE"].ReadOnly = false;
+                dt.Columns["LIC"].ReadOnly = false;
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdUser, grvUser, dt, false, false, true, true, true, this.Name);
                 //add combobox nhan vien
                 grvUser.Columns["ID_USER"].Visible = false;
                 Commons.Modules.ObjSystems.AddCombXtra("ID_CN", "TEN_CN", grvUser, "spGetCongNhan", "ID_CN", "CONG_NHAN");
-                Commons.Modules.ObjSystems.AddCombXtra("ID_TO", "TEN_TO", grvUser, "spGetTo","ID_TO","TO");
+                Commons.Modules.ObjSystems.AddCombXtra("ID_TO", "TEN_TO", grvUser, "spGetTo", "ID_TO", "TO");
             }
             catch
             {
@@ -256,7 +258,7 @@ namespace VietSoftHRM
                     for (int i = 0; i < grvUser.RowCount; i++)
                     {
                         //sữa những dòng đã có
-                        SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spGhiUser", grvUser.GetRowCellValue(i, "ID_USER"), grvNhom.GetFocusedRowCellValue("ID_NHOM"), grvUser.GetRowCellValue(i, "ID_TO"), grvUser.GetRowCellValue(i, "ID_CN"), grvUser.GetRowCellValue(i, "USER_NAME"), grvUser.GetRowCellValue(i, "FULL_NAME"), grvUser.GetRowCellValue(i, "PASSWORD"), grvUser.GetRowCellValue(i, "DESCRIPTION"), grvUser.GetRowCellValue(i, "USER_MAIL"), grvUser.GetRowCellValue(i, "ACTIVE"), 0);
+                        SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spGhiUser", grvUser.GetRowCellValue(i, "ID_USER"), grvNhom.GetFocusedRowCellValue("ID_NHOM"), grvUser.GetRowCellValue(i, "ID_TO"), grvUser.GetRowCellValue(i, "ID_CN"), grvUser.GetRowCellValue(i, "USER_NAME"), grvUser.GetRowCellValue(i, "FULL_NAME"), grvUser.GetRowCellValue(i, "PASSWORD"), grvUser.GetRowCellValue(i, "DESCRIPTION"), grvUser.GetRowCellValue(i, "USER_MAIL"), grvUser.GetRowCellValue(i, "ACTIVE"), 0, Commons.Modules.ObjSystems.Encrypt(grvUser.GetRowCellValue(i, "USER_NAME").ToString() + grvUser.GetRowCellValue(i, "LIC"), true), grvUser.GetRowCellValue(i, "LIC"));
                     }
                 }
                 else
@@ -264,15 +266,14 @@ namespace VietSoftHRM
                     //thêm thì lấy những dòng nào chưa có trong table 
                     for (int i = dem; i < grvUser.RowCount; i++)
                     {
-                        if (string.IsNullOrEmpty(grvUser.GetRowCellValue(i, "USER_NAME")+ "")) break;
-                        SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spGhiUser", -1, grvNhom.GetFocusedRowCellValue("ID_NHOM"), grvUser.GetRowCellValue(i, "ID_TO"), grvUser.GetRowCellValue(i, "ID_CN"), grvUser.GetRowCellValue(i, "USER_NAME"), grvUser.GetRowCellValue(i, "FULL_NAME"), Commons.Modules.ObjSystems.Encrypt("123", true), grvUser.GetRowCellValue(i, "DESCRIPTION"), grvUser.GetRowCellValue(i, "USER_MAIL"), grvUser.GetRowCellValue(i, "ACTIVE"), 1);
+                        if (string.IsNullOrEmpty(grvUser.GetRowCellValue(i, "USER_NAME") + "")) break;
+                        SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spGhiUser", -1, grvNhom.GetFocusedRowCellValue("ID_NHOM"), grvUser.GetRowCellValue(i, "ID_TO"), grvUser.GetRowCellValue(i, "ID_CN"), grvUser.GetRowCellValue(i, "USER_NAME"), grvUser.GetRowCellValue(i, "FULL_NAME"), Commons.Modules.ObjSystems.Encrypt("123", true), grvUser.GetRowCellValue(i, "DESCRIPTION"), grvUser.GetRowCellValue(i, "USER_MAIL"), grvUser.GetRowCellValue(i, "ACTIVE"), 1, Commons.Modules.ObjSystems.Encrypt(grvUser.GetRowCellValue(i, "USER_NAME").ToString() + grvUser.GetRowCellValue(i, "LIC"), true), grvUser.GetRowCellValue(i, "LIC"));
                     }
                 }
             }
             catch
             {
             }
-
         }
         private void GhiNhom()
         {
@@ -291,7 +292,7 @@ namespace VietSoftHRM
                     //thêm thì lấy những dòng nào chưa có trong table 
                     for (int i = dem; i < grvNhom.RowCount; i++)
                     {
-                        if (string.IsNullOrEmpty(grvNhom.GetRowCellValue(i, "TEN_NHOM")+"")) break;
+                        if (string.IsNullOrEmpty(grvNhom.GetRowCellValue(i, "TEN_NHOM") + "")) break;
                         SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spGhiNhom", -1, grvNhom.GetRowCellValue(i, "TEN_NHOM"), grvNhom.GetRowCellValue(i, "GHI_CHU"), 1);
                     }
                 }
@@ -316,7 +317,7 @@ namespace VietSoftHRM
 
         private void enabledControl(bool enabled)
         {
-            if(enabled == true)
+            if (enabled == true)
             {
                 grdUser.Enabled = true;
                 grdNhom.Enabled = true;
@@ -336,11 +337,11 @@ namespace VietSoftHRM
         private bool CheckUser(string user)
         {
             //kiểm tra user name đã có tồn tại hay chưa
-            int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT COUNT(*) FROM dbo.USERS WHERE USER_NAME = '"+ user +"'"));
-                if (n > 1)
-                    return false;
-                else
-                    return true;
+            int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.USERS WHERE USER_NAME = '" + user + "'"));
+            if (n > 1)
+                return false;
+            else
+                return true;
         }
         private void grvUser_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
@@ -360,20 +361,20 @@ namespace VietSoftHRM
             {
                 e.Valid = false;
                 View.SetColumnError(sTenUser, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraTenUserNULL", Commons.Modules.TypeLanguage));
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraTenUserNULL", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error);return;
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraTenUserNULL", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
             if (!CheckUser(View.GetRowCellValue(e.RowHandle, sTenUser).ToString()))
             {
                 e.Valid = false;
                 View.SetColumnError(sTenUser, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgDatontainguoidung", Commons.Modules.TypeLanguage));
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgDatontainguoidung", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error);return;
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgDatontainguoidung", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
-            if (View.GetRowCellValue(e.RowHandle, sFullName).ToString() == "")
-            {
-                e.Valid = false;
-                View.SetColumnError(sFullName, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraFullNameNULL", Commons.Modules.TypeLanguage));
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraFullNameNULL", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error);return;
-            }
+            //if (View.GetRowCellValue(e.RowHandle, sFullName).ToString() == "")
+            //{
+            //    e.Valid = false;
+            //    View.SetColumnError(sFullName, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraFullNameNULL", Commons.Modules.TypeLanguage));
+            //    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraFullNameNULL", Commons.Modules.TypeLanguage), "", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+            //}
         }
 
         private void grvNhom_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
@@ -388,12 +389,37 @@ namespace VietSoftHRM
             }
         }
 
+        private void grvUser_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (grvUser.FocusedColumn.FieldName == "LIC" && Convert.ToBoolean(e.Value) == true)
+            {
+                if (Commons.Modules.iLic != -1)
+                {
+                    string sSql = @"https://api.vietsoft.com.vn/VS.Api/Support/SumNumberlicense?SoftwareProductID=2&CustomerID=" + Commons.Modules.iCustomerID;
+                    //Commons.Mod.iLic = "";
+                    DataTable dtTmp = new DataTable();
+                    dtTmp = Commons.Modules.ObjSystems.getDataAPI(sSql);
+                    try
+                     {
+                        Commons.Modules.iLic = int.Parse(dtTmp.Rows[0][0].ToString());
+                    }
 
-        #endregion
-        //load nhom
+                    catch { Commons.Modules.iLic = 3; }
+                }
 
-
-
-
+                //so sánh với dữ liệu cơ sở dữ liệu
+                int lic = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.USERS WHERE LIC = 1 AND ID_NHOM != "+ grvNhom.GetFocusedRowCellValue("ID_NHOM") + ""));
+                int count = Commons.Modules.ObjSystems.ConvertDatatable(grvUser).AsEnumerable().Count(x=>Convert.ToBoolean(x["LIC"]) == true);
+                if((lic + count) >= Commons.Modules.iLic)
+                {
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("frmChung", "msgLincenseDaHet"), Commons.Modules.ObjLanguages.GetLanguage("frmChung", "sThongBao"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    grvUser.SetRowCellValue(e.RowHandle,"LIC", false);
+                    return;
+                }
+            }
+        }
     }
+    #endregion
+    //load nhom
+
 }

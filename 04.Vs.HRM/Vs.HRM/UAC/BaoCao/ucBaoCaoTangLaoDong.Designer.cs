@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.windowsUIButton = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.lbXiNghiep = new DevExpress.Utils.Layout.TablePanel();
@@ -94,9 +94,9 @@
             this.windowsUIButton.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButton.AppearanceButton.Pressed.Options.UseImage = true;
             this.windowsUIButton.AppearanceButton.Pressed.Options.UseTextOptions = true;
-            windowsUIButtonImageOptions2.ImageUri.Uri = "Print";
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Print";
             this.windowsUIButton.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Print", -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Print", -1, false)});
             this.windowsUIButton.ContentAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.windowsUIButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButton.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -180,7 +180,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.calNam.Location = new System.Drawing.Point(0, 0);
             this.calNam.Name = "calNam";
-            this.calNam.Size = new System.Drawing.Size(358, 313);
+            this.calNam.Size = new System.Drawing.Size(386, 313);
             this.calNam.TabIndex = 18;
             this.calNam.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
             this.calNam.DateTimeCommit += new System.EventHandler(this.calNam_DateTimeCommit);
@@ -200,7 +200,7 @@
             this.txtNam.Properties.DifferentPopupControl = null;
             this.lbXiNghiep.SetRow(this.txtNam, 3);
             this.txtNam.Size = new System.Drawing.Size(187, 26);
-            this.txtNam.TabIndex = 17;
+            this.txtNam.TabIndex = 7;
             this.txtNam.BeforePopup += new System.EventHandler(this.mPopupContainerEdit1_BeforePopup);
             // 
             // rdo_ChonBaoCao
@@ -218,7 +218,7 @@
             this.lbXiNghiep.SetRow(this.rdo_ChonBaoCao, 2);
             this.lbXiNghiep.SetRowSpan(this.rdo_ChonBaoCao, 3);
             this.rdo_ChonBaoCao.Size = new System.Drawing.Size(358, 89);
-            this.rdo_ChonBaoCao.TabIndex = 16;
+            this.rdo_ChonBaoCao.TabIndex = 4;
             this.rdo_ChonBaoCao.SelectedIndexChanged += new System.EventHandler(this.rdo_ChonBaoCao_SelectedIndexChanged);
             // 
             // labelControl6
@@ -298,7 +298,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lbXiNghiep.SetRow(this.lk_NgayIn, 3);
             this.lk_NgayIn.Size = new System.Drawing.Size(175, 26);
-            this.lk_NgayIn.TabIndex = 5;
+            this.lk_NgayIn.TabIndex = 8;
             // 
             // LK_XI_NGHIEP
             // 
@@ -310,7 +310,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lbXiNghiep.SetRow(this.LK_XI_NGHIEP, 1);
             this.LK_XI_NGHIEP.Size = new System.Drawing.Size(187, 26);
-            this.LK_XI_NGHIEP.TabIndex = 3;
+            this.LK_XI_NGHIEP.TabIndex = 2;
             this.LK_XI_NGHIEP.EditValueChanged += new System.EventHandler(this.LK_XI_NGHIEP_EditValueChanged);
             // 
             // LK_DON_VI
@@ -383,7 +383,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lbXiNghiep.SetRow(this.dDenNgay, 2);
             this.dDenNgay.Size = new System.Drawing.Size(175, 26);
-            this.dDenNgay.TabIndex = 5;
+            this.dDenNgay.TabIndex = 6;
             // 
             // dTuNgay
             // 

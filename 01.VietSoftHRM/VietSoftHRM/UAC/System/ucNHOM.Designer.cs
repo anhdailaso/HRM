@@ -70,7 +70,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.grpUser);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(800, 360);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1147, 560);
             this.splitContainerControl1.SplitterPosition = 304;
             this.splitContainerControl1.TabIndex = 0;
             // 
@@ -80,7 +80,7 @@
             this.grpNhomUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpNhomUser.Location = new System.Drawing.Point(0, 0);
             this.grpNhomUser.Name = "grpNhomUser";
-            this.grpNhomUser.Size = new System.Drawing.Size(304, 360);
+            this.grpNhomUser.Size = new System.Drawing.Size(304, 560);
             this.grpNhomUser.TabIndex = 0;
             this.grpNhomUser.Text = "Nhóm";
             // 
@@ -88,10 +88,10 @@
             // 
             this.gridSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSplitContainer1.Grid = this.grdNhom;
-            this.gridSplitContainer1.Location = new System.Drawing.Point(2, 23);
+            this.gridSplitContainer1.Location = new System.Drawing.Point(2, 27);
             this.gridSplitContainer1.Name = "gridSplitContainer1";
             this.gridSplitContainer1.Panel1.Controls.Add(this.grdNhom);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(300, 335);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(300, 531);
             this.gridSplitContainer1.TabIndex = 0;
             // 
             // grdNhom
@@ -100,7 +100,7 @@
             this.grdNhom.Location = new System.Drawing.Point(0, 0);
             this.grdNhom.MainView = this.grvNhom;
             this.grdNhom.Name = "grdNhom";
-            this.grdNhom.Size = new System.Drawing.Size(300, 335);
+            this.grdNhom.Size = new System.Drawing.Size(300, 531);
             this.grdNhom.TabIndex = 0;
             this.grdNhom.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNhom});
@@ -123,17 +123,17 @@
             this.grpUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpUser.Location = new System.Drawing.Point(0, 0);
             this.grpUser.Name = "grpUser";
-            this.grpUser.Size = new System.Drawing.Size(490, 360);
+            this.grpUser.Size = new System.Drawing.Size(837, 560);
             this.grpUser.TabIndex = 0;
             this.grpUser.Text = "Danh sách User theo Nhóm";
             // 
             // grdUser
             // 
             this.grdUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdUser.Location = new System.Drawing.Point(2, 23);
+            this.grdUser.Location = new System.Drawing.Point(2, 27);
             this.grdUser.MainView = this.grvUser;
             this.grdUser.Name = "grdUser";
-            this.grdUser.Size = new System.Drawing.Size(486, 335);
+            this.grdUser.Size = new System.Drawing.Size(833, 531);
             this.grdUser.TabIndex = 1;
             this.grdUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUser});
@@ -145,6 +145,7 @@
             this.grvUser.GridControl = this.grdUser;
             this.grvUser.Name = "grvUser";
             this.grvUser.OptionsView.ShowGroupPanel = false;
+            this.grvUser.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvUser_CellValueChanging);
             this.grvUser.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvUser_ValidateRow);
             this.grvUser.Click += new System.EventHandler(this.grvUser_Click);
             // 
@@ -174,11 +175,11 @@
             this.windowsUIButton.Controls.Add(this.searchControl);
             this.windowsUIButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButton.Location = new System.Drawing.Point(0, 360);
+            this.windowsUIButton.Location = new System.Drawing.Point(0, 560);
             this.windowsUIButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.windowsUIButton.Name = "windowsUIButton";
             this.windowsUIButton.Padding = new System.Windows.Forms.Padding(5);
-            this.windowsUIButton.Size = new System.Drawing.Size(800, 40);
+            this.windowsUIButton.Size = new System.Drawing.Size(1147, 40);
             this.windowsUIButton.TabIndex = 1;
             this.windowsUIButton.Text = "windowsUIButtonPanel1";
             this.windowsUIButton.UseButtonBackgroundImages = false;
@@ -206,7 +207,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 400);
+            this.panelControl1.Size = new System.Drawing.Size(1147, 600);
             this.panelControl1.TabIndex = 2;
             // 
             // ucNHOM
@@ -217,7 +218,7 @@
             this.Controls.Add(this.windowsUIButton);
             this.Controls.Add(this.panelControl1);
             this.Name = "ucNHOM";
-            this.Size = new System.Drawing.Size(800, 400);
+            this.Size = new System.Drawing.Size(1147, 600);
             this.Load += new System.EventHandler(this.ucNHOM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);

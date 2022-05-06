@@ -40,11 +40,10 @@ namespace VietSoftHRM
 
         private void LoadTreeMenu(bool them)
         {
-            DataTable dtTmp = new DataTable();
-            dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetMenuPQ", Commons.Modules.sId, them, Commons.Modules.TypeLanguage));
-            
             try
             {
+                DataTable dtTmp = new DataTable();
+                dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetMenuPQ", Commons.Modules.sId, them, Commons.Modules.TypeLanguage, Commons.Modules.sHideMenu));
                 dtTmp.Columns["TEN_MENU"].ReadOnly = true;
                 treeListMenu.DataSource = null;
                 treeListMenu.BeginUpdate();
@@ -67,7 +66,7 @@ namespace VietSoftHRM
                     setcheck(item);
                 }
             }
-            catch (Exception EX)
+            catch
             {
             }
         }

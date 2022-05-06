@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using DevExpress.XtraLayout;
 using System.Threading;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Vs.HRM
 {
@@ -288,6 +289,31 @@ namespace Vs.HRM
             if(e.KeyCode == Keys.Delete)
             {
                 XoaNgungDongBHXH();
+            }
+        }
+
+        private void grvNgungDongBHXH_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.FocusedColumn == view.Columns["NGAY_THAM_GIA_BHXH"])
+            {
+                DateTime? fromDate = e.Value as DateTime?;
+                DateTime? toDate = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["NGAY_NGUNG_BHXH"]) as DateTime?;
+                if (fromDate < toDate)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Ngày tham gia phải lớn hơn ngày ngưng";
+                }
+            }
+            if (view.FocusedColumn == view.Columns["NGAY_NGUNG_BHXH"])
+            {
+                DateTime? fromDate = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["NGAY_THAM_GIA_BHXH"]) as DateTime?;
+                DateTime? toDate = e.Value as DateTime?;
+                if (fromDate < toDate)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Ngày ngưng phải nhỏ hơn ngày tham gia";
+                }
             }
         }
     }

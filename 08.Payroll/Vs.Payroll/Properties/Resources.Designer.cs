@@ -61,6 +61,36 @@ namespace Vs.Payroll.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage addcolumn {
+            get {
+                object obj = ResourceManager.GetObject("addcolumn", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage addparagraphtotableofcontents {
+            get {
+                object obj = ResourceManager.GetObject("addparagraphtotableofcontents", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage addparagraphtotableofcontents1 {
+            get {
+                object obj = ResourceManager.GetObject("addparagraphtotableofcontents1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap baohiem {
@@ -203,6 +233,16 @@ namespace Vs.Payroll.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconthem1 {
+            get {
+                object obj = ResourceManager.GetObject("iconthem1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconUpdate {
             get {
                 object obj = ResourceManager.GetObject("iconUpdate", resourceCulture);
@@ -247,6 +287,16 @@ namespace Vs.Payroll.Properties {
             get {
                 object obj = ResourceManager.GetObject("print", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
         

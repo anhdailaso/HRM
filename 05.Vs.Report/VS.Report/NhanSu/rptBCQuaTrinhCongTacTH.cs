@@ -25,6 +25,19 @@ namespace Vs.Report
             lblNgay.Text = Commons.Modules.ObjSystems.GetNN(dtNgu, "Ngay", "NgayThangNam") + " " + Ngay.Substring(Ngay.Length - 2, 2) + " " +
                 Commons.Modules.ObjSystems.GetNN(dtNgu, "Thang", "NgayThangNam") + " " + Thang.Substring(Thang.Length - 2, 2) + " " +
                 Commons.Modules.ObjSystems.GetNN(dtNgu, "Nam", "NgayThangNam") + " " + Nam.Substring(Nam.Length - 4, 4);
+            MergeByTag();
+        }
+
+        public void MergeByTag()
+        {
+            ExpressionBinding expressionBinding = new ExpressionBinding("BeforePrint", "Tag", "ToStr([MS_CN])");
+            this.xrTableCell10.ExpressionBindings.Add(expressionBinding);
+            this.xrTableCell10.ProcessDuplicatesMode = ProcessDuplicatesMode.Merge;
+            this.xrTableCell10.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
+
+            this.xrTableCell7.ExpressionBindings.Add(expressionBinding);
+            this.xrTableCell7.ProcessDuplicatesMode = ProcessDuplicatesMode.Merge;
+            this.xrTableCell7.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
         }
 
     }

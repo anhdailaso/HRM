@@ -94,6 +94,7 @@ namespace VietSoftHRM
             {
                 SaveLogin();
                 SaveDatabase();
+                //add user
                 this.Hide();
                 frmMain form2 = new frmMain();
                 form2.ShowDialog();
@@ -107,23 +108,40 @@ namespace VietSoftHRM
             sSql = "SELECT COUNT(*) FROM dbo.USERS WHERE USER_NAME = '"+txt_user.EditValue.ToString().Trim()+"'";
             if(Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text,sSql)) == 0)
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaDangKy"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error); return false;
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaDangKy"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
             }
             //kiểm tra mật khẩu có đúng hay không
             sSql = "SELECT PASSWORD FROM dbo.USERS WHERE USER_NAME = '" + txt_user.EditValue.ToString().Trim() + "'";
             if (Commons.Modules.ObjSystems.Decrypt(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString(), true).ToString() != txt_pass.EditValue.ToString().Trim()) 
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgsaiPassword"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error); return false;
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgsaiPassword"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
             }
             //kiểm tra tài khoảng có được active hay chưa
             sSql = "SELECT ACTIVE FROM dbo.USERS WHERE USER_NAME ='"+ txt_user.EditValue.ToString().Trim() + "'";
             if (Convert.ToBoolean(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)) != true)
             {
-                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaKichHoat"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error); return false;
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaKichHoat"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
             }
+            //kiểm tra user check
+            sSql = "SELECT USER_PQ FROM dbo.USERS WHERE USER_NAME = '"+ txt_user.EditValue.ToString().Trim() + "'";
+            if (Convert.ToBoolean(Commons.Modules.ObjSystems.Decrypt(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString(),true).Replace(txt_user.EditValue.ToString().Trim(), "") ) != true)
+            {
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgUserChuaDangKyLincense"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
+            }
+
+            ////kiểm tra user đã đăng nhập
+            if(Commons.Modules.ObjSystems.checkExitsUser(txt_user.EditValue.ToString().Trim()) == false)
+            {
+                XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgUserDaDuocDangNhap"), this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
+            }
+
             return true;
         }
-
         private void SaveLogin()
         {
             //if (chk_pass.Checked == false && chk_user.Checked == false) return;
@@ -148,25 +166,29 @@ namespace VietSoftHRM
             try
             {
                 DataSet ds = new DataSet();
-                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\lib\\savelogin.xml");
+                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
                 ds.Tables[0].Rows[0]["U"] = user;
                 ds.Tables[0].Rows[0]["P"] = pass;
                 ds.Tables[0].Rows[0]["N"] = Commons.Modules.TypeLanguage;
-                ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\lib\\savelogin.xml");
-                Commons.Modules.UserName = txt_user.Text;
+                ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
+                Commons.Modules.UserName = txt_user.Text.Trim();
+                Commons.Modules.iIDUser = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT ID_USER FROM dbo.USERS WHERE USER_NAME ='"+ Commons.Modules.UserName + "'"));
             }
             catch
             {
 
             }
+
         }
         private void SaveDatabase()
         {
             DataSet ds = new DataSet();
-            ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\lib\\vsconfig.xml");
+            ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\vsconfig.xml");
             ds.Tables[0].Rows[0]["D"] = cbo_database.EditValue;
-            ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\lib\\vsconfig.xml");
+            ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\vsconfig.xml");
             Commons.IConnections.Database = cbo_database.Text.Trim();
+            //insert vao user
+            Commons.Modules.ObjSystems.User(Commons.Modules.UserName,1);
         }
         private void LoadUserPass()
         {
@@ -174,10 +196,9 @@ namespace VietSoftHRM
             {
                 string user, pass;
                 DataSet ds = new DataSet();
-                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\lib\\savelogin.xml");
+                ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
                 user = ds.Tables[0].Rows[0]["U"].ToString();
                 pass = ds.Tables[0].Rows[0]["P"].ToString();
-
                 
                 if (!string.IsNullOrEmpty(user))
                 {
@@ -208,12 +229,18 @@ namespace VietSoftHRM
         {
             this.Close();
         }
-
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
                 btn_login_Click(null, null);
+            }
+        }
+        private void frmLogin_Shown(object sender, EventArgs e)
+        {
+            if (!clsMain.CheckServer())
+            {
+                Application.Exit();
             }
         }
     }

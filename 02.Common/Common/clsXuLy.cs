@@ -21,8 +21,6 @@ namespace Commons
             }
         }
         DevExpress.XtraGrid.GridControl grd_DonVi = new DevExpress.XtraGrid.GridControl();
-
-       
         public void CreateMenuReset(DevExpress.XtraGrid.GridControl grd)
         {
             grd_DonVi = grd;
@@ -128,7 +126,7 @@ namespace Commons
             DeleteRegisterGrid();
             DevExpress.Utils.OptionsLayoutGrid opt = new DevExpress.Utils.OptionsLayoutGrid();
             opt.Columns.StoreAllOptions = true;
-            grdDanhMuc.MainView.SaveLayoutToXml(Application.StartupPath + "\\lib\\"+ (Commons.Modules.TypeLanguage==0 ? "XML_VN": "XML_EN") + "\\grd" + Commons.Modules.sPS.Replace("spGetList", "") + ".xml", opt);
+            grdDanhMuc.MainView.SaveLayoutToXml(Application.StartupPath + "\\"+ (Commons.Modules.TypeLanguage==0 ? "XML_VN": "XML_EN") + "\\grd" + Commons.Modules.sPS.Replace("spGetList", "") + ".xml", opt);
             SaveRegisterGrid(grdDanhMuc);
         }
 
@@ -162,7 +160,7 @@ namespace Commons
                 //    grdDanhMuc.MainView.RestoreLayoutFromRegistry("DevExpress\\XtraGrid\\Layouts\\HRM\\grd" + Commons.Modules.sPS.Replace("spGetList", ""), opt);
 
              // BỎ LOAD TỪ REGISTRY, CHỈ LOAD TỪ XML
-                    grdDanhMuc.MainView.RestoreLayoutFromXml(Application.StartupPath + "\\lib\\" + (Commons.Modules.TypeLanguage == 0 ? "XML_VN" : "XML_EN") + "\\grd" + Commons.Modules.sPS.Replace("spGetList", "") + ".xml", opt);
+                    grdDanhMuc.MainView.RestoreLayoutFromXml(Application.StartupPath + "\\" + (Commons.Modules.TypeLanguage == 0 ? "XML_VN" : "XML_EN") + "\\grd" + Commons.Modules.sPS.Replace("spGetList", "") + ".xml", opt);
                     SaveRegisterGrid(grdDanhMuc);
                 
             }

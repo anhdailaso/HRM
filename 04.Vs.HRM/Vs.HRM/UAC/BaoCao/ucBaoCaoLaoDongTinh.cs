@@ -70,7 +70,7 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP,LK_TO);
-
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
             lk_NgayIn.EditValue = DateTime.Today;
         }
 

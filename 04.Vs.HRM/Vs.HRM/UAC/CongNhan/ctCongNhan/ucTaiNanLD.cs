@@ -57,6 +57,11 @@ namespace Vs.HRM
             {
                 case "them":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         Bindingdata(true);
                         cothem = true;
                         enableButon(false);

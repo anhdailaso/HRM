@@ -74,7 +74,7 @@ namespace Vs.Payroll
                             case 1:
                                 {
                                     System.Data.SqlClient.SqlConnection conn;
-                                    String lblTUCK = "Bảng tạm ứng chuyển khoản";
+                                    String lblTUCK = "BẢNG TẠM ỨNG CHUYỂN KHOẢN";
                                     dt = new DataTable();
                                     frmViewReport frm = new frmViewReport();
                                     frm.rpt = new rptDanhSachUngLuongCK(thang, lblTUCK);
@@ -103,7 +103,7 @@ namespace Vs.Payroll
                             case 2:
                                 {
                                     System.Data.SqlClient.SqlConnection conn;
-                                    String lblTUCK = "Bảng tổng hợp tạm ứng tiền mặt";
+                                    String lblTUCK = "BẢNG TỔNG HỢP TẠM ỨNG TIỀN MẶT";
                                     dt = new DataTable();
                                     frmViewReport frm = new frmViewReport();
                                     frm.rpt = new rptTongHopTamUng(thang, lblTUCK);
@@ -133,7 +133,7 @@ namespace Vs.Payroll
                             case 3:
                                 {
                                     System.Data.SqlClient.SqlConnection conn;
-                                    String lblTUCK = "Bảng tổng hợp tạm ứng chuyển khoản";
+                                    String lblTUCK = "BẢNG TỔNG HỢP TẠM ỨNG CHUYỂN KHOẢN";
                                     dt = new DataTable();
                                     frmViewReport frm = new frmViewReport();
                                     frm.rpt = new rptTongHopTamUng(thang, lblTUCK);

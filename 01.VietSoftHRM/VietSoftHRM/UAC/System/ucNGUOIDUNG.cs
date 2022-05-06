@@ -86,11 +86,29 @@ namespace VietSoftHRM
                     }
                 case "luu":
                     {
-                        if (!dxValidationProvider1.Validate()) return;
-                        Enablecontrol(DefaultBoolean.True);
-                        var s = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spGhiUser", grvNguoiDung.GetFocusedRowCellValue("ID_USER"), ID_NHOMComboBoxEdit.EditValue, ID_TOComboBoxEdit.EditValue, ID_CNSearchLookUpEdit.EditValue, USER_NAMETextEdit.EditValue, FULL_NAMETextEdit.EditValue, Commons.Modules.ObjSystems.Encrypt(PASSWORDTextEdit.EditValue.ToString(), true), DESCRIPTIONMemoExEdit.EditValue, USER_MAILTextEdit.EditValue, Convert.ToInt32(ACTIVECheckEdit.EditValue), Convert.ToBoolean(co));
-                        LoadUser(Convert.ToInt32(s));
-                        enableButon(true);
+                        try
+                        {
+                            if (!dxValidationProvider1.Validate()) return;
+                            //kiểm tra lic khi 
+                            if (chkLIC.Checked)
+                            {
+                                int lic = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.USERS WHERE LIC = 1 AND ID_USER != " + grvNguoiDung.GetFocusedRowCellValue("ID_USER") + ""));
+                                if(lic >= Commons.Modules.iLic)
+                                {
+                                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("frmChung", "msgLincenseDaHet"), Commons.Modules.ObjLanguages.GetLanguage("frmChung", "sThongBao"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            var s = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spGhiUser", grvNguoiDung.GetFocusedRowCellValue("ID_USER"), ID_NHOMComboBoxEdit.EditValue, ID_TOComboBoxEdit.EditValue, ID_CNSearchLookUpEdit.EditValue, USER_NAMETextEdit.EditValue, FULL_NAMETextEdit.EditValue, Commons.Modules.ObjSystems.Encrypt(PASSWORDTextEdit.EditValue.ToString(), true), DESCRIPTIONMemoExEdit.EditValue, USER_MAILTextEdit.EditValue, Convert.ToInt32(ACTIVECheckEdit.EditValue), Convert.ToBoolean(co),  Commons.Modules.ObjSystems.Encrypt(USER_NAMETextEdit.EditValue.ToString() + Convert.ToBoolean(chkLIC.EditValue).ToString(), true), Convert.ToBoolean(chkLIC.Checked));
+                            Enablecontrol(DefaultBoolean.True);
+                            LoadUser(Convert.ToInt32(s));
+                            enableButon(true);
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }
+                   
                         break;
                     }
                 case "khongluu":
@@ -113,6 +131,7 @@ namespace VietSoftHRM
         {
             USER_NAMETextEdit.EditValue = grvNguoiDung.GetFocusedRowCellValue("USER_NAME");
             ACTIVECheckEdit.EditValue = Convert.ToBoolean(grvNguoiDung.GetFocusedRowCellValue("ACTIVE"));
+            chkLIC.EditValue = Convert.ToBoolean(grvNguoiDung.GetFocusedRowCellValue("LIC"));
             ID_NHOMComboBoxEdit.EditValue = grvNguoiDung.GetFocusedRowCellValue("ID_NHOM");
             ID_TOComboBoxEdit.EditValue = grvNguoiDung.GetFocusedRowCellValue("ID_TO");
             ID_CNSearchLookUpEdit.EditValue = grvNguoiDung.GetFocusedRowCellValue("ID_CN");
@@ -175,7 +194,8 @@ namespace VietSoftHRM
         private void Resettest()
         {
             USER_NAMETextEdit.ResetText();
-            ACTIVECheckEdit.ResetText();
+            ACTIVECheckEdit.Checked = true;
+            chkLIC.Checked = false;
             ID_NHOMComboBoxEdit.ResetText();
             ID_TOComboBoxEdit.ResetText();
             ID_CNSearchLookUpEdit.ResetText();

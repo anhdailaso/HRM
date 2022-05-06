@@ -3,312 +3,81 @@
   <property name="#LayoutScaleFactor">@1,Width=1@1,Height=1</property>
   <property name="OptionsView" isnull="true" iskey="true">
     <property name="AllowHtmlDrawHeaders">true</property>
-    <property name="ColumnAutoWidth">false</property>
     <property name="ColumnHeaderAutoHeight">True</property>
     <property name="RowAutoHeight">true</property>
     <property name="ShowGroupPanel">false</property>
   </property>
   <property name="ActiveFilterEnabled">true</property>
-  <property name="Columns" iskey="true" value="23">
+  <property name="Columns" iskey="true" value="6">
     <property name="Item1" isnull="true" iskey="true">
-      <property name="Name">colID_CDLV</property>
-      <property name="Caption">ID_CDLV</property>
+      <property name="Name">colCHON</property>
+      <property name="Caption">Chọn</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">ID_CDLV</property>
+      <property name="FieldName">CHON</property>
       <property name="ColumnEditName" />
-      <property name="Width">76</property>
+      <property name="Width">61</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
     <property name="Item2" isnull="true" iskey="true">
-      <property name="Name">colID_NHOM</property>
-      <property name="Caption">Nhóm</property>
+      <property name="Name">colID_CN</property>
+      <property name="Caption">Nhân viên</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">ID_NHOM</property>
+      <property name="FieldName">ID_CN</property>
       <property name="ColumnEditName" />
-      <property name="Width">86</property>
+      <property name="Width">60</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
     <property name="Item3" isnull="true" iskey="true">
-      <property name="Name">colCA</property>
-      <property name="Caption">Ca</property>
+      <property name="Name">colMS_CN</property>
+      <property name="Caption">Mã số CN</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">CA</property>
+      <property name="FieldName">MS_CN</property>
       <property name="ColumnEditName" />
       <property name="VisibleIndex">0</property>
-      <property name="Visible">true</property>
-      <property name="Width">75</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item4" isnull="true" iskey="true">
-      <property name="Name">colNGAY</property>
-      <property name="Caption">Ngày</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">NGAY</property>
-      <property name="ColumnEditName" />
-      <property name="Width">75</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item5" isnull="true" iskey="true">
-      <property name="Name">colGIO_BD</property>
-      <property name="Caption">Giờ BĐ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">GIO_BD</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">1</property>
-      <property name="Visible">true</property>
-      <property name="Width">75</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item6" isnull="true" iskey="true">
-      <property name="Name">colGIO_KT</property>
-      <property name="Caption">Giờ KT</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">GIO_KT</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">2</property>
-      <property name="Visible">true</property>
-      <property name="Width">75</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item7" isnull="true" iskey="true">
-      <property name="Name">colPHUT_BD</property>
-      <property name="OptionsColumn" isnull="true" iskey="true">
-        <property name="ReadOnly">true</property>
-      </property>
-      <property name="Caption">Phút BĐ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">PHUT_BD</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">3</property>
-      <property name="Visible">true</property>
-      <property name="Width">82</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item8" isnull="true" iskey="true">
-      <property name="Name">colPHUT_KT</property>
-      <property name="OptionsColumn" isnull="true" iskey="true">
-        <property name="ReadOnly">true</property>
-      </property>
-      <property name="Caption">Phút kết thúc</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">PHUT_KT</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">4</property>
-      <property name="Visible">true</property>
-      <property name="Width">79</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item9" isnull="true" iskey="true">
-      <property name="Name">colSO_PHUT</property>
-      <property name="OptionsColumn" isnull="true" iskey="true">
-        <property name="ReadOnly">true</property>
-      </property>
-      <property name="Caption">Số phút</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">SO_PHUT</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">5</property>
-      <property name="Visible">true</property>
-      <property name="Width">81</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item10" isnull="true" iskey="true">
-      <property name="Name">colTRU_DAU_GIO</property>
-      <property name="Caption">Trừ đầu giờ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">TRU_DAU_GIO</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">6</property>
-      <property name="Visible">true</property>
-      <property name="Width">114</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item11" isnull="true" iskey="true">
-      <property name="Name">colTRU_CUOI_GIO</property>
-      <property name="Caption">Trừ cuối giờ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">TRU_CUOI_GIO</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">7</property>
-      <property name="Visible">true</property>
-      <property name="Width">117</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item12" isnull="true" iskey="true">
-      <property name="Name">colPHUT_VE_SOM</property>
-      <property name="Caption">Phút về sớm</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">PHUT_VE_SOM</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">8</property>
-      <property name="Visible">true</property>
-      <property name="Width">117</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item13" isnull="true" iskey="true">
-      <property name="Name">colHE_SO_NGAY_THUONG</property>
-      <property name="Caption">HSố ngày thường</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">HE_SO_NGAY_THUONG</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">9</property>
-      <property name="Visible">true</property>
-      <property name="Width">98</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item14" isnull="true" iskey="true">
-      <property name="Name">colHE_SO_NGAY_CN</property>
-      <property name="Caption">HSố ngày</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">HE_SO_NGAY_CN</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">10</property>
-      <property name="Visible">true</property>
-      <property name="Width">134</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item15" isnull="true" iskey="true">
-      <property name="Name">colHE_SO_NGAY_LE</property>
-      <property name="Caption">HSố ngày lễ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">HE_SO_NGAY_LE</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">11</property>
-      <property name="Visible">true</property>
-      <property name="Width">129</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item16" isnull="true" iskey="true">
-      <property name="Name">colTANG_CA</property>
-      <property name="Caption">Tăng ca</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">TANG_CA</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">12</property>
       <property name="Visible">true</property>
       <property name="Width">83</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
-    <property name="Item17" isnull="true" iskey="true">
-      <property name="Name">colTC_DEM</property>
-      <property name="Caption">Tăng ca đêm</property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Name">colHO_TEN</property>
+      <property name="Caption">Họ tên</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">TC_DEM</property>
+      <property name="FieldName">HO_TEN</property>
       <property name="ColumnEditName" />
-      <property name="VisibleIndex">13</property>
+      <property name="VisibleIndex">1</property>
       <property name="Visible">true</property>
-      <property name="Width">75</property>
+      <property name="Width">230</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
-    <property name="Item18" isnull="true" iskey="true">
-      <property name="Name">colCA_DEM</property>
-      <property name="Caption">Ca đêm</property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Name">colSPCL</property>
+      <property name="Caption">SPCL</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">CA_DEM</property>
+      <property name="FieldName">SPCL</property>
       <property name="ColumnEditName" />
-      <property name="VisibleIndex">14</property>
+      <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">76</property>
+      <property name="Width">51</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
-    <property name="Item19" isnull="true" iskey="true">
-      <property name="Name">colNGAY_HOM_SAU</property>
-      <property name="Caption">Ngày hôm sau</property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Name">colTinhTrang</property>
+      <property name="Caption">Tình trạng</property>
       <property name="ImageAlignment">Near</property>
       <property name="ImageIndex">-1</property>
-      <property name="FieldName">NGAY_HOM_SAU</property>
+      <property name="FieldName">TinhTrang</property>
       <property name="ColumnEditName" />
-      <property name="VisibleIndex">15</property>
-      <property name="Visible">true</property>
-      <property name="Width">133</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item20" isnull="true" iskey="true">
-      <property name="Name">colCA_NGAY_HOM_SAU</property>
-      <property name="Caption">Cả ngày hôm sau</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">CA_NGAY_HOM_SAU</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">16</property>
-      <property name="Visible">true</property>
-      <property name="Width">158</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item21" isnull="true" iskey="true">
-      <property name="Name">colPHUT_TRUOC_CA</property>
-      <property name="Caption">Phút trước ca</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">PHUT_TRUOC_CA</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">17</property>
-      <property name="Visible">true</property>
-      <property name="Width">134</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item22" isnull="true" iskey="true">
-      <property name="Name">colKIEM_TRA</property>
-      <property name="Caption">Kiểm tra</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">KIEM_TRA</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">18</property>
-      <property name="Visible">true</property>
-      <property name="Width">86</property>
-      <property name="MinWidth">20</property>
-      <property name="MaxWidth">0</property>
-    </property>
-    <property name="Item23" isnull="true" iskey="true">
-      <property name="Name">colCHE_DO</property>
-      <property name="Caption">Chế độ nghỉ</property>
-      <property name="ImageAlignment">Near</property>
-      <property name="ImageIndex">-1</property>
-      <property name="FieldName">CHE_DO</property>
-      <property name="ColumnEditName" />
-      <property name="VisibleIndex">19</property>
-      <property name="Visible">true</property>
-      <property name="Width">75</property>
+      <property name="Width">89</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>

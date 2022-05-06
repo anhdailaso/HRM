@@ -9,7 +9,7 @@
     <property name="ShowGroupPanel">false</property>
   </property>
   <property name="ActiveFilterEnabled">true</property>
-  <property name="Columns" iskey="true" value="3">
+  <property name="Columns" iskey="true" value="4">
     <property name="Item1" isnull="true" iskey="true">
       <property name="Name">colID_KCV</property>
       <property name="Caption">@ID_KCV@</property>
@@ -47,6 +47,19 @@
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Name">colTEN_KCV_A</property>
+      <property name="Caption">TÊn kiểu công việc (Eng)</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">TEN_KCV_A</property>
+      <property name="ColumnEditName" />
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="Width">305</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
   </property>
   <property name="GroupSummary" iskey="true" value="1">
     <property name="Item1" isnull="true" iskey="true">
@@ -59,6 +72,15 @@
     </property>
   </property>
   <property name="ActiveFilterString" />
+  <property name="SortInfoState" iskey="true" value="1">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Orders">Ascending</property>
+      <property name="Columns">colTEN_KCV_A</property>
+    </property>
+    <property name="Content" isnull="true" iskey="true">
+      <property name="GroupCount">0</property>
+    </property>
+  </property>
   <property name="GroupSummarySortInfoState" />
   <property name="FindFilterText" />
   <property name="FindPanelVisible">false</property>

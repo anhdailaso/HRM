@@ -164,10 +164,16 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-            dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+            Commons.OSystems.SetDateEditFormat(dtTuNgay);
+            Commons.OSystems.SetDateEditFormat(dtDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
+            dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             txNam.EditValue = DateTime.Today.Year.ToString();
             lk_NgayIn.EditValue = DateTime.Today;
+
+            rdo_ChonBaoCao_SelectedIndexChanged(null, null);
         }
 
         private void LK_DON_VI_EditValueChanged(object sender, EventArgs e)
@@ -193,6 +199,7 @@ namespace Vs.HRM
                         {
                             dtTuNgay.Enabled = true;
                             dtDenNgay.Enabled = true;
+                            txNam.Enabled = false;
                         }
                         break;
                     case 1:
@@ -201,6 +208,7 @@ namespace Vs.HRM
                             dtDenNgay.EditValue = new DateTime(int.Parse(txNam.Text), 6, 30);
                             dtTuNgay.Enabled = false;
                             dtDenNgay.Enabled = false;
+                            txNam.Enabled = true;
                         }
                         break;
                     case 2:
@@ -209,14 +217,16 @@ namespace Vs.HRM
                             dtDenNgay.EditValue = new DateTime(int.Parse(txNam.Text), 12, 31);
                             dtTuNgay.Enabled = false;
                             dtDenNgay.Enabled = false;
+                            txNam.Enabled = true;
                         }
                         break;
 
                     default:
-                        dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-                        dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+                        dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+                        dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
                         dtTuNgay.Enabled = true;
                         dtDenNgay.Enabled = true;
+                        txNam.Enabled = true;
                         break;
                 }
             }

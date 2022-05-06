@@ -28,7 +28,7 @@ namespace Vs.HRM
         public ucBaoHiemYTe()
         {
             InitializeComponent();
-            Commons.Modules.ObjSystems.ThayDoiNN(this,new List<LayoutControlGroup>{ Root}, windowsUIButton);
+            Commons.Modules.ObjSystems.ThayDoiNN(this, new List<LayoutControlGroup> { Root }, windowsUIButton);
         }
         #region bảo hiểm y tế
         private void ucBaoHiemYTe_Load(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(cboDV);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
-            LoadGridBaoHiemYTe(true);
+            LoadGridBaoHiemYTe();
             Commons.Modules.sPS = "";
             enableButon(true);
         }
@@ -48,7 +48,7 @@ namespace Vs.HRM
             Commons.Modules.sPS = "0Load";
             Commons.Modules.ObjSystems.LoadCboXiNghiep(cboDV, cboXN);
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
-            LoadGridBaoHiemYTe(false);
+            LoadGridBaoHiemYTe();
             Commons.Modules.sPS = "";
         }
         private void cboXN_EditValueChanged(object sender, EventArgs e)
@@ -56,14 +56,14 @@ namespace Vs.HRM
             if (Commons.Modules.sPS == "0Load") return;
             Commons.Modules.sPS = "0Load";
             Commons.Modules.ObjSystems.LoadCboTo(cboDV, cboXN, cboTo);
-            LoadGridBaoHiemYTe(false);
+            LoadGridBaoHiemYTe();
             Commons.Modules.sPS = "";
         }
         private void cboTo_EditValueChanged(object sender, EventArgs e)
         {
             if (Commons.Modules.sPS == "0Load") return;
             Commons.Modules.sPS = "0Load";
-            LoadGridBaoHiemYTe(false);
+            LoadGridBaoHiemYTe();
             Commons.Modules.sPS = "";
         }
         private void grdBHYT_ProcessGridKey(object sender, KeyEventArgs e)
@@ -94,7 +94,7 @@ namespace Vs.HRM
                 case "luu":
                     {
                         Savedata();
-                        LoadGridBaoHiemYTe(false);
+                        LoadGridBaoHiemYTe();
                         enableButon(true);
                         Commons.Modules.ObjSystems.DeleteAddRow(grvNgungDongBHXH);
                         break;
@@ -103,6 +103,7 @@ namespace Vs.HRM
                     {
                         Commons.Modules.ObjSystems.DeleteAddRow(grvNgungDongBHXH);
                         enableButon(true);
+                        LoadGridBaoHiemYTe();
                         break;
                     }
                 case "thoat":
@@ -131,12 +132,35 @@ namespace Vs.HRM
                             if (result.ToString() != "")
                             {
                                 //cập nhật toàn bộ ngày cho bảo hiểm y tết
-                                string sSql = "UPDATE dbo.BAO_HIEM_Y_TE SET NGAY_HET_HAN ='" + Convert.ToDateTime(result).ToString("MM/dd/yyyy") + "'";
-                                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
-                                LoadGridBaoHiemYTe(false);
+                                DataTable dt1 = new DataTable();
+                                dt1 = (DataTable)grdBHYT.DataSource;
+                                if (dt1 == null || dt1.Rows.Count == 0)
+                                {
+                                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    return;
+                                }
+
+                                string sBT = "sBTBHYT" + Commons.Modules.UserName;
+                                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, dt1, "");
+
+                                System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
+                                conn.Open();
+
+                                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("spViewUpdateBHYT", conn);
+                                cmd.Parameters.Add("@sBT", SqlDbType.NVarChar).Value = sBT;
+                                cmd.Parameters.Add("@NgayHetHan", SqlDbType.NVarChar).Value = Convert.ToDateTime(result).ToString("MM/dd/yyyy");
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(cmd);
+                                DataSet ds = new DataSet();
+                                da.Fill(ds);
+                                grdBHYT.DataSource = ds.Tables[0].Copy();
+
+                                //string sSql = "UPDATE dbo.BAO_HIEM_Y_TE SET NGAY_HET_HAN ='" + Convert.ToDateTime(result).ToString("MM/dd/yyyy") + "'";
+                                //SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
+                                //LoadGridBaoHiemYTe();
                             }
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                         }
                         break;
@@ -146,23 +170,28 @@ namespace Vs.HRM
         #endregion
 
         #region hàm xử lý dữ liệu
-        private void LoadGridBaoHiemYTe(bool co)
+        private void LoadGridBaoHiemYTe()
         {
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanBHYT", cboDV.EditValue, cboXN.EditValue, cboTo.EditValue, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-            if (co == true)
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBHYT, grvNgungDongBHXH, dt, false, false, true, true, true, this.Name);
+            if (grdBHYT.DataSource == null)
+            {
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBHYT, grvNgungDongBHXH, dt, false, false, false, false, true, this.Name);
+                grvNgungDongBHXH.Columns["ID_CN"].Visible = false;
+                grvNgungDongBHXH.Columns["ID_BHYT"].Visible = false;
+            }
             else
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBHYT, grvNgungDongBHXH, dt, false, false, true, false, true, this.Name);
-            grvNgungDongBHXH.Columns["ID_CN"].Visible = false;
-            grvNgungDongBHXH.Columns["ID_BHYT"].Visible = false;
-            Commons.Modules.ObjSystems.AddCombXtra("ID_TP", "TEN_TP", grvNgungDongBHXH, Commons.Modules.ObjSystems.DataThanhPho(-1, false),"ID_TP", "THANH_PHO");
+            {
+                grdBHYT.DataSource = dt;
+            }
+
+            Commons.Modules.ObjSystems.AddCombXtra("ID_TP", "TEN_TP", grvNgungDongBHXH, Commons.Modules.ObjSystems.DataThanhPho(-1, false), "ID_TP", "THANH_PHO");
             Commons.Modules.ObjSystems.AddCombXtra("ID_BV", "TEN_BV", grvNgungDongBHXH, Commons.Modules.ObjSystems.DataBenhVien(false), "ID_BV", "DANH_SACH_BENH_VIEN");
             grvNgungDongBHXH.Columns["MS_CN"].OptionsColumn.ReadOnly = true;
-            grvNgungDongBHXH.Columns["MS_CN"].Width = 50;
-            grvNgungDongBHXH.Columns["HO_TEN"].Width = 100;
-            grvNgungDongBHXH.Columns["SO_THE"].Width = 100;
-            grvNgungDongBHXH.Columns["NGAY_HET_HAN"].Width = 100;
+            //grvNgungDongBHXH.Columns["MS_CN"].Width = 50;
+            //grvNgungDongBHXH.Columns["HO_TEN"].Width = 100;
+            //grvNgungDongBHXH.Columns["SO_THE"].Width = 100;
+            //grvNgungDongBHXH.Columns["NGAY_HET_HAN"].Width = 100;
 
             RepositoryItemDateEdit dEditN = new RepositoryItemDateEdit();
             Commons.OSystems.SetDateRepositoryItemDateEdit(dEditN);
@@ -173,13 +202,14 @@ namespace Vs.HRM
             try
             {
                 //tạo một datatable 
-                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "tabBHYT" + Commons.Modules.UserName, Commons.Modules.ObjSystems.ConvertDatatable(grvNgungDongBHXH), "");
-                string sSql = "UPDATE A SET A.SO_THE = B.SO_THE,A.ID_TP = B.ID_TP,A.ID_BV = B.ID_BV,A.NGAY_HET_HAN = B.NGAY_HET_HAN FROM dbo.BAO_HIEM_Y_TE A INNER JOIN dbo." + "tabBHYT" + Commons.Modules.UserName + " B ON B.ID_BHYT = A.ID_BHYT INSERT INTO dbo.BAO_HIEM_Y_TE(ID_CN,SO_THE,ID_TP,ID_BV,NGAY_HET_HAN) SELECT ID_CN, SO_THE, ID_TP, ID_BV, NGAY_HET_HAN FROM dbo." + "tabBHYT" + Commons.Modules.UserName + " WHERE ISNULL(ID_BHYT, '') = ''";
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
-                Commons.Modules.ObjSystems.XoaTable("tabBHYT" + Commons.Modules.UserName);
+                string sBTBHTY = "sBTBHYT" + Commons.Modules.UserName;
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTBHTY, Commons.Modules.ObjSystems.ConvertDatatable(grvNgungDongBHXH), "");
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr,"spSaveBaoHiemYTe", sBTBHTY);
+                Commons.Modules.ObjSystems.XoaTable(sBTBHTY);
             }
-            catch
+            catch 
             {
+
             }
         }
         private void enableButon(bool visible)
@@ -201,7 +231,7 @@ namespace Vs.HRM
             try
             {
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.BAO_HIEM_Y_TE WHERE ID_BHYT = " + grvNgungDongBHXH.GetFocusedRowCellValue("ID_BHYT") + "");
-                LoadGridBaoHiemYTe(false);
+                LoadGridBaoHiemYTe();
             }
             catch
             {

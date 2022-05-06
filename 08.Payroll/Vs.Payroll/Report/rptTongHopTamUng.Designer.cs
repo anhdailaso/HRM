@@ -714,7 +714,7 @@
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 25F;
-            this.Tag = "rptBCDanhGiaCN";
+            this.Tag = "rptTongHopTamUng";
             this.Version = "20.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();

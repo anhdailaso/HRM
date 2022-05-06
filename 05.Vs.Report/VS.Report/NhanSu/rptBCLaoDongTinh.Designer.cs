@@ -170,7 +170,7 @@
             this.xrTableCell2.StylePriority.UsePadding = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.Text = "xrTableCell2";
-            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell2.Weight = 0.37450015516261259D;
             // 
             // xrTableCell3
@@ -201,7 +201,7 @@
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell4.Weight = 0.54406471556570279D;
+            this.xrTableCell4.Weight = 0.60950052076363781D;
             // 
             // xrTableCell5
             // 
@@ -217,7 +217,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell5.Weight = 0.57801423549466713D;
+            this.xrTableCell5.Weight = 0.63254277332765074D;
             // 
             // xrTableCell8
             // 
@@ -233,7 +233,7 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "xrTableCell8";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell8.Weight = 1.5905213435840302D;
+            this.xrTableCell8.Weight = 1.4705570005531115D;
             // 
             // xrTableCell9
             // 
@@ -386,7 +386,7 @@
             this.Title_XiNghiep.RowSpan = 2;
             this.Title_XiNghiep.StylePriority.UseFont = false;
             this.Title_XiNghiep.Text = "Title_XiNghiep";
-            this.Title_XiNghiep.Weight = 0.90986340061436677D;
+            this.Title_XiNghiep.Weight = 1.0192937373771762D;
             // 
             // Title_To
             // 
@@ -396,7 +396,7 @@
             this.Title_To.Name = "Title_To";
             this.Title_To.StylePriority.UseFont = false;
             this.Title_To.Text = "Title_To";
-            this.Title_To.Weight = 0.96663865320799125D;
+            this.Title_To.Weight = 1.0578295486879665D;
             // 
             // Title_DiaChi
             // 
@@ -406,7 +406,7 @@
             this.Title_DiaChi.Name = "Title_DiaChi";
             this.Title_DiaChi.StylePriority.UseFont = false;
             this.Title_DiaChi.Text = "Title_DiaChi";
-            this.Title_DiaChi.Weight = 2.659898424286502D;
+            this.Title_DiaChi.Weight = 2.4592771920437171D;
             // 
             // Title_NgayTV
             // 

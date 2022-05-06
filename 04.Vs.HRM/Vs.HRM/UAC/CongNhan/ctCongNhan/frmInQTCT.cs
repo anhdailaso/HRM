@@ -19,12 +19,13 @@ namespace Vs.HRM
             idCT = idCongTac;
             Commons.Modules.ObjSystems.ThayDoiNN(this);
         }
- 
+
         //sự kiên load form
         private void formInQTCT_Load(object sender, EventArgs e)
         {
             rdo_ChonBaoCao.SelectedIndex = 0;
             dNgayIn.EditValue = DateTime.Today;
+            Commons.OSystems.SetDateEditFormat(dNgayIn);
         }
         //sự kiện các nút xử lí
         private void windowsUIButton_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
@@ -43,7 +44,7 @@ namespace Vs.HRM
                                 System.Data.SqlClient.SqlConnection conn;
                                 DataTable dt = new DataTable();
                                 frmViewReport frm = new frmViewReport();
-                                frm.rpt = new rptQuyetDinhDieuChuyen(dNgayIn.DateTime);
+                                frm.rpt = new rptQuyetDinhDieuChuyen_MT(dNgayIn.DateTime);
 
                                 conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                                 conn.Open();
@@ -56,12 +57,17 @@ namespace Vs.HRM
                                 cmd.CommandType = CommandType.StoredProcedure;
 
                                 System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
-                                 DataSet ds = new DataSet();
-                            adp.Fill(ds);
-                            dt = new DataTable();
-                            dt = ds.Tables[0].Copy();
-                            dt.TableName = "DA_TA";
-                            frm.AddDataSource(dt);
+                                DataSet ds = new DataSet();
+                                adp.Fill(ds);
+                                dt = new DataTable();
+                                dt = ds.Tables[0].Copy();
+                                dt.TableName = "DA_TA";
+                                frm.AddDataSource(dt);
+
+                                DataTable dt1 = new DataTable();
+                                dt1 = ds.Tables[1].Copy();
+                                dt1.TableName = "NOI_DUNG";
+                                frm.AddDataSource(dt1);
 
                                 frm.ShowDialog();
                             }
@@ -82,21 +88,21 @@ namespace Vs.HRM
                                 cmd.CommandType = CommandType.StoredProcedure;
 
                                 System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
-                                 DataSet ds = new DataSet();
-                            adp.Fill(ds);
-                            dt = new DataTable();
-                            dt = ds.Tables[0].Copy();
-                            dt.TableName = "DA_TA";
-                            frm.AddDataSource(dt);
-
+                                DataSet ds = new DataSet();
+                                adp.Fill(ds);
+                                dt = new DataTable();
+                                dt = ds.Tables[0].Copy();
+                                dt.TableName = "DA_TA";
+                                frm.AddDataSource(dt);
+                                
                                 frm.ShowDialog();
                             }
-                            
+
                         }
                         catch
                         { }
 
-                        
+
                         break;
                     }
                 case "thoat":

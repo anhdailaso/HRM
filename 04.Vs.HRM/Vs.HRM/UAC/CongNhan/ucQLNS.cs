@@ -17,27 +17,26 @@ namespace Vs.HRM
         {
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this, Root);
-
         }
+
         private void ucQLNS_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT * FROM dbo.CONG_NHAN ORDER BY MS_CN"));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT TOP 1 MS_CN FROM dbo.CONG_NHAN ORDER BY MS_CN"));
             if (dt.Rows.Count == 0)
             {
                 tileView1_DoubleClick(null, null);
                 return;
             }
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             LoadCboDonVi();
             LoadCboXiNghiep();
             LoadCboTo();
-            LoadTinhTrangHopDong();
+            LoadTinhTrangHienTai();
             LoadNhanSu(-1);
-            Commons.Modules.sPS = "";
-            Commons.OSystems.DinhDangNgayThang(tileViewCN);
-
+            Commons.Modules.sLoad = "";
         }
+
         private void LoadCboDonVi()
         {
             try
@@ -81,37 +80,37 @@ namespace Vs.HRM
 
         }
 
-        private void LoadTinhTrangHopDong()
+        private void LoadTinhTrangHienTai()
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComBoTinhTrangHopDong", Commons.Modules.UserName, Commons.Modules.TypeLanguage, 1));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComboTinhTrangHT", Commons.Modules.UserName, Commons.Modules.TypeLanguage, 0));
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cbo_TTHT, dt, "ID_TT_HT", "TEN_TT_HT", "TEN_TT_HT");
         }
         private void cboDV_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadCboXiNghiep();
             LoadCboTo();
             LoadNhanSu(-1);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
 
         private void cboXN_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadCboTo();
             LoadNhanSu(-1);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
 
         private void cboTo_EditValueChanged(object sender, EventArgs e)
         {
-            if (Commons.Modules.sPS == "0Load") return;
-            Commons.Modules.sPS = "0Load";
+            if (Commons.Modules.sLoad == "0Load") return;
+            Commons.Modules.sLoad = "0Load";
             LoadNhanSu(-1);
-            Commons.Modules.sPS = "";
+            Commons.Modules.sLoad = "";
         }
         private void LoadNhanSu(Int64 iIdNs)
         {
@@ -211,6 +210,98 @@ namespace Vs.HRM
             catch (Exception ex)
             {
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDelDangSuDung") + "\n" + ex.Message.ToString());
+            }
+        }
+
+        private void windowsUIButton_ButtonClick(object sender, ButtonEventArgs e)
+        {
+            WindowsUIButton btn = e.Button as WindowsUIButton;
+            XtraUserControl ctl = new XtraUserControl();
+            switch (btn.Tag.ToString())
+            {
+                case "them":
+                    {
+                        grdNS.Visible = false;
+                        ucCTQLNS dl = new ucCTQLNS(-1);
+                        Commons.Modules.ObjSystems.ShowWaitForm(this);
+                        dl.Refresh();
+                        dt = dl.dt;
+                        navigationFrame1.SelectedPage.Visible = false;
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            try
+                            {
+                                string str = dt.Rows[0]["HO"] + " " + dt.Rows[0]["TEN"];
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                        navigationPage2.Controls.Add(dl);
+                        dl.Dock = DockStyle.Fill;
+                        dl.backWindowsUIButtonPanel.ButtonClick += BackWindowsUIButtonPanel_ButtonClick;
+                        navigationFrame1.SelectedPage = navigationPage2;
+                        accorMenuleft.Visible = false;
+                        Commons.Modules.ObjSystems.HideWaitForm();
+                        break;
+                    }
+                case "sua":
+                    {
+                        if (tileViewCN.RowCount == 0)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        Int64 iIDCN = Convert.ToInt64(tileViewCN.GetFocusedRowCellValue("ID_CN"));
+                        if (iIDCN == 0)
+                        {
+                            iIDCN = -1;
+                        }
+
+                        grdNS.Visible = false;
+                        ucCTQLNS dl = new ucCTQLNS(iIDCN);
+                        Commons.Modules.ObjSystems.ShowWaitForm(this);
+                        dl.Refresh();
+                        dt = dl.dt;
+                        navigationFrame1.SelectedPage.Visible = false;
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            try
+                            {
+                                string str = dt.Rows[0]["HO"] + " " + dt.Rows[0]["TEN"];
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                        navigationPage2.Controls.Add(dl);
+                        dl.Dock = DockStyle.Fill;
+                        dl.backWindowsUIButtonPanel.ButtonClick += BackWindowsUIButtonPanel_ButtonClick;
+                        navigationFrame1.SelectedPage = navigationPage2;
+                        accorMenuleft.Visible = false;
+                        Commons.Modules.ObjSystems.HideWaitForm();
+                        break;
+                    }
+
+                case "xoa":
+                    {
+                        if (tileViewCN.RowCount == 0)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        DeleteData();
+                        break;
+                    }
+                case "thoat":
+                    {
+                        Commons.Modules.ObjSystems.GotoHome(this);
+                        break;
+                    }
+                default:
+                    break;
             }
         }
     }

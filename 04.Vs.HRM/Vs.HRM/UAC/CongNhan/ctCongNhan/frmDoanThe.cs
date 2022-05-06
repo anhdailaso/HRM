@@ -17,6 +17,15 @@ namespace Vs.HRM
 
         private void frmDoanThe_Load(object sender, EventArgs e)
         {
+            Commons.OSystems.SetDateEditFormat(NGAY_KN_DANGDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_VAO_DANGDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_VAO_DOANDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_VAO_CONG_DOANDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_NHAP_NGUDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_XUAT_NGUDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_RA_KHOI_DANGDateEdit);
+            Commons.OSystems.SetDateEditFormat(NGAY_RA_KHOI_DOANDateEdit);
+
             enableButon(true);
             Commons.Modules.ObjSystems.SetPhanQuyen(windowsUIButton);
             Bindingdata(false);
@@ -183,7 +192,7 @@ namespace Vs.HRM
           NGAY_RA_KHOI_DANGDateEdit.EditValue,
           NGAY_RA_KHOI_DOANDateEdit.EditValue
                     );
-                XtraMessageBox.Show("Cập nhật đoàng thể thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                XtraMessageBox.Show("Cập nhật đoàng thể thành công!", Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
             catch (Exception ex)
@@ -194,7 +203,7 @@ namespace Vs.HRM
         //hàm xử lý khi xóa dữ liệu
         private void DeleteData()
         {
-            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteDoanThe"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteDoanThe"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             //xóa
             try
             {    

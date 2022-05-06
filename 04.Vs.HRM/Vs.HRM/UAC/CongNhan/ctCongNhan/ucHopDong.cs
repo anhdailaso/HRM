@@ -60,10 +60,9 @@ namespace Vs.HRM
             windowsUIButton.Buttons[5].Properties.Visible = visible;
             windowsUIButton.Buttons[6].Properties.Visible = visible;
             windowsUIButton.Buttons[7].Properties.Visible = visible;
-            windowsUIButton.Buttons[8].Properties.Visible = visible;
+            windowsUIButton.Buttons[8].Properties.Visible = !visible;
             windowsUIButton.Buttons[9].Properties.Visible = !visible;
-            windowsUIButton.Buttons[10].Properties.Visible = !visible;
-            windowsUIButton.Buttons[11].Properties.Visible = visible;
+            windowsUIButton.Buttons[10].Properties.Visible = visible;
             grdHopDong.Enabled = visible;
             SO_HDLDTextEdit.Properties.ReadOnly = visible;
             STT_HDLDTextEdit.Properties.ReadOnly = visible;
@@ -80,33 +79,22 @@ namespace Vs.HRM
             CHI_SO_PHU_CAPTextEdit.Properties.ReadOnly = visible;
             MUC_LUONG_THUC_LINHTextEdit.Properties.ReadOnly = visible;
             DIA_DIEM_LAM_VIECTextEdit.Properties.ReadOnly = visible;
-            PHUONG_TIENTextEdit.Properties.ReadOnly = visible;
             DIA_CHI_NOI_LAM_VIECTextEdit.Properties.ReadOnly = visible;
-            PHU_CAPTextEdit.Properties.ReadOnly = visible;
             CONG_VIECTextEdit.Properties.ReadOnly = visible;
             ID_CVLookUpEdit.Properties.ReadOnly = visible;
-            CHE_DO_LAM_VIECTextEdit.Properties.ReadOnly = visible;
-            LAN_TRA_LUONGTextEdit.Properties.ReadOnly = visible;
-            DCLDTextEdit.Properties.ReadOnly = visible;
-            BHLDTextEdit.Properties.ReadOnly = visible;
-            CHE_DO_DAO_TAOTextEdit.Properties.ReadOnly = visible;
             SO_NGAY_PHEPTextEdit.Properties.ReadOnly = visible;
-            HINH_THUC_TRA_LUONGTextEdit.Properties.ReadOnly = visible;
             NGUOI_KY_GIA_HANLookUpEdit.Properties.ReadOnly = visible;
-            CHE_DO_NANG_LUONGTextEdit.Properties.ReadOnly = visible;
-            KHOAN_KHACTextEdit.Properties.ReadOnly = visible;
-
         }
 
         private void Loaddatatable()
         {
             tableTTC_CN.Clear();
-            tableTTC_CN.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID_CN, ID_CV, ID_TO FROM CONG_NHAN WHERE ID_CN = " + idcn));
+            tableTTC_CN.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetThongTinKyHopDong", Commons.Modules.UserName, Commons.Modules.TypeLanguage, idcn));
         }
 
         private void Bindingdata(bool bthem)
         {
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             if (bthem == true)
             {
                 //lấy dữ liệu mặc định theo id công nhân
@@ -141,25 +129,13 @@ namespace Vs.HRM
                     MUC_LUONG_CHINHTextEdit.EditValue = Commons.Modules.ObjSystems.BLMCPC(idcn, NGAY_BAT_DAU_HDDateEdit.DateTime)["ML"];
                     CHI_SO_PHU_CAPTextEdit.EditValue = Commons.Modules.ObjSystems.BLMCPC(idcn, NGAY_BAT_DAU_HDDateEdit.DateTime)["PC"];
                     MUC_LUONG_THUC_LINHTextEdit.EditValue = Convert.ToDouble(MUC_LUONG_CHINHTextEdit.EditValue) + Convert.ToDouble(CHI_SO_PHU_CAPTextEdit.EditValue);
-                    DIA_DIEM_LAM_VIECTextEdit.EditValue = "";
-                    PHUONG_TIENTextEdit.EditValue = "";
-                    DIA_CHI_NOI_LAM_VIECTextEdit.EditValue = "";
-                    PHU_CAPTextEdit.EditValue = 0;
-                    CONG_VIECTextEdit.EditValue = "";
-                    //NGAY_HET_HDDateEdit.EditValue = null;
-                    //==ngày hết hạn sẽ theo thời hạn của hợp đồng
+                    DIA_DIEM_LAM_VIECTextEdit.EditValue = tableTTC_CN.Rows[0]["TEN_DV"];
+                    DIA_CHI_NOI_LAM_VIECTextEdit.EditValue = tableTTC_CN.Rows[0]["DIA_CHI"];
+                    CONG_VIECTextEdit.EditValue = tableTTC_CN.Rows[0]["TEN_LCV"];
                     ngayhethan(Convert.ToInt32(ID_LHDLDLookUpEdit.EditValue));
                     ID_CVLookUpEdit.EditValue = tableTTC_CN.Rows[0]["ID_CV"];
-                    CHE_DO_LAM_VIECTextEdit.EditValue = "";
-                    LAN_TRA_LUONGTextEdit.EditValue = "";
-                    DCLDTextEdit.EditValue = "";
-                    BHLDTextEdit.EditValue = "";
-                    CHE_DO_DAO_TAOTextEdit.EditValue = "";
                     SO_NGAY_PHEPTextEdit.EditValue = "";
-                    HINH_THUC_TRA_LUONGTextEdit.EditValue = "";
-                    NGUOI_KY_GIA_HANLookUpEdit.EditValue = "";
-                    CHE_DO_NANG_LUONGTextEdit.EditValue = "";
-                    KHOAN_KHACTextEdit.EditValue = "";
+                    NGUOI_KY_GIA_HANLookUpEdit.EditValue = tableTTC_CN.Rows[0]["NK"];
                 }
                 catch (Exception ex)
                 {
@@ -192,22 +168,11 @@ namespace Vs.HRM
                     CHI_SO_PHU_CAPTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("CHI_SO_PHU_CAP");
                     MUC_LUONG_THUC_LINHTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("MUC_LUONG_THUC_LINH");
                     DIA_DIEM_LAM_VIECTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("DIA_DIEM_LAM_VIEC");
-                    PHUONG_TIENTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("PHUONG_TIEN");
                     DIA_CHI_NOI_LAM_VIECTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("DIA_CHI_NOI_LAM_VIEC");
-                    PHU_CAPTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("PHU_CAP");
                     CONG_VIECTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("CONG_VIEC");
                     ID_CVLookUpEdit.EditValue = grvHopDong.GetFocusedRowCellValue("ID_CV");
-                    CHE_DO_LAM_VIECTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("CHE_DO_LAM_VIEC");
-                    LAN_TRA_LUONGTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("LAN_TRA_LUONG");
-                    DCLDTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("DCLD");
-                    BHLDTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("BHLD");
-                    CHE_DO_DAO_TAOTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("CHE_DO_DAO_TAO");
                     SO_NGAY_PHEPTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("SO_NGAY_PHEP");
-                    HINH_THUC_TRA_LUONGTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("HINH_THUC_TRA_LUONG");
                     NGUOI_KY_GIA_HANLookUpEdit.EditValue = Convert.ToInt32(grvHopDong.GetFocusedRowCellValue("NGUOI_KY_GIA_HAN"));
-                    CHE_DO_NANG_LUONGTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("CHE_DO_NANG_LUONG");
-                    KHOAN_KHACTextEdit.EditValue = grvHopDong.GetFocusedRowCellValue("KHOAN_KHAC");
-
                 }
                 catch (Exception ex)
                 {
@@ -236,21 +201,11 @@ namespace Vs.HRM
             CHI_SO_PHU_CAPTextEdit.EditValue,
             MUC_LUONG_THUC_LINHTextEdit.EditValue,
             DIA_DIEM_LAM_VIECTextEdit.EditValue,
-            PHUONG_TIENTextEdit.EditValue,
             DIA_CHI_NOI_LAM_VIECTextEdit.EditValue,
-            PHU_CAPTextEdit.EditValue,
             CONG_VIECTextEdit.EditValue,
             ID_CVLookUpEdit.EditValue,
-            CHE_DO_LAM_VIECTextEdit.EditValue,
-            LAN_TRA_LUONGTextEdit.EditValue,
-            DCLDTextEdit.EditValue,
-            BHLDTextEdit.EditValue,
-            CHE_DO_DAO_TAOTextEdit.EditValue,
             SO_NGAY_PHEPTextEdit.EditValue,
-            HINH_THUC_TRA_LUONGTextEdit.EditValue,
             NGUOI_KY_GIA_HANLookUpEdit.EditValue,
-            CHE_DO_NANG_LUONGTextEdit.EditValue,
-            KHOAN_KHACTextEdit.EditValue,
             cothem
                 ));
                 LoadgrdHopDong(n);
@@ -262,7 +217,7 @@ namespace Vs.HRM
         }
         private void DeleteData()
         {
-            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteKhoaDaoTao"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteKhoaDaoTao"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No) return;
             //xóa
             try
             {
@@ -294,23 +249,20 @@ namespace Vs.HRM
             grvHopDong.Columns["CHI_SO_PHU_CAP"].Visible = false;
             grvHopDong.Columns["MUC_LUONG_THUC_LINH"].Visible = false;
             grvHopDong.Columns["DIA_DIEM_LAM_VIEC"].Visible = false;
-            grvHopDong.Columns["PHUONG_TIEN"].Visible = false;
             grvHopDong.Columns["DIA_CHI_NOI_LAM_VIEC"].Visible = false;
-            grvHopDong.Columns["PHU_CAP"].Visible = false;
             grvHopDong.Columns["CONG_VIEC"].Visible = false;
             grvHopDong.Columns["ID_CV"].Visible = false;
-            grvHopDong.Columns["CHE_DO_LAM_VIEC"].Visible = false;
-            grvHopDong.Columns["LAN_TRA_LUONG"].Visible = false;
-            grvHopDong.Columns["DCLD"].Visible = false;
-            grvHopDong.Columns["BHLD"].Visible = false;
-            grvHopDong.Columns["CHE_DO_DAO_TAO"].Visible = false;
             grvHopDong.Columns["SO_NGAY_PHEP"].Visible = false;
-            grvHopDong.Columns["HINH_THUC_TRA_LUONG"].Visible = false;
             grvHopDong.Columns["NGUOI_KY_GIA_HAN"].Visible = false;
-            grvHopDong.Columns["CHE_DO_NANG_LUONG"].Visible = false;
-            grvHopDong.Columns["KHOAN_KHAC"].Visible = false;
 
- 
+            //format column
+            grvHopDong.Columns["NGAY_BAT_DAU_HD"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            grvHopDong.Columns["NGAY_BAT_DAU_HD"].DisplayFormat.FormatString = "dd/MM/yyyy";
+            grvHopDong.Columns["NGAY_HET_HD"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            grvHopDong.Columns["NGAY_HET_HD"].DisplayFormat.FormatString = "dd/MM/yyyy";
+            grvHopDong.Columns["NGAY_KY"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            grvHopDong.Columns["NGAY_KY"].DisplayFormat.FormatString = "dd/MM/yyyy";
+
             if (id != -1)
             {
                 int index = dt.Rows.IndexOf(dt.Rows.Find(id));
@@ -334,26 +286,7 @@ namespace Vs.HRM
         {
 
             ngayhethan(Convert.ToInt32(ID_LHDLDLookUpEdit.EditValue));
-            //cộng ngày kết thúc hợp đồng lên theo số tháng
-            //int ithang = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT SO_THANG FROM dbo.LOAI_HDLD WHERE ID_LHDLD = " + ID_LHDLDLookUpEdit.EditValue + ""));
-            //if (ithang == 0)
-            //{
-            //    NGAY_HET_HDDateEdit.EditValue = null;
-            //}
-            //else
-            //{
-            //    NGAY_HET_HDDateEdit.EditValue = NGAY_BAT_DAU_HDDateEdit.DateTime.AddMonths(ithang);
-            //}
-            //try
-            //{
-            //    BAC_LUONGTextEdit.EditValue = Commons.Modules.ObjSystems.BLMCPC(idcn, NGAY_BAT_DAU_HDDateEdit.DateTime)["BL"];
-            //    MUC_LUONG_CHINHTextEdit.EditValue = Commons.Modules.ObjSystems.BLMCPC(idcn, NGAY_BAT_DAU_HDDateEdit.DateTime)["ML"];
-            //    CHI_SO_PHU_CAPTextEdit.EditValue = Commons.Modules.ObjSystems.BLMCPC(idcn, NGAY_BAT_DAU_HDDateEdit.DateTime)["PC"];
-            //    MUC_LUONG_THUC_LINHTextEdit.EditValue = Convert.ToDouble(MUC_LUONG_CHINHTextEdit.EditValue) + Convert.ToDouble(CHI_SO_PHU_CAPTextEdit.EditValue);
-            //}catch(Exception ex)
-            //{
-
-            //}
+            
 
         }
         private void ngayhethan(int thoihan)
@@ -400,6 +333,11 @@ namespace Vs.HRM
             {
                 case "them":
                     {
+                        if (Commons.Modules.iCongNhan == -1)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChuaChonCongNhan"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         Bindingdata(true);
                         cothem = true;
                         enableButon(false);
@@ -407,6 +345,11 @@ namespace Vs.HRM
                     }
                 case "sua":
                     {
+                        if (grvHopDong.RowCount == 0)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         if (grvHopDong.RowCount == 0) return;
                         cothem = false;
                         enableButon(false);
@@ -415,6 +358,11 @@ namespace Vs.HRM
 
                 case "xoa":
                     {
+                        if (grvHopDong.RowCount == 0)
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgChonDongCanXuLy"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         if (grvHopDong.RowCount == 0) return;
                         DeleteData();
                         break;
@@ -430,6 +378,12 @@ namespace Vs.HRM
                     {
                         if (!dxValidationProvider1.Validate()) return;
                         //kiem trung
+                        if(Convert.ToInt32(STT_HDLDTextEdit.EditValue) <= 0)
+                        {
+                            XtraMessageBox.Show(ItemForSTT_HDLD.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocNhoHon0"));
+                            STT_HDLDTextEdit.Focus();
+                            return ;
+                        }
                         System.Data.SqlClient.SqlConnection conn;
                         conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                         conn.Open();
@@ -461,7 +415,9 @@ namespace Vs.HRM
                     {
                         enableButon(true);
                         Bindingdata(false);
-                        dxValidationProvider1.Validate();
+                        dxValidationProvider1.ValidateHiddenControls = true;
+                        dxValidationProvider1.RemoveControlError(SO_HDLDTextEdit);
+                        dxValidationProvider1.RemoveControlError(STT_HDLDTextEdit);
                         break;
                     }
                 case "thoat":

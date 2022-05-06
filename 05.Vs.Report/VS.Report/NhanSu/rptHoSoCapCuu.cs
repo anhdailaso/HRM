@@ -9,11 +9,13 @@ namespace Vs.Report
 {
     public partial class rptHoSoCapCuu : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptHoSoCapCuu(DateTime ngayin)
+        public rptHoSoCapCuu(DateTime ngayin, DateTime TuNgay, DateTime DenNgay)
         {
 
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
+
+            NONlbGiaiDoan.Text = "Từ ngày " + TuNgay.ToString("dd/MM/yyyy") + " đến ngày " + DenNgay.ToString("dd/MM/yyyy");
 
             DataTable dtNgu = new DataTable();
             dtNgu.Load(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'NgayThangNam' "));

@@ -31,6 +31,8 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel57 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel56 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel66 = new DevExpress.XtraReports.UI.XRLabel();
@@ -67,6 +69,7 @@
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
@@ -94,6 +97,7 @@
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.lb7 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel68 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel73 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel70 = new DevExpress.XtraReports.UI.XRLabel();
@@ -105,10 +109,6 @@
             this.xrLabel58 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel130 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel129 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel56 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel57 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel68 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -192,9 +192,41 @@
             this.xrLabel6,
             this.lb7});
             this.Detail.Dpi = 254F;
-            this.Detail.HeightF = 1799.425F;
+            this.Detail.HeightF = 1774.425F;
             this.Detail.HierarchyPrintOptions.Indent = 50.8F;
             this.Detail.Name = "Detail";
+            // 
+            // xrLabel57
+            // 
+            this.xrLabel57.AllowMarkupText = true;
+            this.xrLabel57.Dpi = 254F;
+            this.xrLabel57.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.xrLabel57.LocationFloat = new DevExpress.Utils.PointFloat(891.9664F, 1573.145F);
+            this.xrLabel57.Multiline = true;
+            this.xrLabel57.Name = "xrLabel57";
+            this.xrLabel57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel57.SizeF = new System.Drawing.SizeF(825.9863F, 201.2804F);
+            this.xrLabel57.StylePriority.UseFont = false;
+            this.xrLabel57.StylePriority.UseTextAlignment = false;
+            this.xrLabel57.Text = "Tôi cam đoan những nội dung kê khai là đúng và \r\nchịu trách nhiệm trước pháp luật" +
+    " về những nội dung đã kê khai";
+            this.xrLabel57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel56
+            // 
+            this.xrLabel56.AllowMarkupText = true;
+            this.xrLabel56.Dpi = 254F;
+            this.xrLabel56.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.xrLabel56.LocationFloat = new DevExpress.Utils.PointFloat(4.037221E-05F, 1573.145F);
+            this.xrLabel56.Multiline = true;
+            this.xrLabel56.Name = "xrLabel56";
+            this.xrLabel56.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel56.SizeF = new System.Drawing.SizeF(818.0856F, 201.2804F);
+            this.xrLabel56.StylePriority.UseFont = false;
+            this.xrLabel56.StylePriority.UseTextAlignment = false;
+            this.xrLabel56.Text = "XÁC NHẬN CỦA ĐƠN VỊ\r\n(Đơn vị chỉ phải xác nhận khi người tham gia thay\r\n đổi họ, " +
+    "tên đệm, tên, ngày,tháng ,năm sinh)";
+            this.xrLabel56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel19
             // 
@@ -762,6 +794,22 @@
             this.xrLabel22.Text = ":";
             this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // xrLabel23
+            // 
+            this.xrLabel23.AllowMarkupText = true;
+            this.xrLabel23.Dpi = 254F;
+            this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DATA].[SO_CMND]")});
+            this.xrLabel23.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(1190.314F, 532.6661F);
+            this.xrLabel23.Multiline = true;
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(527.6417F, 66.58328F);
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // xrLabel24
             // 
             this.xrLabel24.AllowMarkupText = true;
@@ -1178,8 +1226,23 @@
             this.lb1,
             this.lblTieuDe});
             this.GroupHeader1.Dpi = 254F;
-            this.GroupHeader1.HeightF = 466.0109F;
+            this.GroupHeader1.HeightF = 449.0942F;
             this.GroupHeader1.Name = "GroupHeader1";
+            // 
+            // xrLabel68
+            // 
+            this.xrLabel68.AllowMarkupText = true;
+            this.xrLabel68.Dpi = 254F;
+            this.xrLabel68.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.xrLabel68.LocationFloat = new DevExpress.Utils.PointFloat(3.060537F, 118.8333F);
+            this.xrLabel68.Multiline = true;
+            this.xrLabel68.Name = "xrLabel68";
+            this.xrLabel68.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel68.SizeF = new System.Drawing.SizeF(766.1088F, 100.9791F);
+            this.xrLabel68.StylePriority.UseFont = false;
+            this.xrLabel68.StylePriority.UseTextAlignment = false;
+            this.xrLabel68.Text = "(Ban hành kèm theo QĐsố:959 /QĐ-BHXH Ngày 09/09/2015 của BHXH Việt Nam)";
+            this.xrLabel68.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel8
             // 
@@ -1249,7 +1312,7 @@
             // 
             this.lblTieuDe.Dpi = 254F;
             this.lblTieuDe.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTieuDe.LocationFloat = new DevExpress.Utils.PointFloat(0.0004844666F, 271.7083F);
+            this.lblTieuDe.LocationFloat = new DevExpress.Utils.PointFloat(0.0003633499F, 239.9583F);
             this.lblTieuDe.Multiline = true;
             this.lblTieuDe.Name = "lblTieuDe";
             this.lblTieuDe.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
@@ -1338,69 +1401,6 @@
             this.xrLabel129.StylePriority.UseTextAlignment = false;
             this.xrLabel129.Text = "Người khai";
             this.xrLabel129.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel56
-            // 
-            this.xrLabel56.AllowMarkupText = true;
-            this.xrLabel56.Dpi = 254F;
-            this.xrLabel56.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            this.xrLabel56.LocationFloat = new DevExpress.Utils.PointFloat(0F, 1598.145F);
-            this.xrLabel56.Multiline = true;
-            this.xrLabel56.Name = "xrLabel56";
-            this.xrLabel56.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel56.SizeF = new System.Drawing.SizeF(818.0856F, 201.2804F);
-            this.xrLabel56.StylePriority.UseFont = false;
-            this.xrLabel56.StylePriority.UseTextAlignment = false;
-            this.xrLabel56.Text = "XÁC NHẬN CỦA ĐƠN VỊ\r\n(Đơn vị chỉ phải xác nhận khi người tham gia thay\r\n đổi họ, " +
-    "tên đệm, tên, ngày,tháng ,năm sinh)";
-            this.xrLabel56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            // 
-            // xrLabel57
-            // 
-            this.xrLabel57.AllowMarkupText = true;
-            this.xrLabel57.Dpi = 254F;
-            this.xrLabel57.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            this.xrLabel57.LocationFloat = new DevExpress.Utils.PointFloat(891.9664F, 1598.145F);
-            this.xrLabel57.Multiline = true;
-            this.xrLabel57.Name = "xrLabel57";
-            this.xrLabel57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel57.SizeF = new System.Drawing.SizeF(825.9863F, 201.2804F);
-            this.xrLabel57.StylePriority.UseFont = false;
-            this.xrLabel57.StylePriority.UseTextAlignment = false;
-            this.xrLabel57.Text = "Tôi cam đoan những nội dung kê khai là đúng và \r\nchịu trách nhiệm trước pháp luật" +
-    " về những nội dung đã kê khai";
-            this.xrLabel57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // xrLabel23
-            // 
-            this.xrLabel23.AllowMarkupText = true;
-            this.xrLabel23.Dpi = 254F;
-            this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DATA].[SO_CMND]")});
-            this.xrLabel23.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(1190.314F, 532.6661F);
-            this.xrLabel23.Multiline = true;
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(527.6417F, 66.58328F);
-            this.xrLabel23.StylePriority.UseFont = false;
-            this.xrLabel23.StylePriority.UseTextAlignment = false;
-            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel68
-            // 
-            this.xrLabel68.AllowMarkupText = true;
-            this.xrLabel68.Dpi = 254F;
-            this.xrLabel68.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            this.xrLabel68.LocationFloat = new DevExpress.Utils.PointFloat(3.060537F, 118.8333F);
-            this.xrLabel68.Multiline = true;
-            this.xrLabel68.Name = "xrLabel68";
-            this.xrLabel68.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel68.SizeF = new System.Drawing.SizeF(766.1088F, 100.9791F);
-            this.xrLabel68.StylePriority.UseFont = false;
-            this.xrLabel68.StylePriority.UseTextAlignment = false;
-            this.xrLabel68.Text = "(Ban hành kèm theo QĐsố:959 /QĐ-BHXH Ngày 09/09/2015 của BHXH Việt Nam)";
-            this.xrLabel68.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // rptToKhaiBHXH
             // 

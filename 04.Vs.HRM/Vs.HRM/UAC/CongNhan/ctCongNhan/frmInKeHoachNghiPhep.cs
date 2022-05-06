@@ -17,19 +17,23 @@ namespace Vs.HRM
         //sự kiên load form
         private void formInKeHoachNghiPhep_Load(object sender, EventArgs e)
         {
+
             rdo_ChonBaoCao.SelectedIndex = 0;
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboDonVi(slkDonVi);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(slkDonVi, slkXiNghiep);
             Commons.Modules.ObjSystems.LoadCboTo(slkDonVi, slkXiNghiep, slkTo);
             Commons.Modules.ObjSystems.LoadCboLDV(slkLDV);
             Commons.Modules.ObjSystems.LoadCboCN(slkCN);
             //LoadCboLDV();
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+            dTuNgay.EditValue = Convert.ToDateTime((DateTime.Today.Month + "/01/" + DateTime.Today.Year)).ToShortDateString();
+            dDenNgay.EditValue = Convert.ToDateTime((DateTime.Today.Month + "/01/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
             int SoNgay = DateTime.Today.Day-1;
             dTuNgay.EditValue = DateTime.Today.AddDays(-SoNgay);
             dNgayIn.EditValue = DateTime.Today;
+            Commons.OSystems.SetDateEditFormat(dNgayIn);
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
         }
         //private void LoadCboLDV()
         //{
@@ -118,14 +122,14 @@ namespace Vs.HRM
 
         private void slkDonVi_EditValueChanged(object sender, EventArgs e)
         {
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboXiNghiep(slkLDV, slkXiNghiep);
             Commons.Modules.ObjSystems.LoadCboTo(slkLDV, slkXiNghiep, slkTo);
         }
 
         private void slkXiNghiep_EditValueChanged(object sender, EventArgs e)
         {
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             Commons.Modules.ObjSystems.LoadCboTo(slkLDV, slkXiNghiep, slkTo);
         }
     }

@@ -40,19 +40,25 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -65,6 +71,10 @@
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\..\01.VietSoftHRM\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -186,11 +196,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\rptBangChamCongTongHopThang_MT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptBangChamCongTongHopThang_MT.Designer.cs">
+      <DependentUpon>rptBangChamCongTongHopThang_MT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\rptBangTongHopTienPhep.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\rptBangTongHopTienPhep.designer.cs">
       <DependentUpon>rptBangTongHopTienPhep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptBCChenhLechTangCa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptBCChenhLechTangCa.Designer.cs">
+      <DependentUpon>rptBCChenhLechTangCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptBCViPhamNoiQuyLD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptBCViPhamNoiQuyLD.designer.cs">
+      <DependentUpon>rptBCViPhamNoiQuyLD.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\rptDanhSachTienPPhep.cs">
       <SubType>Component</SubType>
@@ -215,6 +243,12 @@
     </Compile>
     <Compile Include="Report\rptDSChuyenCongTac.Designer.cs">
       <DependentUpon>rptDSChuyenCongTac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptDSNVTangCaTheoNgay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptDSNVTangCaTheoNgay.designer.cs">
+      <DependentUpon>rptDSNVTangCaTheoNgay.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\rptDSNVVachTheLoi.cs">
       <SubType>Component</SubType>
@@ -372,6 +406,12 @@
     <Compile Include="UAC\BaoCao\ucBaoCaoQuanLyPhep.Designer.cs">
       <DependentUpon>ucBaoCaoQuanLyPhep.cs</DependentUpon>
     </Compile>
+    <Compile Include="UAC\BaoCao\ucBaoCaoTongHopNam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UAC\BaoCao\ucBaoCaoTongHopNam.Designer.cs">
+      <DependentUpon>ucBaoCaoTongHopNam.cs</DependentUpon>
+    </Compile>
     <Compile Include="UAC\BaoCao\ucBaoCaoTongHopThang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -383,6 +423,18 @@
     </Compile>
     <Compile Include="UAC\BaoCao\ucBaoCaoTheoNgay.Designer.cs">
       <DependentUpon>ucBaoCaoTheoNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UAC\ucDiemChuyenCanThang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UAC\ucDiemChuyenCanThang.Designer.cs">
+      <DependentUpon>ucDiemChuyenCanThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UAC\ucViPhamNoiQuyLD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UAC\ucViPhamNoiQuyLD.Designer.cs">
+      <DependentUpon>ucViPhamNoiQuyLD.cs</DependentUpon>
     </Compile>
     <Compile Include="UAC\ucPhepThang.cs">
       <SubType>UserControl</SubType>
@@ -467,8 +519,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\rptBangChamCongTongHopThang_MT.resx">
+      <DependentUpon>rptBangChamCongTongHopThang_MT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptBangTongHopTienPhep.resx">
       <DependentUpon>rptBangTongHopTienPhep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptBCChenhLechTangCa.resx">
+      <DependentUpon>rptBCChenhLechTangCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptBCViPhamNoiQuyLD.resx">
+      <DependentUpon>rptBCViPhamNoiQuyLD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rptDanhSachTienPPhep.resx">
       <DependentUpon>rptDanhSachTienPPhep.cs</DependentUpon>
@@ -481,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rptDSChuyenCongTac.resx">
       <DependentUpon>rptDSChuyenCongTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptDSNVTangCaTheoNgay.resx">
+      <DependentUpon>rptDSNVTangCaTheoNgay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rptDSNVVachTheLoi.resx">
       <DependentUpon>rptDSNVVachTheLoi.cs</DependentUpon>
@@ -560,11 +624,20 @@
     <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoQuanLyPhep.resx">
       <DependentUpon>ucBaoCaoQuanLyPhep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoTongHopNam.resx">
+      <DependentUpon>ucBaoCaoTongHopNam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoTongHopThang.resx">
       <DependentUpon>ucBaoCaoTongHopThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UAC\BaoCao\ucBaoCaoTheoNgay.resx">
       <DependentUpon>ucBaoCaoTheoNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UAC\ucDiemChuyenCanThang.resx">
+      <DependentUpon>ucDiemChuyenCanThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UAC\ucViPhamNoiQuyLD.resx">
+      <DependentUpon>ucViPhamNoiQuyLD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UAC\ucPhepThang.resx">
       <DependentUpon>ucPhepThang.cs</DependentUpon>
@@ -578,6 +651,7 @@
     <EmbeddedResource Include="XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -672,24 +746,6 @@
     <None Include="Resources\xeploai.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>

@@ -148,6 +148,22 @@ namespace VietSoftHRM
                         InTo.Dock = DockStyle.Fill;
                         break;
                     }
+                case "mnuBCTongHopNam":
+                    {
+                        ucBaoCaoTongHopNam tmp = new ucBaoCaoTongHopNam();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(tmp);
+                        tmp.Dock = DockStyle.Fill;
+                        break;
+                    }
+                case "mnuBDTangGiamCN":
+                    {
+                        ucBaoCaoBDTangGiamCN InBDTangGiamCN = new ucBaoCaoBDTangGiamCN();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(InBDTangGiamCN);
+                        InBDTangGiamCN.Dock = DockStyle.Fill;
+                        break;
+                    }
                 case "mnuBCLDTo":
                     {
                         ucBaoCaoLaoDongTo InLDTo = new ucBaoCaoLaoDongTo();
@@ -381,6 +397,14 @@ namespace VietSoftHRM
                         tmp.Dock = DockStyle.Fill;
                         break;
                     }
+                case "mnuBCLuongThang":
+                    {
+                        ucBCLuongThang tmp = new ucBCLuongThang();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(tmp);
+                        tmp.Dock = DockStyle.Fill;
+                        break;
+                    }
                 default:
                     {
                         ucBlank tmp = new ucBlank();
@@ -392,7 +416,7 @@ namespace VietSoftHRM
                     break;
             }
             Commons.Modules.ObjSystems.HideWaitForm();
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            //accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
         private void ucListBaoCao_Load(object sender, EventArgs e)
         {

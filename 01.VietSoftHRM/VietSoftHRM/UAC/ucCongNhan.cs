@@ -260,7 +260,7 @@ namespace VietSoftHRM
                     break;
             }
             Commons.Modules.ObjSystems.HideWaitForm();
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+           // accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
         private void ucCongNhan_Load(object sender, EventArgs e)
         {

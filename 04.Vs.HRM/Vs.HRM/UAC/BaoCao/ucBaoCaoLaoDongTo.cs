@@ -67,6 +67,7 @@ namespace Vs.HRM
             Commons.Modules.sPS = "0Load";
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
             lk_NgayIn.EditValue = DateTime.Today;
         }
 

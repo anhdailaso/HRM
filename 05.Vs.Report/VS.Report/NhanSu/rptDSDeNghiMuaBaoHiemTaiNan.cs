@@ -9,11 +9,13 @@ namespace Vs.Report
 {
     public partial class rptDSDeNghiMuaBaoHiemTaiNan : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptDSDeNghiMuaBaoHiemTaiNan(DateTime ngayin,string NamBC)
+        public rptDSDeNghiMuaBaoHiemTaiNan(DateTime ngayin, DateTime TuNgay, DateTime DenNgay)
         {
 
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
+
+            NONlbGiaiDoan.Text = "Từ ngày " + TuNgay.ToString("dd/MM/yyyy") + " đến ngày " + DenNgay.ToString("dd/MM/yyyy");
 
             DataTable dtNgu = new DataTable();
             dtNgu.Load(Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'NgayThangNam' "));
@@ -25,8 +27,6 @@ namespace Vs.Report
             lblNgay.Text = Commons.Modules.ObjSystems.GetNN(dtNgu, "Ngay", "NgayThangNam") + " " + Ngay.Substring(Ngay.Length - 2, 2) + " " +
                 Commons.Modules.ObjSystems.GetNN(dtNgu, "Thang", "NgayThangNam") + " " + Thang.Substring(Thang.Length - 2, 2) + " " +
                 Commons.Modules.ObjSystems.GetNN(dtNgu, "Nam", "NgayThangNam") + " " + Nam.Substring(Nam.Length - 4, 4);
-
-            NONlblTIEU_DE.Text = NamBC;
          }
 
     }

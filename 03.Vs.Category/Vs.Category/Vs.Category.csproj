@@ -59,6 +59,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
@@ -85,6 +86,24 @@
     <Compile Include="Forms\frmEditDS_KIP.Designer.cs">
       <DependentUpon>frmEditDS_KIP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmEditLOAI_HINH_CONG_VIEC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditLOAI_HINH_CONG_VIEC.Designer.cs">
+      <DependentUpon>frmEditLOAI_HINH_CONG_VIEC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEditNOI_QUY_LAO_DONG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditNOI_QUY_LAO_DONG.Designer.cs">
+      <DependentUpon>frmEditNOI_QUY_LAO_DONG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEditNGANH_TUYEN_DUNG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditNGANH_TUYEN_DUNG.Designer.cs">
+      <DependentUpon>frmEditNGANH_TUYEN_DUNG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmEditNGAY_NGHI_LE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +121,12 @@
     </Compile>
     <Compile Include="Forms\frmEditLOAI_KHEN_THUONG.Designer.cs">
       <DependentUpon>frmEditLOAI_KHEN_THUONG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEditNGUON_TUYEN_DUNG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditNGUON_TUYEN_DUNG.Designer.cs">
+      <DependentUpon>frmEditNGUON_TUYEN_DUNG.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmEditNHOM_CHAM_CONG.cs">
       <SubType>Form</SubType>
@@ -253,6 +278,12 @@
     <Compile Include="Forms\frmEditQUAN.Designer.cs">
       <DependentUpon>frmEditQUAN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmEditMAU_BAO_CAO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditMAU_BAO_CAO.Designer.cs">
+      <DependentUpon>frmEditMAU_BAO_CAO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -260,6 +291,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditDS_KIP.resx">
       <DependentUpon>frmEditDS_KIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditLOAI_HINH_CONG_VIEC.resx">
+      <DependentUpon>frmEditLOAI_HINH_CONG_VIEC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditNOI_QUY_LAO_DONG.resx">
+      <DependentUpon>frmEditNOI_QUY_LAO_DONG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditNGANH_TUYEN_DUNG.resx">
+      <DependentUpon>frmEditNGANH_TUYEN_DUNG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditNGAY_NGHI_LE.resx">
       <DependentUpon>frmEditNGAY_NGHI_LE.cs</DependentUpon>
@@ -269,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditLOAI_KHEN_THUONG.resx">
       <DependentUpon>frmEditLOAI_KHEN_THUONG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditNGUON_TUYEN_DUNG.resx">
+      <DependentUpon>frmEditNGUON_TUYEN_DUNG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditNHOM_CHAM_CONG.resx">
       <DependentUpon>frmEditNHOM_CHAM_CONG.cs</DependentUpon>
@@ -345,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditQUAN.resx">
       <DependentUpon>frmEditQUAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditMAU_BAO_CAO.resx">
+      <DependentUpon>frmEditMAU_BAO_CAO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

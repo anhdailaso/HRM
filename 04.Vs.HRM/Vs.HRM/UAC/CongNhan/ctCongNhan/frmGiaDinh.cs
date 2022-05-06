@@ -84,16 +84,13 @@ namespace Vs.HRM
                     {
 
                         enableButon(true);
-                        if (grvGiaDinh.RowCount == 1)
-                        {
-                            Bindingdata(false);
-                        }
+                        Bindingdata(false);
                         dxValidationProvider1.Validate();
                         break;
                     }
                 case "thoat":
                     {
-                        if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonThoatChuongtrinh"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeThoat"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+                        if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonThoatChuongtrinh"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
                         this.Close();
                         break;
                     }
@@ -148,10 +145,9 @@ namespace Vs.HRM
             grvGiaDinh.Columns["ID_CN_QH"].Visible = false;
             grvGiaDinh.Columns["NGUOI_GH"].Visible = false;
 
-            //for(int i=0;i< grvGiaDinh.Columns.Count;i++)
-            //{
-            //    grvGiaDinh.Columns[i].AppearanceHeader.BackColor = Color.FromArgb(240, 128, 25);
-            //}
+            grvGiaDinh.Columns["NGAY_SINH"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            grvGiaDinh.Columns["NGAY_SINH"].DisplayFormat.FormatString = "dd/MM/yyyy";
+
 
             if (id != -1)
             {
@@ -166,7 +162,7 @@ namespace Vs.HRM
         //hàm bingding dữ liệu
         private void Bindingdata(bool bthem)
         {
-            Commons.Modules.sPS = "0Load";
+            Commons.Modules.sLoad = "0Load";
             if (bthem == true || grvGiaDinh.RowCount == 0)
             {
                 //lấy dữ liệu mặc định theo id công nhân
@@ -251,7 +247,7 @@ namespace Vs.HRM
         //hàm xử lý khi xóa dữ liệu
         private void DeleteData()
         {
-            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteGiaDinh"), Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTieuDeXoa"), MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgDeleteGiaDinh"), Commons.Modules.ObjLanguages.GetLanguage("msgThongBao", "msg_Caption"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             //xóa
             try
             {

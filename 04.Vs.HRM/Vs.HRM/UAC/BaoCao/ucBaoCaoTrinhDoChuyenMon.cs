@@ -45,6 +45,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
                                             cmd.Parameters.Add("@ID_LOAI_TD", SqlDbType.Int).Value = cbTrinhDo.EditValue;
                                             cmd.Parameters.Add("@CHUYEN_MON", SqlDbType.NVarChar).Value = cbChuyenMon.EditValue;
+                                            cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                             cmd.CommandType = CommandType.StoredProcedure;
                                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                             DataSet ds = new DataSet();
@@ -54,7 +55,7 @@ namespace Vs.HRM
                                             dt.TableName = "DA_TA";
                                             frm.AddDataSource(dt);
                                         }
-                                        catch (Exception ex)
+                                        catch 
                                         { }
 
 
@@ -80,6 +81,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
                                             cmd.Parameters.Add("@ID_LOAI_TD", SqlDbType.Int).Value = cbTrinhDo.EditValue;
                                             cmd.Parameters.Add("@CHUYEN_MON", SqlDbType.NVarChar).Value = cbChuyenMon.EditValue;
+                                            cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                             cmd.CommandType = CommandType.StoredProcedure;
                                             System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
                                             DataSet ds = new DataSet();
@@ -121,6 +123,7 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cbTrinhDo, Commons.Modules.ObjSystems.DataLoaiTrinhDo(true), "ID_LOAI_TD", "TEN_LOAI_TD", "TEN_LOAI_TD");
             Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cbChuyenMon, Commons.Modules.ObjSystems.DataChuyenMon(true), "CHUYEN_MON", "CHUYEN_MON2", "CHUYEN_MON2");
 
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
             lk_NgayIn.EditValue = DateTime.Today;
         }
 

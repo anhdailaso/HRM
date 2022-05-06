@@ -125,9 +125,9 @@
             // 
             // NgayIn
             // 
-            this.tablePanel1.SetColumn(this.NgayIn, 6);
+            this.tablePanel1.SetColumn(this.NgayIn, 5);
             this.NgayIn.EditValue = null;
-            this.NgayIn.Location = new System.Drawing.Point(815, 75);
+            this.NgayIn.Location = new System.Drawing.Point(659, 75);
             this.NgayIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NgayIn.Name = "NgayIn";
             this.NgayIn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -140,8 +140,8 @@
             // 
             // lbNgayIn
             // 
-            this.tablePanel1.SetColumn(this.lbNgayIn, 5);
-            this.lbNgayIn.Location = new System.Drawing.Point(687, 78);
+            this.tablePanel1.SetColumn(this.lbNgayIn, 4);
+            this.lbNgayIn.Location = new System.Drawing.Point(530, 78);
             this.lbNgayIn.Margin = new System.Windows.Forms.Padding(32, 8, 3, 3);
             this.lbNgayIn.Name = "lbNgayIn";
             this.tablePanel1.SetRow(this.lbNgayIn, 2);
@@ -151,10 +151,9 @@
             // 
             // dtThang
             // 
-            this.tablePanel1.SetColumn(this.dtThang, 4);
-            this.dtThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel1.SetColumn(this.dtThang, 3);
             this.dtThang.EditValue = null;
-            this.dtThang.Location = new System.Drawing.Point(502, 75);
+            this.dtThang.Location = new System.Drawing.Point(345, 75);
             this.dtThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtThang.Name = "dtThang";
             this.dtThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -174,13 +173,12 @@
             // 
             // labelControl1
             // 
-            this.tablePanel1.SetColumn(this.labelControl1, 3);
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(373, 78);
+            this.tablePanel1.SetColumn(this.labelControl1, 2);
+            this.labelControl1.Location = new System.Drawing.Point(217, 78);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(32, 8, 3, 3);
             this.labelControl1.Name = "labelControl1";
             this.tablePanel1.SetRow(this.labelControl1, 2);
-            this.labelControl1.Size = new System.Drawing.Size(122, 24);
+            this.labelControl1.Size = new System.Drawing.Size(90, 20);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "labelControl1";
             // 

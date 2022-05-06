@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBCDanhGiaTrinhDo));
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.NONNpage = new DevExpress.XtraReports.UI.XRPageInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -52,7 +53,7 @@
             this.tiMSoCN = new DevExpress.XtraReports.UI.XRTableCell();
             this.tiHoTen = new DevExpress.XtraReports.UI.XRTableCell();
             this.tiXiNghiep = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tiPhongBan = new DevExpress.XtraReports.UI.XRTableCell();
+            this.tiTo = new DevExpress.XtraReports.UI.XRTableCell();
             this.tiChucVu = new DevExpress.XtraReports.UI.XRTableCell();
             this.tiXepLoai = new DevExpress.XtraReports.UI.XRTableCell();
             this.tiDiem = new DevExpress.XtraReports.UI.XRTableCell();
@@ -68,7 +69,6 @@
             this.lblNgay = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.NONNpage = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -86,6 +86,16 @@
             this.BottomMargin.Dpi = 254F;
             this.BottomMargin.HeightF = 192F;
             this.BottomMargin.Name = "BottomMargin";
+            // 
+            // NONNpage
+            // 
+            this.NONNpage.Dpi = 254F;
+            this.NONNpage.LocationFloat = new DevExpress.Utils.PointFloat(0F, 68.99998F);
+            this.NONNpage.Name = "NONNpage";
+            this.NONNpage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.NONNpage.SizeF = new System.Drawing.SizeF(2716F, 58.42001F);
+            this.NONNpage.StylePriority.UseTextAlignment = false;
+            this.NONNpage.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // Detail
             // 
@@ -108,7 +118,7 @@
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(1846F, 75F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(2716F, 75F);
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseTextAlignment = false;
             this.xrTable1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -161,7 +171,7 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "DATA.MS_CN";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell8.Weight = 0.900365293662997D;
+            this.xrTableCell8.Weight = 0.57157818927353943D;
             // 
             // xrTableCell7
             // 
@@ -177,7 +187,7 @@
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell7.Weight = 1.586054493498642D;
+            this.xrTableCell7.Weight = 1.6906684938147412D;
             // 
             // xrTableCell11
             // 
@@ -193,7 +203,7 @@
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
             this.xrTableCell11.Text = "xrTableCell11";
             this.xrTableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell11.Weight = 0.83700318680961883D;
+            this.xrTableCell11.Weight = 1.106011428829256D;
             // 
             // xrTableCell13
             // 
@@ -209,7 +219,7 @@
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             this.xrTableCell13.Text = "xrTableCell13";
             this.xrTableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell13.Weight = 0.89197436411770248D;
+            this.xrTableCell13.Weight = 1.1460370717531736D;
             // 
             // xrTableCell2
             // 
@@ -225,7 +235,7 @@
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell2.Weight = 1.0208921055686184D;
+            this.xrTableCell2.Weight = 1.1105611748207596D;
             // 
             // xrTableCell5
             // 
@@ -241,7 +251,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell5.Weight = 0.809289490994612D;
+            this.xrTableCell5.Weight = 0.56269916270251885D;
             // 
             // xrTableCell10
             // 
@@ -257,7 +267,7 @@
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "xrTableCell10";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell10.Weight = 0.56282174424664189D;
+            this.xrTableCell10.Weight = 0.42084515770484432D;
             // 
             // xrTableCell3
             // 
@@ -283,7 +293,7 @@
             this.NONlblTIEU_DE.Multiline = true;
             this.NONlblTIEU_DE.Name = "NONlblTIEU_DE";
             this.NONlblTIEU_DE.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
-            this.NONlblTIEU_DE.SizeF = new System.Drawing.SizeF(1689.996F, 99.99998F);
+            this.NONlblTIEU_DE.SizeF = new System.Drawing.SizeF(2716F, 99.99998F);
             this.NONlblTIEU_DE.StylePriority.UseFont = false;
             this.NONlblTIEU_DE.StylePriority.UsePadding = false;
             this.NONlblTIEU_DE.StylePriority.UseTextAlignment = false;
@@ -310,7 +320,7 @@
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(1846F, 75F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(2716F, 75F);
             this.xrTable2.StylePriority.UseBorders = false;
             this.xrTable2.StylePriority.UseFont = false;
             this.xrTable2.StylePriority.UseTextAlignment = false;
@@ -323,7 +333,7 @@
             this.tiMSoCN,
             this.tiHoTen,
             this.tiXiNghiep,
-            this.tiPhongBan,
+            this.tiTo,
             this.tiChucVu,
             this.tiXepLoai,
             this.tiDiem,
@@ -353,7 +363,7 @@
             this.tiMSoCN.Name = "tiMSoCN";
             this.tiMSoCN.StylePriority.UseFont = false;
             this.tiMSoCN.Text = "Mã số CN";
-            this.tiMSoCN.Weight = 3.7564647789178229D;
+            this.tiMSoCN.Weight = 2.3847129877544155D;
             // 
             // tiHoTen
             // 
@@ -363,7 +373,7 @@
             this.tiHoTen.Name = "tiHoTen";
             this.tiHoTen.StylePriority.UseFont = false;
             this.tiHoTen.Text = "Họ tên";
-            this.tiHoTen.Weight = 6.617266141474528D;
+            this.tiHoTen.Weight = 7.0537327839321042D;
             // 
             // tiXiNghiep
             // 
@@ -373,17 +383,17 @@
             this.tiXiNghiep.Name = "tiXiNghiep";
             this.tiXiNghiep.StylePriority.UseFont = false;
             this.tiXiNghiep.Text = "Xí nghiệp";
-            this.tiXiNghiep.Weight = 3.4921101957864309D;
+            this.tiXiNghiep.Weight = 4.6144520146411425D;
             // 
-            // tiPhongBan
+            // tiTo
             // 
-            this.tiPhongBan.Dpi = 254F;
-            this.tiPhongBan.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiPhongBan.Multiline = true;
-            this.tiPhongBan.Name = "tiPhongBan";
-            this.tiPhongBan.StylePriority.UseFont = false;
-            this.tiPhongBan.Text = "Phòng ban";
-            this.tiPhongBan.Weight = 3.7214564036987694D;
+            this.tiTo.Dpi = 254F;
+            this.tiTo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiTo.Multiline = true;
+            this.tiTo.Name = "tiTo";
+            this.tiTo.StylePriority.UseFont = false;
+            this.tiTo.Text = "Phòng ban";
+            this.tiTo.Weight = 4.7814452799859515D;
             // 
             // tiChucVu
             // 
@@ -393,7 +403,7 @@
             this.tiChucVu.Name = "tiChucVu";
             this.tiChucVu.StylePriority.UseFont = false;
             this.tiChucVu.Text = "Chức vụ";
-            this.tiChucVu.Weight = 4.2593210268955275D;
+            this.tiChucVu.Weight = 4.63343436719329D;
             // 
             // tiXepLoai
             // 
@@ -403,7 +413,7 @@
             this.tiXepLoai.Name = "tiXepLoai";
             this.tiXepLoai.StylePriority.UseFont = false;
             this.tiXepLoai.Text = "Xếp loại";
-            this.tiXepLoai.Weight = 3.3764820641842026D;
+            this.tiXepLoai.Weight = 2.3476687602000741D;
             // 
             // tiDiem
             // 
@@ -413,7 +423,7 @@
             this.tiDiem.Name = "tiDiem";
             this.tiDiem.StylePriority.UseFont = false;
             this.tiDiem.Text = "Điểm";
-            this.tiDiem.Weight = 2.3481799660523124D;
+            this.tiDiem.Weight = 1.7558343833026151D;
             // 
             // tiGhiChu
             // 
@@ -546,7 +556,7 @@
             this.lbNguoiLapBieu.AutoWidth = true;
             this.lbNguoiLapBieu.Dpi = 254F;
             this.lbNguoiLapBieu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNguoiLapBieu.LocationFloat = new DevExpress.Utils.PointFloat(1150F, 88.71164F);
+            this.lbNguoiLapBieu.LocationFloat = new DevExpress.Utils.PointFloat(1898.771F, 88.71164F);
             this.lbNguoiLapBieu.Multiline = true;
             this.lbNguoiLapBieu.Name = "lbNguoiLapBieu";
             this.lbNguoiLapBieu.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -562,7 +572,7 @@
             this.lblNgay.AutoWidth = true;
             this.lblNgay.Dpi = 254F;
             this.lblNgay.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgay.LocationFloat = new DevExpress.Utils.PointFloat(1150F, 25.00001F);
+            this.lblNgay.LocationFloat = new DevExpress.Utils.PointFloat(1898.771F, 25.00001F);
             this.lblNgay.Multiline = true;
             this.lblNgay.Name = "lblNgay";
             this.lblNgay.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -599,16 +609,6 @@
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(372.2645F, 210F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
-            // NONNpage
-            // 
-            this.NONNpage.Dpi = 254F;
-            this.NONNpage.LocationFloat = new DevExpress.Utils.PointFloat(0F, 68.99998F);
-            this.NONNpage.Name = "NONNpage";
-            this.NONNpage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.NONNpage.SizeF = new System.Drawing.SizeF(1846F, 58.42001F);
-            this.NONNpage.StylePriority.UseTextAlignment = false;
-            this.NONNpage.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // rptBCDanhGiaTrinhDo
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -620,9 +620,10 @@
             this.ReportHeader});
             this.Dpi = 254F;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(119, 135, 190, 192);
-            this.PageHeight = 2970;
-            this.PageWidth = 2100;
+            this.PageHeight = 2100;
+            this.PageWidth = 2970;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 25F;
@@ -673,7 +674,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
         private DevExpress.XtraReports.UI.XRTableCell tiXiNghiep;
-        private DevExpress.XtraReports.UI.XRTableCell tiPhongBan;
+        private DevExpress.XtraReports.UI.XRTableCell tiTo;
         private DevExpress.XtraReports.UI.XRPageInfo NONNpage;
     }
 }

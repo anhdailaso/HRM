@@ -43,7 +43,7 @@ namespace Vs.HRM
                                         cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
 
                                         cmd.Parameters.Add("@ID_CN", SqlDbType.Int).Value = cbCongNhan.EditValue;
-                                        cmd.Parameters.Add("@TRUONG_DT", SqlDbType.Int).Value = cbTruongDaoTao.EditValue;
+                                        cmd.Parameters.Add("@TRUONG_DT", SqlDbType.NVarChar).Value = cbTruongDaoTao.EditValue;
                                         cmd.Parameters.Add("@LINH_VUC_DT", SqlDbType.NVarChar).Value = cbLinhVucDaoTao.EditValue;
                                         cmd.Parameters.Add("@HINH_THUC_DT", SqlDbType.NVarChar).Value = cbHinhThucDaoTao.EditValue;
                                         cmd.Parameters.Add("@ID_KDT", SqlDbType.BigInt).Value = cbKhoaDaoTao.EditValue;
@@ -61,7 +61,7 @@ namespace Vs.HRM
                                         dt.TableName = "DA_TA";
                                         frm.AddDataSource(dt);
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
                                     }
 
@@ -94,7 +94,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
 
                                             cmd.Parameters.Add("@ID_CN", SqlDbType.Int).Value = cbCongNhan.EditValue;
-                                            cmd.Parameters.Add("@TRUONG_DT", SqlDbType.Int).Value = cbTruongDaoTao.EditValue;
+                                            cmd.Parameters.Add("@TRUONG_DT", SqlDbType.NVarChar).Value = cbTruongDaoTao.EditValue;
                                             cmd.Parameters.Add("@LINH_VUC_DT", SqlDbType.NVarChar).Value = cbLinhVucDaoTao.EditValue;
                                             cmd.Parameters.Add("@HINH_THUC_DT", SqlDbType.NVarChar).Value = cbHinhThucDaoTao.EditValue;
                                             cmd.Parameters.Add("@ID_KDT", SqlDbType.BigInt).Value = cbKhoaDaoTao.EditValue;
@@ -143,7 +143,7 @@ namespace Vs.HRM
                                             cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
 
                                             cmd.Parameters.Add("@ID_CN", SqlDbType.Int).Value = cbCongNhan.EditValue;
-                                            cmd.Parameters.Add("@TRUONG_DT", SqlDbType.Int).Value = cbTruongDaoTao.EditValue;
+                                            cmd.Parameters.Add("@TRUONG_DT", SqlDbType.NVarChar).Value = cbTruongDaoTao.EditValue;
                                             cmd.Parameters.Add("@LINH_VUC_DT", SqlDbType.NVarChar).Value = cbLinhVucDaoTao.EditValue;
                                             cmd.Parameters.Add("@HINH_THUC_DT", SqlDbType.NVarChar).Value = cbHinhThucDaoTao.EditValue;
                                             cmd.Parameters.Add("@ID_KDT", SqlDbType.BigInt).Value = cbKhoaDaoTao.EditValue;
@@ -185,7 +185,7 @@ namespace Vs.HRM
             try
             {
                 Commons.Modules.sPS = "0Load";
-                DataTable dt = Commons.Modules.ObjSystems.DataCongNhanTheoDK(true, Convert.ToInt32(LK_DON_VI.EditValue), Convert.ToInt32(LK_XI_NGHIEP.EditValue), Convert.ToInt32(LK_TO.EditValue));
+                DataTable dt = Commons.Modules.ObjSystems.DataCongNhanTheoDK(true, Convert.ToInt32(LK_DON_VI.EditValue), Convert.ToInt32(LK_XI_NGHIEP.EditValue), Convert.ToInt32(LK_TO.EditValue), Convert.ToDateTime(dTuNgay.EditValue), Convert.ToDateTime(dDenNgay.EditValue));
                 Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cbCongNhan, dt, "ID_CN", "TEN_CN", "TEN_CN");
                 cbCongNhan.Properties.View.Columns[1].Visible = false;
                 cbCongNhan.EditValue = -1;
@@ -198,10 +198,16 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
-            LoadNhanSu();
-            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+
+            Commons.OSystems.SetDateEditFormat(dTuNgay);
+            Commons.OSystems.SetDateEditFormat(dDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
+            dTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             lk_NgayIn.EditValue = DateTime.Today;
+
+            LoadNhanSu();
 
             try
             {
@@ -235,6 +241,11 @@ namespace Vs.HRM
         {
 
         }
-        
+
+        private void LK_TO_EditValueChanged(object sender, EventArgs e)
+        {
+            Commons.Modules.sPS = "0Load";
+            LoadNhanSu();
+        }
     }
 }

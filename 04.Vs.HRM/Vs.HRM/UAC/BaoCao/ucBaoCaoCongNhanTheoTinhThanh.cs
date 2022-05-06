@@ -52,7 +52,7 @@ namespace Vs.HRM
                                                         cmd.Parameters.Add("@NQuan", SqlDbType.NVarChar).Value = LK_NguyenQuan.EditValue;
                                                         cmd.Parameters.Add("@ID_TP", SqlDbType.Int).Value = LK_TinhThanh.EditValue;
                                                         cmd.Parameters.Add("@ID_QUAN", SqlDbType.Int).Value = LK_QuanHuyen.EditValue;
-                                                  //      cmd.Parameters.Add("@ID_PX", SqlDbType.Int).Value = LK_PhuongXa.EditValue;
+                                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                                         cmd.Parameters.Add("@LBCao", SqlDbType.Int).Value = 1;
                                                         cmd.CommandType = CommandType.StoredProcedure;
                                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
@@ -91,7 +91,7 @@ namespace Vs.HRM
                                                         cmd.Parameters.Add("@NQuan", SqlDbType.NVarChar).Value = LK_NguyenQuan.EditValue;
                                                         cmd.Parameters.Add("@ID_TP", SqlDbType.Int).Value = LK_TinhThanh.EditValue;
                                                         cmd.Parameters.Add("@ID_QUAN", SqlDbType.Int).Value = LK_QuanHuyen.EditValue;
-                                                        //      cmd.Parameters.Add("@ID_PX", SqlDbType.Int).Value = LK_PhuongXa.EditValue;
+                                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                                         cmd.Parameters.Add("@LBCao", SqlDbType.Int).Value = 2;
                                                         cmd.CommandType = CommandType.StoredProcedure;
                                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
@@ -141,7 +141,7 @@ namespace Vs.HRM
                                                         cmd.Parameters.Add("@NQuan", SqlDbType.NVarChar).Value = LK_NguyenQuan.EditValue;
                                                         cmd.Parameters.Add("@ID_TP", SqlDbType.Int).Value = LK_TinhThanh.EditValue;
                                                         cmd.Parameters.Add("@ID_QUAN", SqlDbType.Int).Value = LK_QuanHuyen.EditValue;
-                                                        //      cmd.Parameters.Add("@ID_PX", SqlDbType.Int).Value = LK_PhuongXa.EditValue;
+                                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                                         cmd.Parameters.Add("@LBCao", SqlDbType.Int).Value = 3;
                                                         cmd.CommandType = CommandType.StoredProcedure;
                                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
@@ -180,7 +180,7 @@ namespace Vs.HRM
                                                         cmd.Parameters.Add("@NQuan", SqlDbType.NVarChar).Value = LK_NguyenQuan.EditValue;
                                                         cmd.Parameters.Add("@ID_TP", SqlDbType.Int).Value = LK_TinhThanh.EditValue;
                                                         cmd.Parameters.Add("@ID_QUAN", SqlDbType.Int).Value = LK_QuanHuyen.EditValue;
-                                                        //      cmd.Parameters.Add("@ID_PX", SqlDbType.Int).Value = LK_PhuongXa.EditValue;
+                                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = lk_NgayIn.EditValue;
                                                         cmd.Parameters.Add("@LBCao", SqlDbType.Int).Value = 4;
                                                         cmd.CommandType = CommandType.StoredProcedure;
                                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
@@ -238,6 +238,7 @@ namespace Vs.HRM
             try
             {
                 Commons.Modules.ObjSystems.LoadCboNguyenQuan(LK_NguyenQuan);
+                LK_NguyenQuan.EditValue = "-1";
             }
             catch
             {
@@ -245,6 +246,7 @@ namespace Vs.HRM
             }
             radioGroup1_SelectedIndexChanged(null, null);
 
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
             lk_NgayIn.EditValue = DateTime.Today;
         }
 

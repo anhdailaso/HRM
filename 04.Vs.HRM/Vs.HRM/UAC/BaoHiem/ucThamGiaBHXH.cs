@@ -95,7 +95,6 @@ namespace Vs.HRM
             if (dt == null || dt.Rows.Count == 0) return;
             dt.TableName = "DATA";
             frm.AddDataSource(dt);
-            frm.AddDataSource(dt);
 
             frm.ShowDialog();
         }
@@ -164,7 +163,7 @@ namespace Vs.HRM
                 grvThamGiaBHXH.Columns["MUC_LUONG_DONG"].DisplayFormat.FormatType = FormatType.Numeric;
                 grvThamGiaBHXH.Columns["MUC_LUONG_DONG"].DisplayFormat.FormatString = Commons.Modules.sSoLeTT;
             }
-            catch (Exception ex)
+            catch 
             {
                 grdThamGiaBHXH.DataSource = null;
             }

@@ -305,6 +305,7 @@
             this.tablePanel1.SetRow(this.LK_TO, 1);
             this.LK_TO.Size = new System.Drawing.Size(175, 26);
             this.LK_TO.TabIndex = 2;
+            this.LK_TO.EditValueChanged += new System.EventHandler(this.LK_TO_EditValueChanged);
             // 
             // lbTuNgay
             // 

@@ -536,6 +536,9 @@ namespace Vs.TimeAttendance
                 dt.PrimaryKey = new DataColumn[] { dt.Columns["NGAY"] };
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdNgay, grvNgay, dt, false, false, true, true, true, this.Name);
                 grvNgay.Columns["NGAY"].Visible = true;
+                grvNgay.Columns["NGAY"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                grvNgay.Columns["NGAY"].DisplayFormat.FormatString = "dd/MM/yyyy";
+
                 grvNgay.Columns["TH"].Visible = true;
                 grvNgay.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
                 grvNgay.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
@@ -543,6 +546,8 @@ namespace Vs.TimeAttendance
             }
             catch (Exception ex)
             {
+                XtraMessageBox.Show(ex.Message.ToString());
+                //return true;
             }
         }
 

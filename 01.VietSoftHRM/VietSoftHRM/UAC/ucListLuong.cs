@@ -119,6 +119,16 @@ namespace VietSoftHRM
             NONNlab_Link.Text = slinkcha + "/" + button.Text;
             switch (button.Name)
             {
+                case "mnuHopDongBH":
+                    {
+                        frmDonHangBan ctl = new frmDonHangBan(-1);
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(ctl);
+                        Commons.Modules.ObjSystems.HideWaitForm();
+                        ctl.Dock = DockStyle.Fill;
+                        break;
+                    }
+
                 case "mnuQuyTrinhCongNghe":
                     {
                         frmQTCN ctl = new frmQTCN();
@@ -236,6 +246,16 @@ namespace VietSoftHRM
                         ctl.Dock = DockStyle.Fill;
                         break;
                     }
+
+                case "mnuNangSuatChuyen":
+                    {
+                        ucNangSuatChuyen ctl = new ucNangSuatChuyen();
+                        panel2.Controls.Clear();
+                        panel2.Controls.Add(ctl);
+                        Commons.Modules.ObjSystems.HideWaitForm();
+                        ctl.Dock = DockStyle.Fill;
+                        break;
+                    }
                 case "mnuLuongKhoan":
                     {
                         ucLuongKhoan ctl = new ucLuongKhoan();
@@ -287,7 +307,7 @@ namespace VietSoftHRM
                 default:
                     break;
             }
-            accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            //accorMenuleft.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
         }
         private void ucListLuong_Load(object sender, EventArgs e)
         {

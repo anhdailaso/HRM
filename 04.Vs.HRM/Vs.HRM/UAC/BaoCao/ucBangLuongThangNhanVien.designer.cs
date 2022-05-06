@@ -32,6 +32,8 @@
             this.windowsUIButton = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.datNam = new DevExpress.XtraEditors.DateEdit();
+            this.lbNam = new DevExpress.XtraEditors.LabelControl();
             this.rdo_ChonBaoCao = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lbTo = new DevExpress.XtraEditors.LabelControl();
@@ -55,6 +57,8 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdo_ChonBaoCao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_NgayIn.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_NgayIn.Properties)).BeginInit();
@@ -129,6 +133,8 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 15F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 15F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F)});
+            this.tablePanel1.Controls.Add(this.datNam);
+            this.tablePanel1.Controls.Add(this.lbNam);
             this.tablePanel1.Controls.Add(this.rdo_ChonBaoCao);
             this.tablePanel1.Controls.Add(this.labelControl6);
             this.tablePanel1.Controls.Add(this.lbTo);
@@ -159,21 +165,60 @@
             this.tablePanel1.TabIndex = 4;
             this.tablePanel1.Validated += new System.EventHandler(this.tablePanel1_Validated);
             // 
+            // datNam
+            // 
+            this.tablePanel1.SetColumn(this.datNam, 4);
+            this.datNam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datNam.EditValue = null;
+            this.datNam.Location = new System.Drawing.Point(509, 113);
+            this.datNam.Name = "datNam";
+            this.datNam.Properties.Appearance.Options.UseTextOptions = true;
+            this.datNam.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.datNam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNam.Properties.DisplayFormat.FormatString = "yyyy";
+            this.datNam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datNam.Properties.EditFormat.FormatString = "yyyy";
+            this.datNam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datNam.Properties.Mask.EditMask = "yyyy";
+            this.datNam.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.datNam.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
+            this.datNam.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
+            this.tablePanel1.SetRow(this.datNam, 3);
+            this.datNam.Size = new System.Drawing.Size(159, 26);
+            this.datNam.TabIndex = 16;
+            // 
+            // lbNam
+            // 
+            this.tablePanel1.SetColumn(this.lbNam, 3);
+            this.lbNam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNam.Location = new System.Drawing.Point(345, 113);
+            this.lbNam.Name = "lbNam";
+            this.tablePanel1.SetRow(this.lbNam, 3);
+            this.lbNam.Size = new System.Drawing.Size(159, 29);
+            this.lbNam.TabIndex = 15;
+            this.lbNam.Text = "labelControl1";
+            // 
             // rdo_ChonBaoCao
             // 
             this.tablePanel1.SetColumn(this.rdo_ChonBaoCao, 1);
             this.tablePanel1.SetColumnSpan(this.rdo_ChonBaoCao, 2);
             this.rdo_ChonBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdo_ChonBaoCao.Location = new System.Drawing.Point(31, 148);
+            this.rdo_ChonBaoCao.Location = new System.Drawing.Point(31, 113);
             this.rdo_ChonBaoCao.Name = "rdo_ChonBaoCao";
             this.rdo_ChonBaoCao.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bảng lương tháng nhân viên", true, "rdo_GiaiDoan"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Danh sách thay đổi lương theo giai đoạn", true, "rdo_6ThangDauNam"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Quá trình lương nhân viên", true, "rdo_6ThangCuoiNam")});
-            this.tablePanel1.SetRow(this.rdo_ChonBaoCao, 4);
-            this.tablePanel1.SetRowSpan(this.rdo_ChonBaoCao, 3);
-            this.rdo_ChonBaoCao.Size = new System.Drawing.Size(308, 99);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Quá trình lương nhân viên", true, "rdo_6ThangCuoiNam"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Biến động lương nhân viên", true, "rdo_BienDongLuongNV")});
+            this.rdo_ChonBaoCao.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Column;
+            this.tablePanel1.SetRow(this.rdo_ChonBaoCao, 3);
+            this.tablePanel1.SetRowSpan(this.rdo_ChonBaoCao, 4);
+            this.rdo_ChonBaoCao.Size = new System.Drawing.Size(308, 134);
             this.rdo_ChonBaoCao.TabIndex = 4;
+            this.rdo_ChonBaoCao.SelectedIndexChanged += new System.EventHandler(this.rdo_ChonBaoCao_SelectedIndexChanged);
             // 
             // labelControl6
             // 
@@ -427,6 +472,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.tablePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdo_ChonBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_NgayIn.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_NgayIn.Properties)).EndInit();
@@ -471,5 +518,7 @@
         private DevExpress.XtraEditors.DateEdit dTuNgay;
         private DevExpress.XtraEditors.RadioGroup rdo_ChonBaoCao;
         private DevExpress.XtraEditors.DateEdit dtThang;
+        private DevExpress.XtraEditors.LabelControl lbNam;
+        private DevExpress.XtraEditors.DateEdit datNam;
     }
 }

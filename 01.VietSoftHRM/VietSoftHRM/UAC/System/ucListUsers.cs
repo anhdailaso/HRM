@@ -52,17 +52,72 @@ namespace VietSoftHRM
             }
         }
 
-        private void grvListUser_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void grvListUser_RowStyle(object sender, RowStyleEventArgs e)
         {
+            if (e.RowHandle < 0) return;
             try
             {
-                GridView View = sender as GridView;
-                //if (grvListUser.GetRowCellValue(e.RowHandle, "TIME_LOGIN").ToString() != "")
-                    //e.Appearance.BackColor = Color.LimeGreen;
+                if (grvListUser.GetRowCellValue(e.RowHandle, "TIME_LOGIN").ToString() != "")
+                {
+                    e.Appearance.BackColor = Color.LimeGreen;
+                    e.Appearance.BackColor2 = Color.LightCyan;
+                }
             }
             catch
             {
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            tsmiKick.Visible = false;
+            tsmiResetPassword.Visible = false;
+            try
+            {
+                if ((string.IsNullOrEmpty(grvListUser.GetRowCellValue(grvListUser.FocusedRowHandle, grvListUser.Columns["TIME_LOGIN"]).ToString()) ? "" : " ") == " ")
+                {
+                    tsmiKick.Visible = true;
+                }
+
+                if ((string.IsNullOrEmpty(grvListUser.GetRowCellValue(grvListUser.FocusedRowHandle, grvListUser.Columns["USER_NAME"]).ToString()) ? "" : " ") == " ")
+                {
+                    tsmiResetPassword.Visible = true;
+                }
+            }
+            catch
+            {
+                contextMenuStrip1.Close();
+            }
+        }
+
+        private void grvListUser_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InDataRow)
+                {
+                    contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
+                }
+                else
+                {
+                    contextMenuStrip1.Hide();
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void tsmiResetPassword_Click(object sender, EventArgs e)
+        {
+            frmChangePass change = new frmChangePass(grvListUser.GetFocusedRowCellValue("USER_NAME").ToString());
+            change.ShowDialog();
+        }
+
+        private void tsmiKick_Click(object sender, EventArgs e)
+        {
+            Commons.Modules.ObjSystems.User(grvListUser.GetFocusedRowCellValue("USER_NAME").ToString(),2);
+            LoadGridListUser();
         }
     }
 }

@@ -34,19 +34,21 @@ namespace Vs.HRM
                         {
                             case 0:
                                 {
-                                    frm.rpt = new rptDSDeNghiMuaBaoHiemTaiNan(lk_NgayIn.DateTime, NamBC);
+                                    frm.rpt = new rptDSDeNghiMuaBaoHiemTaiNan(lk_NgayIn.DateTime, Convert.ToDateTime(dtTuNgay.EditValue), Convert.ToDateTime(dtDenNgay.EditValue));
                                     try
                                     {
                                         conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                                         conn.Open();
 
-                                        System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptDSDeNghiMuaBaoHiemTaiNan", conn);
+                                        System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("rptDanhSachDeNghiMuaBHTN", conn);
 
                                         cmd.Parameters.Add("@UName", SqlDbType.NVarChar, 50).Value = Commons.Modules.UserName;
                                         cmd.Parameters.Add("@NNgu", SqlDbType.Int).Value = Commons.Modules.TypeLanguage;
                                         cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                         cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                         cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
+                                        cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dtTuNgay.EditValue;
+                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dtDenNgay.EditValue;
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -64,7 +66,7 @@ namespace Vs.HRM
                                 break;
                             case 1:
                                 {
-                                    frm.rpt = new rptHoSoCapCuu(lk_NgayIn.DateTime);
+                                    frm.rpt = new rptHoSoCapCuu(lk_NgayIn.DateTime, Convert.ToDateTime(dtTuNgay.EditValue), Convert.ToDateTime(dtDenNgay.EditValue));
                                     try
                                     {
                                         conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
@@ -77,6 +79,8 @@ namespace Vs.HRM
                                         cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                         cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                         cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
+                                        cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dtTuNgay.EditValue;
+                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dtDenNgay.EditValue;
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -95,7 +99,7 @@ namespace Vs.HRM
 
                             case 2:
                                 {
-                                    frm.rpt = new rptThongKeTaiNan(lk_NgayIn.DateTime, dtTuNgay.DateTime, dtDenNgay.DateTime);
+                                    frm.rpt = new rptThongKeTaiNan(lk_NgayIn.DateTime);
                                     try
                                     {
                                         conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
@@ -108,6 +112,8 @@ namespace Vs.HRM
                                         cmd.Parameters.Add("@Dvi", SqlDbType.Int).Value = LK_DON_VI.EditValue;
                                         cmd.Parameters.Add("@XN", SqlDbType.Int).Value = LK_XI_NGHIEP.EditValue;
                                         cmd.Parameters.Add("@TO", SqlDbType.Int).Value = LK_TO.EditValue;
+                                        cmd.Parameters.Add("@TNgay", SqlDbType.Date).Value = dtTuNgay.EditValue;
+                                        cmd.Parameters.Add("@DNgay", SqlDbType.Date).Value = dtDenNgay.EditValue;
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(cmd);
 
@@ -156,12 +162,12 @@ namespace Vs.HRM
                                         {
                                             if (saveFileDialog.FileName != "")
                                             {
-                                                Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\Template\\TemplateTaiNanLaoDong.xlsx", ds, new string[] { "{", "}" });
+                                                Commons.TemplateExcel.FillReport(saveFileDialog.FileName, Application.StartupPath + "\\lib\\Template\\TemplateTaiNanLaoDong.xlsx", ds, new string[] { "{", "}" });
                                                 Process.Start(saveFileDialog.FileName);
                                             }
                                         }
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
 
                                     }
@@ -186,9 +192,13 @@ namespace Vs.HRM
             Commons.Modules.ObjSystems.LoadCboDonVi(LK_DON_VI);
             Commons.Modules.ObjSystems.LoadCboXiNghiep(LK_DON_VI, LK_XI_NGHIEP);
             Commons.Modules.ObjSystems.LoadCboTo(LK_DON_VI, LK_XI_NGHIEP, LK_TO);
+            Commons.OSystems.SetDateEditFormat(dtTuNgay);
+            Commons.OSystems.SetDateEditFormat(dtDenNgay);
+            Commons.OSystems.SetDateEditFormat(lk_NgayIn);
+
             lk_NgayIn.EditValue = DateTime.Today;
-            dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-            dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+            dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+            dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
             txNam.Text = (DateTime.Today.Year.ToString());
         }
 
@@ -239,8 +249,8 @@ namespace Vs.HRM
                         break;
 
                     default:
-                        dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).ToShortDateString();
-                        dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1).ToShortDateString();
+                        dtTuNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year));
+                        dtDenNgay.EditValue = Convert.ToDateTime(("01/" + DateTime.Today.Month + "/" + DateTime.Today.Year)).AddMonths(1).AddDays(-1);
                         dtTuNgay.Enabled = true;
                         dtDenNgay.Enabled = true;
                         break;
@@ -254,13 +264,13 @@ namespace Vs.HRM
         {
             if (rdo_ChonBaoCao.SelectedIndex==1)
             {
-                dtTuNgay.EditValue = Convert.ToDateTime(("01/01/" + txNam.Text)).ToShortDateString();
-                dtDenNgay.EditValue = Convert.ToDateTime(("30/06/" + txNam.Text)).ToShortDateString();
+                dtTuNgay.EditValue = Convert.ToDateTime(("01/01/" + txNam.Text));
+                dtDenNgay.EditValue = Convert.ToDateTime(("30/06/" + txNam.Text));
             }
             if(rdo_ChonBaoCao.SelectedIndex ==2)
             {
-                dtTuNgay.EditValue = Convert.ToDateTime(("01/07/" + txNam.Text)).ToShortDateString();
-                dtDenNgay.EditValue = Convert.ToDateTime(("31/12/" + txNam.Text)).ToShortDateString();
+                dtTuNgay.EditValue = Convert.ToDateTime(("01/07/" + txNam.Text));
+                dtDenNgay.EditValue = Convert.ToDateTime(("31/12/" + txNam.Text));
             }
            
         }

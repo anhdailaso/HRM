@@ -9,7 +9,7 @@ namespace Vs.Report
 {
     public partial class rptThongKeTaiNan : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptThongKeTaiNan(DateTime ngayin, DateTime TuNgay, DateTime DenNgay)
+        public rptThongKeTaiNan(DateTime ngayin)
         {
 
             InitializeComponent();

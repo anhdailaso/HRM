@@ -731,5 +731,48 @@ namespace Vs.Payroll
         {
             LoadCboChuyen();
         }
+
+        private void rdo_ChonBaoCao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (rdo_ChonBaoCao.SelectedIndex)
+            {
+                case 0:
+                    {
+                        chkInTheoCongNhan.Enabled = false;
+                        grdCN.Visible = false;
+                    }
+                    break;
+                case 1:
+                    {
+                        chkInTheoCongNhan.Enabled = false;
+                        grdCN.Visible = false;
+                    }
+                    break;
+                case 2:
+                    {
+                        chkInTheoCongNhan.Enabled = true;
+                        grdCN.Visible = true;
+                    }
+                    break;
+                case 3:
+                    {
+                        chkInTheoCongNhan.Enabled = true;
+                        grdCN.Visible = true;
+                    }
+                    break;
+                case 4:
+                    {
+                        chkInTheoCongNhan.Enabled = true;
+                        grdCN.Visible = true;
+                    }
+                    break;
+                case 5:
+                    {
+                        chkInTheoCongNhan.Enabled = false;
+                        grdCN.Visible = false;
+                    }
+                    break;
+            }
+        }
     }
 }

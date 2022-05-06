@@ -15,17 +15,18 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraSplashScreen;
 using DevExpress.XtraTreeList;
 using Microsoft.ApplicationBlocks.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-
 namespace Commons
 {
     public class OSystems
@@ -48,7 +49,29 @@ namespace Commons
             dateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             dateEdit.Properties.Mask.EditMask = "dd/MM/yyyy";
         }
-
+        public string OpenFiles(string MFilter)
+        {
+            try
+            {
+                OpenFileDialog f = new OpenFileDialog();
+                f.Filter = MFilter;
+                try
+                {
+                    DialogResult res = f.ShowDialog();
+                    if (res == DialogResult.OK)
+                        return f.FileName;
+                    return "";
+                }
+                catch
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
         public static void SetTimeEditFormat(TimeEdit timeEdit)
         {
             timeEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -150,6 +173,76 @@ namespace Commons
             }
         }
 
+        //load lookup edit 
+        public bool MLoadLookUpEditN(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot, string GiaTri)
+        {
+            try
+            {
+                cbo.Properties.DataSource = null;
+                cbo.Properties.DataSource = dtTmp;
+                cbo.Properties.DisplayMember = Ten;
+                cbo.Properties.ValueMember = Ma;
+                cbo.Properties.Columns.Clear();
+                cbo.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo(Ten));
+                cbo.Properties.AppearanceDropDownHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                cbo.Properties.AppearanceDropDownHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                cbo.Properties.BestFitMode = BestFitMode.BestFit;
+                cbo.Properties.SearchMode = SearchMode.AutoComplete;
+                if (GiaTri != "") cbo.EditValue = dtTmp.Rows[0][Ma];
+                if (dtTmp.Rows.Count > 10)
+                    cbo.Properties.DropDownRows = 15;
+                else
+                    cbo.Properties.DropDownRows = 10;
+                cbo.Properties.Columns[Ten].Caption = TenCot;
+                if (TenCot.Trim() == "")
+                    cbo.Properties.ShowHeader = false;
+                else
+                    cbo.Properties.ShowHeader = true;
+                cbo.Properties.Columns[Ten].Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, "LookUpEdit", Ten, Modules.TypeLanguage);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool MLoadLookUpEditN(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot, string GiaTri, bool CoNull)
+        {
+            try
+            {
+                if (CoNull)
+                    dtTmp.Rows.Add(-99, "");
+                cbo.Properties.DataSource = null;
+                cbo.Properties.DataSource = dtTmp;
+                cbo.Properties.DisplayMember = Ten;
+                cbo.Properties.ValueMember = Ma;
+                cbo.Properties.Columns.Clear();
+                cbo.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo(Ten));
+                cbo.Properties.AppearanceDropDownHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                cbo.Properties.AppearanceDropDownHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                cbo.Properties.BestFitMode = BestFitMode.BestFit;
+                cbo.Properties.SearchMode = SearchMode.AutoComplete;
+                if (GiaTri != "") cbo.EditValue = GiaTri;
+
+                if (dtTmp.Rows.Count > 10)
+                    cbo.Properties.DropDownRows = 15;
+                else
+                    cbo.Properties.DropDownRows = 10;
+                cbo.Properties.Columns[Ten].Caption = TenCot;
+                if (TenCot.Trim() == "")
+                    cbo.Properties.ShowHeader = false;
+                else
+                    cbo.Properties.ShowHeader = true;
+                cbo.Properties.Columns[Ten].Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, "LookUpEdit", Ten, Modules.TypeLanguage);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public bool MLoadLookUpEdit(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot)
         {
             try
@@ -182,8 +275,6 @@ namespace Commons
                 return false;
             }
         }
-
-
         public bool MLoadLookUpEdit(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot, bool CoNull)
         {
             try
@@ -598,7 +689,7 @@ namespace Commons
         #endregion
 
         #region Load xtraserch
-        public void MLoadSearchLookUpEdit(DevExpress.XtraEditors.SearchLookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot, bool isNgonNgu = true, bool CoNull = false)
+        public void MLoadSearchLookUpEdit(DevExpress.XtraEditors.SearchLookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot, bool isNgonNgu = true, bool CoNull = false, bool GanGT = true, string GiaTri = "")
         {
             try
             {
@@ -612,10 +703,20 @@ namespace Commons
                 cbo.Properties.DisplayMember = Ten;
                 cbo.Properties.ValueMember = Ma;
                 cbo.Properties.BestFitMode = BestFitMode.BestFit;
-                if (CoNull)
-                    cbo.EditValue = dtTmp.Rows[dtTmp.Rows.Count - 1][Ma];
-                else
-                    cbo.EditValue = dtTmp.Rows[0][Ma];
+                if (GanGT)
+                {
+                    if (GiaTri == "")
+                    {
+                        if (CoNull)
+                            cbo.EditValue = dtTmp.Rows[dtTmp.Rows.Count - 1][Ma];
+                        else
+                            cbo.EditValue = dtTmp.Rows[0][Ma];
+                    }
+                    else
+                    {
+                        cbo.EditValue = GiaTri;
+                    }
+                }
 
                 cbo.Properties.PopulateViewColumns();
                 cbo.Properties.View.Columns[0].Visible = false;
@@ -644,7 +745,7 @@ namespace Commons
 
         #region Load xtragrid
 
-        private void Grv_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e, GridView grv,string fName)
+        private void Grv_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e, GridView grv, string fName)
         {
             if (e.MenuType != DevExpress.XtraGrid.Views.Grid.GridMenuType.Column)
                 return;
@@ -660,13 +761,13 @@ namespace Commons
                 DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
                 menuItem.BeginGroup = true;
                 menuItem.Tag = e.Menu;
-                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset(null, null, grv, fName);};
+                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset(null, null, grv, fName); };
                 headerMenu.Items.Add(menuItem);
                 // menu resetgrid
                 DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
                 menuSave.BeginGroup = true;
                 menuSave.Tag = e.Menu;
-                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv,fName); };
+                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv, fName); };
                 headerMenu.Items.Add(menuSave);
             }
             catch
@@ -688,7 +789,7 @@ namespace Commons
         }
 
 
-        public void MyMenuItemSave(System.Object sender, System.EventArgs e, GridView grv,string fName)
+        public void MyMenuItemSave(System.Object sender, System.EventArgs e, GridView grv, string fName)
         {
             // SAVE  
             Stream str = new System.IO.MemoryStream();
@@ -837,7 +938,7 @@ namespace Commons
                 }
             }
         }
-    
+
         private void CapNhapNN(string sForm, string sKeyWord, string sChuoi, bool bReset)
         {
             string sSql;
@@ -1314,7 +1415,7 @@ namespace Commons
             }
         }
 
-        private void Control1_DoubleClick(object sender, EventArgs e,string sName)
+        private void Control1_DoubleClick(object sender, EventArgs e, string sName)
         {
             if (Form.ModifierKeys == Keys.Control)
             {
@@ -2455,6 +2556,153 @@ namespace Commons
 
         #endregion
 
+        public Int16 MCot(string sCot)
+        {
+            string sStmp = "";
+            try
+            {
+                for (int i = 0; i <= sCot.Length - 1; i++)
+                {
+                    if (sStmp.Length == 0)
+                        sStmp = MTimCot(sCot.Substring(i, 1));
+                    else
+                        sStmp = sStmp + MTimCot(sCot.Substring(i, 1));
+                }
+            }
+            catch
+            {
+            }
+            try
+            {
+                return Int16.Parse(sStmp);
+            }
+            catch { return 1; }
+        }
+
+        private string MTimCot(string sCot)
+        {
+            string sTmp = "0";
+            try
+            {
+                if (sCot == "!") return "1";
+                if (sCot == "@") return "2";
+                if (sCot == "#") return "3";
+                if (sCot == "$") return "4";
+                if (sCot == "%") return "5";
+                if (sCot == "^") return "6";
+                if (sCot == "&") return "7";
+                if (sCot == "*") return "8";
+                if (sCot == "(") return "9";
+                if (sCot == ")") return "1";
+            }
+            catch
+            { return "1"; }
+            return sTmp;
+        }
+
+        #region call api
+        public string GetAPI(string url)
+        {
+            string response = "";
+            try
+            {
+                System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                WebClient client = new WebClient();
+                client.Encoding = System.Text.UTF8Encoding.UTF8;
+                string s = JsonConvert.DeserializeObject(client.DownloadString(Modules.sUrlCheckServer + url)).ToString();
+                response = Decrypt(s.ToString(), true);
+            }
+            catch
+            {
+                response = "";
+            }
+            return response;
+        }
+
+        public DataTable getDataAPI(string path)
+        {
+            try
+            {
+                System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
+                WebClient client = new WebClient();
+                client.Encoding = Encoding.UTF8;
+                string response = client.DownloadString(path);
+
+                DataTable dt = new DataTable();
+                dt = JsonConvert.DeserializeObject<DataTable>(JsonConvert.DeserializeObject(response).ToString());
+
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public  object postWebApi(object data, Uri webApiUrl)
+        {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
+            WebClient client = new WebClient();
+            client.Encoding = Encoding.UTF8;
+            // Set the header so it knows we are sending JSON
+            client.Headers[HttpRequestHeader.ContentType] = "application/json";
+
+            // Serialise the data we are sending in to JSON
+            string serialisedData = JsonConvert.SerializeObject(data);
+
+            // Make the request
+            string response = client.UploadString(webApiUrl, serialisedData);
+
+            // Deserialise the response into a GUID
+            return JsonConvert.DeserializeObject(response);
+        }
+
+
+        #endregion
+
+        #region ql user
+
+        public bool checkExitsUser(string sUserName)
+        {
+            string sSql ="";
+            sSql = "SELECT COUNT(*) FROM dbo.LOGIN WHERE USER_LOGIN = '" + sUserName + "'";
+            if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString()) > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool User(string User ,int iHD)
+        {
+            //iHD = 1 là thêm = 2 xóa.
+            string sSql = "";
+            if(iHD == 1)
+            {
+                sSql = "INSERT INTO dbo.LOGIN(USER_LOGIN,TIME_LOGIN,ID)VALUES('"+ User + "',GETDATE(),"+ Commons.Modules.iIDUser +")";
+            }
+            if (iHD == 2)
+            {
+                sSql = "DELETE dbo.LOGIN WHERE USER_LOGIN = '" + User + "'";
+            }
+            if (iHD == 3)
+            {
+                sSql = "UPDATE dbo.LOGIN SET TIME_LOGIN = GETDATE() WHERE USER_LOGIN = '"+ User +"'";
+            }
+            try
+            {
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, sSql);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
         #region creatbt
         public bool MCreateTableToDatatable(string connectionString, string tableSQLName, DataTable table, string sTaoTable)
         {
@@ -2538,6 +2786,9 @@ namespace Commons
             }
         }
 
+
+
+
         public string MGetTypeSql(object type, int columnSize, int numericPrecision, int numericScale)
         {
             switch (type.ToString())
@@ -2616,6 +2867,7 @@ namespace Commons
             }
         }
         #endregion
+
         #region add combobox search
         public void AddCombSearchLookUpEdit(RepositoryItemSearchLookUpEdit cboSearch, string Value, string Display, GridView grv, DataTable dtTmp)
         {
@@ -2698,10 +2950,12 @@ namespace Commons
             cbo.ValueMember = Value;
             cbo.DisplayMember = Display;
             cbo.DataSource = dt;
+            cbo.BestFitMode = BestFitMode.BestFitResizePopup;
             grv.Columns[Value].ColumnEdit = cbo;
             cbo.View.PopulateColumns(cbo.DataSource);
             Commons.Modules.ObjSystems.MLoadNNXtraGrid(cbo.View, fName);
             cbo.View.Columns[cotan].Visible = false;
+
         }
 
 
@@ -2811,7 +3065,7 @@ namespace Commons
             {
                 RepositoryItemLookUpEdit cbo = new RepositoryItemLookUpEdit();
                 cbo.AppearanceDropDown.Options.UseFont = true;
-                cbo.AppearanceDropDown.Font = new System.Drawing.Font("VNI-Times", 12);
+                //cbo.AppearanceDropDown.Font = new System.Drawing.Font("", 12);
                 cbo.NullText = "";
                 cbo.ValueMember = Value;
                 cbo.DisplayMember = Display;
@@ -2822,7 +3076,6 @@ namespace Commons
                 cbo.AutoSearchColumnIndex = 1;
                 cbo.PopulateColumns();
                 cbo.Columns[0].Visible = false;
-
 
                 grv.Columns[Value].ColumnEdit = cbo;
                 grv.BestFitColumns();
@@ -3255,11 +3508,11 @@ namespace Commons
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComboCotCapNhat", Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
             return dt;
         }
-        public DataTable DataBacLuong(int idnl, bool coAll)
+        public DataTable DataBacLuong(Int64 idnl, DateTime ngayQD, bool coAll)
         {
             //ID_CV,TEN_CV
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComboBacLuong", idnl, Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComboBacLuong", idnl, ngayQD, Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
             return dt;
         }
 
@@ -3308,12 +3561,12 @@ namespace Commons
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetComboNguoiKy", Commons.Modules.UserName));
             return dt;
         }
-        public DataTable DataCongNhanTheoDK(bool coAll, Int32 ID_DV, Int32 ID_XN, Int32 ID_TO)
+        public DataTable DataCongNhanTheoDK(bool coAll, Int32 ID_DV, Int32 ID_XN, Int32 ID_TO, DateTime TNgay, DateTime DNgay)
         {
             try
             {
                 DataTable dt = new DataTable();
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoDieuKien", ID_DV, ID_XN, ID_TO, Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCongNhanTheoDieuKien", Commons.Modules.UserName, Commons.Modules.TypeLanguage, ID_DV, ID_XN, ID_TO, TNgay, DNgay, coAll));
                 return dt;
             }
             catch (Exception ex)
